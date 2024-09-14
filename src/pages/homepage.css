@@ -28,6 +28,7 @@
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
   transition: box-shadow 0.3s ease;
   text-align: center;
+
 }
 
 .search-bar:focus {
@@ -51,7 +52,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 20px;
-  width: 200px; /* Adjusted width */
+  width: 320px; /* Adjusted width */
   text-align: center;
   cursor: pointer;
   display: flex;
@@ -76,11 +77,40 @@
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* homepage.css */
+
+/* Featured Products Section */
 .featured-products {
   width: 100%;
   max-width: 1400px; /* Increased max-width for larger screens */
-  margin-top: 30px;
+  margin: 30px auto; /* Center the section and add margin */
+  padding: 20px; /* Added padding for spacing */
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
+
+/* Title for Featured Products */
+.featured-products h2 {
+  font-size: 28px; /* Larger font size for visibility */
+  font-weight: bold; /* Bold text for emphasis */
+  color: #333; /* Dark color for contrast */
+  text-align: center; /* Center the text */
+  margin-bottom: 20px; /* Space below the title */
+  position: relative; /* For decorative underline */
+}
+
+/* Decorative underline for the title */
+.featured-products h2::after {
+  content: '';
+  display: block;
+  width: 60px; /* Width of the underline */
+  height: 4px; /* Thickness of the underline */
+  background-color: #e74c3c; /* Color for the underline */
+  margin: 10px auto 0; /* Center the underline */
+  border-radius: 2px; /* Rounded edges for the underline */
+}
+
 
 .featured-products h2 {
   font-size: 28px; /* Increased font size for better visibility */
@@ -107,40 +137,67 @@
   margin-bottom: 30px; /* Increased margin for better spacing */
 }
 
-.product-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+/* homepage.css */
+
+/* Product item container */
+.product-item {
+  background-color: #fff; /* White background for better contrast */
+  border-radius: 15px; /* Rounded corners for a softer look */
+  overflow: hidden; /* Ensure the rounded corners are applied to content */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 10px; /* Added padding */
 }
 
+/* Hover effect for product item */
+.product-item:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Product image styling */
 .product-image {
   width: 100%;
-  height: 250px; /* Increased height for better image display */
-  object-fit: cover;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  height: 200px; /* Adjusted height for better proportions */
+  object-fit: cover; /* Ensure the image covers the container */
+  border-radius: 15px 15px 0 0; /* Rounded top corners */
+  transition: transform 0.3s ease; /* Smooth zoom effect */
 }
 
+/* Product info container */
 .product-info {
-  padding: 20px;
+  padding: 15px; /* Increased padding for better spacing */
 }
 
+/* Product name styling */
 .product-name {
-  font-size: 20px; /* Increased font size for better visibility */
-  font-weight: bold;
-  margin-bottom: 15px;
+  font-size: 18px; /* Adjusted font size for readability */
+  font-weight: 600; /* Slightly lighter weight for a modern look */
+  color: #333; /* Darker color for better contrast */
+  margin-bottom: 10px; /* Reduced margin for better alignment */
 }
 
+/* Product description styling */
 .product-description {
-  font-size: 16px; /* Increased font size for better readability */
-  color: #666;
-  margin-bottom: 15px;
+  font-size: 11px; /* Increased font size for readability */
+  color: #666; /* Slightly lighter color for description */
+  margin-bottom: 10px; /* Reduced margin for better spacing */
+  line-height: 1.5; /* Improved readability */
+  overflow: hidden; /* Hide overflow for better alignment */
+  text-overflow: ellipsis; /* Add "..." for overflow text */
+  display: -webkit-box;
+  -webkit-line-clamp: 8; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
 }
 
+/* Product price styling */
 .product-price {
-  font-size: 18px; /* Increased font size for better visibility */
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 20px; /* Increased font size for visibility */
+  font-weight: 700; /* Bolder font for emphasis */
+  color: #e74c3c; /* Color to highlight the price */
+  margin-bottom: 10px; /* Reduced margin for alignment */
 }
+
 
 .buy-button {
   background: #1a66ad;
@@ -164,11 +221,24 @@
   }
 
   .box-button {
-    width: 180px; /* Adjusted width for medium screens */
+    width: 200px; /* Adjusted width for medium screens */
   }
 
   .search-bar {
     max-width: 800px; /* Adjusted max-width */
+  }
+}
+@media (max-width: 1500px) {
+  .product-item {
+    width: calc(33.333% - 20px); /* 3 items per row for medium screens */
+  }
+
+  .box-button {
+    width: 320px; /* Adjusted width for medium screens */
+  }
+
+  .search-bar {
+    max-width: 1400px; /* Adjusted max-width */
   }
 }
 
@@ -184,18 +254,46 @@
   .search-bar {
     max-width: 650px; /* Adjusted max-width */
   }
+  .product-description {
+    font-size: 9px; /* Increased font size for readability */
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+  
+  }
+  .product-name {
+    font-size: 12px; /* Adjusted font size for readability */
+    font-weight: 800; /* Slightly lighter weight for a modern look */
+    margin-bottom: 10px; /* Reduced margin for better alignment */
+  }
+  
 }
 
 @media (max-width: 480px) {
   .product-item {
-    width: 100%; /* 1 item per row */
+    width: calc(50% - 10px); /* 2 items per row */
   }
 
   .box-button {
-    width: 120px; /* Adjusted width for very small screens */
+   
+    width: 150px;
+    height: 170px;
+padding: 10px;
   }
 
   .search-bar {
     max-width: 100%; /* Full width for small screens */
   }
+  .product-description {
+    font-size: 8px; /* Increased font size for readability */
+    -webkit-line-clamp: 2; /* Limit to 3 lines */
+  
+  }
+  .product-name {
+    font-size: 12px; /* Adjusted font size for readability */
+    font-weight: 800; /* Slightly lighter weight for a modern look */
+
+  }
+
+  /* .product-info {
+    font-size: 10px;
+  } */
 }
