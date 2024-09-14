@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import products from "./../data/featuredItems.json"; // Import the JSON data
 import CoverSlider from "../components/homepagecom/CoverSlider";
 import Footer from "../components/footer";
+import { WidthFull } from "@mui/icons-material";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -65,8 +66,9 @@ const Homepage = () => {
         </div>
 
         <CoverSlider />
-        <Footer />
+    
       </div>
+      <Footer  />
     </>
   );
 };

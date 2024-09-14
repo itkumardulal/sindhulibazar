@@ -38,9 +38,9 @@ const Footer = () => {
 
         {/* Social Media Links */}
         <div className="footer-social">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://facebook.com/sindhulibazar" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="hhttps://www.youtube.com/nltproductions" target="_blank" rel="noopener noreferrer">Youtube</a>
+          <a href="https://facebook.com/nltproductions" target="_blank" rel="noopener noreferrer">video Production page</a>
         </div>
 
         {/* Footer Bottom Section */}

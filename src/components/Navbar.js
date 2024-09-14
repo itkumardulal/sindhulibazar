@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -13,46 +13,46 @@ import ListItemText from '@mui/material/ListItemText'
 import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import { Link, useLocation } from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
+import ExpandLess from '@mui/icons-material/ExpandLess'
+import ExpandMore from '@mui/icons-material/ExpandMore'
+import Collapse from '@mui/material/Collapse'
+import Paper from '@mui/material/Paper'
 
 const drawerWidth = 240
-const navItems = ['Home', 'About', 'Contact']
+const navItems = ['Home']
 
-function DrawerAppBar(props) {
-  const { window, children } = props
-  const [mobileOpen, setMobileOpen] = React.useState(false)
-  const location = useLocation()
+function DrawerAppBar({ window, children }) {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState('')
 
+  // Toggle the mobile drawer
   const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState)
+    setMobileOpen(prevState => !prevState)
   }
 
+  // Toggle the dropdown menu
+  const handleDropdownToggle = (dropdown) => {
+    setOpenDropdown(prevDropdown => (prevDropdown === dropdown ? '' : dropdown))
+  }
+
+  // Drawer content for mobile view
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant='h6' sx={{ my: 2, color: '#4CAF50' }}>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <img
-            style={{ height: 70, width: 55 }}
-            src='https://i.imgur.com/SE8uswq.png'
-            alt='logox'
-          />
-          <Typography variant="h6" sx={{ fontSize: 15, color: '#4CAF50' }}>SINDHULI BAZAR</Typography>
-        </div>
-      </Typography>
+    <Box sx={{ textAlign: 'center' }}>
+  <Typography variant='h6' sx={{ my: 2.7, color: '#4CAF50', display: 'flex', alignItems: 'center' }}>
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <img style={{ height: 50, width: 50, marginRight: '2px' }} src='https://i.imgur.com/SE8uswq.png' alt='logo' />
+    <Typography variant='h6' sx={{ fontSize: 15, color: 'darkorange', fontWeight: 1000 }} >
+      SINDHULI BAZAR
+    </Typography>
+  </div>
+</Typography>
+
+
       <Divider />
-      
       <List>
-        {navItems.map((item) => (
-          <ListItem
-            key={item}
-            disablePadding
-            sx={{
-              textAlign: 'center',
-              backgroundColor: location.pathname === `/${item.toLowerCase()}` ? '#4CAF50' : 'inherit',
-              color: location.pathname === `/${item.toLowerCase()}` ? '#fff' : 'inherit',
-            }}
-          >
+        {navItems.map(item => (
+          <ListItem key={item} disablePadding sx={{ textAlign: 'center' }}>
             <ListItemButton>
               <Link to={`/${item.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ListItemText primary={item} />
@@ -60,17 +60,39 @@ function DrawerAppBar(props) {
             </ListItemButton>
           </ListItem>
         ))}
+         {/* this is for drawer */}
+        {['stores', 'services','support'].map(category => (
+          <React.Fragment key={category}>
+            <ListItemButton onClick={() => handleDropdownToggle(category)}>
+              <ListItemText primary={capitalizeFirstLetter(category)} />
+              {openDropdown === category ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={openDropdown === category} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {getDropdownItems(category).map(({ to, text }) => (
+                  <ListItemButton key={to} sx={{ pl: 4 }}>
+                    <Link to={to} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <ListItemText primary={text} />
+                    </Link>
+                  </ListItemButton>
+                ))}
+              </List>
+            </Collapse>
+          </React.Fragment>
+        ))}
       </List>
     </Box>
   )
 
+  // Container for the drawer on mobile view
   const container = window !== undefined ? () => window().document.body : undefined
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component='nav' sx={{ backgroundColor: '#333' }}>
+      <AppBar component='nav' sx={{ backgroundColor: 'orange' }}>
         <Toolbar>
+          {/* Menu icon for mobile view */}
           <IconButton
             color='inherit'
             aria-label='open drawer'
@@ -80,63 +102,133 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant='h6'
-            component='div'
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
+          {/* Logo and title */}
+       
+          <Typography variant='h6' component='div' 
+          sx={{ flexGrow: 1, 
+          display: { xs: 'none',
+           sm: 'flex',
+           width:"25%",
+           alignItems:"center",
+           textAlign:"center",
+           justifyContent:"center",
+            // backgroundColor:"-ms-inline-grid"
+            } }}>
             <Link to='/' style={{ textDecoration: 'none' }}>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <img
-                  style={{ height: 80, width: 60, padding: 5 }}
-                  src='https://i.imgur.com/SE8uswq.png'
-                  alt='logox'
-                />
-                <Typography variant="h6" sx={{ fontFamily: 'Arial', fontWeight: 'bold', color: 'white', fontSize: 25 }}>
+                <img style={{ height: 60, width: 60, padding: 4 }} src='https://i.imgur.com/SE8uswq.png' alt='logo' />
+                <Typography variant="h6" sx={{ fontFamily: 'Arial', fontWeight: 'bold', color: 'white', fontSize: 22 }}>
                   SINDHULI BAZAR
                 </Typography>
               </div>
             </Link>
           </Typography>
-          <List sx={{ display: 'flex', flexDirection: 'row', padding: 1.5 }}>
-            {navItems.map((item) => (
-              <ListItem key={item} disablePadding>
-                <ListItemButton sx={{ textAlign: 'center', color: 'white', '&:hover': { backgroundColor: '#4CAF50' } }}>
+
+          {/* Desktop view menus items */}
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexGrow: 1, 
+          alignItems: 'center', position: 'relative',width:"50%"}}>
+            {navItems.map(item => (
+              <ListItem key={item} sx={{ display: 'inline-block',width:100 }}>
+                <ListItemButton>
                   <Link to={`/${item.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <ListItemText primary={item} />
                   </Link>
                 </ListItemButton>
               </ListItem>
             ))}
-          </List>
+            {[ 'stores', 'services','support'].map(category => (
+              <ListItemButton key={category} onClick={() => handleDropdownToggle(category)} sx={{ display: 'inline-block', position: 'relative' }}>
+                <ListItemText primary={capitalizeFirstLetter(category)} />
+                {/* Dropdown menu for categories */}
+                <Box
+                  sx={{
+                    display: openDropdown === category ? 'block' : 'none',
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    zIndex: 1200,
+                    minWidth: '160px',
+                    boxShadow: 3,
+                    backgroundColor: 'white',
+                    borderRadius: 1,
+                    mt: 1
+                  }}
+                >
+                  <Paper elevation={3}>
+                    <List>
+                      {getDropdownItems(category).map(({ to, text }) => (
+                        <ListItemButton key={to}>
+                          <Link to={to} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <ListItemText primary={text} />
+                          </Link>
+                        </ListItemButton>
+                      ))}
+                    </List>
+                  </Paper>
+                </Box>
+                {/* Arrow indicators for dropdown */}
+                {openDropdown === category ? <ExpandLess sx={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)' }} /> : <ExpandMore sx={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)' }} />}
+              </ListItemButton>
+            ))}
+          </Box>
+
+
+
+
         </Toolbar>
       </AppBar>
-      <nav>
+
+      {/* Mobile drawer */}
+      <Box component='nav'>
         <Drawer
           container={container}
           variant='temporary'
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
-              backgroundColor: '#333',
-              color: '#fff',
             },
           }}
         >
           {drawer}
         </Drawer>
-      </nav>
+      </Box>
 
-      <Box sx={{ flexGrow: 1, p: 3, mt: 3 }}>{children}</Box>
+      {/* Main content area */}
+      <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        {children}
+      </Box>
     </Box>
   )
+}
+
+// Capitalize the first letter of a string
+const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
+
+// Get dropdown items based on the category
+const getDropdownItems = (category) => {
+  const items = {
+    support: [
+      { to: '/about', text: 'About Us' },
+      { to: '/contact', text: 'Contact Us' },
+    ],
+    stores: [
+      { to: '/Liquor', text: 'Grocery Store' },
+      { to: '/Liquor', text: 'Liquor Store' },
+      { to: '/Liquor', text: 'Food Store' },
+    ],
+    services: [
+      { to: '/Liquor', text: 'Vehicle Renting' },
+      { to: '/Liquor', text: 'Medical Store' },
+      { to: '/Liquor', text: 'Second Hand Shop' },
+    ],
+  }
+  return items[category] || []
 }
 
 DrawerAppBar.propTypes = {
