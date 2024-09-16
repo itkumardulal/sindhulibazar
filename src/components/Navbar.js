@@ -39,15 +39,14 @@ function DrawerAppBar({ window, children }) {
   // Drawer content for mobile view
   const drawer = (
     <Box sx={{ textAlign: 'center' }}>
-  <Typography variant='h6' sx={{ my: 2.7, color: '#4CAF50', display: 'flex', alignItems: 'center' }}>
-  <div style={{ display: 'flex', alignItems: 'center' }}>
-    <img style={{ height: 50, width: 50, marginRight: '2px' }} src='https://i.imgur.com/SE8uswq.png' alt='logo' />
-    <Typography variant='h6' sx={{ fontSize: 15, color: 'darkorange', fontWeight: 1000 }} >
-      SINDHULI BAZAR
-    </Typography>
-  </div>
-</Typography>
-
+      <Typography variant='h6' sx={{ my: 2.7, color: '#4CAF50', display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img style={{ height: 50, width: 50, marginRight: '2px' }} src='https://i.imgur.com/SE8uswq.png' alt='logo' />
+          <Typography variant='h6' sx={{ fontSize: 15, color: 'darkorange', fontWeight: 1000 }}>
+            SINDHULI BAZAR
+          </Typography>
+        </div>
+      </Typography>
 
       <Divider />
       <List>
@@ -60,15 +59,14 @@ function DrawerAppBar({ window, children }) {
             </ListItemButton>
           </ListItem>
         ))}
-         {/* this is for drawer */}
-        {['stores', 'services','support'].map(category => (
+        {['stores', 'services', 'support'].map(category => (
           <React.Fragment key={category}>
             <ListItemButton onClick={() => handleDropdownToggle(category)}>
               <ListItemText primary={capitalizeFirstLetter(category)} />
               {openDropdown === category ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <Collapse in={openDropdown === category} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
+            <Collapse in={openDropdown === category} timeout='auto' unmountOnExit>
+              <List component='div' disablePadding>
                 {getDropdownItems(category).map(({ to, text }) => (
                   <ListItemButton key={to} sx={{ pl: 4 }}>
                     <Link to={to} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -102,33 +100,32 @@ function DrawerAppBar({ window, children }) {
           >
             <MenuIcon />
           </IconButton>
-          {/* Logo and title */}
-       
-          <Typography variant='h6' component='div' 
-          sx={{ flexGrow: 1, 
-          display: { xs: 'none',
-           sm: 'flex',
-           width:"25%",
-           alignItems:"center",
-           textAlign:"center",
-           justifyContent:"center",
-            // backgroundColor:"-ms-inline-grid"
-            } }}>
-            <Link to='/' style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <img style={{ height: 60, width: 60, padding: 4 }} src='https://i.imgur.com/SE8uswq.png' alt='logo' />
-                <Typography variant="h6" sx={{ fontFamily: 'Arial', fontWeight: 'bold', color: 'white', fontSize: 22 }}>
-                  SINDHULI BAZAR
-                </Typography>
-              </div>
+
+          {/* Logo and title centered in both desktop and mobile view */}
+          <Typography
+            variant='h6'
+            component='div'
+            sx={{
+              flexGrow: 1,
+              display: 'flex',
+              justifyContent: 'center', // Center in both mobile and desktop view
+              alignItems: 'center',
+              textAlign: 'center',
+              width: { xs: '100%', sm: '25%' }, // Take full width in mobile view
+            }}
+          >
+            <Link to='/' style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+              <img style={{ height: 50, width: 50, marginRight: '8px' }} src='https://i.imgur.com/SE8uswq.png' alt='logo' />
+              <Typography variant='h6' sx={{ fontFamily: 'Arial', fontWeight: 'bold', color: 'white', fontSize: 20 }}>
+                SINDHULI BAZAR
+              </Typography>
             </Link>
           </Typography>
 
-          {/* Desktop view menus items */}
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexGrow: 1, 
-          alignItems: 'center', position: 'relative',width:"50%"}}>
+          {/* Desktop view menu items */}
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexGrow: 1, alignItems: 'center', position: 'relative', width: '50%' }}>
             {navItems.map(item => (
-              <ListItem key={item} sx={{ display: 'inline-block',width:100 }}>
+              <ListItem key={item} sx={{ display: 'inline-block', width: 100 }}>
                 <ListItemButton>
                   <Link to={`/${item.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <ListItemText primary={item} />
@@ -136,7 +133,7 @@ function DrawerAppBar({ window, children }) {
                 </ListItemButton>
               </ListItem>
             ))}
-            {[ 'stores', 'services','support'].map(category => (
+            {['stores', 'services', 'support'].map(category => (
               <ListItemButton key={category} onClick={() => handleDropdownToggle(category)} sx={{ display: 'inline-block', position: 'relative' }}>
                 <ListItemText primary={capitalizeFirstLetter(category)} />
                 {/* Dropdown menu for categories */}
@@ -171,10 +168,6 @@ function DrawerAppBar({ window, children }) {
               </ListItemButton>
             ))}
           </Box>
-
-
-
-
         </Toolbar>
       </AppBar>
 
@@ -188,10 +181,7 @@ function DrawerAppBar({ window, children }) {
           ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: drawerWidth,
-            },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
           {drawer}
@@ -218,14 +208,14 @@ const getDropdownItems = (category) => {
       { to: '/contact', text: 'Contact Us' },
     ],
     stores: [
-      { to: '/Liquor', text: 'Grocery Store' },
-      { to: '/Liquor', text: 'Liquor Store' },
-      { to: '/Liquor', text: 'Food Store' },
+      { to: '/grocery', text: 'Grocery Store' },
+      { to: '/liquor', text: 'Liquor Store' },
+      { to: '/food', text: 'Food Store' },
     ],
     services: [
-      { to: '/Liquor', text: 'Vehicle Renting' },
-      { to: '/Liquor', text: 'Medical Store' },
-      { to: '/Liquor', text: 'Second Hand Shop' },
+      { to: '/renting', text: 'Vehicle Renting' },
+      { to: '/medical', text: 'Medical Store' },
+      { to: '/second-hand', text: 'Second Hand Shop' },
     ],
   }
   return items[category] || []
