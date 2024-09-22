@@ -132,7 +132,7 @@ const Grocerystore = () => {
             animation: `${fadeIn} 1.2s ease-out`,
           }}
         >
-          "तलबाट आफ्नो मनपरेको पेय खरीद गर्नुहोस्। 24 hours delivery Available"
+          "तलबाट खरीद गर्नुहोस्। 8 to 7pm delivery Available"
         </Typography>
 
         <Box
