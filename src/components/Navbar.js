@@ -208,14 +208,14 @@ const getDropdownItems = (category) => {
       { to: '/contact', text: 'Contact Us' },
     ],
     stores: [
-      { to: '/grocery', text: 'Grocery Store' },
-      { to: '/liquor', text: 'Liquor Store' },
-      { to: '/food', text: 'Food Store' },
+      { to: '/GroceryStore', text: 'Grocery Store' },
+      { to: '/LiquorStore', text: 'Liquor Store' },
+      { to: '/FoodStore', text: 'Food Store' },
     ],
     services: [
-      { to: '/renting', text: 'Vehicle Renting' },
-      { to: '/medical', text: 'Medical Store' },
-      { to: '/second-hand', text: 'Second Hand Shop' },
+      { to: '/VehicleRenting', text: 'Vehicle Renting' },
+      { to: '/MedicalStore', text: 'Medical Store' },
+      { to: '/SecondHandStore', text: 'Second Hand Shop' },
     ],
   }
   return items[category] || []
