@@ -8,7 +8,10 @@ import Liqureshop from './pages/Liqureshop';
 import Foodstore from './pages/Foodstore';
 import Grocerystore from './pages/Grocerystore';
 import Vechicalrenting from './pages/Vechicalrenting';
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+import Medicalstore from './pages/Medicalstore';
+
+
+{/* <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> */}
 
 
 
@@ -24,6 +27,7 @@ function App() {
           <Route path="/FoodStore" element={<Foodstore/>} />
           <Route path="/GroceryStore" element={<Grocerystore/>} />
           <Route path="/VehicleRenting" element={<Vechicalrenting/>} />
+          <Route path="/MedicalStore" element={<Medicalstore/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact/>} />
       </Routes>
