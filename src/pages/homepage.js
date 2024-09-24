@@ -2,7 +2,7 @@ import React from "react";
 import "./homepage.css"; // Import the updated CSS
 import DrawerAppBar from "../components/Navbar";
 import { useNavigate } from 'react-router-dom';
-import products from "./../data/uturnitems.json"; // Import the JSON data
+import Featuredproducts from "./../data/featuredItems.json"; // Import the JSON data
 import CoverSlider from "../components/homepagecom/CoverSlider";
 import Footer from "../components/footer";
 import { WidthFull } from "@mui/icons-material";
@@ -10,10 +10,28 @@ import { WidthFull } from "@mui/icons-material";
 const Homepage = () => {
   const navigate = useNavigate();
 
+  const handleViewMore=(producttype)=>{
+    if (producttype ==="Food"){
+      navigate("/FoodStore")
+    }
+    else if(producttype ==="Vehicle"){
+      navigate("/VehicleRenting")
+    }
+    else if(producttype ==="Grocery"){
+      navigate("/GroceryStore")
+    }
+    else if(producttype ==="Liquor"){
+      navigate("/LiquorStore")
+    }
+    else if(producttype ==="Herbal"){
+      navigate("/MedicalStore")
+    }
+    
+  }
 
   const handleClick = (storeName) => {
     // Navigate to the route based on the store name
-    navigate(`/${storeName.toLowerCase().replace(/\s+/g, '-')}`);
+    navigate(`/${storeName}`);
   };
   // Product item component
   const ProductItem = ({ product }) => (
@@ -23,7 +41,7 @@ const Homepage = () => {
         <h3 className="product-name">{product.name}</h3>
         <p className="product-description">{product.description}</p>
         <p className="product-price">{product.price}</p>
-        <button className="buy-button">Buy</button>
+        <button className="buy-button"  onClick={() => handleViewMore(product.category)}>View more</button>
       </div>
     </div>
   );
@@ -60,7 +78,7 @@ const Homepage = () => {
         <div className="featured-products">
           <h2>Featured Products</h2>
           <div className="product-list">
-            {products.map(product => (
+            {Featuredproducts.map(product => (
               <ProductItem key={product.id} product={product} />
             ))}
           </div>

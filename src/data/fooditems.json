@@ -1,93 +1,98 @@
 [
     {
-        "id":1,
-        "name":"Veg Chowmein",
-        "image":"https://i.imgur.com/HFy54bX.jpg",
+        "id": 1,
+        "name": "Veg Chowmein",
+        "image": "https://i.imgur.com/HFy54bX.jpg",
         "description": "Veg Chowmein is a stir-fried noodle dish with mixed vegetables, seasoned with soy sauce and spices. It’s a tasty, quick vegetarian favorite in Nepali cuisine.",
-        "price": "100"
+        "price": "100",
+        "category": "food"
     },
     {
-        "id":2,
-        "name":"Buff Mo:MOs",
-        "image":"https://i.imgur.com/ZjSqKXp.jpg",
+        "id": 2,
+        "name": "Buff Mo:MOs",
+        "image": "https://i.imgur.com/ZjSqKXp.jpg",
         "description": "Buff Momo beloved Nepali dumpling dish filled with seasoned buffalo meat, mixed with spices, onions, and herbs. Steamed or fried, they are served with a spicy tomato-based dipping sauce (achar) and are a popular street food known for their rich flavor and juicy texture.",
-        "price": "150"
-    
+        "price": "150",
+        "category": "food"
     },
     {
-        "id":3,
-        "name":"Samosa Aachar",
-        "image":" https://i.imgur.com/Gdrv1Qz.jpg",
+        "id": 3,
+        "name": "Samosa Aachar",
+        "image": "https://i.imgur.com/Gdrv1Qz.jpg",
         "description": "Samosa Aachar is a delightful Nepali snack pairing crispy, spiced samosas with tangy, flavorful pickle (aachar). The samosas are filled with a savory mixture of potatoes, peas, and spices, while the aachar adds a zesty, spicy kick, creating a delicious balance of textures and flavors. Perfect for a light snack or tea-time treat.",
-        "price": "120"
-
-       
+        "price": "120",
+        "category": "food"
     },
     {
-        "id":4,
-        "name":"Chiken katti roll",
-        "image":"https://i.imgur.com/G3CTjUi.jpg",
+        "id": 4,
+        "name": "Chicken Katti Roll",
+        "image": "https://i.imgur.com/G3CTjUi.jpg",
         "description": "Chicken Katti Roll is a popular street food in Nepal, consisting of spiced grilled chicken wrapped in a soft paratha. Filled with onions, bell peppers, and tangy sauces, it offers a savory and spicy flavor in every bite, making it a perfect grab-and-go meal.",
-        "price": " 400"
+        "price": "400",
+        "category": "food"
     },
     {
-        "id":5,
-        "name":"Mutton khaza set",
-        "image":"https://i.imgur.com/Csks0H2.jpg",
-        "description": "mutton khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
-        "price": "800"
+        "id": 5,
+        "name": "Mutton Khaja Set",
+        "image": "https://i.imgur.com/Csks0H2.jpg",
+        "description": "Mutton Khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
+        "price": "800",
+        "category": "food"
     },
     {
-        "id":6,
-        "name":"Mutter Paneer",
-        "image":"  https://i.imgur.com/2TDb3Iy.jpg",
+        "id": 6,
+        "name": "Mutter Paneer",
+        "image": "https://i.imgur.com/2TDb3Iy.jpg",
         "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
-        "price": "500"
+        "price": "500",
+        "category": "food"
     },
     {
-        "id":7,
-        "name":"Veg Chowmein",
-        "image":"https://i.imgur.com/HFy54bX.jpg",
+        "id": 7,
+        "name": "Veg Chowmein",
+        "image": "https://i.imgur.com/HFy54bX.jpg",
         "description": "Veg Chowmein is a stir-fried noodle dish with mixed vegetables, seasoned with soy sauce and spices. It’s a tasty, quick vegetarian favorite in Nepali cuisine.",
-        "price": "100"
+        "price": "100",
+        "category": "food"
     },
     {
-        "id":8,
-        "name":"Buff Mo:MOs",
-        "image":"https://i.imgur.com/ZjSqKXp.jpg",
+        "id": 8,
+        "name": "Buff Mo:MOs",
+        "image": "https://i.imgur.com/ZjSqKXp.jpg",
         "description": "Buff Momo beloved Nepali dumpling dish filled with seasoned buffalo meat, mixed with spices, onions, and herbs. Steamed or fried, they are served with a spicy tomato-based dipping sauce (achar) and are a popular street food known for their rich flavor and juicy texture.",
-        "price": "150"
-    
+        "price": "150",
+        "category": "food"
     },
     {
-        "id":9,
-        "name":"Samosa Aachar",
-        "image":" https://i.imgur.com/Gdrv1Qz.jpg",
+        "id": 9,
+        "name": "Samosa Aachar",
+        "image": "https://i.imgur.com/Gdrv1Qz.jpg",
         "description": "Samosa Aachar is a delightful Nepali snack pairing crispy, spiced samosas with tangy, flavorful pickle (aachar). The samosas are filled with a savory mixture of potatoes, peas, and spices, while the aachar adds a zesty, spicy kick, creating a delicious balance of textures and flavors. Perfect for a light snack or tea-time treat.",
-        "price": "120"
-
-       
+        "price": "120",
+        "category": "food"
     },
     {
-        "id":10,
-        "name":"Chiken katti roll",
-        "image":"https://i.imgur.com/G3CTjUi.jpg",
+        "id": 10,
+        "name": "Chicken Katti Roll",
+        "image": "https://i.imgur.com/G3CTjUi.jpg",
         "description": "Chicken Katti Roll is a popular street food in Nepal, consisting of spiced grilled chicken wrapped in a soft paratha. Filled with onions, bell peppers, and tangy sauces, it offers a savory and spicy flavor in every bite, making it a perfect grab-and-go meal.",
-        "price": " 400"
+        "price": "400",
+        "category": "food"
     },
     {
-        "id":11,
-        "name":"Mutton khaza set",
-        "image":"https://i.imgur.com/Csks0H2.jpg",
-        "description": "mutton khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
-        "price": "800"
+        "id": 11,
+        "name": "Mutton Khaja Set",
+        "image": "https://i.imgur.com/Csks0H2.jpg",
+        "description": "Mutton Khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
+        "price": "800",
+        "category": "food"
     },
     {
-        "id":12,
-        "name":"Mutter Paneer",
-        "image":"  https://i.imgur.com/2TDb3Iy.jpg",
+        "id": 12,
+        "name": "Mutter Paneer",
+        "image": "https://i.imgur.com/2TDb3Iy.jpg",
         "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
-        "price": "500"
+        "price": "500",
+        "category": "food"
     }
-  ]
-  
+]
