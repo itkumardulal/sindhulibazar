@@ -14,15 +14,7 @@
         "price": "190"
     
     },
-    {
-        "id":2,
-        "name":"Gorkha Beer Big",
-        "image":" https://i.imgur.com/oMMAmT2.jpg",
-        "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
-        "price": "350"
-
-       
-    },
+  
     {
         "id":3,
         "name":"8848 Vodka",
@@ -137,5 +129,14 @@
         "image":"https://i.imgur.com/EcXf300.jpg",
         "description": "A Blend of English grain spirit and 8 years old peated Scotch malt with spring water from the Himalayas finished in Oloroso sherry barrels in Nepal.",
         "price": "2700"
+    },
+    {
+        "id":19,
+        "name":"Gorkha Beer Big",
+        "image":" https://i.imgur.com/oMMAmT2.jpg",
+        "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
+        "price": "350"
+
+       
     }
  ]

@@ -3,11 +3,7 @@ import "./CoverSlider.css";
 
 const CoverSlider = () => {
   // Array of YouTube video IDs
-  const slides = [
-    "EggPbC987Kw",
-    "COPxGpr0Tc8",
-    "PNVvDo2HTpo",
-  ];
+  const slides = ["EggPbC987Kw", "COPxGpr0Tc8", "PNVvDo2HTpo"];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -21,12 +17,11 @@ const CoverSlider = () => {
     setCurrentIndex((currentIndex - 1 + slides.length) % slides.length);
   };
 
-  // Timer function to automatically transition slides every 5 seconds
+  // Timer function to automatically transition slides every 10 seconds
   useEffect(() => {
-    const timer = setInterval(nextSlide, 10000); // 5000ms = 5 seconds
-
+    const timer = setInterval(nextSlide, 10000); // 10000ms = 10 seconds
     return () => clearInterval(timer); // Cleanup on component unmount
-  }, [currentIndex]);
+  }, []); // Empty dependency array to run only on mount
 
   return (
     <div className="cover-slider-container">

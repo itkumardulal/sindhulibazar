@@ -67,7 +67,7 @@ const Homepage = () => {
         </div>
 
 
-        <CoverSlider />
+        {/* <CoverSlider /> */}
     
       </div>
       <Footer  />

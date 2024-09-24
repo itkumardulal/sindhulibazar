@@ -161,7 +161,7 @@
 .product-image {
   width: 100%;
   height: 200px; /* Adjusted height for better proportions */
-  object-fit: cover; /* Ensure the image covers the container */
+  object-fit: contain; /* Ensure the image covers the container */
   border-radius: 15px 15px 0 0; /* Rounded top corners */
   transition: transform 0.3s ease; /* Smooth zoom effect */
 }
@@ -197,13 +197,13 @@
   font-size: 20px; /* Increased font size for visibility */
   font-weight: 700; /* Bolder font for emphasis */
   color: #e74c3c; /* Color to highlight the price */
-  margin-bottom: 10px; /* Reduced margin for alignment */
+  margin-bottom: 5px; /* Reduced margin for alignment */
 }
 
 
 .buy-button {
-  background: #1a66ad;
-  color: #fff;
+  background: #04ccdaf6;
+  color: #ffffff;
   border: none;
   padding: 12px 25px; /* Adjusted padding */
   border-radius: 5px;
@@ -272,6 +272,7 @@
 @media (max-width: 500px) {
   .product-item {
     width: calc(50% - 10px); /* 2 items per row */
+   
   }
 
   .box-button {
@@ -294,6 +295,32 @@ padding: 10px;
     font-weight: 800; /* Slightly lighter weight for a modern look */
 
   }
+  .product-info {
+    padding: 1px;
+  }
+  .product-image {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 15px 15px 0 0;
+    transition: transform 0.3s ease;
+  }
+  .product-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: #e74c3c;
+    margin-bottom: 5px;
+}
+.buy-button {
+  background: #04ccdaf6;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
 
   /* .product-info {
     font-size: 10px;

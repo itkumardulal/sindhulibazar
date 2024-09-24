@@ -7,7 +7,7 @@ const BackgroundVideo = () => {
   const divStyle = {
     position: 'relative',
     width: '100%',
-    height: '100vh', // Adjust as needed
+    height: '100vh', // Full viewport height
     overflow: 'hidden',
   };
 
@@ -23,7 +23,7 @@ const BackgroundVideo = () => {
     <div style={divStyle}>
       <iframe
         title="background-video"
-        src={`https://www.youtube.com/embed/${videoID}?autoplay=1&loop=1&controls=0&mute=1`}
+        src={`https://www.youtube.com/embed/${videoID}?autoplay=1&loop=1&playlist=${videoID}&controls=0&mute=1&showinfo=0&modestbranding=1&iv_load_policy=3`}
         frameBorder="0"
         allow="autoplay; encrypted-media"
         allowFullScreen
