@@ -68,7 +68,6 @@ const Storepage = () => {
     items = []; // Fallback to an empty array to avoid errors in mapping
   }
 
-  
 
   // Handle scroll event
   const handleScroll = () => {
