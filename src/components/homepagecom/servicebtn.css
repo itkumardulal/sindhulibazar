@@ -108,9 +108,9 @@
 
   
   
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     .box-button {
-      width: 80px;
+      width: 90px;
       height: 80px;
       padding: 5px;
     }
@@ -123,6 +123,42 @@
   
     .box-button h3 {
       font-size: 8px; /* Increased font size for better readability */
+      margin-top: 1px;
+    }
+  }
+  @media (max-width: 450px) {
+    .box-button {
+      width: 78px;
+      height: 80px;
+      padding: 5px;
+    }
+  
+    .box-button img {
+      width: 60px; /* Increased size for better visibility */
+      height: 45px; /* Increased size for better visibility */
+      object-fit: contain;
+    }
+  
+    .box-button h3 {
+      font-size: 8px; /* Increased font size for better readability */
+      margin-top: 1px;
+    }
+  }
+  @media (max-width: 390px) {
+    .box-button {
+      width: 120px;
+      height: 85px;
+      padding: 5px;
+    }
+  
+    .box-button img {
+      width: 60px; /* Increased size for better visibility */
+      height: 45px; /* Increased size for better visibility */
+      object-fit: contain;
+    }
+  
+    .box-button h3 {
+      font-size: 9px; /* Increased font size for better readability */
       margin-top: 1px;
     }
   }
