@@ -4,14 +4,17 @@
         "name":"Jira Masino chamal",
         "image":"https://i.imgur.com/BNe8PXd.jpg",
         "description": "Salleri Lokal Jira is a fine-grain, aromatic Nepali rice known for its delicate texture and distinct fragrance. It’s a premium variety, often used in traditional Nepali dishes, especially during special occasions, to complement rich curries and flavorful sides.",
-        "price": "2000"
+        "price": "2000",
+           "category": "Grocery"
+
     },
     {
         "id":2,
         "name":"Onion",
         "image":"https://i.imgur.com/vqQmfXQ.png",
         "description": "Onions (Pyaaj) are a staple in Nepali cuisine, adding flavor and aroma to curries, stews, and salads. Versatile and essential, they can be cooked or eaten raw..",
-        "price": "190"
+        "price": "190",
+           "category": "Grocery"
     
     },
     {
@@ -19,7 +22,8 @@
         "name":"Atta whole wheat",
         "image":" https://i.imgur.com/O7hLzKP.jpg",
         "description": "Whole wheat flour (Gahu ko atta) is a nutritious flour made from whole wheat grains, rich in fiber and minerals. It's commonly used in Nepali cooking for making bread, roti, and other baked goods.",
-        "price": "350"
+        "price": "350" ,
+           "category": "Grocery"
 
        
     },
@@ -29,6 +33,8 @@
         "image":"https://i.imgur.com/mpFyllA.jpg",
         "description": "Badam (almonds) are nutritious nuts packed with healthy fats, protein, vitamins, and minerals. They are commonly used in Nepali cuisine for snacks, desserts, and as a garnish in various dishes, adding a delightful crunch and rich flavor..",
         "price": " 2100"
+        ,
+           "category": "Grocery"
     },
     {
         "id":5,
@@ -36,6 +42,8 @@
         "image":"https://i.imgur.com/GzOeiX0.jpg",
         "description": "Potatoes (Aloo) are a versatile and widely used vegetable in Nepali cuisine. They can be boiled, fried, or used in curries, snacks, and salads, offering a comforting texture and neutral flavor that complements a variety of dishes",
         "price": "2100"
+        ,
+           "category": "Grocery"
     },
     {
         "id":6,
@@ -43,6 +51,8 @@
         "image":"  https://i.imgur.com/iDZO5zC.jpg",
         "description": "Amrit Oil is a popular cooking oil in Nepal, known for its high quality and flavor. It's commonly used for frying and sautéing, enhancing the taste of various dishes. With its health benefits and suitability for everyday cooking, it’s a staple in many Nepali households.",
         "price": "3500"
+        ,
+           "category": "Grocery"
     },
     {
         "id":7,
@@ -50,36 +60,48 @@
         "image":"  https://i.imgur.com/bOrjLMF.jpg",
         "description": "Eggs (Anda) are a versatile and protein-rich food commonly used in Nepali cuisine. They can be boiled, fried, or used in curries, salads, and snacks. Eggs are not only a staple source of nutrition but also add flavor and texture to a variety of dishes..",
         "price": "3500"
+        ,
+           "category": "Grocery"
     },{
         "id":8,
         "name":"Tomatos",
         "image":"  https://i.imgur.com/TUz0p5t.jpg",
         "description": "Tomatoes (Tamaatar) are a key ingredient in Nepali cuisine, adding flavor and acidity to curries, salads, and sauces. They are versatile, used both fresh and cooked, and are rich in vitamins and antioxidants, enhancing the nutritional value of many dishes..",
         "price": "3500"
+        ,
+           "category": "Grocery"
     },{
         "id":9,
         "name":"Chana Dal (Split Bengal Gram), 1KG",
         "image":"  https://i.imgur.com/RjnQaFq.jpg",
         "description": "Hygienically packed chana dal which is free from impurities such as weevils and stones Dals are sorted to deliver consistent quality of grains through the year No artificial flavours. No preservatives Dals are a rich source of protein",
         "price": "300"
+        ,
+           "category": "Grocery"
     },{
         "id":10,
         "name":"Cucumber Local, 1 Kg",
         "image":"  https://i.imgur.com/lsjfx5f.jpg",
         "description": "Cucumber Local, 1 Kg",
         "price": "120"
+        ,
+           "category": "Grocery"
     },{
         "id":11,
         "name":"Green Beans (Cow Pea)(बोडी), 500 gm",
         "image":"  https://i.imgur.com/reji6rS.jpg",
         "description": "Green Beans (Cow Pea)(बोडी), 500 gm",
         "price": "70"
+        ,
+           "category": "Grocery"
     },{
         "id":12,
         "name":"Hulas Chiura Kurum Kurum (Beaten Rice), 1kg",
         "image":"  https://i.imgur.com/Lhxw3PT.jpg",
         "description": "Hulas Chiura Kurum Kurum (Beaten Rice), 1kg",
         "price": "110"
+        ,
+           "category": "Grocery"
     }
 
 

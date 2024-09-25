@@ -4,14 +4,16 @@
         "name":"Khukuri Rum",
         "image":"https://i.imgur.com/n4WQZ7v.jpg",
         "description": "Khukri Rum is a Nepalese oak vatted dark rum launched in 1959. Khukri Rum comes in three varieties; Khukri XXX Rum, Coronation Khukri XXX Rum and Khukri Spice Rum. All variants are matured for a minimum of eight months and have alcohol content of 42.8%.",
-        "price": "2000"
+        "price": "2000",
+         "category": "Liquor"
     },
     {
         "id":2,
         "name":"Gorkha Beer SMall",
         "image":"https://i.imgur.com/PZjJpcM.jpg",
         "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
-        "price": "190"
+        "price": "190",    
+        "category": "Liquor"
     
     },
   
@@ -20,77 +22,88 @@
         "name":"8848 Vodka",
         "image":"https://i.imgur.com/8UxIysS.jpg",
         "description": "Discover the pristine purity of the Himalayas in every sip of 8848 Vodka. Named after the iconic Mount Everest, this Nepali vodka offers a crystal-clear appearance and a smooth, clean taste with a hint of sweetness. Crafted with pure Himalayan water, it's perfect for sipping or mixing. Elevate your spirits with 8848 Vodka.",
-        "price": " 2100"
+        "price": " 2100",    
+        "category": "Liquor"
     },
     {
         "id":4,
         "name":"Nude vodka",
         "image":"https://i.imgur.com/caIJBvQ.jpg",
         "description": "Nude Vodka is a convenient, pre-mixed cocktail option, combining vodka with a variety of appealing flavo  Packaged in portable containers, it's perfect for on-the-go enjoyment at parties or gatherings. With a balanced and refreshing taste, Nude Vodka provides a quick and hassle-free way to savor well-crafted cocktails.",
-        "price": "2100"
+        "price": "2100",    
+        "category": "Liquor"
     },
     {
         "id":5,
         "name":"Ruslan vodka",
         "image":"https://i.imgur.com/VHqL1xH.jpg",
         "description": "Ruslan Vodka is a popular brand of vodka known for its quality and smooth taste. This vodka is widely recognized for its clear and colorless appearance, clean aroma, and a mild, pure flavor. It's often used as a base for cocktails or enjoyed neat, making it a versatile choice for vodka enthusiasts.",
-        "price": " 2100"
+        "price": " 2100",    
+        "category": "Liquor"
     },
     {
         "id":6,
         "name":"Big Master white (Wine)",
         "image":"https://i.imgur.com/xhEkeWO.jpg",
         "description": "This wine is aromatic, refreshing, lighter in taste and tangy. Can be consumed as an aperitif during meal with dessert or as a refreshing drink..",
-        "price": "850"
+        "price": "850",    
+        "category": "Liquor"
     },
     {
         "id":7,
         "name":"Yati vodka",
         "image":"https://i.imgur.com/NnxFVby.jpg",
         "description": "Introducing, YETI VODKA, Magic in a bottle. This vodka will take you on a MAGICAL journey of flavours - silky smooth on the palate with a distinctly bright mouthfeel and pleasantly sweet finish. Quadruple distilled with triple platinum filtered..",
-        "price": " 2200"
+        "price": " 2200",    
+        "category": "Liquor"
     },
     {
         "id":8,
         "name":"Highlander vodka",
         "image":"https://i.imgur.com/UoWCVqI.jpg",
         "description": "Highlander Vodka, inspired by the Scottish Highlands, offers a traditional and pure vodka experience. With a clear, neutral taste, it's a versatile choice for sipping or mixing in cocktails. The name reflects its connection to Scotland's rugged landscapes and rich heritage, making it a distinctive option for vodka enthusiasts.",
-        "price": " 1100"
+        "price": " 1100",    
+        "category": "Liquor"
     },
     {
         "id":9,
         "name":"Old durbar black chimmney",
         "image":"  https://i.imgur.com/D0RTlVb.jpg",
         "description": "Old Durbar Black Chimney is a distinguished variant of the renowned Old Durbar brand of Nepali rum. This particular expression is celebrated for its deep, smoky character and rich flavor profile. The name Black Chimney hints at the robust and complex taste, making it a choice for connoisseurs seeking a distinctive and intense rum experience.",
-        "price": "3500"
+        "price": "3500",    
+        "category": "Liquor"
     },
     {
         "id":10,
         "name":" Gorkha and guns",
         "image":"https://i.imgur.com/gSBOMnX.png",
         "description": "Gorkha and Guns Whisky likely embodies a blend of boldness and tradition, inspired by the valor of the Gorkha people and a nod to weaponry. This whisky may offer a rich, complex flavor profile, reflecting the heritage and courage of the Gorkha community, making it an intriguing choice for whisky enthusiasts.The Finest Grains, Pristiny When Our Tasters Say So. Charcoal Mellowed. Sweet & Oaky Flavor. Finest Tennessee Whiskey.",
-        "price": " 3000"
+        "price": " 3000",    
+        "category": "Liquor"
     },
     {
         "id":11,
         "name":"Signature Red",
         "image":"https://i.imgur.com/T2HXvkr.jpg",
         "description": "Discover the exquisite taste of Signature Whisky, a timeless classic in the world of Indian spirits. Crafted with precision and passion, Signature Whisky offers a smooth, mellow flavor that's perfect for sipping or mixing into your favorite cocktails. Elevate your drinking experience with this renowned brand, now available for purchase on our website.",
-        "price": " 2500"
+        "price": " 2500",    
+        "category": "Liquor"
     },
     {
         "id":12,
         "name":"Golden oak",
         "image":"https://i.imgur.com/Td0ZYPr.jpg",
         "description": "Golden Oak Whisky is a well-crafted Scotch whisky renowned for its rich and complex taste. It typically boasts notes of oak, vanilla, and caramel, which result from aging in oak barrels. This whisky offers a smooth and full-bodied experience, making it a favorite choice for whisky enthusiasts. Enjoy the warmth and sophistication of Golden Oak Whisky.",
-        "price": "1150"
+        "price": "1150",    
+        "category": "Liquor"
     },
     {
         "id":13,
         "name":"Black Oak",
         "image":"https://i.imgur.com/gxEoYzi.jpg",
         "description": "Black Oak Whisky is a renowned spirit celebrated for its rich and nuanced flavor. This whisky is typically aged in oak barrels, which imparts a delightful complexity with notes of oak, spice, and a hint of caramel. It offers a sophisticated and warm sipping experience, making it a favorite choice for whisky connoisseurs.",
-        "price": " 1400"
+        "price": " 1400",    
+        "category": "Liquor"
     },
 
 
@@ -99,21 +112,24 @@
         "name":"Tuborg",
         "image":"https://i.imgur.com/8C1zqv7.jpg",
         "description": "Tuborg is a well-known international brand of beer, originating from Denmark. It's celebrated for its refreshing and crisp taste. Tuborg offers a range of beer varieties, including lagers and pilsners, which are widely enjoyed for their balanced and light flavors. As a popular choice for beer enthusiasts, Tuborg is often served at various social occasions and is known for its quality and consistency.",
-        "price": "425"
+        "price": "425",    
+        "category": "Liquor"
     },
     {
         "id":15,
         "name":"Budwiser",
         "image":"https://i.imgur.com/SK83zNa.jpg",
         "description": "Budweiser is one of the world's most recognizable and iconic beer brands. It's known for its distinct, smooth, and light taste. Budweiser is a lager-style beer that has been brewed in the United States for generations. It's characterized by its clean and crisp flavor, making it a popular choice for those who enjoy a classic American beer. Budweiser is often associated with traditional beer-drinking experiences and is widely available in many countries.",
-        "price": "410"
+        "price": "410",    
+        "category": "Liquor"
     },
     {
         "id":16,
         "name":"Nepal ice",
         "image":"https://i.imgur.com/0VxhDmP.png",
         "description": "Nepal Ice is a popular brand of beer from Nepal. It's well-regarded for its refreshing and crisp taste, making it a favorite among beer enthusiasts in Nepal and beyond. Nepal Ice offers various beer varieties, including lagers and pilsners, which are known for their quality and enjoyable flavor profile. This brand is often enjoyed at social gatherings and is a symbol of Nepalese brewing tradition and culture.",
-        "price": "350"
+        "price": "350",    
+        "category": "Liquor"
     },
 
     {
@@ -121,21 +137,24 @@
         "name":" Carlsburg",
         "image":"https://i.imgur.com/3F1poXs.png",
         "description": "Carlsberg, perhaps best known for its eponymous pilsner, produces much more than one beer. The Copenhagen-based brand operates 75 breweries in 33 countries, employs upwards of 40,000 people, and produces hundreds of brands ",
-        "price": "500"
+        "price": "500",    
+        "category": "Liquor"
     },
     {
         "id":18,
         "name":"Old durbar red",
         "image":"https://i.imgur.com/EcXf300.jpg",
         "description": "A Blend of English grain spirit and 8 years old peated Scotch malt with spring water from the Himalayas finished in Oloroso sherry barrels in Nepal.",
-        "price": "2700"
+        "price": "2700",    
+        "category": "Liquor"
     },
     {
         "id":19,
         "name":"Gorkha Beer Big",
         "image":" https://i.imgur.com/oMMAmT2.jpg",
         "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
-        "price": "350"
+        "price": "350",    
+        "category": "Liquor"
 
        
     }

@@ -16,11 +16,11 @@ export default function Servicesbtn() {
         <h3>Liquor Store</h3>
       </button>
       <button onClick={() => handlebuttonNav("Grocery")} className="box-button">
-        <img src="https://i.imgur.com/BFjzyuv.png" alt="Grocery Store" />
+        <img src="https://i.imgur.com/DMIVM3N.png" alt="Grocery Store" />
         <h3>Grocery Store</h3>
       </button>
       <button onClick={() => handlebuttonNav("Food")} className="box-button">
-        <img src="https://i.imgur.com/DMIVM3N.png" alt="Food Store" />
+        <img src="https://i.imgur.com/BFjzyuv.png" alt="Food Store" />
         <h3>Food Store</h3>
       </button>
       <button onClick={() => handlebuttonNav("Vehicle")} className="box-button">

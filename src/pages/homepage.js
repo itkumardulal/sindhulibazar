@@ -38,6 +38,36 @@ const Homepage = () => {
       </div>
     </div>
   );
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  // Get random products
+  const randomFeaturedproduct = shuffleArray([
+    ...Datacarrier.FeaturedStore,
+  ]).slice(0, 6);
+  const randomFoodProducts = shuffleArray([...Datacarrier.FoodStore]).slice(
+    0,
+    4
+  );
+  const randomGroceryProducts = shuffleArray([
+    ...Datacarrier.GroceryStore,
+  ]).slice(0, 4);
+  const randomHerbalProducts = shuffleArray([...Datacarrier.HerbalStore]).slice(
+    0,
+    4
+  );
+  const randomLiquorProducts = shuffleArray([...Datacarrier.LiqureStore]).slice(
+    0,
+    4
+  );
+  const randomVehicalProducts = shuffleArray([
+    ...Datacarrier.VehicalStore,
+  ]).slice(0, 4);
 
   return (
     <>
@@ -45,6 +75,11 @@ const Homepage = () => {
       <div className="homepage-container">
         <div className="product-search">
           {/* Search Bar */}
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search products..."
+          />
           <div class="search-bar-container">
             <svg
               class="search-icon"
@@ -57,51 +92,55 @@ const Homepage = () => {
             </svg>
             {/* <input type="text" class="search-bar" placeholder="Search products..." /> */}
           </div>
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="Search products..."
-          />
         </div>
         <Servicesbtn />
-
-        {/* <div className="services-box">
-          passinging product category as text to handle multiple handler
-          <button
-            onClick={() => handlebuttonNav("Liquor")}
-            className="box-button"
-          >
-            <img src="https://i.imgur.com/IV49hFF.png" alt="Liquor Store" />
-            <h3>Liquor Store</h3>
-          </button>
-          <button
-            onClick={() => handlebuttonNav("Grocery")}
-            className="box-button"
-          >
-            <img src="https://i.imgur.com/BFjzyuv.png" alt="Grocery Store" />
-            <h3>Grocery Store</h3>
-          </button>
-          <button
-            onClick={() => handlebuttonNav("Food")}
-            className="box-button"
-          >
-            <img src="https://i.imgur.com/DMIVM3N.png" alt="Food Store" />
-            <h3>Food Store</h3>
-          </button>
-          <button
-            onClick={() => handlebuttonNav("Vehicle")}
-            className="box-button"
-          >
-            <img src="https://i.imgur.com/qkivuDn.png" alt="Vehicle Renting" />
-            <h3>Vehicle Renting</h3>
-          </button>
-        </div> */}
 
         {/* Featured Products Section */}
         <div className="featured-products">
           <h2>Featured Products</h2>
           <div className="product-list">
-            {Featuredproducts.map((product) => (
+            {randomFeaturedproduct.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+
+        <div className="featured-products">
+          <h2>Grab Food</h2>
+          <div className="product-list">
+            {randomFoodProducts.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+        <div className="featured-products">
+          <h2>Find your favorite drinks</h2>
+          <div className="product-list">
+            {randomLiquorProducts.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+        <div className="featured-products">
+          <h2>Cook Something Fresh</h2>
+          <div className="product-list">
+            {randomGroceryProducts.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+        <div className="featured-products">
+          <h2>Cook Something Fresh</h2>
+          <div className="product-list">
+            {randomVehicalProducts.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+        <div className="featured-products">
+          <h2>Bee Herbals: Your Health Ally</h2>
+          <div className="product-list">
+            {randomHerbalProducts.map((product) => (
               <ProductItem key={product.id} product={product} />
             ))}
           </div>

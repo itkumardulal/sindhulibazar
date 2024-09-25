@@ -1,7 +1,7 @@
 .services-box {
     width: 100%;
     max-width: 1400px; /* Increased max-width for larger screens */
-    margin-bottom: 30px;
+    margin-bottom:1px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -146,7 +146,7 @@
   }
   @media (max-width: 400px) {
     .box-button {
-      width: 70px;
+      width: 75px;
       height: 80px;
       padding: 5px;
     }
@@ -161,8 +161,15 @@
       font-size: 8px; /* Increased font size for better readability */
       margin-top: 1px;
     }
+    .services-box {
+
+        margin-bottom: 1px;
+   
+        gap: 10px;
+     
+      }
   }
-  @media (max-width: 250px) {
+  @media (max-width: 340px) {
     .box-button {
       width: 120px;
       height: 85px;
@@ -176,8 +183,16 @@
     }
   
     .box-button h3 {
-      font-size: 9px; /* Increased font size for better readability */
+      font-size: 11px; /* Increased font size for better readability */
       margin-top: 1px;
     }
+    .services-box {
+
+        margin-bottom: 1px;
+   
+        gap: 15px;
+     
+      }
+ 
   }
   
