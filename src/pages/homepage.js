@@ -14,7 +14,7 @@ const Homepage = () => {
 
   const handlebuttonNav = (producttype) => {
     navigate(`/${producttype}Store`);
-    navigate("/MedicalStore");
+    // navigate("/MedicalStore");
     // }
   };
   //refactoring

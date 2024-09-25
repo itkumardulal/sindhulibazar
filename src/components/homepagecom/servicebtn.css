@@ -126,7 +126,7 @@
       margin-top: 1px;
     }
   }
-  @media (max-width: 450px) {
+  @media (max-width: 500px) {
     .box-button {
       width: 78px;
       height: 80px;
@@ -144,7 +144,25 @@
       margin-top: 1px;
     }
   }
-  @media (max-width: 390px) {
+  @media (max-width: 400px) {
+    .box-button {
+      width: 70px;
+      height: 80px;
+      padding: 5px;
+    }
+  
+    .box-button img {
+      width: 60px; /* Increased size for better visibility */
+      height: 45px; /* Increased size for better visibility */
+      object-fit: contain;
+    }
+  
+    .box-button h3 {
+      font-size: 8px; /* Increased font size for better readability */
+      margin-top: 1px;
+    }
+  }
+  @media (max-width: 250px) {
     .box-button {
       width: 120px;
       height: 85px;
