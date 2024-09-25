@@ -1,7 +1,12 @@
 import React from 'react'
 
-export default function Addtocart() {
+const Addtocart = () => {
+  // Your component logic here
+  
+
   return (
-    <div>Addtocart</div>
-  )
-}
+    <div>Add to Cart</div>
+  );
+};
+
+export default Addtocart;

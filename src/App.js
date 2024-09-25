@@ -4,11 +4,9 @@ import { Route, Routes } from 'react-router-dom'
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Homepage from './pages/homepage';
-import Liqureshop from './pages/Liqureshop';
-import Foodstore from './pages/Foodstore';
-import Grocerystore from './pages/Grocerystore';
-import Vechicalrenting from './pages/Vechicalrenting';
-import Medicalstore from './pages/Medicalstore';
+
+import Addtocart from './pages/Addtocart';
+import Storepage from './pages/Storepage';
 
 
 {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> */}
@@ -22,12 +20,15 @@ function App() {
       <Routes>
         
           <Route path="/" element={<Homepage/>} />
+       
+          <Route path="/Addtocart" element={<Addtocart/>} />
+
           <Route path="/home" element={<Homepage/>} />
-          <Route path="/LiquorStore" element={<Liqureshop/>} />
-          <Route path="/FoodStore" element={<Foodstore/>} />
-          <Route path="/GroceryStore" element={<Grocerystore/>} />
-          <Route path="/VehicleRenting" element={<Vechicalrenting/>} />
-          <Route path="/MedicalStore" element={<Medicalstore/>} />
+          <Route path='/:producttypeStore' element={<Storepage/>} />
+          
+     
+    
+          <Route path="/SecondHandStore" element={<Homepage/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact/>} />
       </Routes>

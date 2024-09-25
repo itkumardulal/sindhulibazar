@@ -37,50 +37,53 @@ function DrawerAppBar({ window, children }) {
   }
 
   // Drawer content for mobile view
-  const drawer = (
-    <Box sx={{ textAlign: 'center' }}>
-      <Typography variant='h6' sx={{ my: 2.7, color: '#4CAF50', display: 'flex', alignItems: 'center' }}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img style={{ height: 50, width: 50, marginRight: '2px' }} src='https://i.imgur.com/SE8uswq.png' alt='logo' />
-          <Typography variant='h6' sx={{ fontSize: 15, color: 'darkorange', fontWeight: 1000 }}>
-            SINDHULI BAZAR
-          </Typography>
-        </div>
-      </Typography>
 
-      <Divider />
-      <List>
-        {navItems.map(item => (
-          <ListItem key={item} disablePadding sx={{ textAlign: 'center' }}>
-            <ListItemButton>
-              <Link to={`/${item.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <ListItemText primary={item} />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-        ))}
-        {['stores', 'services', 'support'].map(category => (
-          <React.Fragment key={category}>
-            <ListItemButton onClick={() => handleDropdownToggle(category)}>
-              <ListItemText primary={capitalizeFirstLetter(category)} />
-              {openDropdown === category ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={openDropdown === category} timeout='auto' unmountOnExit>
-              <List component='div' disablePadding>
-                {getDropdownItems(category).map(({ to, text }) => (
-                  <ListItemButton key={to} sx={{ pl: 4 }}>
-                    <Link to={to} style={{ textDecoration: 'none', color: 'inherit' }}>
-                      <ListItemText primary={text} />
-                    </Link>
-                  </ListItemButton>
-                ))}
-              </List>
-            </Collapse>
-          </React.Fragment>
-        ))}
-      </List>
-    </Box>
-  )
+const drawer = (
+  <Box sx={{ textAlign: 'center' }}>
+    <Typography variant='h6' sx={{ my: 2.7, color: '#4CAF50', display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img style={{ height: 50, width: 50, marginRight: '2px' }} src='https://i.imgur.com/SE8uswq.png' alt='logo' />
+        <Typography variant='h6' sx={{ fontSize: 15, color: 'darkorange', fontWeight: 1000 }}>
+          SINDHULI BAZAR
+        </Typography>
+      </div>
+    </Typography>
+
+    <Divider />
+    <List>
+      {navItems.map(item => (
+        <ListItem key={item} disablePadding sx={{ textAlign: 'center' }}>
+          <ListItemButton>
+            <Link to={`/${item.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleDrawerToggle}>
+              <ListItemText primary={item} />
+            </Link>
+          </ListItemButton>
+        </ListItem>
+      ))}
+      {['stores', 'services', 'support'].map(category => (
+        <React.Fragment key={category}>
+          <ListItemButton onClick={() => handleDropdownToggle(category)}>
+            <ListItemText primary={capitalizeFirstLetter(category)} />
+            {openDropdown === category ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={openDropdown === category} timeout='auto' unmountOnExit>
+            <List component='div' disablePadding>
+              {getDropdownItems(category).map(({ to, text }) => (
+                <ListItemButton key={to} sx={{ pl: 4 }}>
+                  <Link to={to} style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleDrawerToggle}>
+                    <ListItemText primary={text} />
+                  </Link>
+                </ListItemButton>
+              ))}
+            </List>
+          </Collapse>
+        </React.Fragment>
+      ))}
+    </List>
+  </Box>
+)
+
+
 
   // Container for the drawer on mobile view
   const container = window !== undefined ? () => window().document.body : undefined
@@ -213,8 +216,8 @@ const getDropdownItems = (category) => {
       { to: '/FoodStore', text: 'Food Store' },
     ],
     services: [
-      { to: '/VehicleRenting', text: 'Vehicle Renting' },
-      { to: '/MedicalStore', text: 'Medical Store' },
+      { to: '/VehicleStore', text: 'Vehicle Renting' },
+      { to: '/HerbalStore', text: 'Herbal Store' },
       { to: '/SecondHandStore', text: 'Second Hand Shop' },
     ],
   }
