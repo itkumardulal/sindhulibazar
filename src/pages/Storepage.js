@@ -6,6 +6,8 @@ import Datacarrier from "../data/Datacarrier";
 import { useParams } from "react-router-dom";
 import { keyframes } from "@emotion/react";
 import { CarRentAnimation } from "../components/CarRentAnimation";
+import { useNavigate } from "react-router-dom";
+import CartBtn from "../components/CartBtn";
 
 // Define keyframes for animation
 const fadeIn = keyframes`
@@ -48,6 +50,7 @@ const fadeInButton = keyframes`
 `;
 
 const Storepage = () => {
+  const navigate = useNavigate(); // Get the navigate function
   // receiving the params sent from homepage to knw wht page and data we will be reflecting
   const { producttypeStore } = useParams();
   const [showButton, setShowButton] = useState(false);
@@ -90,9 +93,7 @@ const Storepage = () => {
   };
 
   const handleCart = () => {
-    alert(
-      "We are working on updating ADD to Cart for you to allow multiple purchases. Please wait for some days to update this feature. Continue shopping with direct orders on the website."
-    );
+    navigate("/Addtocart");
   };
 
   return (
@@ -103,30 +104,7 @@ const Storepage = () => {
       />
       {/* <CarRentAnimation/> */}
       <DrawerAppBar>
-        <Button
-          onClick={handleCart}
-          className="material-symbols-outlined"
-          sx={{
-            fontSize: { xs: "24px", sm: "32px" },
-            position: "fixed",
-            bottom: 16,
-            right: 16,
-            padding: 2,
-            color: "white",
-            backgroundColor: "#1a66ad",
-            borderRadius: "50%",
-            textDecoration: "none",
-            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-            zIndex: 1000,
-            transition: "background-color 0.3s ease, transform 0.3s ease",
-            "&:hover": {
-              backgroundColor: "#155a8a",
-              transform: "scale(1.1)",
-            },
-          }}
-        >
-          shopping_cart
-        </Button>
+        <CartBtn handleCart={handleCart} />
 
         <Box
           sx={{

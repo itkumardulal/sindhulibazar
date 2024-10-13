@@ -7,6 +7,8 @@ import Featuredproducts from "./../data/featuredItems.json"; // Import the JSON 
 import Footer from "../components/footer";
 import Datacarrier from "../data/Datacarrier";
 import Servicesbtn from "../components/homepagecom/Servicesbtn";
+import { Button } from "@mui/material";
+import CartBtn from "../components/CartBtn";
 // import { WidthFull } from "@mui/icons-material";
 
 const Homepage = () => {
@@ -68,10 +70,39 @@ const Homepage = () => {
   const randomVehicalProducts = shuffleArray([
     ...Datacarrier.VehicalStore,
   ]).slice(0, 4);
+  const handleCart = () => {
+    navigate("/Addtocart");
+  };
 
   return (
     <>
       <DrawerAppBar />
+      {/* <Button
+        onClick={handleCart}
+        className="material-symbols-outlined"
+        sx={{
+          fontSize: { xs: "24px", sm: "32px" },
+          position: "fixed",
+          bottom: 16,
+          right: 16,
+          padding: 2,
+          color: "white",
+          backgroundColor: "#1a66ad",
+          borderRadius: "50%",
+          textDecoration: "none",
+          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+          zIndex: 1000,
+          transition: "background-color 0.3s ease, transform 0.3s ease",
+          "&:hover": {
+            backgroundColor: "#155a8a",
+            transform: "scale(1.1)",
+          },
+        }}
+      >
+        shopping_cart
+      </Button> */}
+      <CartBtn handleCart={handleCart} />
+
       <div className="homepage-container">
         <div className="product-search">
           {/* Search Bar */}

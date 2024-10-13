@@ -3,8 +3,7 @@ import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./WhatsAppMessageLink.css";
 
-const WhatsAppMessageLink = ({ orderDetails }) => {
-  const totalCost = orderDetails.count * orderDetails.price + 150;
+const WhatsAppmebulk = ({ message }) => {
   const [currentShift, setCurrentShift] = useState("");
   const [admin, setAdmin] = useState("");
 
@@ -32,20 +31,7 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
 
   const generateWhatsAppLink = () => {
     const url = `https://api.whatsapp.com/send?phone=${admin}&text=${encodeURIComponent(
-      defaultMessage +
-        "  " +
-        "##itemName: " +
-        orderDetails.name +
-        "  " +
-        "##Price per piece: " +
-        orderDetails.price +
-        " " +
-        "##quantity: " +
-        orderDetails.count +
-        "##Delivery Charge:Rs." +
-        150 +
-        "##total price:" +
-        totalCost
+      defaultMessage + "##total price:" + message
     )}`;
     return url;
   };
@@ -88,11 +74,11 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
           size="medium"
           variant="outlined"
         >
-          ORDER NOW (खरीद गर्नुहोस्।)
+          CONFIRM ORDER
         </Button>
       </a>
     </div>
   );
 };
 
-export default WhatsAppMessageLink;
+export default WhatsAppmebulk;

@@ -157,5 +157,23 @@
         "category": "Liquor"
 
        
+    },
+    {
+        "id":20,
+        "name":"Xtreme Energy Drink Classic 330ML",
+        "image":"https://i.imgur.com/bypsoAZ.png",
+        "description": " Feel Xtreme, Discover Xtreme, a refreshing flavored fizzy energy drink",
+        "price": "rs. 125",    
+        "category": "Liquor"
+    },
+    {
+        "id":21,
+        "name":"Red Bull- Red 250ml",
+        "image":" https://i.imgur.com/E8eRYC9.png",
+        "description": "Red Bull, one of the most popular energy drinks produced in Thailand, is solely imported and marketed by GB Marketing, a 100% subsidiary of Gorkha Brewery.",
+        "price": "120",    
+        "category": "Liquor"
+
+       
     }
  ]

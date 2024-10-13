@@ -134,7 +134,13 @@ function DrawerAppBar({ window, children }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ backgroundColor: "orange" }}>
+      <AppBar
+        component="nav"
+        sx={{
+          backgroundColor: "orange",
+          background: "linear-gradient(135deg, #FFC107, #04ccdaf6)",
+        }}
+      >
         <Toolbar>
           {/* Menu icon for mobile view */}
           <IconButton
