@@ -17,7 +17,7 @@ const CartBtn = ({ handleCart }) => {
       );
       setTotalItems(itemCount);
     }
-  }, []);
+  }, [totalItems]);
 
   return (
     <Box sx={{ position: "relative" }}>

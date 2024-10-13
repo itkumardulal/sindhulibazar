@@ -28,16 +28,16 @@ const AddToCart = () => {
 
       // Calculate the total price
       const priceSum = cart.reduce(
-        (total, item) => total + item.price * item.quantity,
+        (total, item) => total + item.price * item.quantity + 150,
         0
       );
       setTotalPrice(priceSum); // Update the total price state
     }
   }, []); // This effect runs only once when the component mounts
 
-  const handleBuyNow = (item) => {
-    alert(`You have purchased: ${item.name}`);
-  };
+  // const handleBuyNow = (item) => {
+  //   alert(`You have purchased: ${item.name}`);
+  // };
 
   const increment = (id) => {
     setCartItems((prevItems) =>

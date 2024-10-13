@@ -50,16 +50,16 @@
         "name":"Amrit oil(Tel)",
         "image":"  https://i.imgur.com/iDZO5zC.jpg",
         "description": "Amrit Oil is a popular cooking oil in Nepal, known for its high quality and flavor. It's commonly used for frying and sautéing, enhancing the taste of various dishes. With its health benefits and suitability for everyday cooking, it’s a staple in many Nepali households.",
-        "price": "230 (per kg)"
+        "price": "230 "
         ,
            "category": "Grocery"
     },
     {
         "id":7,
-        "name":"Eggs",
+        "name":"Eggs : 700.00 per 30 Pcs",
         "image":"  https://i.imgur.com/bOrjLMF.jpg",
         "description": "Eggs (Anda) are a versatile and protein-rich food commonly used in Nepali cuisine. They can be boiled, fried, or used in curries, salads, and snacks. Eggs are not only a staple source of nutrition but also add flavor and texture to a variety of dishes..",
-        "price": "Rs. 700.00 per 30 Pcs"
+        "price": "700"
         ,
            "category": "Grocery"
     },{
@@ -67,7 +67,7 @@
         "name":"Tomatos",
         "image":"  https://i.imgur.com/TUz0p5t.jpg",
         "description": "Tomatoes (Tamaatar) are a key ingredient in Nepali cuisine, adding flavor and acidity to curries, salads, and sauces. They are versatile, used both fresh and cooked, and are rich in vitamins and antioxidants, enhancing the nutritional value of many dishes..",
-        "price": "100(per kg)"
+        "price": "100"
         ,
            "category": "Grocery"
     },{
@@ -75,7 +75,7 @@
         "name":"Chana Dal (Split Bengal Gram), 1KG",
         "image":"  https://i.imgur.com/RjnQaFq.jpg",
         "description": "Hygienically packed chana dal which is free from impurities such as weevils and stones Dals are sorted to deliver consistent quality of grains through the year No artificial flavours. No preservatives Dals are a rich source of protein",
-        "price": "250(per kg)"
+        "price": "250"
         ,
            "category": "Grocery"
     },{
@@ -83,7 +83,7 @@
         "name":"Cucumber Local, 1 Kg",
         "image":"  https://i.imgur.com/lsjfx5f.jpg",
         "description": "Cucumber Local, 1 Kg",
-        "price": "220(per kg)"
+        "price": "220"
         ,
            "category": "Grocery"
     },{
@@ -115,7 +115,7 @@
         "name":"Tarai Taichin Chiura - Loose (20kg)/bora [NSB Gold]",
         "image":"  https://i.imgur.com/hlOcjd1.jpg",
         "description": "Tarai Taichin Chiura - Loose (ताईचिन चिउरा) (20kg)/bora [NSB Gold]",
-        "price": "Rs 2400.00"
+        "price": "2400"
         ,
            "category": "Grocery"
     },{
@@ -131,7 +131,7 @@
         "name":"Hilife Kurum Kurum Chiura 1kg",
         "image":"  https://i.imgur.com/P5XO37a.jpg",
         "description": "Hilife's High-Quality Beaten Rice Crunchy (Made from Makwanpure Paddy): Elevate your snacking experience with Hilife's premium Beaten Rice, meticulously crafted from the finest Makwanpure Paddy.",
-        "price": "Rs. 150.00"
+        "price": "150"
         ,
            "category": "Grocery"
     }

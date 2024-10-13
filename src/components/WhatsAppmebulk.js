@@ -31,7 +31,7 @@ const WhatsAppmebulk = ({ message }) => {
 
   const generateWhatsAppLink = () => {
     const url = `https://api.whatsapp.com/send?phone=${admin}&text=${encodeURIComponent(
-      defaultMessage + "##total price:" + message
+      defaultMessage + message
     )}`;
     return url;
   };
