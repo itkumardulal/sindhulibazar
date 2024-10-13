@@ -26,18 +26,14 @@ const AddToCart = () => {
       );
       setTotalItems(itemCount);
 
-      // Calculate the total price
-      const priceSum = cart.reduce(
-        (total, item) => total + item.price * item.quantity + 150,
-        0
-      );
-      setTotalPrice(priceSum); // Update the total price state
+      // Calculate the total price including delivery charges
+      updateTotalPrice(cart); // Call function to calculate total price
     }
   }, []); // This effect runs only once when the component mounts
 
-  // const handleBuyNow = (item) => {
-  //   alert(`You have purchased: ${item.name}`);
-  // };
+  const handleBuyNow = (item) => {
+    alert(`You have purchased: ${item.name}`);
+  };
 
   const increment = (id) => {
     setCartItems((prevItems) =>
@@ -73,7 +69,13 @@ const AddToCart = () => {
       (total, item) => total + item.price * item.quantity,
       0
     );
-    setTotalPrice(priceSum); // Update the total price state
+
+    // Calculate unique categories for delivery charge
+    const uniqueCategories = new Set(cart.map((item) => item.category));
+    const deliveryCharge = uniqueCategories.size * 100; // ₹100 for each unique category
+
+    // Update the total price
+    setTotalPrice(priceSum + deliveryCharge); // Include delivery charges
   };
 
   const handleCheckoutAll = () => {
@@ -89,17 +91,20 @@ const AddToCart = () => {
       )
       .join("\n\n");
 
-    const totalMessage = `Total Price for all items: Rs. ${totalPrice}`;
+    // Calculate delivery charges
+    const uniqueCategories = new Set(cartItems.map((item) => item.category));
+    const deliveryCharge = uniqueCategories.size * 100; // ₹100 for each unique category
+    const totalMessage = `Total Price for all items: Rs. ${totalPrice}\nDelivery Charges: Rs. ${deliveryCharge}`;
 
     // Combine both messages
-    const finalMessage = `${message}\n\n${totalMessage}`;
+    const finalMessage = `${message}\n\n${totalMessage}\n\n${deliveryCharge}`;
     setCheckoutMessage(finalMessage);
 
     // Set timer to delete local storage after 30 seconds
     setTimeout(() => {
       localStorage.removeItem("cart");
       setCartItems([]); // Clear the cart items state
-    }, 100000); // 30 seconds
+    }, 30000); // 30 seconds
   };
 
   return (
@@ -212,7 +217,10 @@ const AddToCart = () => {
               textAlign: "center",
             }}
           >
-            <h3>Total Price for all items: Rs. {totalPrice}</h3>
+            <h3>
+              Total Price for all items including delivery : Rs. {totalPrice}
+              <p></p> Note: Different category order will charge you extra 100.
+            </h3>
 
             {/* Checkout All Button */}
             <button
@@ -233,7 +241,6 @@ const AddToCart = () => {
             >
               I want to order all items
             </button>
-
             {checkoutMessage && <WhatsAppmebulk message={checkoutMessage} />}
           </div>
         )}
