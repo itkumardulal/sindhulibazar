@@ -85,7 +85,7 @@ export default function ImgMediaCard({ data }) {
     // Save updated cart back to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    console.log("Product added to cart:", cart);
+    alert("New Product added to cart");
   };
 
   return (
