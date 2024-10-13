@@ -137,7 +137,7 @@ const AddToCart = () => {
                     <h3>{item.name}</h3>
                     <p className="cart-item-price">Category: {item.category}</p>
                     <p className="cart-item-price">Price: Rs. {item.price}</p>
-                    <p className="cart-item-price">Quantity: {item.quantity}</p>
+                    {/* <p className="cart-item-price">Quantity: {item.quantity}</p> */}
                     <p
                       style={{
                         backgroundColor: "yellow",
@@ -156,7 +156,7 @@ const AddToCart = () => {
                     <div
                       style={{
                         display: "flex",
-                        width: "60px",
+                        width: "80px",
                         justifyContent: "space-between",
                       }}
                     >
@@ -166,7 +166,7 @@ const AddToCart = () => {
                       >
                         -
                       </button>
-
+                      {item.quantity}
                       <button
                         className="buy-now-button"
                         onClick={() => increment(item.cartId)}
@@ -217,10 +217,10 @@ const AddToCart = () => {
               textAlign: "center",
             }}
           >
-            <h3>
+            <h4>
               Total Price for all items including delivery : Rs. {totalPrice}
               <p></p> Note: Different category order will charge you extra 100.
-            </h3>
+            </h4>
 
             {/* Checkout All Button */}
             <button

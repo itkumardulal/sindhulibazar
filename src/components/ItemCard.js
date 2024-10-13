@@ -86,6 +86,7 @@ export default function ImgMediaCard({ data }) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     alert("New Product added to cart");
+    window.location.reload(); // Refresh the page
   };
 
   return (

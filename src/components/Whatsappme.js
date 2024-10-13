@@ -88,7 +88,7 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
           size="medium"
           variant="outlined"
         >
-          ORDER NOW (खरीद गर्नुहोस्।)
+          ORDER NOW!
         </Button>
       </a>
     </div>
