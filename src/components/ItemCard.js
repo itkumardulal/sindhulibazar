@@ -137,7 +137,7 @@ export default function ImgMediaCard({ data }) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingBottom: "0.5%",
+                paddingBottom: ".5%",
               }}
             >
               <Button
@@ -166,6 +166,7 @@ export default function ImgMediaCard({ data }) {
               }}
             >
               <WhatsAppMessageLink orderDetails={{ name, price, count }} />
+
               <Button
                 fullWidth
                 size="medium"

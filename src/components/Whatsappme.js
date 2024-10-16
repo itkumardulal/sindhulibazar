@@ -49,10 +49,9 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
           sx={{
             mb: 2,
             width: "100%", // Make the button a bit smaller
-            background: "linear-gradient(90deg, #FDB813 0%, #FF5714 100%)",
+            background: "linear-gradient(90deg, #FDB813 100%, #FF5714 100%)",
             color: "white",
             borderRadius: "10px", // Slightly smaller border radius
-            padding: "5px 5px", // Reduced padding
             top: "5px",
             fontSize: {
               xs: "14px", // Smaller font size
@@ -85,8 +84,8 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
             src="https://i.imgur.com/DECyii1.png"
             alt="WhatsApp Icon"
             style={{
-              width: "35px", // Reduced icon size
-              height: "35px",
+              width: "25px", // Reduced icon size
+              height: "25px",
               transition: "transform 0.3s ease",
             }}
             className="whatsapp-icon"
