@@ -1,7 +1,7 @@
 /* WhatsAppMessageLink.css */
 
 button {
-  background: linear-gradient(145deg, #FFC107, #07e94b); /* Gradient background from yellow to orange */
+  background: linear-gradient(145deg, #FFC107, #ffffff); 
 
   border: none; /* Remove default border */
   border-radius: 8px; /* Slightly larger rounded corners */

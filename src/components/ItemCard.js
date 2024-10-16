@@ -137,7 +137,7 @@ export default function ImgMediaCard({ data }) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingBottom: "2.5%",
+                paddingBottom: "0.5%",
               }}
             >
               <Button
@@ -159,8 +159,13 @@ export default function ImgMediaCard({ data }) {
               </Button>
             </div>
 
-            <WhatsAppMessageLink orderDetails={{ name, price, count }} />
-            <div style={{ flex: 1, justifyContent: "center" }}>
+            <div
+              style={{
+                flex: 1,
+                justifyContent: "center",
+              }}
+            >
+              <WhatsAppMessageLink orderDetails={{ name, price, count }} />
               <Button
                 fullWidth
                 size="medium"

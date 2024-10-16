@@ -1,8 +1,6 @@
-import { Box, Paper, Typography, colors } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { Box, Paper, Typography, colors, Grid } from "@mui/material";
+import React, { useState } from "react";
 import DrawerAppBar from "../components/Navbar";
-
-// WhatsAppMessageLink
 
 const About = () => {
   const [fullName, setFullName] = useState("");
@@ -10,7 +8,7 @@ const About = () => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = () => {
-    alert("Message sent successfull");
+    alert("Message sent successfully");
   };
 
   const paperStyle = {
@@ -18,6 +16,7 @@ const About = () => {
     position: "relative",
     backgroundImage: `url(${process.env.PUBLIC_URL}/sindhuli.jpg)`,
     backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   const paperStyle2 = {
@@ -25,6 +24,7 @@ const About = () => {
     position: "relative",
     backgroundImage: `url(${process.env.PUBLIC_URL}/startup.jpg)`,
     backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   const paperStyle3 = {
@@ -32,220 +32,123 @@ const About = () => {
     position: "relative",
     backgroundImage: `url(${process.env.PUBLIC_URL}/delivery2.jpg)`,
     backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   const overlayStyle = {
-    content: '""',
     position: "absolute",
     top: 0,
     right: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: "rgba(255, 255, 255, 0.3)", // Adjust the opacity of the overlay
-    height: "50vh", // Set the height of the overlay to 50% of the parent (Paper) component
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
   };
+
   return (
     <DrawerAppBar>
-      <div>
-        <Box
+      <Box sx={{ flexGrow: 1, mt: 5 }}>
+        <Typography
+          variant="h4"
+          align="center"
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            gap: 2,
-            widows: "100%",
-            flexDirection: "column",
-            alignContent: "center",
+            backgroundColor: "orange",
+            p: 2,
+            mb: 2,
+            maxWidth: 800,
+            mx: "auto",
           }}
-          mt={5}
         >
-          <text
-            style={{
-              width: "90%",
-              fontSize: 22,
-              backgroundColor: "orange",
-              padding: 10,
-              maxWidth: 800,
-              marginTop: 10,
-              height: 60,
-            }}
-          >
-            About Us
-          </text>
-          <text
-            style={{
-              width: "90%",
-              fontSize: 25,
-              padding: 10,
-              maxWidth: 800,
-              fontWeight: "normal",
-              marginTop: 10,
-            }}
-          >
+          About Us
+        </Typography>
+
+        {/* Use Grid for better responsiveness */}
+        <Grid container spacing={4} justifyContent="center">
+          <Grid item xs={12} sm={10} md={8} lg={6}>
             <Paper elevation={5} sx={paperStyle}>
               <div style={{ position: "relative" }}>
                 <div style={overlayStyle}></div>
-                <div>
+                <Box sx={{ position: "relative", p: { xs: 2, sm: 3 } }}>
                   <Typography
-                    fontSize={{ sm: 20, lg: 35 }}
+                    variant="h4"
                     sx={{
-                      fontWeight: "bold",
-                      pt: 5,
                       color: "dark",
+                      fontWeight: "bold",
                       textDecoration: "underline",
                     }}
                   >
                     Welcome to Sindhulibazar.com!
                   </Typography>
-                  <br />
                   <Typography
-                    fontSize={{ xs: 10, sm: 20 }}
-                    p={{ sm: 1, md: 5 }}
-                    sx={{
-                      fontWeight: "bold",
-                      color: "black",
-                      backgroundColor: "white",
-                      padding: 2,
-                      opacity: "40%",
-                    }}
+                    sx={{ backgroundColor: "white", opacity: 0.7, mt: 2, p: 2 }}
                   >
-                    At sindhulibazar.com, we are proud to introduce an
-                    innovative solution to meet all your essential needs. We
-                    understand that convenience and reliability are crucial when
-                    it comes to purchasing your favorite drinks, groceries,
-                    food, and vehicle rentals. That is why we have  embarked on this
-                    exciting journey to bring everything right to your doorstep,
-                    all with the added promise of 24-hour delivery.
+                    At Sindhulibazar.com, we introduce an innovative solution to
+                    meet your essential needs. We offer 24-hour delivery for
+                    drinks, groceries, food, and vehicle rentals, ensuring
+                    convenience and reliability.
                   </Typography>
-                </div>
+                </Box>
               </div>
             </Paper>
+          </Grid>
 
-            <br />
-
+          <Grid item xs={12} sm={10} md={8} lg={6}>
             <Paper elevation={5} sx={paperStyle2}>
               <div style={{ position: "relative" }}>
                 <div style={overlayStyle}></div>
-                <div>
+                <Box sx={{ position: "relative", p: { xs: 2, sm: 3 } }}>
                   <Typography
-                    fontSize={{ sm: 20, lg: 35 }}
-                    sx={{
-                      fontWeight: "bold",
-                      pt: 7,
-                      padding: 2,
-                      textDecoration: "underline",
-                    }}
+                    variant="h4"
+                    sx={{ fontWeight: "bold", textDecoration: "underline" }}
                   >
                     Our Sindhuli Startup
                   </Typography>
-                  <br />
                   <Typography
-                    fontSize={{ xs: 10, sm: 20 }}
-                    p={{ sm: 1, md: 5 }}
-                    sx={{
-                      fontWeight: "bold",
-                      color: "black",
-                      backgroundColor: "white",
-                      padding: 2,
-                      opacity: "40%",
-                    }}
+                    sx={{ backgroundColor: "white", opacity: 0.7, mt: 2, p: 2 }}
                   >
                     SindhuliBazar.com, founded by Nepal Leadership Technology,
-                    aims to create an accessible platform offering essential
-                    services for the Sindhuli community. We provide high-quality
-                    products and services, including liquors, groceries, food
-                    delivery, vehicle rentals, and emergency medicine supplies,
-                    all rooted in local culture.
-                    <br />
-                    As locals, we understand the unique lifestyle of Sindhuli
-                    and strive to enhance daily life by delivering reliable
-                    solutions that integrate seamlessly into the community. Our
-                    platform serves as a bridge between tradition and modernity,
-                    supporting health and convenience while honoring our
-                    cultural heritage.
-                    <br />
-                    Looking ahead, we plan to expand our offerings to include
-                    emergency medicine services, Chakmake Pathao Express,
-                    Sindhuli Patho Express, a second-hand shop, and real estate
-                    services to further meet the evolving needs of our
-                    community.
+                    offers high-quality products and services, from liquor and
+                    groceries to vehicle rentals,second hand shop, food delivery
+                    and emergency medicine supplies. And more are to come on the
+                    way in updates.
                   </Typography>
-                </div>
+                </Box>
               </div>
             </Paper>
+          </Grid>
 
-            <br />
-
+          <Grid item xs={12} sm={10} md={8} lg={6}>
             <Paper elevation={5} sx={paperStyle3}>
               <div style={{ position: "relative" }}>
                 <div style={overlayStyle}></div>
-                <div>
+                <Box sx={{ position: "relative", p: { xs: 2, sm: 3 } }}>
                   <Typography
-                    fontSize={{ sm: 20, lg: 35 }}
-                    sx={{
-                      fontWeight: "bold",
-                      pt: 5,
-                      textDecoration: "underline",
-                      padding: 2,
-                    }}
+                    variant="h4"
+                    sx={{ fontWeight: "bold", textDecoration: "underline" }}
                   >
                     Quality Products Delivered at Your Doorstep
                   </Typography>
-                  <br />
                   <Typography
-                    fontSize={{ xs: 10, sm: 20 }}
-                    p={{ sm: 1, md: 5 }}
-                    sx={{
-                      fontWeight: "bold",
-                      color: "black",
-                      backgroundColor: "white",
-                      padding: 1,
-                      opacity: "40%",
-                    }}
+                    sx={{ backgroundColor: "white", opacity: 0.7, mt: 2, p: 2 }}
                   >
-                    At SindhuliBazar.com, we pride ourselves on providing a
-                    comprehensive range of services to meet your essential
-                    needs:
-                    <br />
-                    Liquor: Enjoy a diverse selection of premium spirits and
-                    popular brands with our 24-hour delivery service, bringing
-                    your favorite beverages right to your doorstep.
-                    <br />
-                    Groceries: Access fresh and quality grocery products
-                    conveniently online, with a focus on supporting local
-                    suppliers.
-                    <br />
-                    Food Delivery: Satisfy your cravings with our food delivery
-                    service, offering a variety of cuisines from local
-                    restaurants delivered quickly to your home.
-                    <br />
-                    Vehicle Rentals: Our vehicle rental service provides
-                    convenient transportation solutions for personal trips,
-                    events, or business needs.
-                    <br />
-                    Join us on this exciting journey as we raise a glass to
-                    convenience and quality in Sindhuli. With SindhuliBazar.com,
-                    you can count on us for all your liquor, grocery, food
-                    delivery, and vehicle rental needs!
+                    We provide a wide range of products: premium liquor, fresh
+                    groceries, quick food delivery, and vehicle rentals within
+                    sindhulimadhi. All are just a click away on
+                    SindhuliBazar.com.
                   </Typography>
-                </div>
+                </Box>
               </div>
             </Paper>
-          </text>
-          {/* add text here */}
-        </Box>
-      </div>
+          </Grid>
+        </Grid>
 
-      <Box
-        width={{ sm: 50, md: 100, lg: 500, xl: 1000 }}
-        sx={{ background: "orange", p: 1, margin: "auto" }}
-      >
-        <Typography
-          fontSize={{ xs: 10, sm: 17 }}
-          style={{ color: "black", margin: 10 }}
+        {/* Customer Service Info */}
+        <Box
+          sx={{ textAlign: "center", backgroundColor: "orange", mt: 5, p: 2 }}
         >
-          CUSTOMER SERVICE: 9741667448 (Kumar Dulal)
-        </Typography>
+          <Typography variant="h6" sx={{ color: "black" }}>
+            CUSTOMER SERVICE: 9741667448 (Kumar Dulal)
+          </Typography>
+        </Box>
       </Box>
     </DrawerAppBar>
   );
