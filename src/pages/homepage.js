@@ -161,7 +161,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="featured-products">
-          <h2>Cook Something Fresh</h2>
+          <h2>Take a Ride </h2>
           <div className="product-list">
             {randomVehicalProducts.map((product) => (
               <ProductItem key={product.id} product={product} />
