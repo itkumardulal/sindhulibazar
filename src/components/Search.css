@@ -1,138 +1,140 @@
-/* Container for the search bar and results */
 .search-container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    border-radius: 8px;
-}
-
-/* Styling the search bar container */
-.product-search {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-/* Search bar input */
-.search-bar {
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-/* Search bar focus style */
-.search-bar:focus {
-    border-color: #007bff;
-}
-
-/* Search bar icon container */
-.search-bar-icon {
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    transform: translateY(-50%);
-    pointer-events: none;
-}
-
-/* Styling the search icon */
-.search-icon {
-    fill: #999;
-}
-
-/* Container for the search results */
-.search-results {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-}
-
-/* Individual result item */
-.search-result-item {
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .product-search {
     display: flex;
     align-items: center;
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fff;
-    transition: box-shadow 0.3s ease;
-}
-
-/* Hover effect for result items */
-.search-result-item:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Image for result items */
-.item-image {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-right: 20px;
-}
-
-/* Details for result items */
-.item-details {
-    flex-grow: 1;
-}
-
-/* Product name in result items */
-.item-details h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-}
-
-/* Category and price info */
-.item-details p {
-    margin: 4px 0;
-    font-size: 14px;
-    color: #555;
-}
-
-/* Product actions container */
-.product-actions {
-    display: flex;
-    gap: 10px;
-}
-
-/* Button styles */
-.add-to-cart,
-.buy-now {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 14px;
-}
-
-.add-to-cart {
-    background-color: #28a745;
-    color: #fff;
-}
-
-.add-to-cart:hover {
-    background-color: #218838;
-}
-
-.buy-now {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.buy-now:hover {
-    background-color: #0069d9;
-}
-
-/* No products found message */
-.search-results p {
+    width: 100%;
+    max-width: 1400px; /* Limit width for larger screens */
+    margin-bottom: 20px; /* Space below the search bar */
+  }
+  
+  .search-bar {
+    flex: 1; /* Take remaining space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
     font-size: 16px;
-    color: #ff4d4d;
-}
+  }
+  
+  .search-bar-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-results {
+    display: grid; /* Use grid layout for search results */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between items */
+    width: 100%;
+    max-width: 1400px; /* Limit width for larger screens */
+    align-items: start; /* Align items to the start of the grid cells */
+    padding: 0 10px; /* Padding on small screens */
+  }
+  
+  .search-result-item {
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 100%; /* Ensure items use full width available */
+    max-width: 250px; /* Limit width for larger screens */
+  }
+  
+  .item-image {
+    max-width: 100%; /* Make image responsive */
+    height: 100px;
+    border-radius: 5px;
+  }
+  
+  .item-details {
+    text-align: center; /* Center text details */
+  }
+  
+  .count-controls {
+    display: flex;
+    justify-content: center; /* Center controls */
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .count-controls button {
+    padding: 5px 10px; /* Padding for buttons */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .product-actions {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .add-to-cart,
+  .buy-now {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1; /* Allow buttons to take equal space */
+    margin: 0 5px; /* Add margin between buttons */
+  }
+  
+  .add-to-cart {
+    background-color: #28a745; /* Green color */
+    color: rgb(255, 255, 255);
+  }
+  
+  .buy-now {
+    background-color: #007bff; /* Blue color */
+    color: white;
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 768px) {
+    .search-result-item {
+      padding: 10px;
+      max-width: 100%; /* Allow items to fill available space */
+      width: 100%; /* Ensure items use full width available */
+    }
+  
+    /* Adjust grid for smaller screens */
+    .search-results {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust item size for mobile */
+    }
+  
+    .product-search {
+      margin-bottom: 10px; /* Reduce margin for mobile */
+    }
+  
+    .item-details h3 {
+      font-size: 1.2em; /* Responsive heading size */
+    }
+  
+    .item-details p {
+      font-size: 0.9em; /* Responsive paragraph size */
+    }
+  
+    .add-to-cart,
+    .buy-now {
+      padding: 8px 15px; /* Smaller padding for mobile */
+      font-size: 0.9em; /* Responsive font size */
+    }
+  
+    .count-controls button {
+      padding: 5px 20px; /* Adjust button size for mobile */
+      font-size: 0.8em; /* Responsive font size */
+    }
+  }
+  

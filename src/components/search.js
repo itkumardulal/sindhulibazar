@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Search.css"; // Make sure to have a CSS file for styling.
 import Datacarrier from "../data/Datacarrier";
+import { useNavigate } from "react-router-dom";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate(); // Get the navigate function
 
   // Function to calculate how well a field (name or description) matches the search query
   const calculateMatchScore = (text, query, isNameField = false) => {
@@ -24,7 +26,6 @@ export default function Search() {
 
   const handleSearchChange = (e) => {
     const query = e.target.value.trim();
-
     setSearchQuery(query);
 
     if (query === "") {
@@ -39,7 +40,7 @@ export default function Search() {
       const storeItems = Datacarrier[storeKey];
 
       storeItems.forEach((item) => {
-        const { name, description, vehicleInfo } = item;
+        const { name, description, vehicleInfo, count = 1 } = item; // Extract count with a default of 1
 
         // Calculate match score based on name (higher priority)
         const nameScore = calculateMatchScore(name, query, true);
@@ -52,7 +53,7 @@ export default function Search() {
         const totalScore = nameScore + descriptionScore + vehicleScore;
 
         if (totalScore > 0) {
-          matchedResults.push({ ...item, score: totalScore });
+          matchedResults.push({ ...item, score: totalScore, count }); // Include count in matched results
         }
       });
     });
@@ -63,6 +64,58 @@ export default function Search() {
       .slice(0, 5); // Get only the top 5 results
 
     setSearchResults(sortedResults);
+  };
+
+  const generateUniqueCartId = () => {
+    return `cart-${new Date().getTime()}-${Math.random()
+      .toString(36)
+      .substr(2, 9)}`;
+  };
+
+  // Update the handleClickAddtoCart function to receive the item details
+  const handleClickAddtoCart = (item) => {
+    const { id, name, image, description, price, category, count = 1 } = item; // Extract from the passed item
+
+    // Get existing cart from localStorage
+    let cart = localStorage.getItem("cart");
+
+    // If cart exists, parse it, otherwise initialize an empty array
+    cart = cart ? JSON.parse(cart) : [];
+
+    // Create a new product object with a unique cart ID
+    const newProduct = {
+      cartId: generateUniqueCartId(), // Unique identifier for the cart item
+      id,
+      name,
+      image,
+      description,
+      price,
+      category,
+      quantity: count,
+    };
+
+    // Add the new product to the cart
+    cart.push(newProduct);
+
+    // Save updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("New Product added to cart");
+    window.location.reload(); // Refresh the page
+  };
+
+  // Function to update the count for a specific item
+  const updateCount = (itemId, operation) => {
+    setSearchResults((prevResults) =>
+      prevResults.map((item) => {
+        if (item.id === itemId) {
+          const newCount =
+            operation === "increment" ? item.count + 1 : item.count - 1;
+          return { ...item, count: Math.max(newCount, 1) }; // Ensure count doesn't go below 1
+        }
+        return item;
+      })
+    );
   };
 
   return (
@@ -97,17 +150,27 @@ export default function Search() {
                 <img src={item.image} alt={item.name} className="item-image" />
                 <div className="item-details">
                   <h3>{item.name}</h3>
-                  <p> {item.category}</p>
+                  <p>Category: {item.category}</p>
                   <p>Price: {item.price}</p>
-                  {item.vehicleInfo && (
-                    <p>Vehicle Info: {item.vehicleInfo}</p>
-                  )}{" "}
-                  {/* Display vehicle info if available */}
-                  {/* Description is not prioritized, but shown */}
-                  {/* <p>Description: {item.description}</p> */}
+                  <div className="count-controls">
+                    <button onClick={() => updateCount(item.id, "decrement")}>
+                      -
+                    </button>
+                    <span>{item.count}</span>
+                    <button onClick={() => updateCount(item.id, "increment")}>
+                      +
+                    </button>
+                  </div>
+                  {item.vehicleInfo && <p>Vehicle Info: {item.vehicleInfo}</p>}
                 </div>
                 <div className="product-actions">
-                  <button className="add-to-cart">Add to Cart</button>
+                  <button
+                    className="add-to-cart"
+                    onClick={() => handleClickAddtoCart(item)} // Pass the item details when clicked
+                  >
+                    Add to Cart
+                  </button>
+
                   <button className="buy-now">Buy Now</button>
                 </div>
               </div>

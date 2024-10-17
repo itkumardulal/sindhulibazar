@@ -1,7 +1,7 @@
 /* WhatsAppMessageLink.css */
 
 button {
-  background: linear-gradient(145deg, #FFC107, #ffffff); 
+  background: linear-gradient(145deg, #FFC107, #04ccdaf6); 
 
   border: none; /* Remove default border */
   border-radius: 8px; /* Slightly larger rounded corners */
@@ -15,7 +15,7 @@ button {
 
 /* Hover effect */
 button:hover {
-  background: linear-gradient(145deg, #FFB300, #0bd64f); /* Darker gradient on hover */
+  background: linear-gradient(145deg, #FFB300, #b7d60bb6); /* Darker gradient on hover */
   transform: translateY(-3px); /* Slightly lift the button on hover */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
 }
