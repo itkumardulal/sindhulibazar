@@ -1,0 +1,138 @@
+/* Container for the search bar and results */
+.search-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Styling the search bar container */
+.product-search {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Search bar input */
+.search-bar {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Search bar focus style */
+.search-bar:focus {
+    border-color: #007bff;
+}
+
+/* Search bar icon container */
+.search-bar-icon {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Styling the search icon */
+.search-icon {
+    fill: #999;
+}
+
+/* Container for the search results */
+.search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Individual result item */
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Hover effect for result items */
+.search-result-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image for result items */
+.item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 20px;
+}
+
+/* Details for result items */
+.item-details {
+    flex-grow: 1;
+}
+
+/* Product name in result items */
+.item-details h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Category and price info */
+.item-details p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Product actions container */
+.product-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Button styles */
+.add-to-cart,
+.buy-now {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.add-to-cart {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.add-to-cart:hover {
+    background-color: #218838;
+}
+
+.buy-now {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.buy-now:hover {
+    background-color: #0069d9;
+}
+
+/* No products found message */
+.search-results p {
+    font-size: 16px;
+    color: #ff4d4d;
+}

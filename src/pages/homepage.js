@@ -2,13 +2,13 @@ import React from "react";
 import "./homepage.css"; // Import the updated CSS
 import DrawerAppBar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
-import Featuredproducts from "./../data/featuredItems.json"; // Import the JSON data
 // import CoverSlider from "../components/homepagecom/CoverSlider";
 import Footer from "../components/footer";
 import Datacarrier from "../data/Datacarrier";
 import Servicesbtn from "../components/homepagecom/Servicesbtn";
 import { Button } from "@mui/material";
 import CartBtn from "../components/CartBtn";
+import Search from "../components/search";
 // import { WidthFull } from "@mui/icons-material";
 
 const Homepage = () => {
@@ -104,8 +104,9 @@ const Homepage = () => {
       <CartBtn handleCart={handleCart} />
 
       <div className="homepage-container">
-        <div className="product-search">
-          {/* Search Bar */}
+        <Search />
+        {/* <div className="product-search">
+       
           <input
             type="text"
             className="search-bar"
@@ -121,9 +122,9 @@ const Homepage = () => {
             >
               <path d="M10 2a8 8 0 016.32 12.906l5.387 5.387a1 1 0 01-1.415 1.415l-5.387-5.387A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z" />
             </svg>
-            {/* <input type="text" class="search-bar" placeholder="Search products..." /> */}
+           
           </div>
-        </div>
+        </div> */}
         <Servicesbtn />
 
         {/* Featured Products Section */}

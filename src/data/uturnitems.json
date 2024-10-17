@@ -38,7 +38,7 @@
         "id":5,
         "name":"Night cream",
         "image":"https://i.imgur.com/hdYawcC.png",
-        "description": "Night cream;Night cream;Night cream.Night cream;Night cream;Night cream.Night cream;Night cream;Night cream.Night cream;Night cream;Night cream.Night cream;Night cream;Night cream.Night cream;Night cream;Night cream.Night cream;Night cream;Night cream.Night cream;Night cream;Night cream.Night cream;Night cream;Night cream.",
+        "description": "Night cream;cream;Night cream.",
         "price": "1335",    
         "category": "Herbal"
     },
@@ -54,7 +54,7 @@
         "id":7,
         "name":"Day cream",
         "image":"https://i.imgur.com/3ChJb0l.png",
-        "description": "Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.Day cream;Day cream;Day cream.",
+        "description": "Day cream;Day creamy cream",
         "price": "1295",    
         "category": "Herbal"
 
@@ -72,7 +72,7 @@
         "id":9,
         "name":"Satwik Baby Sattu",
         "image":"https://i.imgur.com/GJtymFk.jpg",
-        "description": "Satwik Baby Sattu;Satwik Baby Sattu;Satwik Baby Sattu. Satwik Baby Sattu;Satwik Baby Sattu;Satwik Baby Sattu. Satwik Baby Sattu;Satwik Baby Sattu;Satwik Baby Sattu. Satwik Baby Sattu;Satwik Baby Sattu;Satwik Baby Sattu.",
+        "description": "Satwik Baby Sattu.",
         "price": "975",    
         "category": "Herbal"
     },
