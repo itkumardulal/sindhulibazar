@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Search.css"; // Make sure to have a CSS file for styling.
 import Datacarrier from "../data/Datacarrier";
 import { useNavigate } from "react-router-dom";
+import WhatsAppMessageLink from "./Whatsappme";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -171,8 +172,9 @@ export default function Search() {
                     Add to Cart
                   </button>
 
-                  <button className="buy-now">Buy Now</button>
+                  {/* <button className="buy-now">Buy Now</button> */}
                 </div>
+                <WhatsAppMessageLink orderDetails={item} />
               </div>
             ))
           : searchQuery && <p>No products found.</p>}

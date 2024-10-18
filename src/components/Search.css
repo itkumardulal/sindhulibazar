@@ -36,7 +36,7 @@
     width: 100%;
     max-width: 1400px; /* Limit width for larger screens */
     align-items: start; /* Align items to the start of the grid cells */
-    padding: 0 10px; /* Padding on small screens */
+    padding: 0 5px; /* Padding on small screens */
   }
   
   .search-result-item {
@@ -68,10 +68,11 @@
   }
   
   .count-controls button {
-    padding: 5px 10px; /* Padding for buttons */
+    padding: 5px 15px; /* Padding for buttons */
     border: 1px solid #ccc;
     border-radius: 3px;
     cursor: pointer;
+    margin: 5px;
   }
   
   .product-actions {
@@ -133,8 +134,9 @@
     }
   
     .count-controls button {
-      padding: 5px 20px; /* Adjust button size for mobile */
+      padding: 5px 12px; /* Adjust button size for mobile */
       font-size: 0.8em; /* Responsive font size */
+      margin: 5px;
     }
   }
   

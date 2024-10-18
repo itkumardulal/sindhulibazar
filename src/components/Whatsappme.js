@@ -51,7 +51,7 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
             width: "100%", // Make the button a bit smaller
             background: "linear-gradient(90deg, #FDB813 100%, #FF5714 100%)",
             color: "white",
-            borderRadius: "10px", // Slightly smaller border radius
+            borderRadius: "5px", // Slightly smaller border radius
             top: "5px",
             fontSize: {
               xs: "14px", // Smaller font size
