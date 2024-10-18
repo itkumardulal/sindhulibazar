@@ -27,7 +27,7 @@ const WhatsAppmebulk = ({ message }) => {
   });
 
   const phoneNumber = "YOUR_PHONE_NUMBER";
-  const defaultMessage = "Hello, This is my order details!";
+  const defaultMessage = "Hello, This is my order details!     ";
 
   const generateWhatsAppLink = () => {
     const url = `https://api.whatsapp.com/send?phone=${admin}&text=${encodeURIComponent(

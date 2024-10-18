@@ -94,10 +94,10 @@ const AddToCart = () => {
     // Calculate delivery charges
     const uniqueCategories = new Set(cartItems.map((item) => item.category));
     const deliveryCharge = uniqueCategories.size * 100; // ₹100 for each unique category
-    const totalMessage = `Total Price for all items: Rs. ${totalPrice}\nDelivery Charges: Rs. ${deliveryCharge}`;
+    const totalMessage = `Delivery Charges: Rs. ${deliveryCharge} \n Total Price for all items: Rs. ${totalPrice}\n`;
 
     // Combine both messages
-    const finalMessage = `${message}\n\n${totalMessage}\n\n${deliveryCharge}`;
+    const finalMessage = `${message}\n\n${totalMessage}\n`;
     setCheckoutMessage(finalMessage);
 
     // Set timer to delete local storage after 30 seconds
