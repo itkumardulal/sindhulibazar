@@ -1,56 +1,56 @@
 [
     {
         "id":1,
-        "name":"Jira Masino chamal",
-        "image":"https://i.imgur.com/BNe8PXd.jpg",
-        "description": "Salleri Lokal Jira is a fine-grain, aromatic Nepali rice known for its delicate texture and distinct fragrance. It’s a premium variety, often used in traditional Nepali dishes, especially during special occasions, to complement rich curries and flavorful sides.",
-        "price": "2990",
+        "name":"Gyan Extra Long Grain Basmati rice (20kg)",
+        "image":"https://i.imgur.com/lxUyBpk.jpg",
+        "description": " Extra Long Grain Basmati rice (20kg)",
+        "price": "3750",
            "category": "Grocery"
 
     },
     {
         "id":2,
-        "name":"Onion",
-        "image":"https://i.imgur.com/vqQmfXQ.png",
-        "description": "Onions (Pyaaj) are a staple in Nepali cuisine, adding flavor and aroma to curries, stews, and salads. Versatile and essential, they can be cooked or eaten raw..",
-        "price": "160",
+        "name":"Gyan Chakki Atta (2kg)",
+        "image":"https://i.imgur.com/YNmUkfH.jpg",
+        "description": "Gyan Chakki Atta (2kg).",
+        "price": "210",
            "category": "Grocery"
     
     },
     {
         "id":3,
-        "name":"Atta whole wheat",
-        "image":" https://i.imgur.com/O7hLzKP.jpg",
-        "description": "Whole wheat flour (Gahu ko atta) is a nutritious flour made from whole wheat grains, rich in fiber and minerals. It's commonly used in Nepali cooking for making bread, roti, and other baked goods.",
-        "price": "4500" ,
+        "name":"Rahar Dal (1kg)",
+        "image":" https://i.imgur.com/jItE8C4.png",
+        "description": "Rahar Dal (1kg)",
+        "price": "400" ,
            "category": "Grocery"
 
        
     },
     {
         "id":4,
-        "name":"Badam (per kg)",
-        "image":"https://i.imgur.com/mpFyllA.jpg",
+        "name":"Badam (1kg)",
+        "image":"https://i.imgur.com/r52VLU4.jpg",
         "description": "Badam (almonds) are nutritious nuts packed with healthy fats, protein, vitamins, and minerals. They are commonly used in Nepali cuisine for snacks, desserts, and as a garnish in various dishes, adding a delightful crunch and rich flavor..",
-        "price": " 1550"
+        "price": " 1700"
         ,
            "category": "Grocery"
     },
     {
         "id":5,
-        "name":"Potatos",
-        "image":"https://i.imgur.com/GzOeiX0.jpg",
-        "description": "Potatoes (Aloo) are a versatile and widely used vegetable in Nepali cuisine. They can be boiled, fried, or used in curries, snacks, and salads, offering a comforting texture and neutral flavor that complements a variety of dishes",
-        "price": "100"
+        "name":"Dante Okhar (1kg)",
+        "image":"https://i.imgur.com/3h3fRdE.png",
+        "description": "Dante Okhar (1kg)",
+        "price": "720"
         ,
            "category": "Grocery"
     },
     {
         "id":6,
-        "name":"Amrit oil(Tel)",
-        "image":"  https://i.imgur.com/iDZO5zC.jpg",
-        "description": "Amrit Oil is a popular cooking oil in Nepal, known for its high quality and flavor. It's commonly used for frying and sautéing, enhancing the taste of various dishes. With its health benefits and suitability for everyday cooking, it’s a staple in many Nepali households.",
-        "price": "230 "
+        "name":"Dhara Gold Oil (2kg)",
+        "image":"  https://i.imgur.com/eBv4NcJ.jpg",
+        "description": "Dhara Gold Oil (2kg)",
+        "price": "670 "
         ,
            "category": "Grocery"
     },
@@ -64,66 +64,66 @@
            "category": "Grocery"
     },{
         "id":8,
-        "name":"Tomatos",
-        "image":"  https://i.imgur.com/TUz0p5t.jpg",
-        "description": "Tomatoes (Tamaatar) are a key ingredient in Nepali cuisine, adding flavor and acidity to curries, salads, and sauces. They are versatile, used both fresh and cooked, and are rich in vitamins and antioxidants, enhancing the nutritional value of many dishes..",
-        "price": "200"
-        ,
-           "category": "Grocery"
-    },{
-        "id":9,
-        "name":"Chana Dal (Split Bengal Gram), 1KG",
-        "image":"  https://i.imgur.com/RjnQaFq.jpg",
-        "description": "Hygienically packed chana dal which is free from impurities such as weevils and stones Dals are sorted to deliver consistent quality of grains through the year No artificial flavours. No preservatives Dals are a rich source of protein",
-        "price": "250"
-        ,
-           "category": "Grocery"
-    },{
-        "id":10,
-        "name":"Cucumber Local, 1 Kg",
-        "image":"  https://i.imgur.com/lsjfx5f.jpg",
-        "description": "Cucumber Local, 1 Kg",
+        "name":"Taichin Chiura red (1kg)",
+        "image":"  https://i.imgur.com/CQVr0QP.jpg",
+        "description": "Taichin Chiura red (1kg)",
         "price": "220"
         ,
            "category": "Grocery"
     },{
+        "id":9,
+        "name":"Rajma Dal (1kg)",
+        "image":"  https://i.imgur.com/hKLI94b.png",
+        "description": "Rajma Dal (1kg)",
+        "price": "220"
+        ,
+           "category": "Grocery"
+    },{
+        "id":10,
+        "name":"Gyan Basmati Boiled Rice (5Kg)",
+        "image":"  https://i.imgur.com/W59Tou9.jpg",
+        "description": "Gyan Basmati Boiled Rice (5Kg)",
+        "price": "765"
+        ,
+           "category": "Grocery"
+    },{
         "id":11,
-        "name":"Green Beans (Cow Pea)(बोडी), 500 gm",
-        "image":"  https://i.imgur.com/reji6rS.jpg",
-        "description": "Green Beans (Cow Pea)(बोडी), 500 gm",
-        "price": "100"
+        "name":"Bikaji bikaneri Bhujiya (359gm)",
+        "image":"  https://i.imgur.com/8xZpSWm.jpg",
+        "description": "Bikaji bikaneri Bhujiya (359gm)",
+        "price": "235"
         ,
            "category": "Grocery"
     },{
         "id":12,
-        "name":"Hulas Chiura Kurum Kurum (Beaten Rice), 1kg",
-        "image":"  https://i.imgur.com/Lhxw3PT.jpg",
-        "description": "Hulas Chiura Kurum Kurum (Beaten Rice), 1kg",
-        "price": "110"
+        "name":"Bikaji Moong Dal (150gm)",
+        "image":"  https://i.imgur.com/Gkk6Ov0.png",
+        "description": "Bikaji Moong Dal (150gm)",
+        "price": "150"
         ,
            "category": "Grocery"
     },{
         "id":13,
-        "name":"NPF Barari Prawn 120gm",
-        "image":"  https://i.imgur.com/bKgfvbR.png",
-        "description": "NPF Barari Prawn 120gm",
-        "price": "Rs.50.00"
+        "name":"Musuro Dal (1kg)",
+        "image":"  https://i.imgur.com/399dj3m.jpg",
+        "description": "Musuro Dal (1kg)",
+        "price": "170"
         ,
            "category": "Grocery"
     },{
         "id":14,
-        "name":"Tarai Taichin Chiura - Loose (20kg)/bora [NSB Gold]",
-        "image":"  https://i.imgur.com/hlOcjd1.jpg",
-        "description": "Tarai Taichin Chiura - Loose (ताईचिन चिउरा) (20kg)/bora [NSB Gold]",
-        "price": "2400"
+        "name":"Mass Dal (1kg)",
+        "image":"  https://i.imgur.com/aRMNHSd.jpg",
+        "description": "Mass Dal (1kg)",
+        "price": "235"
         ,
            "category": "Grocery"
     },{
         "id":15,
-        "name":"Spartan Papad",
-        "image":"  https://i.imgur.com/XtEMfzE.jpg",
-        "description": "Spartan Papad",
-        "price": "110"
+        "name":"Haldiraim's Khatta Meetha (360gm)",
+        "image":"  https://i.imgur.com/rnuT6WZ.png",
+        "description": "Haldiraim's Khatta Meetha (360gm)",
+        "price": "300"
         ,
            "category": "Grocery"
     },{
@@ -131,12 +131,11 @@
         "name":"Hilife Kurum Kurum Chiura 1kg",
         "image":"  https://i.imgur.com/P5XO37a.jpg",
         "description": "Hilife's High-Quality Beaten Rice Crunchy (Made from Makwanpure Paddy): Elevate your snacking experience with Hilife's premium Beaten Rice, meticulously crafted from the finest Makwanpure Paddy.",
-        "price": "150"
+        "price": "180"
         ,
            "category": "Grocery"
     }
 
 
 
-  ]
-  
+]

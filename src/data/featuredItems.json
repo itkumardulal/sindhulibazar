@@ -16,12 +16,13 @@
         "category": "Liquor"
     },
     {
-        "id": 3,
-        "name": "Atta Whole Wheat",
-        "image": "https://i.imgur.com/O7hLzKP.jpg",
-        "description": "Whole wheat flour (Gahu ko atta) is a nutritious flour made from whole wheat grains, rich in fiber and minerals. It's commonly used in Nepali cooking for making bread, roti, and other baked goods.",
-        "price": "350",
-        "category": "Grocery"
+        "id":2,
+        "name":"Gyan Chakki Atta (2kg)",
+        "image":"https://i.imgur.com/YNmUkfH.jpg",
+        "description": "Gyan Chakki Atta (2kg).",
+        "price": "210",
+           "category": "Grocery"
+    
     },
     {
         "id": 4,
