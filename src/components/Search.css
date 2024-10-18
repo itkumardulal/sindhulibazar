@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding: 8px;
     box-sizing: border-box;
 }
 
@@ -32,10 +32,10 @@
 .search-results {
     display: grid; /* Use grid layout for search results */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: 20px; /* Space between items */
+    gap: 18px; /* Space between items */
     width: 100%;
     max-width: 1400px; /* Limit width for larger screens */
-    align-items: start; /* Align items to the start of the grid cells */
+    align-items: center; /* Align items to the start of the grid cells */
     padding: 0 5px; /* Padding on small screens */
 }
 
@@ -52,7 +52,7 @@
 
 .item-image {
     max-width: 100%; /* Make image responsive */
-    height: 80px; /* Reduced height for mobile */
+    height: 60px; /* Reduced height for mobile */
     border-radius: 5px;
 }
 
