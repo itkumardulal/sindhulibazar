@@ -3,10 +3,9 @@ import { Button } from "@mui/material";
 import "./WhatsAppMessageLink.css";
 
 const WhatsAppMessageLink = ({ orderDetails }) => {
-  const deliveryCharge = 150;
-  const totalCost = orderDetails.count * orderDetails.price + deliveryCharge;
   const [currentShift, setCurrentShift] = useState("");
   const [admin, setAdmin] = useState("");
+  const [deliveryCharge, setDeliveryCharge] = useState(0); // Initialize to 0
 
   const dayShiftStart = 8;
   const dayShiftEnd = 17;
@@ -18,17 +17,22 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
     if (currentHour >= dayShiftStart && currentHour < dayShiftEnd) {
       setCurrentShift("Day Shift");
       setAdmin("+9779703782444"); // Adjust admin number accordingly
+      setDeliveryCharge(100); // Set delivery charge for day shift
     } else {
       setCurrentShift("Night Shift");
       setAdmin("+9779703782444");
+      setDeliveryCharge(200); // Set delivery charge for night shift
     }
   }, []);
+
+  const totalCost = orderDetails.count * orderDetails.price + deliveryCharge;
 
   const generateWhatsAppLink = () => {
     const message = `Hello, This is my order details!
     ## Item Name: ${orderDetails.name}
+     ## Quantity: ${orderDetails.count}
     ## Price per piece: Rs.${orderDetails.price}
-    ## Quantity: ${orderDetails.count}
+    ##${currentShift}
     ## Delivery Charge: Rs.${deliveryCharge}
     ## Total Price: Rs.${totalCost}`;
 
@@ -48,44 +52,42 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
         <Button
           sx={{
             mb: 2,
-            width: "100%", // Make the button a bit smaller
+            width: "100%",
             background: "linear-gradient(90deg, #FDB813 100%, #FF5714 100%)",
             color: "white",
-            borderRadius: "5px", // Slightly smaller border radius
+            borderRadius: "5px",
             top: "10px",
             fontSize: {
-              xs: "14px", // Smaller font size
+              xs: "14px",
               sm: "16px",
               md: "18px",
             },
-
             fontWeight: "bold",
-
             textTransform: "none",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: "10px", // Reduced gap between icon and text
-            transition: "all 0.3s ease-in-out", // Slightly faster transition
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)", // Reduced shadow for a smaller look
+            gap: "10px",
+            transition: "all 0.3s ease-in-out",
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
             "&:hover": {
               background: "linear-gradient(90deg, #FF7B00 0%, #FF2400 100%)",
-              transform: "translateY(-2px)", // Slight adjustment in hover effect
-              boxShadow: "0 6px 20px rgba(0, 0, 0, 0.5)", // Adjusted shadow on hover
+              transform: "translateY(-2px)",
+              boxShadow: "0 6px 20px rgba(0, 0, 0, 0.5)",
             },
             "&:active": {
               transform: "translateY(0)",
-              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Reduced active shadow
+              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
             },
           }}
-          size="small" // Use small size for the button
+          size="small"
           variant="contained"
         >
           <img
             src="https://i.imgur.com/DECyii1.png"
             alt="WhatsApp Icon"
             style={{
-              width: "25px", // Reduced icon size
+              width: "25px",
               height: "25px",
               transition: "transform 0.3s ease",
             }}

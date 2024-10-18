@@ -51,7 +51,7 @@
         "id": 7,
         "name": "Buff Chowmein",
         "image": "https://i.imgur.com/4oFFAFQ.jpg",
-        "description": "Veg Chowmein is a stir-fried noodle dish with mixed vegetables, seasoned with soy sauce and spices. It’s a tasty, quick vegetarian favorite in Nepali cuisine.",
+        "description": "Buff Chowmein is a popular dish featuring stir-fried noodles tossed with tender pieces of buff (buffalo meat), fresh vegetables, and a savory blend of spices and sauces, delivering a flavorful and hearty meal",
         "price": "150",
         "category": "Food"
     },
@@ -59,7 +59,7 @@
         "id": 8,
         "name": "Veg Mo:MOs",
         "image": "https://i.imgur.com/NaHJu04.jpg",
-        "description": "Buff Momo beloved Nepali dumpling dish filled with seasoned buffalo meat, mixed with spices, onions, and herbs. Steamed or fried, they are served with a spicy tomato-based dipping sauce (achar) and are a popular street Food known for their rich flavor and juicy texture.",
+        "description": "Veg MoMO are steamed dumplings filled with a savory mix of vegetables and spices, wrapped in soft dough.",
         "price": "120",
         "category": "Food"
     },
@@ -67,7 +67,7 @@
         "id": 9,
         "name": "Chicken Mo:MOs",
         "image": "https://i.imgur.com/IH64CfZ.png",
-        "description": "Samosa Aachar is a delightful Nepali snack pairing crispy, spiced samosas with tangy, flavorful pickle (aachar). The samosas are filled with a savory mixture of potatoes, peas, and spices, while the aachar adds a zesty, spicy kick, creating a delicious balance of textures and flavors. Perfect for a light snack or tea-time treat.",
+        "description": "Chicken Momo are beloved for their delightful taste and are a must-try for anyone exploring Himalayan cuisine!",
         "price": "180",
         "category": "Food"
     },
@@ -83,7 +83,7 @@
         "id": 11,
         "name": "Buff Khaja Set",
         "image": "https://i.imgur.com/XEYOs6u.jpg",
-        "description": "Mutton Khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
+        "description": "Buff Khaja Set is a traditional Nepali meal that includes spiced buffalo meat, served with rice, lentil soup (dal), vegetable curry, pickles (achar), and often accompanied by a side of fried or boiled eggs, offering a hearty and flavorful dining experience.",
         "price": "350",
         "category": "Food"
     },

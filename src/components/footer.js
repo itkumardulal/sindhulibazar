@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Footer.css'; // External CSS file for styling
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Footer.css"; // External CSS file for styling
 
 const Footer = () => {
   return (
@@ -11,36 +11,72 @@ const Footer = () => {
           <div className="footer-column">
             <h4>Company</h4>
             <ul>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/careers">Careers</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <Link to="/careers">Careers</Link>
+              </li>
+              <li>
+                <Link to="/blog">Blog</Link>
+              </li>
             </ul>
           </div>
 
           <div className="footer-column">
             <h4>Support</h4>
             <ul>
-              <li><Link to="/help">Help Center</Link></li>
-              <li><Link to="/contact">Contact Us</Link></li>
-              <li><Link to="/privacy">Privacy Policy</Link></li>
+              <li>
+                <Link to="/help">Help Center</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact Us</Link>
+              </li>
+              {/* <li>
+                <Link to="/privacy">Privacy Policy</Link>
+              </li> */}
             </ul>
           </div>
 
           <div className="footer-column">
             <h4>Services</h4>
             <ul>
-              <li><Link to="/web">Web Development</Link></li>
-              <li><Link to="/app">App Development</Link></li>
-              <li><Link to="/marketing">Digital Marketing</Link></li>
+              <li>
+                <Link to="/">Web Development</Link>
+              </li>
+              <li>
+                <Link to="/">App Development</Link>
+              </li>
+              <li>
+                <Link to="/">Digital Marketing</Link>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Social Media Links */}
         <div className="footer-social">
-          <a href="https://facebook.com/sindhulibazar" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="hhttps://www.youtube.com/nltproductions" target="_blank" rel="noopener noreferrer">Youtube</a>
-          <a href="https://facebook.com/nltproductions" target="_blank" rel="noopener noreferrer">video Production page</a>
+          <a
+            href="https://facebook.com/sindhulibazar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+          <a
+            href="hhttps://www.youtube.com/nltproductions"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Youtube
+          </a>
+          <a
+            href="https://facebook.com/nltproductions"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            video Production page
+          </a>
         </div>
 
         {/* Footer Bottom Section */}

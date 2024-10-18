@@ -3,7 +3,7 @@
         "id":1,
         "name":"Gyan Extra Long Grain Basmati rice (20kg)",
         "image":"https://i.imgur.com/lxUyBpk.jpg",
-        "description": " Extra Long Grain Basmati rice (20kg)",
+        "description": " Gyan Extra Long Grain Basmati Rice is premium rice with long, fluffy grains and a fragrant aroma, ideal for biryani and pilaf.",
         "price": "3750",
            "category": "Grocery"
 
@@ -12,7 +12,7 @@
         "id":2,
         "name":"Gyan Chakki Atta (2kg)",
         "image":"https://i.imgur.com/YNmUkfH.jpg",
-        "description": "Gyan Chakki Atta (2kg).",
+        "description": "Gyan Chakki Atta is a high-quality whole wheat flour made from finely milled grains, known for its rich nutritional value and superior texture, making it ideal for making a variety of Indian breads like roti, chapati, and paratha.",
         "price": "210",
            "category": "Grocery"
     
@@ -21,7 +21,7 @@
         "id":3,
         "name":"Rahar Dal (1kg)",
         "image":" https://i.imgur.com/jItE8C4.png",
-        "description": "Rahar Dal (1kg)",
+        "description": "Rahar Dal is a traditional Nepali lentil dish made from split red lentils (rahar), typically cooked with spices, turmeric, and sometimes tomatoes or onions, resulting in a flavorful and nutritious accompaniment to rice or bread.",
         "price": "400" ,
            "category": "Grocery"
 
@@ -40,7 +40,7 @@
         "id":5,
         "name":"Dante Okhar (1kg)",
         "image":"https://i.imgur.com/3h3fRdE.png",
-        "description": "Dante Okhar (1kg)",
+        "description": "Dante Okhar refers to a traditional Nepali dish made from roasted or boiled black walnuts, known for their rich, earthy flavor and often enjoyed as a snack or added to various recipes.",
         "price": "720"
         ,
            "category": "Grocery"
@@ -49,7 +49,7 @@
         "id":6,
         "name":"Dhara Gold Oil (2Ltr)",
         "image":"  https://i.imgur.com/eBv4NcJ.jpg",
-        "description": "Dhara Gold Oil (2kg)",
+        "description": "Dhara Gold Oil is a refined cooking oil known for its light texture and high smoke point, perfect for frying and everyday cooking, offering a blend of quality and flavor.",
         "price": "670 "
         ,
            "category": "Grocery"
@@ -66,7 +66,7 @@
         "id":8,
         "name":"Taichin Chiura red (1kg)",
         "image":"  https://i.imgur.com/CQVr0QP.jpg",
-        "description": "Taichin Chiura red (1kg)",
+        "description": "Taichin Chiura Red is a traditional Nepali flattened rice made from red rice, known for its crunchy texture and nutty flavor, often used in snacks or served with yogurt and spices.",
         "price": "220"
         ,
            "category": "Grocery"
@@ -74,7 +74,7 @@
         "id":9,
         "name":"Rajma Dal (1kg)",
         "image":"  https://i.imgur.com/hKLI94b.png",
-        "description": "Rajma Dal (1kg)",
+        "description": "Rajma Dal is a hearty dish made from kidney beans cooked with spices, tomatoes, and onions, resulting in a rich and flavorful curry often enjoyed with rice or bread.)",
         "price": "220"
         ,
            "category": "Grocery"
@@ -82,7 +82,7 @@
         "id":10,
         "name":"Gyan Basmati Boiled Rice (5Kg)",
         "image":"  https://i.imgur.com/W59Tou9.jpg",
-        "description": "Gyan Basmati Boiled Rice (5Kg)",
+        "description": "Gyan Basmati Boiled Rice is pre-cooked basmati rice known for its fluffy texture and aromatic flavor, making it a convenient and delicious option for a variety of dishes.",
         "price": "765"
         ,
            "category": "Grocery"
@@ -90,7 +90,7 @@
         "id":11,
         "name":"Bikaji bikaneri Bhujiya (359gm)",
         "image":"  https://i.imgur.com/8xZpSWm.jpg",
-        "description": "Bikaji bikaneri Bhujiya (359gm)",
+        "description": "Bikaji Bikaneri Bhujia is a crispy, spiced snack made from gram flour and a blend of spices, renowned for its savory flavor and crunchy texture, often enjoyed as a snack or topping for various dishes",
         "price": "235"
         ,
            "category": "Grocery"
@@ -98,7 +98,7 @@
         "id":12,
         "name":"Bikaji Moong Dal (150gm)",
         "image":"  https://i.imgur.com/Gkk6Ov0.png",
-        "description": "Bikaji Moong Dal (150gm)",
+        "description": "Bikaji Moong Dal is a crunchy snack made from fried split yellow moong beans, seasoned with spices, offering a deliciously savory flavor and a nutritious crunch, perfect for snacking.",
         "price": "150"
         ,
            "category": "Grocery"
@@ -106,7 +106,7 @@
         "id":13,
         "name":"Musuro Dal (1kg)",
         "image":"  https://i.imgur.com/399dj3m.jpg",
-        "description": "Musuro Dal (1kg)",
+        "description": "Musuro Dal is a traditional lentil dish made from split black lentils, known for its earthy flavor and creamy texture, often enjoyed with rice or bread in Nepali cuisine.",
         "price": "170"
         ,
            "category": "Grocery"
@@ -114,7 +114,7 @@
         "id":14,
         "name":"Mass Dal (1kg)",
         "image":"  https://i.imgur.com/aRMNHSd.jpg",
-        "description": "Mass Dal (1kg)",
+        "description": "Mass Dal is a flavorful lentil dish made from black gram (urad dal), typically cooked with spices and sometimes mixed with vegetables, offering a hearty and nutritious complement to rice or roti.)",
         "price": "235"
         ,
            "category": "Grocery"
@@ -122,7 +122,7 @@
         "id":15,
         "name":"Haldiraim's Khatta Meetha (360gm)",
         "image":"  https://i.imgur.com/rnuT6WZ.png",
-        "description": "Haldiraim's Khatta Meetha (360gm)",
+        "description": "Haldiraam's Khatta Meetha is a tasty snack mix that blends sweet and tangy flavors with crunchy nuts and spices, perfect for munching.",
         "price": "300"
         ,
            "category": "Grocery"
@@ -134,6 +134,174 @@
         "price": "180"
         ,
            "category": "Grocery"
+    },
+    {
+        "id": 17,
+        "name": "Plain Cashew (Kaju) 1Kg Best Quality",
+        "image": "  https://i.imgur.com/608it6k.jpg",
+        "description": "Plain Cashew (Kaju) 1Kg Best Quality",
+        "price": "2150",
+        "category": "Grocery"
+    },
+    {
+        "id": 18,
+        "name": "Haldiraim's Kaju mixture (360gm)",
+        "image": "  https://i.imgur.com/YtRQ1HL.jpg",
+        "description": "Haldiraim's Kaju mixture (360gm)",
+        "price": "300",
+        "category": "Grocery"
+    },
+    {
+        "id": 19,
+        "name": "Bikaji classic  salted peanuts (175gm)",
+        "image": " https://i.imgur.com/RPwEUO1.png",
+        "description": "Bikaji classic  salted peanuts (175gm)",
+        "price": "135",
+        "category": "Grocery"
+    },
+    {
+        "id": 20,
+        "name": "Palermo Pomace Olive Oil 1Ltr",
+        "image": "  https://i.imgur.com/BtdRwjD.jpg",
+        "description": " Cadel Monte Pomace Olive Oil 1 ltr.",
+        "price": "1520",
+        "category": "Grocery"
+    },
+    {
+        "id": 21,
+        "name": "Haldiraim's Nut Cracker (200gm)",
+        "image": "  https://i.imgur.com/mfioMer.jpg",
+        "description": "Haldiraim's Nut Cracker (200gm)",
+        "price": "180",
+        "category": "Grocery"
+    },
+    {
+        "id": 22,
+        "name": "Haldiraim's All In One (360gm)",
+        "image": " https://i.imgur.com/g4RaMIe.png",
+        "description": "Haldiraim's All In One (360gm)",
+        "price": "200",
+        "category": "Grocery"
+    },
+    {
+        "id": 23,
+        "name": "Haldiraim's Aloo Bhujiya(400gm)",
+        "image": " https://i.imgur.com/TRc6AYS.png",
+        "description": "Haldiraim's Aloo Bhujiya(400gm)",
+        "price": "300",
+        "category": "Grocery"
+    },
+    {
+        "id": 24,
+        "name": "Haldiram's Navrattan 360g",
+        "image": " https://i.imgur.com/VHO6zk4.png",
+        "description": "Haldiram's Navrattan 360g",
+        "price": "300",
+        "category": "Grocery"
+    },
+    {
+        "id": 25,
+        "name": "Century Mix Masala 175gm",
+        "image": "  https://i.imgur.com/mIUXD9m.jpg",
+        "description": "Century Mix Masala 175gm",
+        "price": "110",
+        "category": "Grocery"
+    },
+    {
+        "id": 26,
+        "name": "Century cumin power (200gm)",
+        "image": " https://i.imgur.com/4ahU0it.jpg",
+        "description": "Century cumin power (200gm)",
+        "price": "400",
+        "category": "Grocery"
+    },
+    {
+        "id": 27,
+        "name": "BRM RARA BESHAR/ HAlDI(200gm)",
+        "image": "  https://i.imgur.com/P1exEMy.png",
+        "description": "BRM RARA BESHAR/ HAlDI(200gm)",
+        "price": "130",
+        "category": "Grocery"
+    },
+    {
+        "id": 28,
+        "name": "Tokla  Tea (200gm)",
+        "image": " https://i.imgur.com/aqrK0AO.jpg",
+        "description": "Tokla  Tea (200gm)",
+        "price": "135",
+        "category": "Grocery"
+    },
+    {
+        "id": 29,
+        "name": "Gyan Extra Long Grain Basmati Rice 5kg",
+        "image": "  https://i.imgur.com/U28aypD.jpg",
+        "description": "Gyan Extra Long Grain Basmati Rice 5kg",
+        "price": "1100",
+        "category": "Grocery"
+    },
+    {
+        "id": 30,
+        "name": "Thakali Jasmin shahi Basmati rice 5kg",
+        "image": " https://i.imgur.com/kyoHiya.jpg",
+        "description": "Thakali Jasmin shahi Basmati rice 5kg",
+        "price": "1050",
+        "category": "Grocery"
+    },
+    {
+        "id": 31,
+        "name": "Basmati Boiled Rice 5kg",
+        "image": "  https://i.imgur.com/W59Tou9.jpg",
+        "description": "Basmati Boiled Rice 5kg",
+        "price": "785",
+        "category": "Grocery"
+    },
+    {
+        "id": 32,
+        "name": "Nescafe Classic Coffee 45G Jar",
+        "image": " https://i.imgur.com/hPBQrZZ.jpg",
+        "description": "Nescafe Classic Coffee 45G Jar",
+        "price": "350",
+        "category": "Grocery"
+    },
+    {
+        "id": 33,
+        "name": "Nescafe Gold Espresso instant coffee 25 sticks (100gm)",
+        "image": "  https://i.imgur.com/8ZVtovc.png",
+        "description": "Nescafe Gold Espresso instant coffee 25 sticks (100gm)",
+        "price": "880",
+        "category": "Grocery"
+    },
+    {
+        "id": 34,
+        "name": "Meizan Sunflower  Seed Oil 5Ltr.",
+        "image": " https://i.imgur.com/607Q3jC.png",
+        "description": "Meizan Sunflower  Seed Oil 5Ltr.",
+        "price": "200",
+        "category": "Grocery"
+    },
+    {
+        "id": 35,
+        "name": "Hulas Atta  5kg.",
+        "image": " https://i.imgur.com/uEkAmt9.png",
+        "description": "Hulas Atta  5kg.",
+        "price": "510",
+        "category": "Grocery"
+    },
+    {
+        "id": 36,
+        "name": "Current Noodle, Spicy Noodle.",
+        "image": " https://i.imgur.com/KHEQKmY.png",
+        "description": "Current Noodle, Spicy Noodle.",
+        "price": "60",
+        "category": "Grocery"
+    },
+    {
+        "id": 37,
+        "name": "Indhu Shankhar Chini 1Kg.",
+        "image": "https://i.imgur.com/sg5tCUr.png",
+        "description": "IndhuShankhar Chini 1Kg.",
+        "price": "120",
+        "category": "Grocery"
     }
 
 ]

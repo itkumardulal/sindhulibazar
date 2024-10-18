@@ -1,4 +1,3 @@
-import { CommentSharp, Numbers } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./WhatsAppMessageLink.css";
@@ -6,6 +5,7 @@ import "./WhatsAppMessageLink.css";
 const WhatsAppmebulk = ({ message }) => {
   const [currentShift, setCurrentShift] = useState("");
   const [admin, setAdmin] = useState("");
+  const [deliveryCost, setDeliveryCost] = useState(0);
 
   const currentHour = new Date().getHours();
   const dayShiftStart = 8;
@@ -14,24 +14,30 @@ const WhatsAppmebulk = ({ message }) => {
   useEffect(() => {
     const nightShiftStart = dayShiftEnd;
     const nightShiftEnd = 8;
+
     if (currentHour >= dayShiftStart && currentHour < dayShiftEnd) {
       setCurrentShift("Day Shift");
-      setAdmin(+9779703782444);
+      setAdmin("+9779703782444");
+      setDeliveryCost(100); // Set delivery cost for day shift
     } else if (currentHour >= nightShiftStart || currentHour < nightShiftEnd) {
       setCurrentShift("Night Shift");
-      setAdmin(+9779703782444);
+      setAdmin("+9779703782444");
+      setDeliveryCost(200); // Set delivery cost for night shift
     } else {
       setCurrentShift("Outside of Day and Night Shifts");
-      setAdmin(+9779703782444);
+      setAdmin("+9779703782444");
+      setDeliveryCost(0); // No delivery cost for outside shifts
     }
-  });
+  }, [currentHour]);
 
-  const phoneNumber = "YOUR_PHONE_NUMBER";
-  const defaultMessage = "Hello, This is my order details!     ";
+  const defaultMessage = `Hello, This is my order details!    `;
 
   const generateWhatsAppLink = () => {
     const url = `https://api.whatsapp.com/send?phone=${admin}&text=${encodeURIComponent(
-      defaultMessage + message
+      defaultMessage +
+        currentShift +
+        ` Delivery Cost: ${deliveryCost}` +
+        message
     )}`;
     return url;
   };
@@ -53,9 +59,9 @@ const WhatsAppmebulk = ({ message }) => {
             borderRadius: "8px",
             padding: "12px 24px",
             fontSize: {
-              xs: "12px", // Smaller font size for extra-small screens
-              sm: "14px", // Slightly larger font size for small screens
-              md: "16px", // Default font size for medium screens and above
+              xs: "12px",
+              sm: "14px",
+              md: "16px",
             },
             fontWeight: "bold",
             cursor: "pointer",

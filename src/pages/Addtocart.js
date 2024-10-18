@@ -7,10 +7,15 @@ import WhatsAppmebulk from "../components/WhatsAppmebulk";
 const AddToCart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0); // New state for total price
-  const [checkoutMessage, setCheckoutMessage] = useState(""); // New state for checkout message
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [checkoutMessage, setCheckoutMessage] = useState("");
+  const [isNightShift, setIsNightShift] = useState(false); // New state for day/night
 
   useEffect(() => {
+    // Check the current hour to determine day/night
+    const currentHour = new Date().getHours();
+    setIsNightShift(currentHour >= 18 || currentHour < 6); // Night from 6 PM to 6 AM
+
     // Fetch cart from local storage
     let cart = localStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
@@ -19,15 +24,12 @@ const AddToCart = () => {
     setCartItems(cart);
 
     if (Array.isArray(cart)) {
-      // Calculate the total number of items in the cart
       const itemCount = cart.reduce(
         (total, item) => total + (item.count || 1),
         0
       );
       setTotalItems(itemCount);
-
-      // Calculate the total price including delivery charges
-      updateTotalPrice(cart); // Call function to calculate total price
+      updateTotalPrice(cart);
     }
   }, []); // This effect runs only once when the component mounts
 
@@ -41,45 +43,43 @@ const AddToCart = () => {
         item.cartId === id ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
-    updateTotalPrice(); // Recalculate the total price
+    updateTotalPrice();
   };
 
   const decrement = (id) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.cartId === id && item.quantity > 0 // Ensure quantity doesn't go below 0
-          ? { ...item, quantity: item.quantity - 1 } // Decrement the quantity by 1
+        item.cartId === id && item.quantity > 0
+          ? { ...item, quantity: item.quantity - 1 }
           : item
       )
     );
-    updateTotalPrice(); // Recalculate the total price
+    updateTotalPrice();
   };
 
   const handleRemove = (id) => {
     const updatedCart = cartItems.filter((item) => item.cartId !== id);
-    setCartItems(updatedCart); // Update state with the filtered cart items
-    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Update local storage
-    updateTotalPrice(updatedCart); // Recalculate the total price
+    setCartItems(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    updateTotalPrice(updatedCart);
   };
 
   const updateTotalPrice = (updatedCart) => {
-    // Use the updated cart or the current cartItems
     const cart = updatedCart || cartItems;
     const priceSum = cart.reduce(
       (total, item) => total + item.price * item.quantity,
       0
     );
 
-    // Calculate unique categories for delivery charge
+    // Set delivery charge based on day or night shift
+    const deliveryChargePerCategory = isNightShift ? 100 : 200;
     const uniqueCategories = new Set(cart.map((item) => item.category));
-    const deliveryCharge = uniqueCategories.size * 100; // ₹100 for each unique category
+    const deliveryCharge = uniqueCategories.size * deliveryChargePerCategory;
 
-    // Update the total price
     setTotalPrice(priceSum + deliveryCharge); // Include delivery charges
   };
 
   const handleCheckoutAll = () => {
-    // Construct the checkout message
     const message = cartItems
       .map(
         (item) =>
@@ -90,21 +90,18 @@ const AddToCart = () => {
           }`
       )
       .join("\n\n");
-
-    // Calculate delivery charges
     const uniqueCategories = new Set(cartItems.map((item) => item.category));
-    const deliveryCharge = uniqueCategories.size * 100; // ₹100 for each unique category
-    const totalMessage = `Delivery Charges: Rs. ${deliveryCharge} \n Total Price for all items: Rs. ${totalPrice}\n`;
-
-    // Combine both messages
+    const deliveryChargePerCategory = isNightShift ? 200 : 100;
+    const totalDeliveryCharge =
+      uniqueCategories.size * deliveryChargePerCategory;
+    const totalMessage = `Delivery Charges: Rs. ${totalDeliveryCharge} \n Total Price for all items: Rs. ${totalPrice}\n`;
     const finalMessage = `${message}\n\n${totalMessage}\n`;
     setCheckoutMessage(finalMessage);
 
-    // Set timer to delete local storage after 30 seconds
     setTimeout(() => {
       localStorage.removeItem("cart");
-      setCartItems([]); // Clear the cart items state
-    }, 30000); // 30 seconds
+      setCartItems([]);
+    }, 30000);
   };
 
   return (
@@ -137,7 +134,6 @@ const AddToCart = () => {
                     <h3>{item.name}</h3>
                     <p className="cart-item-price">Category: {item.category}</p>
                     <p className="cart-item-price">Price: Rs. {item.price}</p>
-                    {/* <p className="cart-item-price">Quantity: {item.quantity}</p> */}
                     <p
                       style={{
                         backgroundColor: "yellow",
@@ -206,7 +202,6 @@ const AddToCart = () => {
           </div>
         )}
 
-        {/* Display Total Price at the bottom */}
         {cartItems.length > 0 && (
           <div
             style={{
@@ -219,10 +214,9 @@ const AddToCart = () => {
           >
             <h4>
               Total Price for all items including delivery : Rs. {totalPrice}
-              <p></p> Note: Different category order will charge you extra 100.
+              <p></p> Note: We deliver liquor only at night shift. Different
+              category order will charge you extra 100 at day shift.
             </h4>
-
-            {/* Checkout All Button */}
             <button
               className="checkout-all-button"
               style={{
@@ -236,7 +230,6 @@ const AddToCart = () => {
               }}
               onClick={() => {
                 handleCheckoutAll();
-                // After preparing the message, redirect to WhatsApp
               }}
             >
               I want to order all items

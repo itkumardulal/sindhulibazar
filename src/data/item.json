@@ -168,5 +168,69 @@
         "category": "Liquor"
 
        
+    },
+    {
+        "id": 22,
+        "name": "Red Bull- blue 250ml",
+        "image": " https://i.imgur.com/m2rxXNF.jpg",
+        "description": "Red Bull, one of the most popular energy drinks produced in Thailand, is solely imported and marketed by GB Marketing, a 100% subsidiary of Gorkha Brewery.",
+        "price": "300",
+        "category": "Liquor"
+    },
+    {
+        "id": 23,
+        "name": "Kala Patthar Blended Reserve 750ML",
+        "image": " https://i.imgur.com/c2LJMDA.png",
+        "description": "Kala Patthar, Blended Reserve Whisky, is inspired by the famous vantage point above the Khumbu Glacier at 5643M for viewing Mt. Everest. An epic destination for adventurers and mountaineers alike.",
+        "price": "2900",
+        "category": "Liquor"
+    },
+    {
+        "id": 24,
+        "name": "Sprite 2.25L",
+        "image": " https://i.imgur.com/rAWuoUs.jpg",
+        "description": "Introduced in 1961, Sprite is the world's leading lemon-lime flavored soft drink. Sprite is sold in more than 190 countries and ranks as the No. 3 soft drink worldwide.",
+        "price": "220",
+        "category": "Liquor"
+    },
+    {
+        "id": 25,
+        "name": "Sprite 1L",
+        "image": " https://i.imgur.com/tonmiBn.jpg",
+        "description": "Introduced in 1961, Sprite is the world's leading lemon-lime flavored soft drink. Sprite is sold in more than 190 countries and ranks as the No. 3 soft drink worldwide",
+        "price": "120",
+        "category": "Liquor"
+    },
+    {
+        "id": 26,
+        "name": "Coke 1L",
+        "image": " https://i.imgur.com/SoyGt4M.jpg",
+        "description": "Coca-Cola is the most popular and biggest-selling soft drink in history, as well as one of the most recognizable brands in the world.",
+        "price": "120",
+        "category": "Liquor"
+    },
+    {
+        "id": 27,
+        "name": "Coke 2.25L",
+        "image": " https://i.imgur.com/kXSAaNQ.jpg",
+        "description": "Coca-Cola is the most popular and biggest-selling soft drink in history, as well as one of the most recognizable brands in the world.",
+        "price": "220",
+        "category": "Liquor"
+    },
+    {
+        "id": 28,
+        "name": "Mountain Dew 2.5L",
+        "image": "https://i.imgur.com/xRvwzqh.jpg",
+        "description": "Mountain Dew exhilarates like no other because of its active, high-energy, extreme citrus taste. The idea of daring, challenges, a can do attitude, adventure and exhilaration are deeply entrenched in its brand DNA. Mountain Dew has always celebrated the bold, adventurous and rebellious spirit of youth.",
+        "price": "200",
+        "category": "Liquor"
+    },
+    {
+        "id": 29,
+        "name": "Mountain Dew 500ML",
+        "image": " https://i.imgur.com/LCaRu87.jpg",
+        "description": "Mountain Dew exhilarates like no other because of its active, high-energy, extreme citrus taste. The idea of daring, challenges, a can do attitude, adventure and exhilaration are deeply entrenched in its brand DNA. Mountain Dew has always celebrated the bold, adventurous and rebellious spirit of youth.",
+        "price": "85",
+        "category": "Liquor"
     }
  ]
