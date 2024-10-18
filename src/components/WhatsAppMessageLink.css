@@ -2,7 +2,7 @@
 
 button {
   background: linear-gradient(145deg, #FFC107, #04ccdaf6); 
-width: 50px;
+
   border: none; /* Remove default border */
   border-radius: 2px; /* Slightly larger rounded corners */
   padding: 12px 24px; /* Increased padding for a more spacious look */
