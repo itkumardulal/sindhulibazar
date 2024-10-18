@@ -47,7 +47,7 @@
     },
     {
         "id":6,
-        "name":"Dhara Gold Oil (2kg)",
+        "name":"Dhara Gold Oil (2Ltr)",
         "image":"  https://i.imgur.com/eBv4NcJ.jpg",
         "description": "Dhara Gold Oil (2kg)",
         "price": "670 "
@@ -135,7 +135,5 @@
         ,
            "category": "Grocery"
     }
-
-
 
 ]

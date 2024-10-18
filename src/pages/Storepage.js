@@ -170,6 +170,7 @@ const Storepage = () => {
             </Tooltip>
           )}
         </Box>
+        <footer />
       </DrawerAppBar>
       {/* i made the DrawerAPpbar to down. change it in case of erropr */}
     </>
