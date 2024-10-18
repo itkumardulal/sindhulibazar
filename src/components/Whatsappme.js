@@ -52,7 +52,7 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
             background: "linear-gradient(90deg, #FDB813 100%, #FF5714 100%)",
             color: "white",
             borderRadius: "5px", // Slightly smaller border radius
-            top: "5px",
+            top: "10px",
             fontSize: {
               xs: "14px", // Smaller font size
               sm: "16px",
@@ -60,6 +60,7 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
             },
 
             fontWeight: "bold",
+
             textTransform: "none",
             display: "flex",
             alignItems: "center",

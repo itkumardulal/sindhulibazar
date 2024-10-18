@@ -5,31 +5,31 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
-  }
-  
-  .product-search {
+}
+
+.product-search {
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 1400px; /* Limit width for larger screens */
     margin-bottom: 20px; /* Space below the search bar */
-  }
-  
-  .search-bar {
+}
+
+.search-bar {
     flex: 1; /* Take remaining space */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
     font-size: 16px;
-  }
-  
-  .search-bar-icon {
+}
+
+.search-bar-icon {
     display: flex;
     align-items: center;
-  }
-  
-  .search-results {
+}
+
+.search-results {
     display: grid; /* Use grid layout for search results */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
     gap: 20px; /* Space between items */
@@ -37,106 +37,124 @@
     max-width: 1400px; /* Limit width for larger screens */
     align-items: start; /* Align items to the start of the grid cells */
     padding: 0 5px; /* Padding on small screens */
-  }
-  
-  .search-result-item {
+}
+
+.search-result-item {
     display: flex;
     flex-direction: column; /* Stack image and details vertically */
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 15px;
+    padding: 10px; /* Reduced padding for mobile */
     width: 100%; /* Ensure items use full width available */
-    max-width: 250px; /* Limit width for larger screens */
-  }
-  
-  .item-image {
+    max-width: 200px; /* Limit width for larger screens */
+}
+
+.item-image {
     max-width: 100%; /* Make image responsive */
-    height: 100px;
+    height: 80px; /* Reduced height for mobile */
     border-radius: 5px;
-  }
-  
-  .item-details {
+}
+
+.item-details {
     text-align: center; /* Center text details */
-  }
-  
-  .count-controls {
+}
+
+.item-details h3 {
+    font-size: 1em; /* Smaller heading size for mobile */
+    margin: 5px 0; /* Spacing adjustments */
+}
+
+.item-details p {
+    font-size: 0.8em; /* Smaller paragraph size for mobile */
+    margin: 0; /* Remove margin for better compactness */
+}
+
+.count-controls {
     display: flex;
     justify-content: center; /* Center controls */
     align-items: center;
-    margin: 10px 0;
-  }
-  
-  .count-controls button {
-    padding: 5px 15px; /* Padding for buttons */
+    margin: 5px 0; /* Reduced margin for better fit */
+}
+
+.count-controls button {
+    padding: 5px 10px; /* Padding for buttons */
     border: 1px solid #ccc;
     border-radius: 3px;
     cursor: pointer;
     margin: 5px;
-  }
-  
-  .product-actions {
+    font-size: 0.8em; /* Smaller font size */
+}
+
+.product-actions {
     display: flex;
     justify-content: space-between; /* Space between buttons */
     width: 100%;
-    margin-top: 10px;
-  }
-  
-  .add-to-cart,
-  .buy-now {
-    padding: 10px 15px;
+    margin-top: 5px; /* Reduced margin */
+}
+
+.add-to-cart,
+.buy-now,
+.whatsapp-button { /* New WhatsApp button class */
+    padding: 5px 10px; /* Smaller padding for mobile */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     flex: 1; /* Allow buttons to take equal space */
-    margin: 0 5px; /* Add margin between buttons */
-  }
-  
-  .add-to-cart {
+    margin: 0 2px; /* Add margin between buttons */
+    font-size: 0.8em; /* Smaller font size */
+}
+
+.add-to-cart {
     background-color: #28a745; /* Green color */
     color: rgb(255, 255, 255);
-  }
-  
-  .buy-now {
+}
+
+.buy-now {
     background-color: #007bff; /* Blue color */
     color: white;
-  }
-  
-  /* Media Queries for responsiveness */
-  @media (max-width: 768px) {
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* WhatsApp green color */
+    color: white;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
     .search-result-item {
-      padding: 10px;
-      max-width: 100%; /* Allow items to fill available space */
-      width: 100%; /* Ensure items use full width available */
+        padding: 8px; /* Smaller padding for mobile */
+        max-width: 100%; /* Allow items to fill available space */
+        width: 100%; /* Ensure items use full width available */
     }
-  
+
     /* Adjust grid for smaller screens */
     .search-results {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust item size for mobile */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust item size for mobile */
     }
-  
+
     .product-search {
-      margin-bottom: 10px; /* Reduce margin for mobile */
+        margin-bottom: 10px; /* Reduce margin for mobile */
     }
-  
+
     .item-details h3 {
-      font-size: 1.2em; /* Responsive heading size */
+        font-size: 1em; /* Smaller heading size for mobile */
     }
-  
+
     .item-details p {
-      font-size: 0.9em; /* Responsive paragraph size */
+        font-size: 0.8em; /* Smaller paragraph size for mobile */
     }
-  
+
     .add-to-cart,
-    .buy-now {
-      padding: 8px 15px; /* Smaller padding for mobile */
-      font-size: 0.9em; /* Responsive font size */
+    .buy-now,
+    .whatsapp-button {
+        padding: 5px 8px; /* Smaller padding for mobile */
+        font-size: 0.75em; /* Further smaller font size */
     }
-  
+
     .count-controls button {
-      padding: 5px 12px; /* Adjust button size for mobile */
-      font-size: 0.8em; /* Responsive font size */
-      margin: 5px;
+        padding: 4px 8px; /* Adjust button size for mobile */
+        font-size: 0.7em; /* Smaller font size */
+        margin: 5px;
     }
-  }
-  
+}
