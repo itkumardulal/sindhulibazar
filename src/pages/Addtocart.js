@@ -14,7 +14,7 @@ const AddToCart = () => {
   useEffect(() => {
     // Check the current hour to determine day/night
     const currentHour = new Date().getHours();
-    setIsNightShift(currentHour >= 18 || currentHour < 6); // Night from 6 PM to 6 AM
+    setIsNightShift(currentHour >= 20 || currentHour < 6); // Night from 8 PM to 6 AM
 
     // Fetch cart from local storage
     let cart = localStorage.getItem("cart");
@@ -72,7 +72,7 @@ const AddToCart = () => {
     );
 
     // Set delivery charge based on day or night shift
-    const deliveryChargePerCategory = isNightShift ? 100 : 200;
+    const deliveryChargePerCategory = isNightShift ? 50 : 150;
     const uniqueCategories = new Set(cart.map((item) => item.category));
     const deliveryCharge = uniqueCategories.size * deliveryChargePerCategory;
 
@@ -91,7 +91,7 @@ const AddToCart = () => {
       )
       .join("\n\n");
     const uniqueCategories = new Set(cartItems.map((item) => item.category));
-    const deliveryChargePerCategory = isNightShift ? 200 : 100;
+    const deliveryChargePerCategory = isNightShift ? 150 : 50;
     const totalDeliveryCharge =
       uniqueCategories.size * deliveryChargePerCategory;
     const totalMessage = `Delivery Charges: Rs. ${totalDeliveryCharge} \n Total Price for all items: Rs. ${totalPrice}\n`;
@@ -215,7 +215,7 @@ const AddToCart = () => {
             <h4>
               Total Price for all items including delivery : Rs. {totalPrice}
               <p></p> Note: We deliver liquor only at night shift. Different
-              category order will charge you extra 100 at day shift.
+              category order will charge you extra 50 at day shift.
             </h4>
             <button
               className="checkout-all-button"
