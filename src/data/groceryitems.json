@@ -88,7 +88,7 @@
            "category": "Grocery"
     },{
         "id":11,
-        "name":"Bikaji bikaneri Bhujiya (359gm)",
+        "name":"Bikaji bikaneri Bhujiya (350gm)",
         "image":"  https://i.imgur.com/8xZpSWm.jpg",
         "description": "Bikaji Bikaneri Bhujia is a crispy, spiced snack made from gram flour and a blend of spices, renowned for its savory flavor and crunchy texture, often enjoyed as a snack or topping for various dishes",
         "price": "235"
@@ -180,7 +180,7 @@
         "name": "Haldiraim's All In One (360gm)",
         "image": " https://i.imgur.com/g4RaMIe.png",
         "description": "Haldiraim's All In One (360gm)",
-        "price": "200",
+        "price": "300",
         "category": "Grocery"
     },
     {
@@ -276,7 +276,7 @@
         "name": "Meizan Sunflower  Seed Oil 5Ltr.",
         "image": " https://i.imgur.com/607Q3jC.png",
         "description": "Meizan Sunflower  Seed Oil 5Ltr.",
-        "price": "200",
+        "price": "2150",
         "category": "Grocery"
     },
     {
