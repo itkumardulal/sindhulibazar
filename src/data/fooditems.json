@@ -94,5 +94,13 @@
         "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
         "price": "400",
         "category": "Food"
+    },
+    {
+        "id": 12,
+        "name": "Pork Fried Half kg",
+        "image": "https://i.imgur.com/6TuysW9.png",
+        "description": "Fried pork dishes are found in numerous cuisines around the world. Known for its tenderness and versatility.",
+        "price": "400",
+        "category": "Food"
     }
 ]
