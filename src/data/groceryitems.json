@@ -80,14 +80,6 @@
            "category": "Grocery"
     },{
         "id":10,
-        "name":"Gyan Basmati Boiled Rice (5Kg)",
-        "image":"  https://i.imgur.com/W59Tou9.jpg",
-        "description": "Gyan Basmati Boiled Rice is pre-cooked basmati rice known for its fluffy texture and aromatic flavor, making it a convenient and delicious option for a variety of dishes.",
-        "price": "765"
-        ,
-           "category": "Grocery"
-    },{
-        "id":11,
         "name":"Bikaji bikaneri Bhujiya (350gm)",
         "image":"  https://i.imgur.com/8xZpSWm.jpg",
         "description": "Bikaji Bikaneri Bhujia is a crispy, spiced snack made from gram flour and a blend of spices, renowned for its savory flavor and crunchy texture, often enjoyed as a snack or topping for various dishes",
@@ -95,7 +87,7 @@
         ,
            "category": "Grocery"
     },{
-        "id":12,
+        "id":11,
         "name":"Bikaji Moong Dal (150gm)",
         "image":"  https://i.imgur.com/Gkk6Ov0.png",
         "description": "Bikaji Moong Dal is a crunchy snack made from fried split yellow moong beans, seasoned with spices, offering a deliciously savory flavor and a nutritious crunch, perfect for snacking.",
@@ -103,7 +95,7 @@
         ,
            "category": "Grocery"
     },{
-        "id":13,
+        "id":12,
         "name":"Musuro Dal (1kg)",
         "image":"  https://i.imgur.com/399dj3m.jpg",
         "description": "Musuro Dal is a traditional lentil dish made from split black lentils, known for its earthy flavor and creamy texture, often enjoyed with rice or bread in Nepali cuisine.",
@@ -111,7 +103,7 @@
         ,
            "category": "Grocery"
     },{
-        "id":14,
+        "id":13,
         "name":"Mass Dal (1kg)",
         "image":"  https://i.imgur.com/aRMNHSd.jpg",
         "description": "Mass Dal is a flavorful lentil dish made from black gram (urad dal), typically cooked with spices and sometimes mixed with vegetables, offering a hearty and nutritious complement to rice or roti.)",
@@ -119,7 +111,7 @@
         ,
            "category": "Grocery"
     },{
-        "id":15,
+        "id":14,
         "name":"Haldiraim's Khatta Meetha (360gm)",
         "image":"  https://i.imgur.com/rnuT6WZ.png",
         "description": "Haldiraam's Khatta Meetha is a tasty snack mix that blends sweet and tangy flavors with crunchy nuts and spices, perfect for munching.",
@@ -127,7 +119,7 @@
         ,
            "category": "Grocery"
     },{
-        "id":16,
+        "id":15,
         "name":"Hilife Kurum Kurum Chiura 1kg",
         "image":"  https://i.imgur.com/P5XO37a.jpg",
         "description": "Hilife's High-Quality Beaten Rice Crunchy (Made from Makwanpure Paddy): Elevate your snacking experience with Hilife's premium Beaten Rice, meticulously crafted from the finest Makwanpure Paddy.",
@@ -136,7 +128,7 @@
            "category": "Grocery"
     },
     {
-        "id": 17,
+        "id": 16,
         "name": "Plain Cashew (Kaju) 1Kg Best Quality",
         "image": "  https://i.imgur.com/608it6k.jpg",
         "description": "Plain Cashew (Kaju) 1Kg Best Quality",
@@ -144,7 +136,7 @@
         "category": "Grocery"
     },
     {
-        "id": 18,
+        "id": 17,
         "name": "Haldiraim's Kaju mixture (360gm)",
         "image": "  https://i.imgur.com/YtRQ1HL.jpg",
         "description": "Haldiraim's Kaju mixture (360gm)",
@@ -152,7 +144,7 @@
         "category": "Grocery"
     },
     {
-        "id": 19,
+        "id": 18,
         "name": "Bikaji classic  salted peanuts (175gm)",
         "image": " https://i.imgur.com/RPwEUO1.png",
         "description": "Bikaji classic  salted peanuts (175gm)",
@@ -160,7 +152,7 @@
         "category": "Grocery"
     },
     {
-        "id": 20,
+        "id": 19,
         "name": "Palermo Pomace Olive Oil 1Ltr",
         "image": "  https://i.imgur.com/BtdRwjD.jpg",
         "description": " Cadel Monte Pomace Olive Oil 1 ltr.",
@@ -168,7 +160,7 @@
         "category": "Grocery"
     },
     {
-        "id": 21,
+        "id": 20,
         "name": "Haldiraim's Nut Cracker (200gm)",
         "image": "  https://i.imgur.com/mfioMer.jpg",
         "description": "Haldiraim's Nut Cracker (200gm)",
@@ -176,7 +168,7 @@
         "category": "Grocery"
     },
     {
-        "id": 22,
+        "id": 21,
         "name": "Haldiraim's All In One (360gm)",
         "image": " https://i.imgur.com/g4RaMIe.png",
         "description": "Haldiraim's All In One (360gm)",
@@ -184,7 +176,7 @@
         "category": "Grocery"
     },
     {
-        "id": 23,
+        "id": 22,
         "name": "Haldiraim's Aloo Bhujiya(400gm)",
         "image": " https://i.imgur.com/TRc6AYS.png",
         "description": "Haldiraim's Aloo Bhujiya(400gm)",
@@ -192,7 +184,7 @@
         "category": "Grocery"
     },
     {
-        "id": 24,
+        "id": 23,
         "name": "Haldiram's Navrattan 360g",
         "image": " https://i.imgur.com/VHO6zk4.png",
         "description": "Haldiram's Navrattan 360g",
@@ -200,7 +192,7 @@
         "category": "Grocery"
     },
     {
-        "id": 25,
+        "id": 24,
         "name": "Century Mix Masala 175gm",
         "image": "  https://i.imgur.com/mIUXD9m.jpg",
         "description": "Century Mix Masala 175gm",
@@ -208,7 +200,7 @@
         "category": "Grocery"
     },
     {
-        "id": 26,
+        "id": 25,
         "name": "Century cumin power (200gm)",
         "image": " https://i.imgur.com/4ahU0it.jpg",
         "description": "Century cumin power (200gm)",
@@ -216,7 +208,7 @@
         "category": "Grocery"
     },
     {
-        "id": 27,
+        "id": 26,
         "name": "BRM RARA BESHAR/ HAlDI(200gm)",
         "image": "  https://i.imgur.com/P1exEMy.png",
         "description": "BRM RARA BESHAR/ HAlDI(200gm)",
@@ -224,7 +216,7 @@
         "category": "Grocery"
     },
     {
-        "id": 28,
+        "id": 27,
         "name": "Tokla  Tea (200gm)",
         "image": " https://i.imgur.com/aqrK0AO.jpg",
         "description": "Tokla  Tea (200gm)",
@@ -232,7 +224,7 @@
         "category": "Grocery"
     },
     {
-        "id": 29,
+        "id": 28,
         "name": "Gyan Extra Long Grain Basmati Rice 5kg",
         "image": "  https://i.imgur.com/U28aypD.jpg",
         "description": "Gyan Extra Long Grain Basmati Rice 5kg",
@@ -240,7 +232,7 @@
         "category": "Grocery"
     },
     {
-        "id": 30,
+        "id": 29,
         "name": "Thakali Jasmin shahi Basmati rice 5kg",
         "image": " https://i.imgur.com/kyoHiya.jpg",
         "description": "Thakali Jasmin shahi Basmati rice 5kg",
@@ -248,7 +240,7 @@
         "category": "Grocery"
     },
     {
-        "id": 31,
+        "id": 30,
         "name": "Basmati Boiled Rice 5kg",
         "image": "  https://i.imgur.com/W59Tou9.jpg",
         "description": "Basmati Boiled Rice 5kg",
@@ -256,7 +248,7 @@
         "category": "Grocery"
     },
     {
-        "id": 32,
+        "id": 31,
         "name": "Nescafe Classic Coffee 45G Jar",
         "image": " https://i.imgur.com/hPBQrZZ.jpg",
         "description": "Nescafe Classic Coffee 45G Jar",
@@ -264,7 +256,7 @@
         "category": "Grocery"
     },
     {
-        "id": 33,
+        "id": 32,
         "name": "Nescafe Gold Espresso instant coffee 25 sticks (100gm)",
         "image": "  https://i.imgur.com/8ZVtovc.png",
         "description": "Nescafe Gold Espresso instant coffee 25 sticks (100gm)",
@@ -272,7 +264,7 @@
         "category": "Grocery"
     },
     {
-        "id": 34,
+        "id": 33,
         "name": "Meizan Sunflower  Seed Oil 5Ltr.",
         "image": " https://i.imgur.com/607Q3jC.png",
         "description": "Meizan Sunflower  Seed Oil 5Ltr.",
@@ -280,7 +272,7 @@
         "category": "Grocery"
     },
     {
-        "id": 35,
+        "id": 34,
         "name": "Hulas Atta  5kg.",
         "image": " https://i.imgur.com/uEkAmt9.png",
         "description": "Hulas Atta  5kg.",
@@ -288,7 +280,7 @@
         "category": "Grocery"
     },
     {
-        "id": 36,
+        "id": 35,
         "name": "Current Noodle, Spicy Noodle.",
         "image": " https://i.imgur.com/KHEQKmY.png",
         "description": "Current Noodle, Spicy Noodle.",
@@ -296,7 +288,7 @@
         "category": "Grocery"
     },
     {
-        "id": 37,
+        "id": 36,
         "name": "Indhu Shankhar Chini 1Kg.",
         "image": "https://i.imgur.com/sg5tCUr.png",
         "description": "IndhuShankhar Chini 1Kg.",
@@ -304,4 +296,5 @@
         "category": "Grocery"
     }
 
+     
 ]
