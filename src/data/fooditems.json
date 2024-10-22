@@ -3,8 +3,8 @@
         "id": 1,
         "name": "Veg Chowmein",
         "image": "https://i.imgur.com/HFy54bX.jpg",
-        "description": "Veg Chowmein is a stir-fried noodle dish with mixed vegetables, seasoned with soy sauce and spices. It’s a tasty, quick vegetarian favorite in Nepali cuisine.",
-        "price": "100",
+        "description": "Pulami Khaza Ghar, Madhutar",
+        "price": "80",
         "category": "Food"
     },
     {
@@ -49,10 +49,10 @@
     },
     {
         "id": 7,
-        "name": "Buff Chowmein",
+        "name": "Buff Chowmein ",
         "image": "https://i.imgur.com/4oFFAFQ.jpg",
-        "description": "Buff Chowmein is a popular dish featuring stir-fried noodles tossed with tender pieces of buff (buffalo meat), fresh vegetables, and a savory blend of spices and sauces, delivering a flavorful and hearty meal",
-        "price": "150",
+        "description": "Pulami Khaza Ghar, Madhutar",
+        "price": "120",
         "category": "Food"
     },
     {
@@ -83,8 +83,8 @@
         "id": 11,
         "name": "Buff Khaja Set",
         "image": "https://i.imgur.com/XEYOs6u.jpg",
-        "description": "Buff Khaja Set is a traditional Nepali meal that includes spiced buffalo meat, served with rice, lentil soup (dal), vegetable curry, pickles (achar), and often accompanied by a side of fried or boiled eggs, offering a hearty and flavorful dining experience.",
-        "price": "350",
+        "description": "Pulami Khaza Ghar Madhutar",
+        "price": "250",
         "category": "Food"
     },
     {
@@ -97,10 +97,26 @@
     },
     {
         "id": 12,
-        "name": "Pork Fried Half kg",
+        "name": "Pork Fried 1kg",
         "image": "https://i.imgur.com/6TuysW9.png",
-        "description": "Fried pork dishes are found in numerous cuisines around the world. Known for its tenderness and versatility.",
-        "price": "400",
+        "description": "Pulami Khaza Ghar Madhutar",
+        "price": "700",
+        "category": "Food"
+    },
+    {
+        "id": 12,
+        "name": "Pork khaza set",
+        "image": "https://i.imgur.com/jDbWcKv.png",
+        "description": "Pulami Khaza Ghar Madhutar",
+        "price": "250",
+        "category": "Food"
+    },
+    {
+        "id": 12,
+        "name": "Pork Chawmien",
+        "image": "https://i.imgur.com/qqlJdKs.png",
+        "description": "Pulami Khaza Ghar Madhutar",
+        "price": "120",
         "category": "Food"
     }
 ]
