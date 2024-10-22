@@ -15,10 +15,10 @@ const Footer = () => {
                 <Link to="/about">About Us</Link>
               </li>
               <li>
-                <Link to="/careers">Careers</Link>
+                <Link to="/">Careers</Link>
               </li>
               <li>
-                <Link to="/blog">Blog</Link>
+                <Link to="/">Blog</Link>
               </li>
             </ul>
           </div>
@@ -27,7 +27,7 @@ const Footer = () => {
             <h4>Support</h4>
             <ul>
               <li>
-                <Link to="/help">Help Center</Link>
+                <Link to="/contact">Help Center</Link>
               </li>
               <li>
                 <Link to="/contact">Contact Us</Link>
