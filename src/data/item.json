@@ -25,14 +25,7 @@
         "price": " 2200",    
         "category": "Liquor"
     },
-    {
-        "id":4,
-        "name":"Nude vodka",
-        "image":"https://i.imgur.com/caIJBvQ.jpg",
-        "description": "Nude Vodka is a convenient, pre-mixed cocktail option, combining vodka with a variety of appealing flavo  Packaged in portable containers, it's perfect for on-the-go enjoyment at parties or gatherings. With a balanced and refreshing taste, Nude Vodka provides a quick and hassle-free way to savor well-crafted cocktails.",
-        "price": "2100",    
-        "category": "Liquor"
-    },
+
     {
         "id":5,
         "name":"Ruslan vodka",
@@ -51,7 +44,7 @@
     },
     {
         "id":7,
-        "name":"Yati vodka",
+        "name":"Yeti vodka",
         "image":"https://i.imgur.com/NnxFVby.jpg",
         "description": "Introducing, YETI VODKA, Magic in a bottle. This vodka will take you on a MAGICAL journey of flavours - silky smooth on the palate with a distinctly bright mouthfeel and pleasantly sweet finish. Quadruple distilled with triple platinum filtered..",
         "price": " 2200",    
@@ -123,23 +116,9 @@
         "price": "425",    
         "category": "Liquor"
     },
-    {
-        "id":16,
-        "name":"Nepal ice",
-        "image":"https://i.imgur.com/0VxhDmP.png",
-        "description": "Nepal Ice is a popular brand of beer from Nepal. It's well-regarded for its refreshing and crisp taste, making it a favorite among beer enthusiasts in Nepal and beyond. Nepal Ice offers various beer varieties, including lagers and pilsners, which are known for their quality and enjoyable flavor profile. This brand is often enjoyed at social gatherings and is a symbol of Nepalese brewing tradition and culture.",
-        "price": "350",    
-        "category": "Liquor"
-    },
+   
 
-    {
-        "id":17,
-        "name":" Carlsburg",
-        "image":"https://i.imgur.com/3F1poXs.png",
-        "description": "Carlsberg, perhaps best known for its eponymous pilsner, produces much more than one beer. The Copenhagen-based brand operates 75 breweries in 33 countries, employs upwards of 40,000 people, and produces hundreds of brands ",
-        "price": "500",    
-        "category": "Liquor"
-    },
+
     {
         "id":18,
         "name":"Old durbar red",
@@ -185,22 +164,8 @@
         "price": "2800",
         "category": "Liquor"
     },
-    {
-        "id": 24,
-        "name": "Sprite 2.25L",
-        "image": " https://i.imgur.com/rAWuoUs.jpg",
-        "description": "Introduced in 1961, Sprite is the world's leading lemon-lime flavored soft drink. Sprite is sold in more than 190 countries and ranks as the No. 3 soft drink worldwide.",
-        "price": "260",
-        "category": "Liquor"
-    },
-    {
-        "id": 25,
-        "name": "Sprite 1L",
-        "image": " https://i.imgur.com/tonmiBn.jpg",
-        "description": "Introduced in 1961, Sprite is the world's leading lemon-lime flavored soft drink. Sprite is sold in more than 190 countries and ranks as the No. 3 soft drink worldwide",
-        "price": "125",
-        "category": "Liquor"
-    },
+
+
     {
         "id": 26,
         "name": "Coke 1L",

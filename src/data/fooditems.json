@@ -25,14 +25,6 @@
     },
     {
         "id": 4,
-        "name": "Chicken Katti Roll",
-        "image": "https://i.imgur.com/G3CTjUi.jpg",
-        "description": "Chicken Katti Roll is a popular street Food in Nepal, consisting of spiced grilled chicken wrapped in a soft paratha. Filled with onions, bell peppers, and tangy sauces, it offers a savory and spicy flavor in every bite, making it a perfect grab-and-go meal.",
-        "price": "290",
-        "category": "Food"
-    },
-    {
-        "id": 5,
         "name": "Mutton Khaja Set",
         "image": "https://i.imgur.com/Csks0H2.jpg",
         "description": "Mutton Khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
@@ -40,15 +32,7 @@
         "category": "Food"
     },
     {
-        "id": 6,
-        "name": "Mutter Paneer",
-        "image": "https://i.imgur.com/2TDb3Iy.jpg",
-        "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
-        "price": "280",
-        "category": "Food"
-    },
-    {
-        "id": 7,
+        "id": 5,
         "name": "Buff Chowmein ",
         "image": "https://i.imgur.com/4oFFAFQ.jpg",
         "description": "Pulami Khaza Ghar, Madhutar",
@@ -56,7 +40,7 @@
         "category": "Food"
     },
     {
-        "id": 8,
+        "id": 6,
         "name": "Veg Mo:MOs",
         "image": "https://i.imgur.com/NaHJu04.jpg",
         "description": "Veg MoMO are steamed dumplings filled with a savory mix of vegetables and spices, wrapped in soft dough.",
@@ -64,7 +48,7 @@
         "category": "Food"
     },
     {
-        "id": 9,
+        "id": 7,
         "name": "Chicken Mo:MOs",
         "image": "https://i.imgur.com/IH64CfZ.png",
         "description": "Chicken Momo are beloved for their delightful taste and are a must-try for anyone exploring Himalayan cuisine!",
@@ -72,15 +56,15 @@
         "category": "Food"
     },
     {
-        "id": 10,
+        "id": 8,
         "name": "Chicken Chawmein",
         "image": "https://i.imgur.com/DNOYsEK.jpg",
-        "description": "Chicken Katti Roll is a popular street Food in Nepal, consisting of spiced grilled chicken wrapped in a soft paratha. Filled with onions, bell peppers, and tangy sauces, it offers a savory and spicy flavor in every bite, making it a perfect grab-and-go meal.",
+        "description": "Chicken Chawmein is a delicious dish made with stir-fried chicken, noodles, and a mix of vegetables, seasoned with soy sauce and spices for a savory flavor.",
         "price": "150",
         "category": "Food"
     },
     {
-        "id": 11,
+        "id": 9,
         "name": "Buff Khaja Set",
         "image": "https://i.imgur.com/XEYOs6u.jpg",
         "description": "Pulami Khaza Ghar Madhutar",
@@ -88,7 +72,7 @@
         "category": "Food"
     },
     {
-        "id": 12,
+        "id": 10,
         "name": "Chicken Khaja Set",
         "image": "https://i.imgur.com/Rh5o9Ho.jpg",
         "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
@@ -96,11 +80,11 @@
         "category": "Food"
     },
     {
-        "id": 12,
-        "name": "Pork Fried 1kg",
+        "id": 11,
+        "name": "Pork Fried 1/2kg",
         "image": "https://i.imgur.com/6TuysW9.png",
         "description": "Pulami Khaza Ghar Madhutar",
-        "price": "700",
+        "price": "400",
         "category": "Food"
     },
     {
@@ -112,7 +96,7 @@
         "category": "Food"
     },
     {
-        "id": 12,
+        "id": 13,
         "name": "Pork Chawmien",
         "image": "https://i.imgur.com/qqlJdKs.png",
         "description": "Pulami Khaza Ghar Madhutar",

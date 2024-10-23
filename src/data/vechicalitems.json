@@ -1,15 +1,15 @@
 [
     {
         "id":1,
-        "name":"Tata Sumo",
-        "image":"https://i.imgur.com/YRdbK15.png",
-        "description": "Tata sumo fro you",
-    
+        "name":"Auto / Tempo",
+        "image":"  https://i.imgur.com/wQvUet3.png",
+        "description": "Take your order",   
         "category": "Vehicle"
+      
     },
     {
         "id":2,
-        "name":"Scarpio",
+        "name":"Scorpio",
         "image":"https://i.imgur.com/36JPDxK.png",
         "description": "Scarpio for u need",
        
@@ -25,26 +25,10 @@
 
     },
     {
-        "id":4,
-        "name":" VIP Scarpio",
-        "image":"https://i.imgur.com/QFrTJgv.png",
-        "description": "Scorpio for your ride",
-        "category": "Vehicle"
-    },
-    {
-        "id":5,
-        "name":"SUMO",
-        "image":"https://i.imgur.com/nD2z1tT.png",
-        "description": "Rent a SUMO for your trip",
- 
-        "category": "Vehicle"
-    },
-    {
         "id":6,
-        "name":"Auto / Tempo",
-        "image":"  https://i.imgur.com/wQvUet3.png",
-        "description": "Take your order",
-        "price": "4000",    
+        "name":"Tata Sumo",
+        "image":"https://i.imgur.com/YRdbK15.png",
+        "description": "Tata sumo fro you",
         "category": "Vehicle"
     }
   ]

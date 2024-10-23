@@ -8,7 +8,7 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
   const [deliveryCharge, setDeliveryCharge] = useState(0); // Initialize to 0
 
   const dayShiftStart = 8;
-  const dayShiftEnd = ;
+  const dayShiftEnd = 20;
 
   useEffect(() => {
     const currentHour = new Date().getHours();
