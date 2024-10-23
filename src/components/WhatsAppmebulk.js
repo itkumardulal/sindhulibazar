@@ -9,7 +9,7 @@ const WhatsAppmebulk = ({ message }) => {
 
   const currentHour = new Date().getHours();
   const dayShiftStart = 8;
-  const dayShiftEnd = 17;
+  const dayShiftEnd = 20;
 
   useEffect(() => {
     const nightShiftStart = dayShiftEnd;
@@ -30,14 +30,25 @@ const WhatsAppmebulk = ({ message }) => {
     }
   }, [currentHour]);
 
-  const defaultMessage = `Hello, This is my order details!    `;
+  const defaultMessage = `Hello, This is my order details:`;
 
   const generateWhatsAppLink = () => {
+    const formattedMessage = `
+===== ORDER DETAILS =====
+Delivery Shift: ${currentShift}
+=========================
+Delivery Cost: Rs. ${deliveryCost}
+=========================
+Items Ordered:
+${message}
+
+
+
+
+    `;
+
     const url = `https://api.whatsapp.com/send?phone=${admin}&text=${encodeURIComponent(
-      defaultMessage +
-        currentShift +
-        ` Delivery Cost: ${deliveryCost}` +
-        message
+      formattedMessage
     )}`;
     return url;
   };

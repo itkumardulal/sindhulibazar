@@ -12,15 +12,12 @@ const AddToCart = () => {
   const [isNightShift, setIsNightShift] = useState(false); // New state for day/night
 
   useEffect(() => {
-    // Check the current hour to determine day/night
     const currentHour = new Date().getHours();
     setIsNightShift(currentHour >= 20 || currentHour < 6); // Night from 8 PM to 6 AM
 
-    // Fetch cart from local storage
     let cart = localStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
 
-    // Update cartItems state with the retrieved cart data
     setCartItems(cart);
 
     if (Array.isArray(cart)) {
@@ -31,11 +28,7 @@ const AddToCart = () => {
       setTotalItems(itemCount);
       updateTotalPrice(cart);
     }
-  }, []); // This effect runs only once when the component mounts
-
-  const handleBuyNow = (item) => {
-    alert(`You have purchased: ${item.name}`);
-  };
+  }, []);
 
   const increment = (id) => {
     setCartItems((prevItems) =>
@@ -71,12 +64,11 @@ const AddToCart = () => {
       0
     );
 
-    // Set delivery charge based on day or night shift
-    const deliveryChargePerCategory = isNightShift ? 50 : 150;
+    const deliveryChargePerCategory = isNightShift ? 150 : 50;
     const uniqueCategories = new Set(cart.map((item) => item.category));
     const deliveryCharge = uniqueCategories.size * deliveryChargePerCategory;
 
-    setTotalPrice(priceSum + deliveryCharge); // Include delivery charges
+    setTotalPrice(priceSum + deliveryCharge);
   };
 
   const handleCheckoutAll = () => {
@@ -87,15 +79,30 @@ const AddToCart = () => {
             item.price
           }\nQuantity: ${item.quantity}\nTotal: Rs. ${
             item.price * item.quantity
-          }`
+          }\n`
       )
-      .join("\n\n");
+      .join("\n");
+
     const uniqueCategories = new Set(cartItems.map((item) => item.category));
     const deliveryChargePerCategory = isNightShift ? 150 : 50;
     const totalDeliveryCharge =
       uniqueCategories.size * deliveryChargePerCategory;
-    const totalMessage = `Delivery Charges: Rs. ${totalDeliveryCharge} \n Total Price for all items: Rs. ${totalPrice}\n`;
-    const finalMessage = `${message}\n\n${totalMessage}\n`;
+
+    const totalMessage = `
+      ------------------------------
+      Delivery Charges: Rs. ${totalDeliveryCharge}
+      ------------------------------
+      Total Price for all items: Rs. ${totalPrice}
+      ------------------------------
+    `;
+
+    const finalMessage = `
+      ********* Your Order Summary *********
+      ${message}
+      ${totalMessage}
+      Thank you for shopping with us!
+    `;
+
     setCheckoutMessage(finalMessage);
 
     setTimeout(() => {
@@ -215,7 +222,7 @@ const AddToCart = () => {
             <h4>
               Total Price for all items including delivery : Rs. {totalPrice}
               <p></p> Note: We deliver liquor only at night shift. Different
-              category order will charge you extra 50 at day shift.
+              category orders will charge you an extra 50 at day shift.
             </h4>
             <button
               className="checkout-all-button"
