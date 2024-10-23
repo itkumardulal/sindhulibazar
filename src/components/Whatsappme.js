@@ -8,7 +8,7 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
   const [deliveryCharge, setDeliveryCharge] = useState(0); // Initialize to 0
 
   const dayShiftStart = 8;
-  const dayShiftEnd = 20;
+  const dayShiftEnd = ;
 
   useEffect(() => {
     const currentHour = new Date().getHours();
@@ -29,10 +29,11 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
 
   const generateWhatsAppLink = () => {
     const message = `Hello, This is my order details!
+      ##${currentShift}
     ## Item Name: ${orderDetails.name}
      ## Quantity: ${orderDetails.count}
     ## Price per piece: Rs.${orderDetails.price}
-    ##${currentShift}
+  
     ## Delivery Charge: Rs.${deliveryCharge}
     ## Total Price: Rs.${totalCost}`;
 

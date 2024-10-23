@@ -221,7 +221,8 @@ const AddToCart = () => {
           >
             <h4>
               Total Price for all items including delivery : Rs. {totalPrice}
-              <p></p> Note: We deliver liquor only at night shift. Different
+              <p></p> Note: We deliver liquor at night shift too. Food and
+              Grocery are not aavailble for delivery aget 8PM. Different
               category orders will charge you an extra 50 at day shift.
             </h4>
             <button
