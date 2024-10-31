@@ -54,21 +54,37 @@ const Storepage = () => {
   // receiving the params sent from homepage to knw wht page and data we will be reflecting
   const { producttypeStore } = useParams();
   const [showButton, setShowButton] = useState(false);
-  // console.log(producttypeStore)
+  const [titleText, setTitleText] = useState("");
+
   let items;
+  let title;
+
+  // Set items and title based on producttypeStore
   if (producttypeStore === "FoodStore") {
     items = Datacarrier.FoodStore;
+    title = "Delivery only from 8AM to 8PM inside Sindhuli for food items";
   } else if (producttypeStore === "VehicleStore") {
     items = Datacarrier.VehicalStore;
+    title = "Make inquiry on any Vehicles below";
   } else if (producttypeStore === "GroceryStore") {
     items = Datacarrier.GroceryStore;
+    title = "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
   } else if (producttypeStore === "LiquorStore") {
     items = Datacarrier.LiqureStore;
+    title = "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
   } else if (producttypeStore === "HerbalStore") {
     items = Datacarrier.HerbalStore;
+    title =
+      "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
   } else {
     alert("Something went wrong");
-    items = []; // Fallback to an empty array to avoid errors in mapping
+    items = [];
+    title = ""; // Fallback title if there's an error
+  }
+
+  // Set titleText if it's not already set
+  if (!titleText) {
+    setTitleText(title);
   }
 
   // Handle scroll event
@@ -102,9 +118,22 @@ const Storepage = () => {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       />
-      {/* <CarRentAnimation/> */}
+
       <DrawerAppBar>
         <CartBtn handleCart={handleCart} />
+        <div
+          style={{
+            border: "2px solid #FFCC00",
+            backgroundColor: "#FFF7CC",
+            padding: "10px",
+            borderRadius: "10px",
+            textAlign: "center",
+            maxWidth: "1400px",
+            margin: "20px auto",
+          }}
+        >
+          <text style={{ fontSize: 20, color: "#333" }}>{titleText}</text>
+        </div>
 
         <Box
           sx={{
