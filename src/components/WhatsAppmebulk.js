@@ -34,17 +34,8 @@ const WhatsAppmebulk = ({ message }) => {
 
   const generateWhatsAppLink = () => {
     const formattedMessage = `
-===== ORDER DETAILS =====
-Delivery Shift: ${currentShift}
-=========================
-Delivery Cost: Rs. ${deliveryCost}
-=========================
 Items Ordered:
 ${message}
-
-
-
-
     `;
 
     const url = `https://api.whatsapp.com/send?phone=${admin}&text=${encodeURIComponent(

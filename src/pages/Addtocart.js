@@ -79,7 +79,7 @@ const AddToCart = () => {
             item.price
           }\nQuantity: ${item.quantity}\nTotal: Rs. ${
             item.price * item.quantity
-          }\n`
+          }`
       )
       .join("\n");
 
@@ -93,15 +93,12 @@ const AddToCart = () => {
       Delivery Charges: Rs. ${totalDeliveryCharge}
       ------------------------------
       Total Price for all items: Rs. ${totalPrice}
-      ------------------------------
     `;
-
     const finalMessage = `
       ********* Your Order Summary *********
       ${message}
       ${totalMessage}
-      Thank you for shopping with us!
-    `;
+      Thank you for shopping with us! `;
 
     setCheckoutMessage(finalMessage);
 
