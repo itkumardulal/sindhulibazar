@@ -15,14 +15,17 @@
         "price": "120",
         "category": "Food"
     },
+    
+
     {
         "id": 3,
-        "name": "Samosa Aachar set",
-        "image": "https://i.imgur.com/Gdrv1Qz.jpg",
-        "description": "Samosa Aachar is a delightful Nepali snack pairing crispy, spiced samosas with tangy, flavorful pickle (aachar). The samosas are filled with a savory mixture of potatoes, peas, and spices, while the aachar adds a zesty, spicy kick, creating a delicious balance of textures and flavors. Perfect for a light snack or tea-time treat.",
-        "price": "30",
+        "name": "gatto Kalejo Khaja Set",
+        "image": "https://i.imgur.com/PoJToTu.png",
+        "description": "Pulami Khaza Ghar Madhutar",
+        "price": "250",
         "category": "Food"
     },
+
     {
         "id": 4,
         "name": "Mutton Khaja Set",
@@ -102,5 +105,14 @@
         "description": "Pulami Khaza Ghar Madhutar",
         "price": "120",
         "category": "Food"
+    },
+    {
+        "id": 3,
+        "name": " Buff Sukuti Khaja Set",
+        "image": "https://i.imgur.com/nNkDSb0.png",
+        "description": "from Mahhutar sepcial place",
+        "price": "240",
+        "category": "Food"
     }
+
 ]

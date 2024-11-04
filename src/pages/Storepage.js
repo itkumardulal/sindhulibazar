@@ -62,7 +62,8 @@ const Storepage = () => {
   // Set items and title based on producttypeStore
   if (producttypeStore === "FoodStore") {
     items = Datacarrier.FoodStore;
-    title = "Delivery only from 8AM to 8PM inside Sindhuli for food items";
+    title =
+      "Delivery available from 8AM to 1AM night inside Sindhuli for food items";
   } else if (producttypeStore === "VehicleStore") {
     items = Datacarrier.VehicalStore;
     title = "Make inquiry on any Vehicles below";
