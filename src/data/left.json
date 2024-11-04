@@ -56,5 +56,23 @@
     "description": "Introduced in 1961, Sprite is the world's leading lemon-lime flavored soft drink. Sprite is sold in more than 190 countries and ranks as the No. 3 soft drink worldwide.",
     "price": "260",
     "category": "Liquor"
+},
+{
+    "id":19,
+    "name":"Gorkha Beer Big",
+    "image":" https://i.imgur.com/oMMAmT2.jpg",
+    "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
+    "price": "360",    
+    "category": "Liquor"
+
+   
+},
+{
+    "id":6,
+    "name":"Big Master white (Wine)",
+    "image":"https://i.imgur.com/xhEkeWO.jpg",
+    "description": "This wine is aromatic, refreshing, lighter in taste and tangy. Can be consumed as an aperitif during meal with dessert or as a refreshing drink..",
+    "price": "850",    
+    "category": "Liquor"
 }
 ]

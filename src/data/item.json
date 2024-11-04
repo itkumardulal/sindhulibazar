@@ -9,12 +9,12 @@
     },
     {
         "id":2,
-        "name":"Gorkha Beer SMall",
-        "image":"https://i.imgur.com/PZjJpcM.jpg",
-        "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
+      
+        "name":"Arna Beer Small",
+        "image":"https://i.imgur.com/PBRCxRf.png",
+        "description": "Volume: 330ML. Brand: Arna. Category: Beer / Domestic Beer. Country: Nepal. Alcohol: 8%. ARNA 8 - Wild Himalayan Beer.",
         "price": "190",    
         "category": "Liquor"
-    
     },
   
     {
@@ -34,14 +34,7 @@
         "price": " 2100",    
         "category": "Liquor"
     },
-    {
-        "id":6,
-        "name":"Big Master white (Wine)",
-        "image":"https://i.imgur.com/xhEkeWO.jpg",
-        "description": "This wine is aromatic, refreshing, lighter in taste and tangy. Can be consumed as an aperitif during meal with dessert or as a refreshing drink..",
-        "price": "850",    
-        "category": "Liquor"
-    },
+
     {
         "id":7,
         "name":"Yeti vodka",
@@ -98,8 +91,6 @@
         "price": " 1400",    
         "category": "Liquor"
     },
-
-
     {
         "id":14,
         "name":"Tuborg",
@@ -116,8 +107,26 @@
         "price": "425",    
         "category": "Liquor"
     },
+    {
+    "id":16,
+    "name":"Nepal ice Small",
+    "image":"https://i.imgur.com/0VxhDmP.png",
+    "description": "Nepal Ice is a popular brand of beer from Nepal. It's well-regarded for its refreshing and crisp taste, making it a favorite among beer enthusiasts in Nepal and beyond. Nepal Ice offers various beer varieties, including lagers and pilsners, which are known for their quality and enjoyable flavor profile. This brand is often enjoyed at social gatherings and is a symbol of Nepalese brewing tradition and culture.",
+    "price": "190",    
+    "category": "Liquor"
    
-
+    },
+    {
+        
+    "id":16,
+    "name":"Gorkha Beer SMall",
+    "image":"https://i.imgur.com/PZjJpcM.jpg",
+    "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
+    "price": "190",    
+    "category": "Liquor"
+ 
+   
+    },
 
     {
         "id":18,
@@ -127,16 +136,7 @@
         "price": "2800",    
         "category": "Liquor"
     },
-    {
-        "id":19,
-        "name":"Gorkha Beer Big",
-        "image":" https://i.imgur.com/oMMAmT2.jpg",
-        "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
-        "price": "360",    
-        "category": "Liquor"
 
-       
-    },
 
     {
         "id":21,
