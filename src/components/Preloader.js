@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import './Preloader.css'; // You can style this with CSS
+import React, { useEffect, useState } from "react";
+import "./Preloader.css"; // You can style this with CSS
 
 const Preloader = () => {
   const [show, setShow] = useState(true);
