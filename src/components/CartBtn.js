@@ -5,19 +5,19 @@ const CartBtn = ({ handleCart }) => {
   const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    // Fetch cart from local storage
-    let cart = localStorage.getItem("cart");
-    cart = cart ? JSON.parse(cart) : [];
-
-    if (Array.isArray(cart)) {
-      // Calculate the total number of items in the cart
-      const itemCount = cart.reduce(
-        (total, item) => total + (item.count || 1),
-        0
-      );
-      setTotalItems(itemCount);
+    // Fetch cart from local storage and calculate the item count
+    const cart = localStorage.getItem("cart");
+    if (cart) {
+      const parsedCart = JSON.parse(cart);
+      if (Array.isArray(parsedCart)) {
+        const itemCount = parsedCart.reduce(
+          (total, item) => total + (item.count || 1),
+          0
+        );
+        setTotalItems(itemCount);
+      }
     }
-  }, [totalItems]);
+  }, []); // Empty dependency array ensures it only runs on mount
 
   return (
     <Box sx={{ position: "relative" }}>
@@ -34,7 +34,6 @@ const CartBtn = ({ handleCart }) => {
           backgroundColor: "#1a66ad",
           borderRadius: "50%",
           textDecoration: "none",
-          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
           zIndex: 1000,
           transition: "background-color 0.3s ease, transform 0.3s ease",
           "&:hover": {
@@ -44,7 +43,7 @@ const CartBtn = ({ handleCart }) => {
         }}
       >
         {/* Display cart icon */}
-        shopping_cart
+        <span className="material-icons">shopping_cart</span>
         {/* Notification badge inside the button */}
         {totalItems > 0 && (
           <Box
@@ -63,7 +62,6 @@ const CartBtn = ({ handleCart }) => {
               justifyContent: "center",
               minWidth: "24px",
               height: "24px",
-              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
             }}
           >
             {totalItems}

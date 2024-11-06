@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import DrawerAppBar from "../components/Navbar";
 import ImgMediaCard from "../components/ItemCard";
-import { Box, Button, Typography, Tooltip } from "@mui/material";
+import { Box, Button, Tooltip } from "@mui/material";
 import Datacarrier from "../data/Datacarrier";
 import { useParams } from "react-router-dom";
 import { keyframes } from "@emotion/react";
-import { CarRentAnimation } from "../components/CarRentAnimation";
+// import { CarRentAnimation } from "../components/CarRentAnimation";
 import { useNavigate } from "react-router-dom";
 import CartBtn from "../components/CartBtn";
 
 // Define keyframes for animation
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+// const fadeIn = keyframes`
+//   from {
+//     opacity: 0;
+//     transform: translateY(20px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// `;
 
 // Keyframes for hover animations
 const hoverAnimation = keyframes`
