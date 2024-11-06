@@ -12,7 +12,7 @@ import Addtocart from "./pages/Addtocart";
 import Storepage from "./pages/Storepage";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   // useEffect(() => {
   //   // Set a timer to switch off the preloader after 3 seconds
