@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
@@ -14,12 +13,15 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Set a timer to switch off the preloader after 3 seconds
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    // Set loading to false only after the entire page is fully loaded
+    const handleLoad = () => setLoading(false);
 
-    return () => clearTimeout(timer);
+    // Listen for the load event on window
+    window.addEventListener("load", handleLoad);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
   }, []);
 
   if (loading) {
