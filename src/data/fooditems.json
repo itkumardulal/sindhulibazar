@@ -103,15 +103,15 @@
         "name": "Pork Chawmien",
         "image": "https://i.imgur.com/qqlJdKs.png",
         "description": "Pulami Khaza Ghar Madhutar",
-        "price": "120",
+        "price": "130",
         "category": "Food"
     },
     {
         "id": 3,
-        "name": " Buff Sukuti Khaja Set",
+        "name": " Buff Sukuti Khaja Set combo",
         "image": "https://i.imgur.com/nNkDSb0.png",
         "description": "from Mahhutar sepcial place",
-        "price": "240",
+        "price": "300",
         "category": "Food"
     }
 
