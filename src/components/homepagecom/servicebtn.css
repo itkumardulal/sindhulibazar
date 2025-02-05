@@ -1,0 +1,198 @@
+.services-box {
+    width: 100%;
+    max-width: 1400px; /* Increased max-width for larger screens */
+    margin-bottom:1px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .box-button {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Slightly more rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    width: 320px; /* Adjusted width */
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .box-button img {
+    width: 100px; /* Increased size for better visibility */
+    height: 100px; /* Increased size for better visibility */
+    object-fit: contain;
+  }
+  
+  .box-button h3 {
+    font-size: 18px; /* Increased font size for better readability */
+    margin-top: 10px;
+  }
+  
+  .box-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive Design */
+
+  @media (max-width: 1400px) {
+    .box-button {
+        width: 250px;
+        height: 160px;
+        padding: 5px;
+      }
+    
+      .box-button img {
+        width: 110px; /* Increased size for better visibility */
+        height: 110px; /* Increased size for better visibility */
+        object-fit: contain;
+      }
+    
+      .box-button h3 {
+        font-size: 15px; /* Increased font size for better readability */
+        margin-top: 1px;
+      }
+  }
+  @media (max-width: 1024px) {
+    .box-button {
+      width: 170px; /* Adjusted width for medium screens */
+ 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .box-button {
+        width: 150px;
+        height: 120px;
+        padding: 5px;
+      }
+    
+      .box-button img {
+        width: 80px; /* Increased size for better visibility */
+        height: 75px; /* Increased size for better visibility */
+        object-fit: contain;
+      }
+    
+      .box-button h3 {
+        font-size: 10px; /* Increased font size for better readability */
+        margin-top: 1px;
+      }
+  }
+  
+
+  @media (max-width:680px) {
+    .box-button {
+        width: 150px;
+        height: 120px;
+        padding: 5px;
+      }
+    
+      .box-button img {
+        width: 70px; /* Increased size for better visibility */
+        height: 75px; /* Increased size for better visibility */
+        object-fit: contain;
+      }
+    
+      .box-button h3 {
+        font-size: 10px; /* Increased font size for better readability */
+        margin-top: 1px;
+      }
+  }
+
+  
+  
+  @media (max-width: 550px) {
+    .box-button {
+      width: 90px;
+      height: 80px;
+      padding: 5px;
+    }
+  
+    .box-button img {
+      width: 60px; /* Increased size for better visibility */
+      height: 45px; /* Increased size for better visibility */
+      object-fit: contain;
+    }
+  
+    .box-button h3 {
+      font-size: 8px; /* Increased font size for better readability */
+      margin-top: 1px;
+    }
+  }
+  @media (max-width: 500px) {
+    .box-button {
+      width: 78px;
+      height: 80px;
+      padding: 5px;
+    }
+  
+    .box-button img {
+      width: 60px; /* Increased size for better visibility */
+      height: 45px; /* Increased size for better visibility */
+      object-fit: contain;
+    }
+  
+    .box-button h3 {
+      font-size: 8px; /* Increased font size for better readability */
+      margin-top: 1px;
+    }
+  }
+  @media (max-width: 400px) {
+    .box-button {
+      width: 75px;
+      height: 80px;
+      padding: 5px;
+    }
+  
+    .box-button img {
+      width: 60px; /* Increased size for better visibility */
+      height: 45px; /* Increased size for better visibility */
+      object-fit: contain;
+    }
+  
+    .box-button h3 {
+      font-size: 8px; /* Increased font size for better readability */
+      margin-top: 1px;
+    }
+    .services-box {
+
+        margin-bottom: 1px;
+   
+        gap: 10px;
+     
+      }
+  }
+  @media (max-width: 340px) {
+    .box-button {
+      width: 120px;
+      height: 85px;
+      padding: 5px;
+    }
+  
+    .box-button img {
+      width: 60px; /* Increased size for better visibility */
+      height: 45px; /* Increased size for better visibility */
+      object-fit: contain;
+    }
+  
+    .box-button h3 {
+      font-size: 11px; /* Increased font size for better readability */
+      margin-top: 1px;
+    }
+    .services-box {
+
+        margin-bottom: 1px;
+   
+        gap: 15px;
+     
+      }
+ 
+  }
+  
