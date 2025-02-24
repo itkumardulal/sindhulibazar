@@ -28,7 +28,7 @@ const CartBtn = ({ handleCart }) => {
           fontSize: { xs: "24px", sm: "32px" },
           position: "fixed",
           bottom: 16,
-          right: 16,
+          left: 16,
           padding: 2,
           color: "white",
           backgroundColor: "#1a66ad",
