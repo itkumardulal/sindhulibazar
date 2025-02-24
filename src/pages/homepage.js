@@ -79,6 +79,7 @@ const Homepage = () => {
     <>
 
       <DrawerAppBar />
+
       {/* <Button
         onClick={handleCart}
         className="material-symbols-outlined"
@@ -106,6 +107,7 @@ const Homepage = () => {
       <CartBtn handleCart={handleCart} />
 
       <div className="homepage-container">
+ 
         <Search />
         {/* <div className="product-search">
        

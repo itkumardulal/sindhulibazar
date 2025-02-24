@@ -42,6 +42,7 @@ function DrawerAppBar({ window, children }) {
 
   const drawer = (
     <Box sx={{ textAlign: "center" }}>
+    
       <Typography
         variant="h6"
         sx={{
@@ -63,6 +64,7 @@ function DrawerAppBar({ window, children }) {
           >
             SINDHULI BAZAR
           </Typography>
+          
         </div>
       </Typography>
 
@@ -93,6 +95,7 @@ function DrawerAppBar({ window, children }) {
 
           return (
             <React.Fragment key={category}>
+              
               <ListItemButton onClick={() => handleDropdownToggle(category)}>
                 <ListItemText
                   primary={`${emojis[category]} ${capitalizeFirstLetter(
