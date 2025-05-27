@@ -71,7 +71,7 @@
         "name": "Buff Khaja Set",
         "image": "https://i.imgur.com/XEYOs6u.jpg",
         "description": "Pulami Khaza Ghar Madhutar",
-        "price": "250",
+        "price": "280",
         "category": "Food"
     },
     {
@@ -95,7 +95,7 @@
         "name": "Pork khaza set",
         "image": "https://i.imgur.com/jDbWcKv.png",
         "description": "Pulami Khaza Ghar Madhutar",
-        "price": "250",
+        "price": "300",
         "category": "Food"
     },
     {
@@ -103,7 +103,7 @@
         "name": "Pork Chawmien",
         "image": "https://i.imgur.com/qqlJdKs.png",
         "description": "Pulami Khaza Ghar Madhutar",
-        "price": "130",
+        "price": "140",
         "category": "Food"
     },
     {
