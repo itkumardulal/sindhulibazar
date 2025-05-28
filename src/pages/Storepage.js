@@ -73,12 +73,8 @@ const Storepage = () => {
   } else if (producttypeStore === "LiquorStore") {
     items = Datacarrier.LiqureStore;
     title = "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
-  } else if (producttypeStore === "HerbalStore") {
+
     ////here i m do9ing right now
-  } 
-  else if (producttypeStore === "EventTicketStore") {
-    items = Datacarrier.bakeryItems;
-    title = "Delivery only from 8AM to 7PM inside Sindhuli for Bakery  Items";
   } else if (producttypeStore === "HerbalStore") {
     items = Datacarrier.HerbalStore;
     title =

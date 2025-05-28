@@ -77,7 +77,6 @@ const Homepage = () => {
 
   return (
     <>
-
       <DrawerAppBar />
 
       {/* <Button
@@ -107,7 +106,6 @@ const Homepage = () => {
       <CartBtn handleCart={handleCart} />
 
       <div className="homepage-container">
- 
         <Search />
         {/* <div className="product-search">
        
