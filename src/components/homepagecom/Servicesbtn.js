@@ -29,8 +29,8 @@ export default function Servicesbtn() {
       </button>
       <button onClick={() => handlebuttonNav("Herbal")} className="box-button">
         <img
-          src="https://raw.githubusercontent.com/itkumardulal/bhagawatischoolsindhuli/refs/heads/master/src/assets/image1.webp"
-          alt="Vehicle Renting"
+          src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/master/public/uturn.png"
+          alt="Herbal products"
         />
         <h3>UTURN Herbal</h3>
       </button>
