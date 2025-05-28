@@ -179,7 +179,7 @@ const styles = {
     marginBottom: "30px",
   },
   section: {
-    marginBottom: "25px",
+    marginBottom: "26px",
   },
   subheading: {
     fontSize: "22px",
