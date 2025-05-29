@@ -34,13 +34,10 @@ export default function Servicesbtn() {
         />
         <h3>UTURN Herbal</h3>
       </button>
-      <button
-        onClick={() => handlebuttonNav("EventTicket")}
-        className="box-button"
-      >
+      <button onClick={() => handlebuttonNav("Bakery")} className="box-button">
         <img
           src="https://i.imgur.com/pDDdWjJ.png"
-          alt="bakeryitems"
+          alt="bakery"
           style={{ height: 100 }}
         />
         <h3>Cake and Celebration</h3>

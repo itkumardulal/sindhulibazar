@@ -79,6 +79,9 @@ const Storepage = () => {
     items = Datacarrier.HerbalStore;
     title =
       "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
+  } else if (producttypeStore === "BakeryStore") {
+    items = Datacarrier.bakeryItems;
+    title = "Delivery only from 8AM to 8PM inside Sindhuli for BAkery  Items ";
   } else {
     alert("Something went wrong");
     items = [];
