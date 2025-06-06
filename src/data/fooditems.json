@@ -1,62 +1,6 @@
 [
   {
     "id": 1,
-    "name": "Hawaiian Pizza(Large)",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/refs/heads/master/assetsimages/hawaiianpizza.avif",
-    "description": "from BurgerHouse",
-    "price": "820",
-    "category": "Food"
-  },
-  {
-    "id": 2,
-    "name": "Hawaiian Pizza(Medium)",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/refs/heads/master/assetsimages/hawaiianpizza.avif",
-    "description": "from BurgerHouse",
-    "price": "520",
-    "category": "Food"
-  },
-  {
-    "id": 3,
-    "name": "Cheese BBQ Chiken Pizza(Medium)",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "from BurgerHouse",
-    "price": "450",
-    "category": "Food"
-  },
-  {
-    "id": 4,
-    "name": "Cheese BBQ Chiken Pizza (Large)",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "from BurgerHouse",
-    "price": "750",
-    "category": "Food"
-  },
-  {
-    "id": 5,
-    "name": "Sausage Pizza (small)",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/6672b114ade44a597ff5e33e674e221a05dc9106/assetsimages/susagepizza.jpg",
-    "description": "from BurgerHouse",
-    "price": "450",
-    "category": "Food"
-  },
-  {
-    "id": 6,
-    "name": "Sausage Pizza(Large)",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/6672b114ade44a597ff5e33e674e221a05dc9106/assetsimages/susagepizza.jpg",
-    "description": "from BurgerHouse",
-    "price": "750",
-    "category": "Food"
-  },
-  {
-    "id": 7,
-    "name": "Veg Chowmein",
-    "image": "https://i.imgur.com/HFy54bX.jpg",
-    "description": "from BurgerHouse",
-    "price": "90",
-    "category": "Food"
-  },
-  {
-    "id": 8,
     "name": "Buff Mo:MOs",
     "image": "https://i.imgur.com/ZjSqKXp.jpg",
     "description": "Buff Momo beloved Nepali dumpling dish filled with seasoned buffalo meat, mixed with spices, onions, and herbs. Steamed or fried, they are served with a spicy tomato-based dipping sauce (achar) and are a popular street Food known for their rich flavor and juicy texture.",
@@ -64,31 +8,7 @@
     "category": "Food"
   },
   {
-    "id": 9,
-    "name": "gatto Kalejo Khaja Set",
-    "image": "https://i.imgur.com/PoJToTu.png",
-    "description": "Pulami Khaza Ghar Madhutar",
-    "price": "260",
-    "category": "Food"
-  },
-  {
-    "id": 10,
-    "name": "Mutton Khaja Set",
-    "image": "https://i.imgur.com/Csks0H2.jpg",
-    "description": "Mutton Khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
-    "price": "450",
-    "category": "Food"
-  },
-  {
-    "id": 11,
-    "name": "Buff Chowmein ",
-    "image": "https://i.imgur.com/4oFFAFQ.jpg",
-    "description": "Pulami Khaza Ghar, Madhutar",
-    "price": "120",
-    "category": "Food"
-  },
-  {
-    "id": 12,
+    "id": 2,
     "name": "Veg Mo:MOs",
     "image": "https://i.imgur.com/NaHJu04.jpg",
     "description": "Veg MoMO are steamed dumplings filled with a savory mix of vegetables and spices, wrapped in soft dough.",
@@ -96,7 +16,7 @@
     "category": "Food"
   },
   {
-    "id": 13,
+    "id": 3,
     "name": "Chicken Mo:MOs",
     "image": "https://i.imgur.com/IH64CfZ.png",
     "description": "Chicken Momo are beloved for their delightful taste and are a must-try for anyone exploring Himalayan cuisine!",
@@ -104,11 +24,91 @@
     "category": "Food"
   },
   {
-    "id": 14,
+    "id": 4,
+    "name": "Veg Chowmein",
+    "image": "https://i.imgur.com/HFy54bX.jpg",
+    "description": "from BurgerHouse",
+    "price": "90",
+    "category": "Food"
+  },
+  {
+    "id": 5,
+    "name": "Buff Chowmein ",
+    "image": "https://i.imgur.com/4oFFAFQ.jpg",
+    "description": "Pulami Khaza Ghar, Madhutar",
+    "price": "120",
+    "category": "Food"
+  },
+  {
+    "id": 6,
     "name": "Chicken Chawmein",
     "image": "https://i.imgur.com/DNOYsEK.jpg",
     "description": "Chicken Chawmein is a delicious dish made with stir-fried chicken, noodles, and a mix of vegetables, seasoned with soy sauce and spices for a savory flavor.",
     "price": "150",
+    "category": "Food"
+  },
+  {
+    "id": 7,
+    "name": "Hawaiian Pizza(Large)",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/refs/heads/master/assetsimages/hawaiianpizza.avif",
+    "description": "from BurgerHouse",
+    "price": "820",
+    "category": "Food"
+  },
+  {
+    "id": 8,
+    "name": "Hawaiian Pizza(Medium)",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/refs/heads/master/assetsimages/hawaiianpizza.avif",
+    "description": "from BurgerHouse",
+    "price": "520",
+    "category": "Food"
+  },
+  {
+    "id": 9,
+    "name": "Cheese BBQ Chiken Pizza(Medium)",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
+    "description": "from BurgerHouse",
+    "price": "450",
+    "category": "Food"
+  },
+  {
+    "id": 10,
+    "name": "Cheese BBQ Chiken Pizza (Large)",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
+    "description": "from BurgerHouse",
+    "price": "750",
+    "category": "Food"
+  },
+  {
+    "id": 11,
+    "name": "Sausage Pizza (small)",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/6672b114ade44a597ff5e33e674e221a05dc9106/assetsimages/susagepizza.jpg",
+    "description": "from BurgerHouse",
+    "price": "450",
+    "category": "Food"
+  },
+  {
+    "id": 12,
+    "name": "Sausage Pizza(Large)",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/6672b114ade44a597ff5e33e674e221a05dc9106/assetsimages/susagepizza.jpg",
+    "description": "from BurgerHouse",
+    "price": "750",
+    "category": "Food"
+  },
+  {
+    "id": 13,
+    "name": "gatto Kalejo Khaja Set",
+    "image": "https://i.imgur.com/PoJToTu.png",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "260",
+    "category": "Food"
+  },
+  {
+    "id": 14,
+    "name": "Mutton Khaja Set",
+    "image": "https://i.imgur.com/Csks0H2.jpg",
+    "description": "Mutton Khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
+    "price": "450",
     "category": "Food"
   },
   {
