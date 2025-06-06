@@ -2,16 +2,16 @@
   {
     "id": 1,
     "name": "Hawaiian Pizza(Large)",
-    "image": "https://i.imgur.com/nNkDSb0.png",
-    "description": "from Mahhutar sepcial place",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/refs/heads/master/assetsimages/hawaiianpizza.avif",
+    "description": "from BurgerHouse",
     "price": "820",
     "category": "Food"
   },
   {
     "id": 2,
     "name": "Hawaiian Pizza(Medium)",
-    "image": "https://i.imgur.com/nNkDSb0.png",
-    "description": "from Mahhutar sepcial place",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/refs/heads/master/assetsimages/hawaiianpizza.avif",
+    "description": "from BurgerHouse",
     "price": "520",
     "category": "Food"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "name": "Cheese BBQ Chiken Pizza(Medium)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "from Mahhutar sepcial place",
+    "description": "from BurgerHouse",
     "price": "450",
     "category": "Food"
   },
@@ -27,23 +27,23 @@
     "id": 4,
     "name": "Cheese BBQ Chiken Pizza (Large)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "from Mahhutar sepcial place",
+    "description": "from BurgerHouse",
     "price": "750",
     "category": "Food"
   },
   {
     "id": 5,
     "name": "Sausage Pizza (small)",
-    "image": "https://github.com/itkumardulal/sindhulibazar/blob/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/susagepizza.jpg",
-    "description": "from Mahhutar sepcial place",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/6672b114ade44a597ff5e33e674e221a05dc9106/assetsimages/susagepizza.jpg",
+    "description": "from BurgerHouse",
     "price": "450",
     "category": "Food"
   },
   {
     "id": 6,
     "name": "Sausage Pizza(Large)",
-    "image": "https://github.com/itkumardulal/sindhulibazar/blob/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/susagepizza.jpg",
-    "description": "from Mahhutar sepcial place",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/6672b114ade44a597ff5e33e674e221a05dc9106/assetsimages/susagepizza.jpg",
+    "description": "from BurgerHouse",
     "price": "750",
     "category": "Food"
   },
@@ -51,7 +51,7 @@
     "id": 7,
     "name": "Veg Chowmein",
     "image": "https://i.imgur.com/HFy54bX.jpg",
-    "description": "Pulami Khaza Ghar, Madhutar",
+    "description": "from BurgerHouse",
     "price": "90",
     "category": "Food"
   },
