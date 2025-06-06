@@ -1,118 +1,115 @@
 [
-    {
-        "id": 1,
-        "name": "Veg Chowmein",
-        "image": "https://i.imgur.com/HFy54bX.jpg",
-        "description": "Pulami Khaza Ghar, Madhutar",
-        "price": "80",
-        "category": "Food"
-    },
-    {
-        "id": 2,
-        "name": "Buff Mo:MOs",
-        "image": "https://i.imgur.com/ZjSqKXp.jpg",
-        "description": "Buff Momo beloved Nepali dumpling dish filled with seasoned buffalo meat, mixed with spices, onions, and herbs. Steamed or fried, they are served with a spicy tomato-based dipping sauce (achar) and are a popular street Food known for their rich flavor and juicy texture.",
-        "price": "120",
-        "category": "Food"
-    },
-    
-
-    {
-        "id": 3,
-        "name": "gatto Kalejo Khaja Set",
-        "image": "https://i.imgur.com/PoJToTu.png",
-        "description": "Pulami Khaza Ghar Madhutar",
-        "price": "250",
-        "category": "Food"
-    },
-
-    {
-        "id": 4,
-        "name": "Mutton Khaja Set",
-        "image": "https://i.imgur.com/Csks0H2.jpg",
-        "description": "Mutton Khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
-        "price": "400",
-        "category": "Food"
-    },
-    {
-        "id": 5,
-        "name": "Buff Chowmein ",
-        "image": "https://i.imgur.com/4oFFAFQ.jpg",
-        "description": "Pulami Khaza Ghar, Madhutar",
-        "price": "120",
-        "category": "Food"
-    },
-    {
-        "id": 6,
-        "name": "Veg Mo:MOs",
-        "image": "https://i.imgur.com/NaHJu04.jpg",
-        "description": "Veg MoMO are steamed dumplings filled with a savory mix of vegetables and spices, wrapped in soft dough.",
-        "price": "100",
-        "category": "Food"
-    },
-    {
-        "id": 7,
-        "name": "Chicken Mo:MOs",
-        "image": "https://i.imgur.com/IH64CfZ.png",
-        "description": "Chicken Momo are beloved for their delightful taste and are a must-try for anyone exploring Himalayan cuisine!",
-        "price": "180",
-        "category": "Food"
-    },
-    {
-        "id": 8,
-        "name": "Chicken Chawmein",
-        "image": "https://i.imgur.com/DNOYsEK.jpg",
-        "description": "Chicken Chawmein is a delicious dish made with stir-fried chicken, noodles, and a mix of vegetables, seasoned with soy sauce and spices for a savory flavor.",
-        "price": "150",
-        "category": "Food"
-    },
-    {
-        "id": 9,
-        "name": "Buff Khaja Set",
-        "image": "https://i.imgur.com/XEYOs6u.jpg",
-        "description": "Pulami Khaza Ghar Madhutar",
-        "price": "280",
-        "category": "Food"
-    },
-    {
-        "id": 10,
-        "name": "Chicken Khaja Set",
-        "image": "https://i.imgur.com/Rh5o9Ho.jpg",
-        "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
-        "price": "400",
-        "category": "Food"
-    },
-    {
-        "id": 11,
-        "name": "Pork Fried 1/2kg",
-        "image": "https://i.imgur.com/6TuysW9.png",
-        "description": "Pulami Khaza Ghar Madhutar",
-        "price": "400",
-        "category": "Food"
-    },
-    {
-        "id": 12,
-        "name": "Pork khaza set",
-        "image": "https://i.imgur.com/jDbWcKv.png",
-        "description": "Pulami Khaza Ghar Madhutar",
-        "price": "300",
-        "category": "Food"
-    },
-    {
-        "id": 13,
-        "name": "Pork Chawmien",
-        "image": "https://i.imgur.com/qqlJdKs.png",
-        "description": "Pulami Khaza Ghar Madhutar",
-        "price": "140",
-        "category": "Food"
-    },
-    {
-        "id": 3,
-        "name": " Buff Sukuti Khaja Set combo",
-        "image": "https://i.imgur.com/nNkDSb0.png",
-        "description": "from Mahhutar sepcial place",
-        "price": "300",
-        "category": "Food"
-    }
-
+ 
+  {
+    "id": 7,
+    "name": "Veg Chowmein",
+    "image": "https://i.imgur.com/HFy54bX.jpg",
+    "description": "Pulami Khaza Ghar, Madhutar",
+    "price": "90",
+    "category": "Food"
+  },
+  {
+    "id": 8,
+    "name": "Buff Mo:MOs",
+    "image": "https://i.imgur.com/ZjSqKXp.jpg",
+    "description": "Buff Momo beloved Nepali dumpling dish filled with seasoned buffalo meat, mixed with spices, onions, and herbs. Steamed or fried, they are served with a spicy tomato-based dipping sauce (achar) and are a popular street Food known for their rich flavor and juicy texture.",
+    "price": "120",
+    "category": "Food"
+  },
+  {
+    "id": 9,
+    "name": "gatto Kalejo Khaja Set",
+    "image": "https://i.imgur.com/PoJToTu.png",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "260",
+    "category": "Food"
+  },
+  {
+    "id": 10,
+    "name": "Mutton Khaja Set",
+    "image": "https://i.imgur.com/Csks0H2.jpg",
+    "description": "Mutton Khaja Set is a hearty Nepali meal featuring tender, spiced mutton curry served with beaten rice (chiura), crispy fried snacks, pickles (achar), and salads. Often accompanied by spicy chutneys, it's a flavorful and filling dish, perfect for traditional gatherings and celebrations.",
+    "price": "450",
+    "category": "Food"
+  },
+  {
+    "id": 11,
+    "name": "Buff Chowmein ",
+    "image": "https://i.imgur.com/4oFFAFQ.jpg",
+    "description": "Pulami Khaza Ghar, Madhutar",
+    "price": "120",
+    "category": "Food"
+  },
+  {
+    "id": 12,
+    "name": "Veg Mo:MOs",
+    "image": "https://i.imgur.com/NaHJu04.jpg",
+    "description": "Veg MoMO are steamed dumplings filled with a savory mix of vegetables and spices, wrapped in soft dough.",
+    "price": "100",
+    "category": "Food"
+  },
+  {
+    "id": 13,
+    "name": "Chicken Mo:MOs",
+    "image": "https://i.imgur.com/IH64CfZ.png",
+    "description": "Chicken Momo are beloved for their delightful taste and are a must-try for anyone exploring Himalayan cuisine!",
+    "price": "180",
+    "category": "Food"
+  },
+  {
+    "id": 14,
+    "name": "Chicken Chawmein",
+    "image": "https://i.imgur.com/DNOYsEK.jpg",
+    "description": "Chicken Chawmein is a delicious dish made with stir-fried chicken, noodles, and a mix of vegetables, seasoned with soy sauce and spices for a savory flavor.",
+    "price": "150",
+    "category": "Food"
+  },
+  {
+    "id": 15,
+    "name": "Buff Khaja Set",
+    "image": "https://i.imgur.com/XEYOs6u.jpg",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "280",
+    "category": "Food"
+  },
+  {
+    "id": 16,
+    "name": "Chicken Khaja Set",
+    "image": "https://i.imgur.com/Rh5o9Ho.jpg",
+    "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
+    "price": "400",
+    "category": "Food"
+  },
+  {
+    "id": 17,
+    "name": "Pork Fried 1/2kg",
+    "image": "https://i.imgur.com/6TuysW9.png",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "500",
+    "category": "Food"
+  },
+  {
+    "id": 18,
+    "name": "Pork khaza set",
+    "image": "https://i.imgur.com/jDbWcKv.png",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "300",
+    "category": "Food"
+  },
+  {
+    "id": 19,
+    "name": "Pork Chawmien",
+    "image": "https://i.imgur.com/qqlJdKs.png",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "140",
+    "category": "Food"
+  },
+  {
+    "id": 20,
+    "name": "Buff Sukuti Khaja Set combo",
+    "image": "https://i.imgur.com/nNkDSb0.png",
+    "description": "from Mahhutar sepcial place",
+    "price": "300",
+    "category": "Food"
+  }
 ]
