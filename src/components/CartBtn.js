@@ -1,5 +1,6 @@
 import { Box, Button } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const CartBtn = ({ handleCart }) => {
   const [totalItems, setTotalItems] = useState(0);
@@ -43,7 +44,7 @@ const CartBtn = ({ handleCart }) => {
         }}
       >
         {/* Display cart icon */}
-        <span className="material-icons">shopping_cart</span>
+        <ShoppingCartIcon sx={{ fontSize: 32 }} />
         {/* Notification badge inside the button */}
         {totalItems > 0 && (
           <Box
