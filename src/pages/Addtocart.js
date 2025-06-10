@@ -10,6 +10,7 @@ const AddToCart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [checkoutMessage, setCheckoutMessage] = useState("");
   const [isNightShift, setIsNightShift] = useState(false); // New state for day/night
+  const [deliveyChargefinal, setDeliveryPriceFinal] = useState(50);
 
   // useEffect(() => {
   //   const currentHour = new Date().getHours();
@@ -86,6 +87,7 @@ const AddToCart = () => {
     const deliveryChargePerCategory = isNightShift ? 150 : 50;
     const uniqueCategories = new Set(cart.map((item) => item.category));
     const deliveryCharge = uniqueCategories.size * deliveryChargePerCategory;
+    setDeliveryPriceFinal(deliveryCharge);
 
     setTotalPrice(priceSum + deliveryCharge);
   };
@@ -106,6 +108,7 @@ const AddToCart = () => {
     const deliveryChargePerCategory = isNightShift ? 150 : 50;
     const totalDeliveryCharge =
       uniqueCategories.size * deliveryChargePerCategory;
+    setDeliveryPriceFinal(totalDeliveryCharge);
 
     const totalMessage = `
       ------------------------------
@@ -235,12 +238,56 @@ const AddToCart = () => {
               textAlign: "center",
             }}
           >
-            <h4>
+            {/* <h4>
+              Delivery Charge total : {deliveyChargefinal}
+              <br></br>
               Total Price for all items including delivery : Rs. {totalPrice}
-              <p></p> Note: We deliver liquor at night shift too. Food and
-              Grocery are not aavailble for delivery aget 8PM. Different
-              category orders will charge you an extra 50 at day shift.
-            </h4>
+              <p></p> Note: We deliver food and liquor at night shift too.
+              Grocery and Bakey are not aavailble for delivery after 8PM.
+              Different store orders will charge you an extra 50 at day shift
+              and extra 150 at night shift automatically.
+            </h4> */}
+            <div
+              style={{
+                textAlign: "left",
+                backgroundColor: "#fff",
+                padding: "15px",
+                borderRadius: "8px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+                lineHeight: "1.6",
+                fontSize: "16px",
+              }}
+            >
+              <h4
+                style={{
+                  marginBottom: "10px",
+                  borderBottom: "1px solid #ccc",
+                  paddingBottom: "8px",
+                }}
+              >
+                🧾 <strong>Order Summary</strong>
+              </h4>
+              <div>
+                <strong>Delivery Charges:</strong> Rs. {deliveyChargefinal}
+              </div>
+              <div>
+                <strong>Total Amount (incl. delivery):</strong> Rs. {totalPrice}
+              </div>
+              <hr style={{ margin: "12px 0" }} />
+              <div style={{ fontSize: "14px", color: "#555" }}>
+                📌 <strong>Note:</strong>
+                <br />- We deliver <strong>food and liquor</strong> at night
+                too.
+                <br />- <strong>Grocery and Bakery</strong> are not available
+                for delivery after 8 PM.
+                <br />- Delivery charge is based on number of store categories:
+                <ul style={{ marginTop: "5px", paddingLeft: "20px" }}>
+                  <li>Rs. 50 per category (Day Shift)</li>
+                  <li>Rs. 150 per category (Night Shift)</li>
+                </ul>
+              </div>
+            </div>
+
             <button
               className="checkout-all-button"
               style={{
