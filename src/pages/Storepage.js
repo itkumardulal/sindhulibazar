@@ -63,7 +63,7 @@ const Storepage = () => {
   if (producttypeStore === "FoodStore") {
     items = Datacarrier.FoodStore;
     title =
-      "Delivery available from 10AM to 8PM night inside Sindhuli for food items";
+      "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
   } else if (producttypeStore === "VehicleStore") {
     items = Datacarrier.VehicalStore;
     title = "Make inquiry on any Vehicles below";

@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import ConfirmModal from "./ConfirmItem";
 import WhatsAppMessageLink from "./Whatsappme";
+import ToastNotify, { showToast } from "../components/ToastNotify";
 
 // Define keyframes for zoom-in animation
 const zoomInAnimation = `
@@ -59,6 +60,66 @@ export default function ImgMediaCard({ data }) {
       .toString(36)
       .substr(2, 9)}`;
   };
+  //loaders
+  const showLoadingOverlay = () => {
+    // Prevent multiple overlays
+    if (document.getElementById("loading-overlay")) return;
+
+    const overlay = document.createElement("div");
+    overlay.id = "loading-overlay";
+    Object.assign(overlay.style, {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "rgba(0,0,0,0.6)",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 9999,
+    });
+
+    // Spinner element
+    const spinner = document.createElement("div");
+    Object.assign(spinner.style, {
+      border: "6px solid #f3f3f3",
+      borderTop: "6px solid #3498db",
+      borderRadius: "50%",
+      width: "60px",
+      height: "60px",
+      animation: "spin 1s linear infinite",
+    });
+
+    // Loading text
+    const text = document.createElement("div");
+    text.innerText = "Loading... Please wait.";
+    Object.assign(text.style, {
+      marginTop: "15px",
+      color: "#fff",
+      fontSize: "1.2rem",
+      fontWeight: "500",
+      fontFamily: "Arial, sans-serif",
+    });
+
+    overlay.appendChild(spinner);
+    overlay.appendChild(text);
+    document.body.appendChild(overlay);
+
+    // Add keyframes animation for spinner
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = `
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+    document.head.appendChild(styleSheet);
+  };
+
+  //loader ends
 
   const handleClickAddtoCart = () => {
     // Get existing cart from localStorage
@@ -84,9 +145,17 @@ export default function ImgMediaCard({ data }) {
 
     // Save updated cart back to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
+    showLoadingOverlay();
 
-    alert("New Product added to cart");
-    window.location.reload(); // Refresh the page
+    showToast("🛒 Product added to cart!");
+
+    // alert("New Product added to cart");
+
+    // Show loading overlay before reload
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500); // Wait 1.5 seconds for user to see toast + loading
   };
 
   return (

@@ -11,6 +11,7 @@ import Homepage from "./pages/homepage";
 import Addtocart from "./pages/Addtocart";
 import Storepage from "./pages/Storepage";
 import Rpmcheckup from "./pages/Rpmcheckup";
+import ToastNotify from "./components/ToastNotify";
 
 function App() {
   // const [loading, setLoading] = useState(true);
@@ -42,6 +43,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/rpmcheckup" element={<Rpmcheckup />} />
       </Routes>
+      <ToastNotify />
     </div>
   );
 }
