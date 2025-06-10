@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 export const showToast = (message = "🛒 New product added to cart!") => {
   toast.success(message, {
     position: "top-center", // Keep top-center for default
-    autoClose: 490,
+    autoClose: 300,
     hideProgressBar: true,
     pauseOnHover: false,
     closeOnClick: true,
