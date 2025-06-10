@@ -11,6 +11,25 @@ const AddToCart = () => {
   const [checkoutMessage, setCheckoutMessage] = useState("");
   const [isNightShift, setIsNightShift] = useState(false); // New state for day/night
 
+  // useEffect(() => {
+  //   const currentHour = new Date().getHours();
+  //   setIsNightShift(currentHour >= 20 || currentHour < 6); // Night from 8 PM to 6 AM
+
+  //   let cart = localStorage.getItem("cart");
+  //   cart = cart ? JSON.parse(cart) : [];
+
+  //   setCartItems(cart);
+
+  //   if (Array.isArray(cart)) {
+  //     const itemCount = cart.reduce(
+  //       (total, item) => total + (item.count || 1),
+  //       0
+  //     );
+  //     setTotalItems(itemCount);
+  //     updateTotalPrice(cart);
+  //   }
+  // }, []);
+
   useEffect(() => {
     const currentHour = new Date().getHours();
     setIsNightShift(currentHour >= 20 || currentHour < 6); // Night from 8 PM to 6 AM
@@ -19,16 +38,16 @@ const AddToCart = () => {
     cart = cart ? JSON.parse(cart) : [];
 
     setCartItems(cart);
-
-    if (Array.isArray(cart)) {
-      const itemCount = cart.reduce(
-        (total, item) => total + (item.count || 1),
-        0
-      );
-      setTotalItems(itemCount);
-      updateTotalPrice(cart);
-    }
   }, []);
+
+  useEffect(() => {
+    const itemCount = cartItems.reduce(
+      (total, item) => total + (item.quantity || 1),
+      0
+    );
+    setTotalItems(itemCount);
+    updateTotalPrice(cartItems);
+  }, [cartItems]);
 
   const increment = (id) => {
     setCartItems((prevItems) =>
@@ -64,7 +83,7 @@ const AddToCart = () => {
       0
     );
 
-    const deliveryChargePerCategory = isNightShift ? 50 : 150;
+    const deliveryChargePerCategory = isNightShift ? 150 : 50;
     const uniqueCategories = new Set(cart.map((item) => item.category));
     const deliveryCharge = uniqueCategories.size * deliveryChargePerCategory;
 
@@ -84,7 +103,7 @@ const AddToCart = () => {
       .join("\n");
 
     const uniqueCategories = new Set(cartItems.map((item) => item.category));
-    const deliveryChargePerCategory = isNightShift ? 50 : 150;
+    const deliveryChargePerCategory = isNightShift ? 150 : 50;
     const totalDeliveryCharge =
       uniqueCategories.size * deliveryChargePerCategory;
 
