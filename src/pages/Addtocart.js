@@ -64,7 +64,7 @@ const AddToCart = () => {
       0
     );
 
-    const deliveryChargePerCategory = isNightShift ? 150 : 50;
+    const deliveryChargePerCategory = isNightShift ? 50 : 150;
     const uniqueCategories = new Set(cart.map((item) => item.category));
     const deliveryCharge = uniqueCategories.size * deliveryChargePerCategory;
 
