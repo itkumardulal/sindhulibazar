@@ -155,7 +155,7 @@ export default function ImgMediaCard({ data }) {
 
     setTimeout(() => {
       window.location.reload();
-    }, 1500); // Wait 1.5 seconds for user to see toast + loading
+    }, 500); // Wait 0.5 seconds for user to see toast + loading
   };
 
   return (
