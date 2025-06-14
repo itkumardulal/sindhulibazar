@@ -123,7 +123,7 @@
     "id": 16,
     "name": "Chicken Khaja Set",
     "image": "https://i.imgur.com/Rh5o9Ho.jpg",
-    "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
+    "description": "Special Fomm Sindhuli BAzar",
     "price": "380",
     "category": "Food"
   },
@@ -164,7 +164,7 @@
     "name": "chiken biryani",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/chiken%20biryani.webp",
     "description": "From Sarusali Thakali and Guest House Dhungrebas",
-    "price": "300",
+    "price": "320",
     "category": "Food"
   },
   {
@@ -180,7 +180,7 @@
     "name": "mutton biryani",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/mutton%20biryani.webp",
     "description": "From Sarusali Thakali and Guest House Dhungrebas",
-    "price": "",
+    "price": "400",
     "category": "Food"
   },
   {
