@@ -1,5 +1,22 @@
 [
+    {
+    "id": 64,
+    "name": "Local Chicken Khana",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/local%20chiken%20khana.png",
+    "description": "From Sarusali Thakali and Guest House Dhungrebas",
+    "price": "500",
+    "category": "Food"
+  },
   {
+    "id": 65,
+    "name": "Mutton Khana",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/Muton%20khana.jpg",
+    "description": "From Sarusali Thakali and Guest House Dhungrebas",
+    "price": "420",
+    "category": "Food"
+  },
+  {
+
     "id": 1,
     "name": "Buff Mo:MOs",
     "image": "https://i.imgur.com/ZjSqKXp.jpg",
@@ -480,22 +497,6 @@
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/Fish%20khana.jpg",
     "description": "From Sarusali Thakali and Guest House Dhungrebas",
     "price": "380",
-    "category": "Food"
-  },
-  {
-    "id": 64,
-    "name": "Local Chicken Khana",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/local%20chiken%20khana.png",
-    "description": "From Sarusali Thakali and Guest House Dhungrebas",
-    "price": "500",
-    "category": "Food"
-  },
-  {
-    "id": 65,
-    "name": "Mutton Khana",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/Muton%20khana.jpg",
-    "description": "From Sarusali Thakali and Guest House Dhungrebas",
-    "price": "420",
     "category": "Food"
   }
 
