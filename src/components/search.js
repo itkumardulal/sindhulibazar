@@ -1,68 +1,75 @@
 import React, { useState } from "react";
-import "./Search.css"; // Make sure to have a CSS file for styling.
+import "./Search.css";
 import Datacarrier from "../data/Datacarrier";
 import { useNavigate } from "react-router-dom";
 import WhatsAppMessageLink from "./Whatsappme";
+import { distance } from "fastest-levenshtein";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const navigate = useNavigate(); // Get the navigate function
+  const navigate = useNavigate();
 
-  // Function to calculate how well a field (name or description) matches the search query
+  // Fuzzy score calculator using Levenshtein distance
   const calculateMatchScore = (text, query, isNameField = false) => {
-    const normalizedText = text.toLowerCase();
-    const normalizedQuery = query.toLowerCase();
+    const normalizedText = text?.toLowerCase() || "";
+    const normalizedQuery = query?.toLowerCase() || "";
 
     let score = 0;
 
-    // Match the number of times the query appears anywhere in the text
-    const matchCount = normalizedText.split(normalizedQuery).length - 1;
+    const queryWords = normalizedQuery.split(/\s+/);
+    const textWords = normalizedText.split(/\s+/);
 
-    // Prioritize name matches with a higher score multiplier
-    score += matchCount * (isNameField ? 10 : 2);
+    queryWords.forEach((qWord) => {
+      let bestDistance = Infinity;
+
+      textWords.forEach((tWord) => {
+        const dist = distance(qWord, tWord);
+        bestDistance = Math.min(bestDistance, dist);
+      });
+
+      if (bestDistance <= 2) {
+        score += (isNameField ? 10 : 5) - bestDistance;
+      }
+    });
 
     return score;
   };
 
   const handleSearchChange = (e) => {
-    const query = e.target.value.trim();
+    const query = e.target.value;
     setSearchQuery(query);
 
-    if (query === "") {
-      setSearchResults([]); // Reset search results when input is cleared
+    if (query.trim() === "") {
+      setSearchResults([]);
       return;
     }
 
     const matchedResults = [];
 
-    // Loop through all store categories (LiquorStore, FoodStore, etc.)
     Object.keys(Datacarrier).forEach((storeKey) => {
       const storeItems = Datacarrier[storeKey];
 
       storeItems.forEach((item) => {
-        const { name, description, vehicleInfo, count = 1 } = item; // Extract count with a default of 1
+        const { name, description, vehicleInfo, count = 1 } = item;
 
-        // Calculate match score based on name (higher priority)
         const nameScore = calculateMatchScore(name, query, true);
         const descriptionScore = calculateMatchScore(description, query);
         const vehicleScore = vehicleInfo
           ? calculateMatchScore(vehicleInfo, query)
           : 0;
 
-        // Combine scores from name, description, and vehicle info
         const totalScore = nameScore + descriptionScore + vehicleScore;
 
         if (totalScore > 0) {
-          matchedResults.push({ ...item, score: totalScore, count }); // Include count in matched results
+          matchedResults.push({ ...item, score: totalScore, count });
         }
       });
     });
 
-    // Sort results based on score (highest first)
     const sortedResults = matchedResults
-      .sort((a, b) => b.score - a.score) // Higher score first
-      .slice(0, 5); // Get only the top 5 results
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
 
     setSearchResults(sortedResults);
   };
@@ -73,19 +80,14 @@ export default function Search() {
       .substr(2, 9)}`;
   };
 
-  // Update the handleClickAddtoCart function to receive the item details
   const handleClickAddtoCart = (item) => {
-    const { id, name, image, description, price, category, count = 1 } = item; // Extract from the passed item
+    const { id, name, image, description, price, category, count = 1 } = item;
 
-    // Get existing cart from localStorage
     let cart = localStorage.getItem("cart");
-
-    // If cart exists, parse it, otherwise initialize an empty array
     cart = cart ? JSON.parse(cart) : [];
 
-    // Create a new product object with a unique cart ID
     const newProduct = {
-      cartId: generateUniqueCartId(), // Unique identifier for the cart item
+      cartId: generateUniqueCartId(),
       id,
       name,
       image,
@@ -95,24 +97,20 @@ export default function Search() {
       quantity: count,
     };
 
-    // Add the new product to the cart
     cart.push(newProduct);
-
-    // Save updated cart back to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
 
     alert("New Product added to cart");
-    window.location.reload(); // Refresh the page
+    window.location.reload();
   };
 
-  // Function to update the count for a specific item
   const updateCount = (itemId, operation) => {
     setSearchResults((prevResults) =>
       prevResults.map((item) => {
         if (item.id === itemId) {
           const newCount =
             operation === "increment" ? item.count + 1 : item.count - 1;
-          return { ...item, count: Math.max(newCount, 1) }; // Ensure count doesn't go below 1
+          return { ...item, count: Math.max(newCount, 1) };
         }
         return item;
       })
@@ -121,7 +119,6 @@ export default function Search() {
 
   return (
     <div className="search-container">
-      {/* Search Bar */}
       <div className="product-search">
         <input
           type="text"
@@ -143,7 +140,6 @@ export default function Search() {
         </div>
       </div>
 
-      {/* Search Results */}
       <div className="search-results">
         {searchResults.length > 0
           ? searchResults.map((item) => (
@@ -167,12 +163,10 @@ export default function Search() {
                 <div className="product-actions">
                   <button
                     className="add-to-cart"
-                    onClick={() => handleClickAddtoCart(item)} // Pass the item details when clicked
+                    onClick={() => handleClickAddtoCart(item)}
                   >
                     Add to Cart
                   </button>
-
-                  {/* <button className="buy-now">Buy Now</button> */}
                 </div>
                 <WhatsAppMessageLink orderDetails={item} />
               </div>
