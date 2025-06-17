@@ -17,15 +17,15 @@ const WhatsAppmebulk = ({ message }) => {
 
     if (currentHour >= dayShiftStart && currentHour < dayShiftEnd) {
       setCurrentShift("Day Shift");
-      setAdmin("+9779700673618");
+      setAdmin("+9779703782444");
       setDeliveryCost(50); // Set delivery cost for day shift
     } else if (currentHour >= nightShiftStart || currentHour < nightShiftEnd) {
       setCurrentShift("Night Shift");
-      setAdmin("+9779700673618");
+      setAdmin("+9779703782444");
       setDeliveryCost(150); // Set delivery cost for night shift
     } else {
       setCurrentShift("Outside of Day and Night Shifts");
-      setAdmin("+9779700673618");
+      setAdmin("+9779703782444");
       setDeliveryCost(0); // No delivery cost for outside shifts
     }
   }, [currentHour]);

@@ -16,11 +16,11 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
     // Setting admin contact based on the current shift
     if (currentHour >= dayShiftStart && currentHour < dayShiftEnd) {
       setCurrentShift("Day Shift");
-      setAdmin("+9779700673618"); // Adjust admin number accordingly
+      setAdmin("+9779703782444"); // Adjust admin number accordingly
       setDeliveryCharge(50); // Set delivery charge for day shift
     } else {
       setCurrentShift("Night Shift");
-      setAdmin("+9779700673618");
+      setAdmin("+9779703782444");
       setDeliveryCharge(150); // Set delivery charge for night shift
     }
   }, []);
