@@ -21,7 +21,7 @@
     "name": "Buff Mo:MOs",
     "image": "https://i.imgur.com/ZjSqKXp.jpg",
     "description": "Buff Momo beloved Nepali dumpling dish filled with seasoned buffalo meat, mixed with spices, onions, and herbs. Steamed or fried, they are served with a spicy tomato-based dipping sauce (achar) and are a popular street Food known for their rich flavor and juicy texture.",
-    "price": "130",
+    "price": "140",
     "category": "Food"
   },
   {
@@ -29,7 +29,7 @@
     "name": "Veg Mo:MOs",
     "image": "https://i.imgur.com/NaHJu04.jpg",
     "description": "Veg MoMO are steamed dumplings filled with a savory mix of vegetables and spices, wrapped in soft dough.",
-    "price": "100",
+    "price": "110",
     "category": "Food"
   },
   {
@@ -114,7 +114,7 @@
   },
   {
     "id": 13,
-    "name": "gatto Kalejo Khaja Set",
+    "name": "Ghatto Kalejo Khaja Set",
     "image": "https://i.imgur.com/PoJToTu.png",
     "description": "Pulami Khaza Ghar Madhutar",
     "price": "260",
