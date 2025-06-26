@@ -136,7 +136,7 @@ export default function Search({ data }) {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-5 -15 30 40"
             width="30"
-            height="30"
+            height="32"
           >
             <path d="M10 2a8 8 0 016.32 12.906l5.387 5.387a1 1 0 01-1.415 1.415l-5.387-5.387A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z" />
           </svg>

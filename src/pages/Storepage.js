@@ -100,25 +100,63 @@ const Storepage = () => {
         <CartBtn totalItems={totalItemsCount} handleCart={handleCart} />
 
         <br />
-        <div className="container mx-auto px-4 overflow-x-hidden">
-          <div className="w-full md:w-1/2 lg:w-1/3 mx-auto">
+   
+          <div  style={{width:"102%"}}>
             <Search data={searchData} />
           </div>
-        </div>
+      
 
-        <div
-          style={{
-            border: "2px solid #FFCC00",
-            backgroundColor: "#FFF7CC",
-            padding: "5px",
-            borderRadius: "10px",
-            textAlign: "center",
-            maxWidth: "1400px",
-            margin: "auto",
-          }}
-        >
-          <span style={{ fontSize: 20, color: "#333" }}>{titleText}</span>
-        </div>
+     <div
+  style={{
+    // border: "2px solid #FFCC00",
+    // backgroundColor: "#FFF7CC",
+    padding: "10px 20px",
+    borderRadius: "10px",
+    textAlign: "center",
+    maxWidth: "1400px",
+    margin: "auto",
+    position: "relative",
+    // boxShadow: "0 2px 8px rgba(255, 204, 0, 0.3)",
+    animation: "slideFadeIn 0.6s ease forwards",
+  }}
+>
+  <span
+    style={{
+      fontSize: 18,
+      color: "#333",
+      fontWeight: "600",
+      paddingBottom: "6px",
+      borderBottom: "3px solid #E63946",
+      display: "inline-block",
+      letterSpacing: "0.03em",
+      animation: "underlineGrow 0.6s ease forwards",
+    }}
+  >
+    {titleText}
+  </span>
+
+  <style>{`
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes underlineGrow {
+      0% {
+        border-bottom-width: 0;
+      }
+      100% {
+        border-bottom-width: 3px;
+      }
+    }
+  `}</style>
+</div>
+
 
         <Box
           sx={{

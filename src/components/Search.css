@@ -129,6 +129,7 @@
 /* PRODUCT ACTIONS BUTTONS (Add to Cart, Buy Now, WhatsApp) */
 .product-actions {
   display: flex;
+  flex-wrap: wrap;          /* allow wrapping */
   justify-content: space-between;
   width: 100%;
   margin-top: 8px;
@@ -138,7 +139,8 @@
 .add-to-cart,
 .buy-now,
 .whatsapp-button {
-  flex: 1;
+  flex: 1 1 120px;          /* grow, shrink, basis */
+  min-width: 120px;         /* minimum button width */
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
@@ -148,6 +150,7 @@
   transition: background-color 0.3s ease;
   text-align: center;
   user-select: none;
+  box-sizing: border-box;
 }
 
 .add-to-cart {
