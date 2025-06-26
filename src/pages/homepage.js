@@ -33,6 +33,7 @@ const Homepage = () => {
         <p className="product-description"> {product.description}</p>
         <p className="product-price"> {product.price}</p>
         <button
+          // color="#F9CB43"
           className="buy-button"
           onClick={() => handlebuttonNav(product.category)}
         >

@@ -138,7 +138,10 @@ function DrawerAppBar({ window, children }) {
         component="nav"
         sx={{
           backgroundColor: "orange",
-          background: "linear-gradient(135deg, #FFC107, #04ccdaf6)",
+          // #FBA518
+          // #E52020
+          // #F9CB45
+          background: "linear-gradient(135deg, #F9CB45, #E52020)",
         }}
       >
         <Toolbar>
