@@ -54,8 +54,7 @@ function DrawerAppBar({ window, children }) {
         <div style={{ display: "flex", alignItems: "center" }}>
           <img
             style={{ height: 50, width: 50, marginRight: "2px" }}
-            src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/c10863cbf16ad073faa0fb01df854258416962ce/public/mainlogo4.png
-"
+            src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/e57d5d19dab393b717e70a9801fb57fb988c28c5/public/mainlogo3.png"
             alt="logo"
           />
           <Typography
@@ -180,7 +179,7 @@ function DrawerAppBar({ window, children }) {
               }}
             >
               <img
-                style={{ height: 60, width: 60, marginRight: "8px" }}
+                style={{ height: 40, width: 40, marginRight: "1px" }}
                 src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/c10863cbf16ad073faa0fb01df854258416962ce/public/mainlogo4.png
 "
                 alt="logo"
