@@ -15,18 +15,18 @@ export default function Servicesbtn() {
         <img src="https://i.imgur.com/IV49hFF.png" alt="Liquor Store" />
         <h3>Liquor Store</h3>
       </button>
-      <button onClick={() => handlebuttonNav("Grocery")} className="box-button">
+      {/* <button onClick={() => handlebuttonNav("Grocery")} className="box-button">
         <img src="https://i.imgur.com/DMIVM3N.png" alt="Grocery Store" />
         <h3>Grocery Store</h3>
-      </button>
+      </button> */}
       <button onClick={() => handlebuttonNav("Food")} className="box-button">
         <img src="https://i.imgur.com/BFjzyuv.png" alt="Food Store" />
         <h3>Food Store</h3>
       </button>
-      <button onClick={() => handlebuttonNav("Vehicle")} className="box-button">
+      {/* <button onClick={() => handlebuttonNav("Vehicle")} className="box-button">
         <img src="https://i.imgur.com/qkivuDn.png" alt="Vehicle Renting" />
         <h3>Vehicle Renting</h3>
-      </button>
+      </button> */}
       <button onClick={() => handlebuttonNav("Herbal")} className="box-button">
         <img
           src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/master/public/uturn.png"
