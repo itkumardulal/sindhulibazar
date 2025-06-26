@@ -142,7 +142,7 @@ function DrawerAppBar({ window, children }) {
           // #E52020
           // #F9CB45
           // #04ccdaf6
-          background: "linear-gradient(135deg, #F9CB45, #E52020)",
+          background: "linear-gradient(135deg,#F9CB45,#E52020)",
         }}
       >
         <Toolbar>
@@ -179,9 +179,8 @@ function DrawerAppBar({ window, children }) {
               }}
             >
               <img
-                style={{ height: 40, width: 40, marginRight: "1px" }}
-                src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/c10863cbf16ad073faa0fb01df854258416962ce/public/mainlogo4.png
-"
+                style={{ height: 55, width: 55, marginRight: "1px" }}
+                src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/e57d5d19dab393b717e70a9801fb57fb988c28c5/public/mainlogo3.png"
                 alt="logo"
               />
               <Typography
