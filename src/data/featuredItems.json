@@ -15,14 +15,7 @@
         "price": "200",
         "category": "Liquor"
     },
-     {
-        "id":21,
-        "name":"Red Bull- Red 250ml",
-        "image":" https://i.imgur.com/E8eRYC9.png",
-        "description": "Red Bull, one of the most popular energy drinks produced in Thailand, is solely imported and marketed by GB Marketing, a 100% subsidiary of Gorkha Brewery.",
-        "price": "125",    
-        "category": "Liquor"
-    },
+    
   {
     "id": 21,
     "name": "chiken biryani",

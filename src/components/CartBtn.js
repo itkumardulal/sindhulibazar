@@ -1,24 +1,17 @@
+import React, { useContext, useEffect, useState } from "react";
 import { Box, Button } from "@mui/material";
-import React, { useState, useEffect } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { CartContext } from "../context/CartContext"; // adjust path as needed
 
 const CartBtn = ({ handleCart }) => {
+  const { cart } = useContext(CartContext); // get cart from context
   const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    // Fetch cart from local storage and calculate the item count
-    const cart = localStorage.getItem("cart");
-    if (cart) {
-      const parsedCart = JSON.parse(cart);
-      if (Array.isArray(parsedCart)) {
-        const itemCount = parsedCart.reduce(
-          (total, item) => total + (item.count || 1),
-          0
-        );
-        setTotalItems(itemCount);
-      }
-    }
-  }, []); // Empty dependency array ensures it only runs on mount
+    // Calculate total item count whenever cart changes
+    const itemCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    setTotalItems(itemCount);
+  }, [cart]);
 
   return (
     <Box sx={{ position: "relative" }}>
@@ -43,16 +36,14 @@ const CartBtn = ({ handleCart }) => {
           },
         }}
       >
-        {/* Display cart icon */}
         <ShoppingCartIcon sx={{ fontSize: 32 }} />
-        {/* Notification badge inside the button */}
         {totalItems > 0 && (
           <Box
             sx={{
               position: "absolute",
               top: "-10px",
               right: "-10px",
-              backgroundColor: "#f44336", // Red color for notification
+              backgroundColor: "#f44336",
               color: "white",
               borderRadius: "50%",
               padding: "0px 8px",

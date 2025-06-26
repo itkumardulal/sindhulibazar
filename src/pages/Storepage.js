@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";  // add useContext
+import { CartContext } from "../context/CartContext";            // import your CartContext
 import DrawerAppBar from "../components/Navbar";
 import ImgMediaCard from "../components/ItemCard";
 import { Box, Button, Tooltip } from "@mui/material";
@@ -8,7 +9,6 @@ import { keyframes } from "@emotion/react";
 import CartBtn from "../components/CartBtn";
 import Search from "../components/search";
 
-// Keyframes for animations
 const hoverAnimation = keyframes`
   0% { transform: scale(1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); }
   50% { transform: scale(1.05); box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); }
@@ -24,12 +24,13 @@ const Storepage = () => {
   const navigate = useNavigate();
   const { producttypeStore } = useParams();
 
+  const { cart } = useContext(CartContext);  // <-- access cart context here
+
   const [showButton, setShowButton] = useState(false);
   const [titleText, setTitleText] = useState("");
   const [items, setItems] = useState([]);
   const [searchData, setSearchData] = useState([]);
 
-  // Update item data and title based on route param
   useEffect(() => {
     let selectedItems = [];
     let title = "";
@@ -70,7 +71,6 @@ const Storepage = () => {
     setTitleText(title);
   }, [producttypeStore]);
 
-  // Show/hide "Back to Top" button
   useEffect(() => {
     const handleScroll = () => setShowButton(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
@@ -85,6 +85,9 @@ const Storepage = () => {
     navigate("/Addtocart");
   };
 
+  // Calculate total items from cart context here
+  const totalItemsCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+
   return (
     <>
       <link
@@ -93,7 +96,9 @@ const Storepage = () => {
       />
 
       <DrawerAppBar>
-        <CartBtn handleCart={handleCart} />
+        {/* Pass totalItemsCount to CartBtn */}
+        <CartBtn totalItems={totalItemsCount} handleCart={handleCart} />
+
         <br />
         <div className="container mx-auto px-4 overflow-x-hidden">
           <div className="w-full md:w-1/2 lg:w-1/3 mx-auto">

@@ -1,19 +1,43 @@
-// src/components/ToastNotify.js
 import React from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "./ToastNotify.css";
 
-export const showToast = (message = "🛒 New product added to cart!") => {
-  toast.success(message, {
-    position: "top-center", // Keep top-center for default
-    autoClose: 300,
-    hideProgressBar: true,
-    pauseOnHover: false,
-    closeOnClick: true,
-    draggable: false,
-    toastClassName: "custom-toast", // 👈 Add custom class here
-    bodyClassName: "custom-toast-body",
-  });
+
+
+// Default options used in all toasts
+const defaultOptions = {
+  position: "top-center",
+  autoClose: 1600,           // a bit longer so it doesn't vanish too fast
+  hideProgressBar: true,
+  pauseOnHover: true,
+  closeOnClick: false,
+  draggable: false,
+  closeButton: false,
+  transition: Slide,         // smooth slide in/out
+  toastClassName: "custom-toast",
+  bodyClassName: "custom-toast-body",
+};
+
+/**
+ * Show toast notification with flexible type and options
+ */
+export const showToast = (message = "🛒 New product added to cart!", type = "success", options = {}) => {
+  const toastOptions = { ...defaultOptions, ...options };
+  switch (type) {
+    case "error":
+      toast.error(message, toastOptions);
+      break;
+    case "info":
+      toast.info(message, toastOptions);
+      break;
+    case "warning":
+      toast.warning(message, toastOptions);
+      break;
+    case "success":
+    default:
+      toast.success(message, toastOptions);
+      break;
+  }
 };
 
 const ToastNotify = () => {

@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";  // <-- Added useContext
 import "./Search.css";
 import { useNavigate } from "react-router-dom";
 import WhatsAppMessageLink from "./Whatsappme";
 import { distance } from "fastest-levenshtein";
+import ToastNotify, { showToast } from "../components/ToastNotify";
+import { CartContext } from "../context/CartContext"; // <-- Import CartContext
 
 export default function Search({ data }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const { cart, setCart } = useContext(CartContext); // <-- Use context to access cart
+
   const navigate = useNavigate();
 
   const calculateMatchScore = (text, query, isNameField = false) => {
@@ -43,19 +49,14 @@ export default function Search({ data }) {
 
     const matchedResults = [];
 
-    // Check if data is an object (full Datacarrier) or array (filtered like FoodStore)
-    const allItemsArray = Array.isArray(data)
-      ? data
-      : Object.values(data).flat();
+    const allItemsArray = Array.isArray(data) ? data : Object.values(data).flat();
 
     allItemsArray.forEach((item) => {
       const { name, description, vehicleInfo, count = 1 } = item;
 
       const nameScore = calculateMatchScore(name, query, true);
       const descriptionScore = calculateMatchScore(description, query);
-      const vehicleScore = vehicleInfo
-        ? calculateMatchScore(vehicleInfo, query)
-        : 0;
+      const vehicleScore = vehicleInfo ? calculateMatchScore(vehicleInfo, query) : 0;
 
       const totalScore = nameScore + descriptionScore + vehicleScore;
 
@@ -64,9 +65,7 @@ export default function Search({ data }) {
       }
     });
 
-    const sortedResults = matchedResults
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 5);
+    const sortedResults = matchedResults.sort((a, b) => b.score - a.score).slice(0, 5);
 
     setSearchResults(sortedResults);
   };
@@ -77,32 +76,41 @@ export default function Search({ data }) {
   const handleClickAddtoCart = (item) => {
     const { id, name, image, description, price, category, count = 1 } = item;
 
-    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    // Check if product already in cart (by id and maybe cartId?), and update quantity if needed
+    let updatedCart = [...cart];
+    const existingIndex = updatedCart.findIndex((p) => p.id === id);
 
-    const newProduct = {
-      cartId: generateUniqueCartId(),
-      id,
-      name,
-      image,
-      description,
-      price,
-      category,
-      quantity: count,
-    };
+    if (existingIndex > -1) {
+      // If already in cart, update quantity
+      updatedCart[existingIndex].quantity += count;
+    } else {
+      // Add new product
+      updatedCart.push({
+        cartId: generateUniqueCartId(),
+        id,
+        name,
+        image,
+        description,
+        price,
+        category,
+        quantity: count,
+      });
+    }
 
-    cart.push(newProduct);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    setCart(updatedCart);            // Update cart in context (triggers UI update)
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Persist in localStorage
 
-    alert("New Product added to cart");
-    window.location.reload();
+    showToast("🛒 Product added to cart!");
+    setShowOverlay(true);
+
+    // No page reload needed!
   };
 
   const updateCount = (itemId, operation) => {
     setSearchResults((prevResults) =>
       prevResults.map((item) => {
         if (item.id === itemId) {
-          const newCount =
-            operation === "increment" ? item.count + 1 : item.count - 1;
+          const newCount = operation === "increment" ? item.count + 1 : item.count - 1;
           return { ...item, count: Math.max(newCount, 1) };
         }
         return item;
@@ -112,6 +120,8 @@ export default function Search({ data }) {
 
   return (
     <div className="search-container">
+      <ToastNotify /> {/* Render ToastContainer once */}
+
       <div className="product-search">
         <input
           type="text"
@@ -134,37 +144,32 @@ export default function Search({ data }) {
       </div>
 
       <div className="search-results">
-        {searchResults.length > 0
-          ? searchResults.map((item) => (
-              <div className="search-result-item" key={item.id}>
-                <img src={item.image} alt={item.name} className="item-image" />
-                <div className="item-details">
-                  <h3>{item.name}</h3>
-                  <p>Category: {item.category}</p>
-                  <p>Price: {item.price}</p>
-                  <div className="count-controls">
-                    <button onClick={() => updateCount(item.id, "decrement")}>
-                      -
-                    </button>
-                    <span>{item.count}</span>
-                    <button onClick={() => updateCount(item.id, "increment")}>
-                      +
-                    </button>
-                  </div>
-                  {item.vehicleInfo && <p>Vehicle Info: {item.vehicleInfo}</p>}
+        {searchResults.length > 0 ? (
+          searchResults.map((item) => (
+            <div className="search-result-item" key={item.id}>
+              <img src={item.image} alt={item.name} className="item-image" />
+              <div className="item-details">
+                <h3>{item.name}</h3>
+                <p>Category: {item.category}</p>
+                <p>Price: {item.price}</p>
+                <div className="count-controls">
+                  <button onClick={() => updateCount(item.id, "decrement")}>-</button>
+                  <span>{item.count}</span>
+                  <button onClick={() => updateCount(item.id, "increment")}>+</button>
                 </div>
-                <div className="product-actions">
-                  <button
-                    className="add-to-cart"
-                    onClick={() => handleClickAddtoCart(item)}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-                <WhatsAppMessageLink orderDetails={item} />
+                {item.vehicleInfo && <p>Vehicle Info: {item.vehicleInfo}</p>}
               </div>
-            ))
-          : searchQuery && <p>No products found.</p>}
+              <div className="product-actions">
+                <button className="add-to-cart" onClick={() => handleClickAddtoCart(item)}>
+                  Add to Cart
+                </button>
+              </div>
+              <WhatsAppMessageLink orderDetails={item} />
+            </div>
+          ))
+        ) : (
+          searchQuery && <p>No products found.</p>
+        )}
       </div>
     </div>
   );

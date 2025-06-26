@@ -107,15 +107,7 @@
         "price": "500",    
         "category": "Liquor"
     },
-    {
-    "id":16,
-    "name":"Nepal ice Small",
-    "image":"https://i.imgur.com/0VxhDmP.png",
-    "description": "Nepal Ice is a popular brand of beer from Nepal. It's well-regarded for its refreshing and crisp taste, making it a favorite among beer enthusiasts in Nepal and beyond. Nepal Ice offers various beer varieties, including lagers and pilsners, which are known for their quality and enjoyable flavor profile. This brand is often enjoyed at social gatherings and is a symbol of Nepalese brewing tradition and culture.",
-    "price": "200",    
-    "category": "Liquor"
-   
-    },
+ 
     {
         
     "id":16,
