@@ -1,160 +1,226 @@
 .search-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 .product-search {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1400px; /* Limit width for larger screens */
-    margin-bottom: 20px; /* Space below the search bar */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px; /* max width on big screens */
+  margin-bottom: 20px;
 }
 
 .search-bar {
-    flex: 1; /* Take remaining space */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 16px;
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+.search-bar:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 .search-bar-icon {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  color: #888;
 }
 
+/* SEARCH RESULTS GRID */
 .search-results {
-    display: grid; /* Use grid layout for search results */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: 18px; /* Space between items */
-    width: 100%;
-    max-width: 1400px; /* Limit width for larger screens */
-    align-items: center; /* Align items to the start of the grid cells */
-    padding: 0 5px; /* Padding on small screens */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* min card width 280px */
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 5px;
+  box-sizing: border-box;
+  align-items: start;
 }
 
+/* INDIVIDUAL SEARCH RESULT CARD */
 .search-result-item {
-    display: flex;
-    flex-direction: column; /* Stack image and details vertically */
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px; /* Reduced padding for mobile */
-    width: 100%; /* Ensure items use full width available */
-    max-width: 200px; /* Limit width for larger screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  max-width: 280px; /* consistent card width */
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+.search-result-item:hover {
+  box-shadow: 0 6px 15px rgb(0 0 0 / 0.15);
+  transform: translateY(-4px);
 }
 
+/* ITEM IMAGE */
 .item-image {
-    max-width: 100%; /* Make image responsive */
-    height: 60px; /* Reduced height for mobile */
-    border-radius: 5px;
+  max-width: 100%;
+  height: 100px; /* slightly taller for better visibility */
+  border-radius: 6px;
+  object-fit: contain;
+  margin-bottom: 12px;
 }
 
+/* ITEM DETAILS TEXT */
 .item-details {
-    text-align: center; /* Center text details */
+  text-align: center;
+  width: 100%;
 }
 
 .item-details h3 {
-    font-size: 1em; /* Smaller heading size for mobile */
-    margin: 5px 0; /* Spacing adjustments */
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin: 8px 0 4px;
+  min-height: 48px; /* fix height to align cards */
 }
 
 .item-details p {
-    font-size: 0.8em; /* Smaller paragraph size for mobile */
-    margin: 0; /* Remove margin for better compactness */
+  font-size: 0.9rem;
+  color: #555;
+  margin: 2px 0;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
+/* COUNT CONTROLS */
 .count-controls {
-    display: flex;
-    justify-content: center; /* Center controls */
-    align-items: center;
-    margin: 5px 0; /* Reduced margin for better fit */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px 0;
+  gap: 10px;
 }
 
 .count-controls button {
-    padding: 5px 10px; /* Padding for buttons */
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    cursor: pointer;
-    margin: 5px;
-    font-size: 0.8em; /* Smaller font size */
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease;
+}
+.count-controls button:hover {
+  background-color: #e6e6e6;
 }
 
+.count-controls span {
+  font-size: 1rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* PRODUCT ACTIONS BUTTONS (Add to Cart, Buy Now, WhatsApp) */
 .product-actions {
-    display: flex;
-    justify-content: space-between; /* Space between buttons */
-    width: 100%;
-    margin-top: 5px; /* Reduced margin */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 8px;
+  gap: 8px;
 }
 
 .add-to-cart,
 .buy-now,
-.whatsapp-button { /* New WhatsApp button class */
-    padding: 5px 10px; /* Smaller padding for mobile */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    flex: 1; /* Allow buttons to take equal space */
-    margin: 0 2px; /* Add margin between buttons */
-    font-size: 0.8em; /* Smaller font size */
+.whatsapp-button {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: white;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  user-select: none;
 }
 
 .add-to-cart {
-    background-color: #28a745; /* Green color */
-    color: rgb(255, 255, 255);
+  background-color: #28a745;
+}
+.add-to-cart:hover {
+  background-color: #218838;
 }
 
 .buy-now {
-    background-color: #007bff; /* Blue color */
-    color: white;
+  background-color: #007bff;
+}
+.buy-now:hover {
+  background-color: #0056b3;
 }
 
 .whatsapp-button {
-    background-color: #25D366; /* WhatsApp green color */
-    color: white;
+  background-color: #25d366;
+}
+.whatsapp-button:hover {
+  background-color: #1ebe57;
 }
 
-/* Media Queries for responsiveness */
+/* RESPONSIVE BREAKPOINTS */
 @media (max-width: 768px) {
-    .search-result-item {
-        padding: 8px; /* Smaller padding for mobile */
-        max-width: 100%; /* Allow items to fill available space */
-        width: 100%; /* Ensure items use full width available */
-    }
+  .search-results {
+    grid-template-columns: repeat(2, 1fr); /* exactly 2 columns on tablets */
+    gap: 16px;
+  }
 
-    /* Adjust grid for smaller screens */
-    .search-results {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust item size for mobile */
-    }
+  .search-result-item {
+    max-width: 100%;
+    padding: 14px;
+  }
 
-    .product-search {
-        margin-bottom: 10px; /* Reduce margin for mobile */
-    }
+  .item-image {
+    height: 80px;
+    margin-bottom: 10px;
+  }
 
-    .item-details h3 {
-        font-size: 1em; /* Smaller heading size for mobile */
-    }
+  .item-details h3 {
+    font-size: 1rem;
+    min-height: auto;
+  }
 
-    .item-details p {
-        font-size: 0.8em; /* Smaller paragraph size for mobile */
-    }
+  .count-controls button {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
 
-    .add-to-cart,
-    .buy-now,
-    .whatsapp-button {
-        padding: 5px 8px; /* Smaller padding for mobile */
-        font-size: 0.75em; /* Further smaller font size */
-    }
+  .add-to-cart,
+  .buy-now,
+  .whatsapp-button {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+}
 
-    .count-controls button {
-        padding: 4px 8px; /* Adjust button size for mobile */
-        font-size: 0.7em; /* Smaller font size */
-        margin: 5px;
-    }
+@media (max-width: 480px) {
+  .search-results {
+    grid-template-columns: 1fr; /* single column on small phones */
+    gap: 14px;
+  }
+
+  .product-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .add-to-cart,
+  .buy-now,
+  .whatsapp-button {
+    flex: unset;
+    width: 100%;
+  }
 }

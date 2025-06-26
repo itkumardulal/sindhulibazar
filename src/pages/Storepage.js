@@ -3,113 +3,80 @@ import DrawerAppBar from "../components/Navbar";
 import ImgMediaCard from "../components/ItemCard";
 import { Box, Button, Tooltip } from "@mui/material";
 import Datacarrier from "../data/Datacarrier";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { keyframes } from "@emotion/react";
-// import { CarRentAnimation } from "../components/CarRentAnimation";
-import { useNavigate } from "react-router-dom";
 import CartBtn from "../components/CartBtn";
+import Search from "../components/search";
 
-// Define keyframes for animation
-// const fadeIn = keyframes`
-//   from {
-//     opacity: 0;
-//     transform: translateY(20px);
-//   }
-//   to {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// `;
-
-// Keyframes for hover animations
+// Keyframes for animations
 const hoverAnimation = keyframes`
-  0% {
-    transform: scale(1);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
+  0% { transform: scale(1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); }
+  50% { transform: scale(1.05); box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); }
+  100% { transform: scale(1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); }
 `;
 
-// Keyframes for back-to-top button visibility
 const fadeInButton = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 `;
 
 const Storepage = () => {
-  const navigate = useNavigate(); // Get the navigate function
-  // receiving the params sent from homepage to knw wht page and data we will be reflecting
+  const navigate = useNavigate();
   const { producttypeStore } = useParams();
+
   const [showButton, setShowButton] = useState(false);
   const [titleText, setTitleText] = useState("");
+  const [items, setItems] = useState([]);
+  const [searchData, setSearchData] = useState([]);
 
-  let items;
-  let title;
-
-  // Set items and title based on producttypeStore
-  if (producttypeStore === "FoodStore") {
-    items = Datacarrier.FoodStore;
-    title =
-      "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
-  } else if (producttypeStore === "VehicleStore") {
-    items = Datacarrier.VehicalStore;
-    title = "Make inquiry on any Vehicles below";
-  } else if (producttypeStore === "GroceryStore") {
-    items = Datacarrier.GroceryStore;
-    title = "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
-  } else if (producttypeStore === "LiquorStore") {
-    items = Datacarrier.LiqureStore;
-    title = "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
-
-    ////here i m do9ing right now
-  } else if (producttypeStore === "HerbalStore") {
-    items = Datacarrier.HerbalStore;
-    title =
-      "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
-  } else if (producttypeStore === "BakeryStore") {
-    items = Datacarrier.bakeryItems;
-    title = "Delivery only from 8AM to 8PM inside Sindhuli for BAkery  Items ";
-  } else {
-    alert("Something went wrong");
-    items = [];
-    title = ""; // Fallback title if there's an error
-  }
-
-  // Set titleText if it's not already set
-  if (!titleText) {
-    setTitleText(title);
-  }
-
-  // Handle scroll event
-  const handleScroll = () => {
-    if (window.scrollY > 300) {
-      // Adjust the value to when the button should appear
-      setShowButton(true);
-    } else {
-      setShowButton(false);
-    }
-  };
-
-  // Add and remove scroll event listener
+  // Update item data and title based on route param
   useEffect(() => {
+    let selectedItems = [];
+    let title = "";
+
+    switch (producttypeStore) {
+      case "FoodStore":
+        selectedItems = Datacarrier.FoodStore;
+        title = "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
+        break;
+      case "VehicleStore":
+        selectedItems = Datacarrier.VehicalStore;
+        title = "Make inquiry on any Vehicles below";
+        break;
+      case "GroceryStore":
+        selectedItems = Datacarrier.GroceryStore;
+        title = "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
+        break;
+      case "LiquorStore":
+        selectedItems = Datacarrier.LiqureStore;
+        title = "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
+        break;
+      case "HerbalStore":
+        selectedItems = Datacarrier.HerbalStore;
+        title = "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
+        break;
+      case "BakeryStore":
+        selectedItems = Datacarrier.bakeryItems;
+        title = "Delivery only from 8AM to 8PM inside Sindhuli for Bakery Items";
+        break;
+      default:
+        alert("Something went wrong");
+        selectedItems = [];
+        title = "";
+    }
+
+    setItems(selectedItems);
+    setSearchData(selectedItems);
+    setTitleText(title);
+  }, [producttypeStore]);
+
+  // Show/hide "Back to Top" button
+  useEffect(() => {
+    const handleScroll = () => setShowButton(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll to top
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -127,18 +94,25 @@ const Storepage = () => {
 
       <DrawerAppBar>
         <CartBtn handleCart={handleCart} />
+        <br />
+        <div className="container mx-auto px-4 overflow-x-hidden">
+          <div className="w-full md:w-1/2 lg:w-1/3 mx-auto">
+            <Search data={searchData} />
+          </div>
+        </div>
+
         <div
           style={{
             border: "2px solid #FFCC00",
             backgroundColor: "#FFF7CC",
-            padding: "10px",
+            padding: "5px",
             borderRadius: "10px",
             textAlign: "center",
             maxWidth: "1400px",
-            margin: "20px auto",
+            margin: "auto",
           }}
         >
-          <text style={{ fontSize: 20, color: "#333" }}>{titleText}</text>
+          <span style={{ fontSize: 20, color: "#333" }}>{titleText}</span>
         </div>
 
         <Box
@@ -148,7 +122,6 @@ const Storepage = () => {
             alignItems: "center",
             padding: { xs: 2, sm: 3, md: 4 },
             maxWidth: "100%",
-            boxSizing: "border-box",
             backgroundColor: "#f5f5f5",
           }}
         >
@@ -159,7 +132,7 @@ const Storepage = () => {
               flexWrap: "wrap",
               gap: { xs: 1, sm: 2, md: 3 },
               width: "100%",
-              maxWidth: "1200px", // Max width for larger screens
+              maxWidth: "1200px",
             }}
           >
             {items.map((dt, index) => (
@@ -207,7 +180,6 @@ const Storepage = () => {
         </Box>
         <footer />
       </DrawerAppBar>
-      {/* i made the DrawerAPpbar to down. change it in case of erropr */}
     </>
   );
 };

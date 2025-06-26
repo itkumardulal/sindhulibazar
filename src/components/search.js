@@ -1,28 +1,24 @@
 import React, { useState } from "react";
 import "./Search.css";
-import Datacarrier from "../data/Datacarrier";
 import { useNavigate } from "react-router-dom";
 import WhatsAppMessageLink from "./Whatsappme";
 import { distance } from "fastest-levenshtein";
 
-export default function Search() {
+export default function Search({ data }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
 
-  // Fuzzy score calculator using Levenshtein distance
   const calculateMatchScore = (text, query, isNameField = false) => {
     const normalizedText = text?.toLowerCase() || "";
     const normalizedQuery = query?.toLowerCase() || "";
 
     let score = 0;
-
     const queryWords = normalizedQuery.split(/\s+/);
     const textWords = normalizedText.split(/\s+/);
 
     queryWords.forEach((qWord) => {
       let bestDistance = Infinity;
-
       textWords.forEach((tWord) => {
         const dist = distance(qWord, tWord);
         bestDistance = Math.min(bestDistance, dist);
@@ -47,24 +43,25 @@ export default function Search() {
 
     const matchedResults = [];
 
-    Object.keys(Datacarrier).forEach((storeKey) => {
-      const storeItems = Datacarrier[storeKey];
+    // Check if data is an object (full Datacarrier) or array (filtered like FoodStore)
+    const allItemsArray = Array.isArray(data)
+      ? data
+      : Object.values(data).flat();
 
-      storeItems.forEach((item) => {
-        const { name, description, vehicleInfo, count = 1 } = item;
+    allItemsArray.forEach((item) => {
+      const { name, description, vehicleInfo, count = 1 } = item;
 
-        const nameScore = calculateMatchScore(name, query, true);
-        const descriptionScore = calculateMatchScore(description, query);
-        const vehicleScore = vehicleInfo
-          ? calculateMatchScore(vehicleInfo, query)
-          : 0;
+      const nameScore = calculateMatchScore(name, query, true);
+      const descriptionScore = calculateMatchScore(description, query);
+      const vehicleScore = vehicleInfo
+        ? calculateMatchScore(vehicleInfo, query)
+        : 0;
 
-        const totalScore = nameScore + descriptionScore + vehicleScore;
+      const totalScore = nameScore + descriptionScore + vehicleScore;
 
-        if (totalScore > 0) {
-          matchedResults.push({ ...item, score: totalScore, count });
-        }
-      });
+      if (totalScore > 0) {
+        matchedResults.push({ ...item, score: totalScore, count });
+      }
     });
 
     const sortedResults = matchedResults
@@ -74,17 +71,13 @@ export default function Search() {
     setSearchResults(sortedResults);
   };
 
-  const generateUniqueCartId = () => {
-    return `cart-${new Date().getTime()}-${Math.random()
-      .toString(36)
-      .substr(2, 9)}`;
-  };
+  const generateUniqueCartId = () =>
+    `cart-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
   const handleClickAddtoCart = (item) => {
     const { id, name, image, description, price, category, count = 1 } = item;
 
-    let cart = localStorage.getItem("cart");
-    cart = cart ? JSON.parse(cart) : [];
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
     const newProduct = {
       cartId: generateUniqueCartId(),

@@ -1,5 +1,6 @@
 import React from "react";
 import "./homepage.css"; // Import the updated CSS
+
 import DrawerAppBar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 // import CoverSlider from "../components/homepagecom/CoverSlider";
@@ -107,7 +108,8 @@ const Homepage = () => {
       <CartBtn handleCart={handleCart} />
 
       <div className="homepage-container">
-        <Search />
+          <Search data={Datacarrier} />
+
         {/* <div className="product-search">
        
           <input
