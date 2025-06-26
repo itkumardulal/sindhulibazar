@@ -141,6 +141,7 @@ function DrawerAppBar({ window, children }) {
           // #FBA518
           // #E52020
           // #F9CB45
+          // #04ccdaf6
           background: "linear-gradient(135deg, #F9CB45, #E52020)",
         }}
       >
