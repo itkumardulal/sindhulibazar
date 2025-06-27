@@ -1,18 +1,17 @@
-import React, { useState, useContext } from "react";  // <-- Added useContext
+import React, { useState, useContext } from "react";  
 import "./Search.css";
 import { useNavigate } from "react-router-dom";
 import WhatsAppMessageLink from "./Whatsappme";
 import { distance } from "fastest-levenshtein";
 import ToastNotify, { showToast } from "../components/ToastNotify";
-import { CartContext } from "../context/CartContext"; // <-- Import CartContext
+import { CartContext } from "../context/CartContext";
 
 export default function Search({ data }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const { cart, setCart } = useContext(CartContext); // <-- Use context to access cart
-
+  const { cart, setCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const calculateMatchScore = (text, query, isNameField = false) => {
@@ -76,15 +75,12 @@ export default function Search({ data }) {
   const handleClickAddtoCart = (item) => {
     const { id, name, image, description, price, category, count = 1 } = item;
 
-    // Check if product already in cart (by id and maybe cartId?), and update quantity if needed
     let updatedCart = [...cart];
     const existingIndex = updatedCart.findIndex((p) => p.id === id);
 
     if (existingIndex > -1) {
-      // If already in cart, update quantity
       updatedCart[existingIndex].quantity += count;
     } else {
-      // Add new product
       updatedCart.push({
         cartId: generateUniqueCartId(),
         id,
@@ -97,13 +93,11 @@ export default function Search({ data }) {
       });
     }
 
-    setCart(updatedCart);            // Update cart in context (triggers UI update)
-    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Persist in localStorage
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
 
     showToast("🛒 Product added to cart!");
     setShowOverlay(true);
-
-    // No page reload needed!
   };
 
   const updateCount = (itemId, operation) => {
@@ -120,7 +114,7 @@ export default function Search({ data }) {
 
   return (
     <div className="search-container">
-      <ToastNotify /> {/* Render ToastContainer once */}
+      <ToastNotify />
 
       <div className="product-search">
         <input
@@ -159,12 +153,14 @@ export default function Search({ data }) {
                 </div>
                 {item.vehicleInfo && <p>Vehicle Info: {item.vehicleInfo}</p>}
               </div>
-              <div className="product-actions">
-                <button className="add-to-cart" onClick={() => handleClickAddtoCart(item)}>
+              <div className="product-actions fixed-width">
+                <button className="add-to-cart fixed-width" onClick={() => handleClickAddtoCart(item)}>
                   Add to Cart
                 </button>
               </div>
-              <WhatsAppMessageLink orderDetails={item} />
+              <div className="fixed-width whatsapp-wrapper">
+                <WhatsAppMessageLink orderDetails={item} />
+              </div>
             </div>
           ))
         ) : (

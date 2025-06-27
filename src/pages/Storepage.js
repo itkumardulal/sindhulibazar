@@ -101,7 +101,7 @@ const Storepage = () => {
 
         <br />
    
-          <div  style={{width:"102%"}}>
+          <div  style={{width:"103%"}}>
             <Search data={searchData} />
           </div>
       

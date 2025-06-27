@@ -38,14 +38,42 @@
 /* SEARCH RESULTS GRID */
 .search-results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* min card width 280px */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
   width: 100%;
   max-width: 1400px;
   padding: 0 5px;
   box-sizing: border-box;
   align-items: start;
 }
+
+@media (max-width: 1024px) {
+  .search-results {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Keep 2 columns down to 480px */
+@media (max-width: 768px) {
+  .search-results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ONLY below 480px show 1 column */
+@media (max-width: 480px) {
+  .search-results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* If you really want 1 column only under, say, 350px, add: */
+@media (max-width: 350px) {
+  .search-results {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* INDIVIDUAL SEARCH RESULT CARD */
 .search-result-item {
@@ -226,4 +254,30 @@
     flex: unset;
     width: 100%;
   }
+  /* Fixed width container for buttons and WhatsApp */
+.fixed-width {
+  width: 200px;
+}
+
+/* Optional: center contents in button */
+.product-actions.fixed-width {
+  flex: 1;
+  color: red; /* if you want red text */
+  justify-content: center;
+  align-items: center;
+}
+
+.product-actions.fixed-width .add-to-cart {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* WhatsApp button wrapper width */
+.whatsapp-wrapper {
+  width: 200px;
+}
+
+  
 }
