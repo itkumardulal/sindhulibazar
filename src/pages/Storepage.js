@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";  // add useContext
-import { CartContext } from "../context/CartContext";            // import your CartContext
+import React, { useState, useEffect, useContext } from "react"; // add useContext
+import { CartContext } from "../context/CartContext"; // import your CartContext
 import DrawerAppBar from "../components/Navbar";
 import ImgMediaCard from "../components/ItemCard";
 import { Box, Button, Tooltip } from "@mui/material";
@@ -24,7 +24,7 @@ const Storepage = () => {
   const navigate = useNavigate();
   const { producttypeStore } = useParams();
 
-  const { cart } = useContext(CartContext);  // <-- access cart context here
+  const { cart } = useContext(CartContext); // <-- access cart context here
 
   const [showButton, setShowButton] = useState(false);
   const [titleText, setTitleText] = useState("");
@@ -38,7 +38,8 @@ const Storepage = () => {
     switch (producttypeStore) {
       case "FoodStore":
         selectedItems = Datacarrier.FoodStore;
-        title = "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
+        title =
+          "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
         break;
       case "VehicleStore":
         selectedItems = Datacarrier.VehicalStore;
@@ -46,19 +47,23 @@ const Storepage = () => {
         break;
       case "GroceryStore":
         selectedItems = Datacarrier.GroceryStore;
-        title = "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
+        title =
+          "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
         break;
       case "LiquorStore":
         selectedItems = Datacarrier.LiqureStore;
-        title = "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
+        title =
+          "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
         break;
       case "HerbalStore":
         selectedItems = Datacarrier.HerbalStore;
-        title = "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
+        title =
+          "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
         break;
       case "BakeryStore":
         selectedItems = Datacarrier.bakeryItems;
-        title = "Delivery only from 8AM to 8PM inside Sindhuli for Bakery Items";
+        title =
+          "Delivery only from 8AM to 8PM inside Sindhuli for Bakery Items";
         break;
       default:
         alert("Something went wrong");
@@ -86,7 +91,10 @@ const Storepage = () => {
   };
 
   // Calculate total items from cart context here
-  const totalItemsCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+  const totalItemsCount = cart.reduce(
+    (acc, item) => acc + (item.quantity || 1),
+    0
+  );
 
   return (
     <>
@@ -100,42 +108,41 @@ const Storepage = () => {
         <CartBtn totalItems={totalItemsCount} handleCart={handleCart} />
 
         <br />
-   
-          <div  style={{width:"103%"}}>
-            <Search data={searchData} />
-          </div>
-      
 
-     <div
-  style={{
-    // border: "2px solid #FFCC00",
-    // backgroundColor: "#FFF7CC",
-    padding: "10px 20px",
-    borderRadius: "10px",
-    textAlign: "center",
-    maxWidth: "1400px",
-    margin: "auto",
-    position: "relative",
-    // boxShadow: "0 2px 8px rgba(255, 204, 0, 0.3)",
-    animation: "slideFadeIn 0.6s ease forwards",
-  }}
->
-  <span
-    style={{
-      fontSize: 18,
-      color: "#333",
-      fontWeight: "600",
-      paddingBottom: "6px",
-      borderBottom: "3px solid #E63946",
-      display: "inline-block",
-      letterSpacing: "0.03em",
-      animation: "underlineGrow 0.6s ease forwards",
-    }}
-  >
-    {titleText}
-  </span>
+        <div style={{ width: "103%" }}>
+          <Search data={searchData} />
+        </div>
 
-  <style>{`
+        <div
+          style={{
+            // border: "2px solid #FFCC00",
+            // backgroundColor: "#FFF7CC",
+            padding: "10px 20px",
+            borderRadius: "10px",
+            textAlign: "center",
+            maxWidth: "1400px",
+            margin: "auto",
+            position: "relative",
+            // boxShadow: "0 2px 8px rgba(255, 204, 0, 0.3)",
+            animation: "slideFadeIn 0.6s ease forwards",
+          }}
+        >
+          <span
+            style={{
+              fontSize: 18,
+              color: "#333",
+              fontWeight: "600",
+              paddingBottom: "6px",
+              borderBottom: "3px solid #E63946",
+              display: "inline-block",
+              letterSpacing: "0.03em",
+              animation: "underlineGrow 0.6s ease forwards",
+            }}
+          >
+            {titleText}
+          </span>
+
+          <style>{`
     @keyframes slideFadeIn {
       0% {
         opacity: 0;
@@ -155,8 +162,7 @@ const Storepage = () => {
       }
     }
   `}</style>
-</div>
-
+        </div>
 
         <Box
           sx={{

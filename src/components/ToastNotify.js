@@ -1,19 +1,17 @@
 import React from "react";
 import { ToastContainer, toast, Slide } from "react-toastify";
-import "./ToastNotify.css";
-
-
+// import "./ToastNotify.css";
 
 // Default options used in all toasts
 const defaultOptions = {
   position: "top-center",
-  autoClose: 1600,           // a bit longer so it doesn't vanish too fast
+  autoClose: 800, // ✅ Toast disappears faster (0.8s)
   hideProgressBar: true,
   pauseOnHover: true,
   closeOnClick: false,
   draggable: false,
   closeButton: false,
-  transition: Slide,         // smooth slide in/out
+  transition: Slide, // smooth slide in/out
   toastClassName: "custom-toast",
   bodyClassName: "custom-toast-body",
 };
@@ -21,7 +19,11 @@ const defaultOptions = {
 /**
  * Show toast notification with flexible type and options
  */
-export const showToast = (message = "🛒 New product added to cart!", type = "success", options = {}) => {
+export const showToast = (
+  message = "🛒 New product added to cart!",
+  type = "success",
+  options = {}
+) => {
   const toastOptions = { ...defaultOptions, ...options };
   switch (type) {
     case "error":

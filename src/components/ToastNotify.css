@@ -1,4 +1,4 @@
-/* Toast container adjustments */
+Toast container adjustments
 .Toastify__toast-container {
   z-index: 9999; /* Ensure it's on top */
 }

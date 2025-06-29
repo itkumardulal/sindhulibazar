@@ -45,7 +45,8 @@ const LoadingOverlay = () => (
     }}
   >
     <img
-      src="https://i.imgur.com/SE8uswq.png" // Replace with your logo
+      src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/88367851ab55e1e40038dd2af0ad05a07caa1d10/public/mainlogo3.png
+" // Replace with your logo
       alt="Loading"
       style={{ width: 100, marginBottom: 20 }}
     />
@@ -89,11 +90,12 @@ export default function ImgMediaCard({ data }) {
 
     // Update cart state directly, triggers re-render everywhere consuming CartContext
     setCart([...cart, newProduct]);
+    // <LoadingOverlay />;
 
     showToast("🛒 Product added to cart!");
 
-    // setShowOverlay(true);
-    // setTimeout(() => setShowOverlay(false), 500);
+    setShowOverlay(true);
+    setTimeout(() => setShowOverlay(false), 1000);
   };
 
   return (
@@ -148,11 +150,21 @@ export default function ImgMediaCard({ data }) {
                 paddingBottom: ".5%",
               }}
             >
-              <Button sx={{ mr: 2 }} size="small" variant="outlined" onClick={decrement}>
+              <Button
+                sx={{ mr: 2 }}
+                size="small"
+                variant="outlined"
+                onClick={decrement}
+              >
                 -
               </Button>
               <Typography>{count}</Typography>
-              <Button sx={{ ml: 2 }} size="small" variant="outlined" onClick={increment}>
+              <Button
+                sx={{ ml: 2 }}
+                size="small"
+                variant="outlined"
+                onClick={increment}
+              >
                 +
               </Button>
             </div>
@@ -160,10 +172,20 @@ export default function ImgMediaCard({ data }) {
             <div style={{ flex: 1, justifyContent: "center" }}>
               <WhatsAppMessageLink orderDetails={{ name, price, count }} />
 
-              <Button fullWidth size="medium" variant="outlined" onClick={handleClickAddtoCart}>
+              <Button
+                fullWidth
+                size="medium"
+                variant="outlined"
+                onClick={handleClickAddtoCart}
+              >
                 Add to Cart
               </Button>
-              <Button fullWidth size="medium" variant="outlined" onClick={handleClickOpen}>
+              <Button
+                fullWidth
+                size="medium"
+                variant="outlined"
+                onClick={handleClickOpen}
+              >
                 How to purchase? ("खरीद कसरी गर्ने?")
               </Button>
             </div>
