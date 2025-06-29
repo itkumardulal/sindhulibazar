@@ -21,7 +21,7 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
     } else {
       setCurrentShift("Night Shift");
       setAdmin("+9779703782444");
-      setDeliveryCharge(150); // Set delivery charge for night shift
+      setDeliveryCharge(120); // Set delivery charge for night shift
     }
   }, []);
 

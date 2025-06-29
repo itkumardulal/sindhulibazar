@@ -20,10 +20,16 @@ const AddToCart = () => {
 
   // Calculate totals whenever cart changes
   useEffect(() => {
-    const itemCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    const itemCount = cart.reduce(
+      (total, item) => total + (item.quantity || 1),
+      0
+    );
     setTotalItems(itemCount);
 
-    const priceSum = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    const priceSum = cart.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
     const deliveryChargePerCategory = isNightShift ? 150 : 50;
     const uniqueCategories = new Set(cart.map((item) => item.category));
     const deliveryCharge = uniqueCategories.size * deliveryChargePerCategory;
@@ -68,7 +74,8 @@ const AddToCart = () => {
 
     const uniqueCategories = new Set(cart.map((item) => item.category));
     const deliveryChargePerCategory = isNightShift ? 150 : 50;
-    const totalDeliveryCharge = uniqueCategories.size * deliveryChargePerCategory;
+    const totalDeliveryCharge =
+      uniqueCategories.size * deliveryChargePerCategory;
 
     const totalMessage = `
       ------------------------------
@@ -102,7 +109,11 @@ const AddToCart = () => {
           <div className="cart-items">
             {cart.map((item) => (
               <div className="cart-item" key={item.cartId}>
-                <img src={item.image} alt={item.name} className="cart-item-image" />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="cart-item-image"
+                />
                 <div
                   style={{
                     display: "flex",
@@ -222,12 +233,14 @@ const AddToCart = () => {
               <hr style={{ margin: "12px 0" }} />
               <div style={{ fontSize: "14px", color: "#555" }}>
                 📌 <strong>Note:</strong>
-                <br />- We deliver <strong>food and liquor</strong> at night too.
-                <br />- <strong>Grocery and Bakery</strong> are not available for delivery after 8 PM.
+                <br />- We deliver <strong>food and liquor</strong> at night
+                too.
+                <br />- <strong>Grocery and Bakery</strong> are not available
+                for delivery after 8 PM.
                 <br />- Delivery charge is based on number of store categories:
                 <ul style={{ marginTop: "5px", paddingLeft: "20px" }}>
                   <li>Rs. 50 per category (Day Shift)</li>
-                  <li>Rs. 150 per category (Night Shift)</li>
+                  <li>Rs. 120 per category (Night Shift)</li>
                 </ul>
               </div>
             </div>

@@ -22,7 +22,7 @@ const WhatsAppmebulk = ({ message }) => {
     } else if (currentHour >= nightShiftStart || currentHour < nightShiftEnd) {
       setCurrentShift("Night Shift");
       setAdmin("+9779703782444");
-      setDeliveryCost(150); // Set delivery cost for night shift
+      setDeliveryCost(120); // Set delivery cost for night shift
     } else {
       setCurrentShift("Outside of Day and Night Shifts");
       setAdmin("+9779703782444");
