@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useMemo } from "react";
 import "./homepage.css";
 
 import DrawerAppBar from "../components/Navbar";
@@ -9,6 +9,7 @@ import Servicesbtn from "../components/homepagecom/Servicesbtn";
 import CartBtn from "../components/CartBtn";
 import Search from "../components/search";
 import { CartContext } from "../context/CartContext";
+import FeaturedProducts from "../components/homepagecom/FeaturedProducts";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -23,44 +24,52 @@ const Homepage = () => {
     navigate(`/${producttype}Store`);
   };
 
-  const ProductItem = ({ product }) => (
-    <div
-      className="product-item"
-      onClick={() => handlebuttonNav(product.category)}
-    >
-      <img src={product.image} alt={product.name} className="product-image" />
-      <div className="product-info">
-        <h3 className="product-name">{product.name}</h3>
-        <p className="product-description"> {product.description}</p>
-        <p className="product-price"> {product.price}</p>
-        <button
-          className="buy-button"
-          onClick={() => handlebuttonNav(product.category)}
-        >
-          View more
-        </button>
-      </div>
-    </div>
-  );
-
   const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    return array;
+    return arr;
   };
 
-  const randomFeaturedproduct = shuffleArray([...Datacarrier.FeaturedStore]).slice(0, 6);
-  const randomFoodProducts = shuffleArray([...Datacarrier.FoodStore]).slice(0, 4);
-  const randomGroceryProducts = shuffleArray([...Datacarrier.GroceryStore]).slice(0, 4);
-  const randomHerbalProducts = shuffleArray([...Datacarrier.HerbalStore]).slice(0, 4);
-  const randomLiquorProducts = shuffleArray([...Datacarrier.LiqureStore]).slice(0, 4);
-  const randomVehicalProducts = shuffleArray([...Datacarrier.VehicalStore]).slice(0, 4);
+  // Memoize shuffled products so shuffle runs only once per page load
+  const randomFeaturedproduct = useMemo(
+    () => shuffleArray(Datacarrier.FeaturedStore).slice(0, 6),
+    []
+  );
+  const randomFoodProducts = useMemo(
+    () => shuffleArray(Datacarrier.FoodStore).slice(0, 4),
+    []
+  );
+  const randomGroceryProducts = useMemo(
+    () => shuffleArray(Datacarrier.GroceryStore).slice(0, 4),
+    []
+  );
+  const randomHerbalProducts = useMemo(
+    () => shuffleArray(Datacarrier.HerbalStore).slice(0, 4),
+    []
+  );
+  const randomLiquorProducts = useMemo(
+    () => shuffleArray(Datacarrier.LiqureStore).slice(0, 4),
+    []
+  );
+  const randomVehicalProducts = useMemo(
+    () => shuffleArray(Datacarrier.VehicalStore).slice(0, 4),
+    []
+  );
 
   const handleCart = () => {
     navigate("/Addtocart");
   };
+
+  // Clean function to generate route slug for 'View More' buttons
+  const generateSlug = (title) =>
+    title
+      .toLowerCase()
+      .replace(/[:]/g, "") // Remove colons etc.
+      .replace(/\s+/g, "")
+      .replace(/[^a-z0-9]/g, "");
 
   return (
     <>
@@ -72,59 +81,27 @@ const Homepage = () => {
 
         <Servicesbtn />
 
-        <div className="featured-products">
-          <h2>Featured Products</h2>
-          <div className="product-list">
-            {randomFeaturedproduct.map((product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-
-        <div className="featured-products">
-          <h2>Grab Food</h2>
-          <div className="product-list">
-            {randomFoodProducts.map((product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-
-        <div className="featured-products">
-          <h2>Find your favorite drinks</h2>
-          <div className="product-list">
-            {randomLiquorProducts.map((product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-
-        <div className="featured-products">
-          <h2>Cook Something Fresh</h2>
-          <div className="product-list">
-            {randomGroceryProducts.map((product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-
-        <div className="featured-products">
-          <h2>Take a Ride </h2>
-          <div className="product-list">
-            {randomVehicalProducts.map((product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-
-        <div className="featured-products">
-          <h2>Bee Herbals: Your Health Ally</h2>
-          <div className="product-list">
-            {randomHerbalProducts.map((product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
+        {[
+          { title: "Featured Products", products: randomFeaturedproduct },
+          { title: "Grab Food", products: randomFoodProducts },
+          { title: "Find your favorite drinks", products: randomLiquorProducts },
+          { title: "Cook Something Fresh", products: randomGroceryProducts },
+          { title: "Take a Ride", products: randomVehicalProducts },
+          { title: "Bee Herbals: Your Health Ally", products: randomHerbalProducts },
+        ].map(({ title, products }, idx) => (
+          <section
+            key={title}
+            className={`featured-section ${idx % 2 === 0 ? "bg-light" : "bg-white"}`}
+            style={{ padding: "10px 0" }}
+          >
+            <FeaturedProducts
+              title={title}
+              products={products}
+              onProductClick={handlebuttonNav}
+            />
+      
+          </section>
+        ))}
       </div>
 
       <Footer />

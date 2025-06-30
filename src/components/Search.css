@@ -5,6 +5,7 @@
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
+  margin-top: -8px;
 }
 
 .product-search {
@@ -12,7 +13,7 @@
   align-items: center;
   width: 100%;
   max-width: 1400px; /* max width on big screens */
-  margin-bottom: 20px;
+  margin-bottom: 05px;
 }
 
 .search-bar {

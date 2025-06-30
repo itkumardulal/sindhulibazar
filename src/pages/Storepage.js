@@ -73,7 +73,7 @@ const Storepage = () => {
       setSearchData(selectedItems);
       setTitleText(title);
       setLoading(false);
-    }, 300); // simulate loading delay
+    }); // simulate loading delay
 
     return () => clearTimeout(timeout);
   }, [producttypeStore]);

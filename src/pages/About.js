@@ -83,7 +83,7 @@ const About = () => {
                   >
                     At Sindhulibazar.com, we introduce an innovative solution to
                     meet your essential needs. We offer 24-hour delivery for
-                    drinks, groceries, food, and vehicle rentals, ensuring
+                    drinks and  food, Daytime delivery for groceries adn Herbal products ensuring
                     convenience and reliability.
                   </Typography>
                 </Box>
