@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Box, Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { CartContext } from "../context/CartContext"; // adjust path as needed
+import { CartContext } from "../context/CartContext";
 
 const CartBtn = ({ handleCart }) => {
-  const { cart } = useContext(CartContext); // get cart from context
+  const { cart } = useContext(CartContext);
   const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    // Calculate total item count whenever cart changes
     const itemCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
     setTotalItems(itemCount);
   }, [cart]);
@@ -17,43 +16,47 @@ const CartBtn = ({ handleCart }) => {
     <Box sx={{ position: "relative" }}>
       <Button
         onClick={handleCart}
-        className="material-symbols-outlined"
+        aria-label="Open Cart"
         sx={{
-          fontSize: { xs: "24px", sm: "32px" },
           position: "fixed",
-          bottom: 16,
-          left: 16,
-          padding: 2,
-          color: "white",
-          backgroundColor: "#1a66ad",
+          bottom: { xs: 16, sm: 20, md: 24, lg: 32 },
+          left: { xs: 16, sm: 20, md: 24, lg: 32 },
+          padding: { xs: 2, sm: 2.5, md: 3 },
+          backgroundColor: "#1976d2",
+          color: "#fff",
           borderRadius: "50%",
-          textDecoration: "none",
-          zIndex: 1000,
-          transition: "background-color 0.3s ease, transform 0.3s ease",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+          zIndex: 1100,
+          minWidth: 0,
+          transition: "all 0.3s ease",
           "&:hover": {
-            backgroundColor: "#155a8a",
+            backgroundColor: "#1565c0",
             transform: "scale(1.1)",
           },
         }}
       >
-        <ShoppingCartIcon sx={{ fontSize: 32 }} />
+        <ShoppingCartIcon
+          sx={{
+            fontSize: { xs: 30, sm: 34, md: 38, lg: 42 },
+          }}
+        />
         {totalItems > 0 && (
           <Box
             sx={{
               position: "absolute",
-              top: "-10px",
-              right: "-10px",
-              backgroundColor: "#f44336",
-              color: "white",
+              top: -8,
+              right: -8,
+              backgroundColor: "#e53935",
+              color: "#fff",
               borderRadius: "50%",
-              padding: "0px 8px",
-              fontSize: "12px",
-              fontWeight: "bold",
+              fontSize: { xs: "11px", sm: "13px", md: "14px" },
+              fontWeight: 600,
+              width: { xs: 20, sm: 22, md: 24 },
+              height: { xs: 20, sm: 22, md: 24 },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              minWidth: "24px",
-              height: "24px",
+              boxShadow: "0 0 0 2px #fff",
             }}
           >
             {totalItems}
