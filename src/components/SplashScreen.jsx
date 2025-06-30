@@ -54,7 +54,7 @@ const SplashScreen = () => {
           alt="logo"
           className="logo"
         />
-        <h2 className="title">Sindhuli Bazar</h2>
+        <h2 className="title">SINDHULIBAZAR.COM</h2>
       </div>
     </>
   );
