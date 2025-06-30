@@ -4,25 +4,47 @@ import DownloadIcon from "@mui/icons-material/Download";
 
 const InstallAppBtn = ({ drawerMode }) => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstallBtn, setShowInstallBtn] = useState(false);
 
   useEffect(() => {
     const handler = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);
+      setShowInstallBtn(true); // show button only if install is available
     };
 
     window.addEventListener("beforeinstallprompt", handler);
-    return () => window.removeEventListener("beforeinstallprompt", handler);
+
+    // If already installed (PWA), hide the install button
+    const isInStandaloneMode = () =>
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true;
+
+    if (isInStandaloneMode()) {
+      setShowInstallBtn(false);
+    }
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+    };
   }, []);
 
   const handleInstall = async () => {
     if (deferredPrompt) {
       deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
+      const choiceResult = await deferredPrompt.userChoice;
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the A2HS prompt");
+        setShowInstallBtn(false); // hide after install
+      } else {
+        console.log("User dismissed the A2HS prompt");
+      }
     } else {
-      alert("App might already be installed or this browser doesn't support manual installation.");
+      alert("App might already be installed or not installable on this browser.");
     }
   };
+
+  if (!showInstallBtn) return null; // Hide button if not installable
 
   return (
     <Button
@@ -30,7 +52,6 @@ const InstallAppBtn = ({ drawerMode }) => {
       color={drawerMode ? "warning" : "primary"}
       startIcon={<DownloadIcon />}
       onClick={handleInstall}
- 
       sx={{
         mt: 2,
         fontWeight: 600,
