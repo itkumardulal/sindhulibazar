@@ -18,6 +18,7 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
 import Paper from "@mui/material/Paper";
+import InstallAppBtn from "./InstallAppBtn";
 
 const drawerWidth = 240;
 const navItems = ["Home"];
@@ -39,9 +40,8 @@ function DrawerAppBar({ window, children }) {
   };
 
   // Drawer content for mobile view
-
   const drawer = (
-    <Box sx={{ textAlign: "center" }}>
+    <Box sx={{ textAlign: "center", height: '100%', display: 'flex', flexDirection: 'column' }}>
       <Typography
         variant="h6"
         sx={{
@@ -67,63 +67,76 @@ function DrawerAppBar({ window, children }) {
       </Typography>
 
       <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding sx={{ textAlign: "center" }}>
-            <ListItemButton>
-              <text style={{ fontSize: 25, marginRight: 5 }}> 🏠</text>
+      <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <List>
+          {navItems.map((item) => (
+            <ListItem key={item} disablePadding sx={{ textAlign: "center" }}>
+              <ListItemButton>
+                <text style={{ fontSize: 25, marginRight: 5 }}> 🏠</text>
 
-              <Link
-                to={`/${item.toLowerCase()}`}
-                style={{ textDecoration: "none", color: "inherit" }}
-                onClick={handleDrawerToggle}
-              >
-                <ListItemText primary={item} />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-        ))}
-        {["stores", "services", "support"].map((category) => {
-          // Define an emoji for each category
-          const emojis = {
-            stores: "🛒", // Shopping cart emoji for stores
-            services: "🔧", // Wrench emoji for services
-            support: "💁‍♂️", // Person tipping hand emoji for support
-          };
-
-          return (
-            <React.Fragment key={category}>
-              <ListItemButton onClick={() => handleDropdownToggle(category)}>
-                <ListItemText
-                  primary={`${emojis[category]} ${capitalizeFirstLetter(
-                    category
-                  )}`}
-                />
-                {openDropdown === category ? <ExpandLess /> : <ExpandMore />}
+                <Link
+                  to={`/${item.toLowerCase()}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  onClick={handleDrawerToggle}
+                >
+                  <ListItemText primary={item} />
+                </Link>
               </ListItemButton>
-              <Collapse
-                in={openDropdown === category}
-                timeout="auto"
-                unmountOnExit
-              >
-                <List component="div" disablePadding>
-                  {getDropdownItems(category).map(({ to, text }) => (
-                    <ListItemButton key={to} sx={{ pl: 4 }}>
-                      <Link
-                        to={to}
-                        style={{ textDecoration: "none", color: "inherit" }}
-                        onClick={handleDrawerToggle}
-                      >
-                        <ListItemText primary={text} />
-                      </Link>
-                    </ListItemButton>
-                  ))}
-                </List>
-              </Collapse>
-            </React.Fragment>
-          );
-        })}
-      </List>
+            </ListItem>
+          ))}
+          {["stores", "services", "support"].map((category) => {
+            // Define an emoji for each category
+            const emojis = {
+              stores: "🛒", // Shopping cart emoji for stores
+              services: "🔧", // Wrench emoji for services
+              support: "💁‍♂️", // Person tipping hand emoji for support
+            };
+
+            return (
+              <React.Fragment key={category}>
+                <ListItemButton onClick={() => handleDropdownToggle(category)}>
+                  <ListItemText
+                    primary={`${emojis[category]} ${capitalizeFirstLetter(
+                      category
+                    )}`}
+                  />
+                  {openDropdown === category ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse
+                  in={openDropdown === category}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding>
+                    {getDropdownItems(category).map(({ to, text }) => (
+                      <ListItemButton key={to} sx={{ pl: 4 }}>
+                        <Link
+                          to={to}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                          onClick={handleDrawerToggle}
+                        >
+                          <ListItemText primary={text} />
+                        </Link>
+                      </ListItemButton>
+                    ))}
+                  </List>
+                </Collapse>
+                {/* Center InstallAppBtn right after support dropdown */}
+                {category === 'support' && (
+                  <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
+                    <InstallAppBtn drawerMode />
+                  </Box>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </List>
+        {/* Removed InstallAppBtn from the bottom */}
+        {/* Place InstallAppBtn at the bottom after support */}
+        {/* <Box sx={{ mt: 'auto', mb: 2, display: 'flex', justifyContent: 'center' }}>
+          <InstallAppBtn drawerMode />
+        </Box> */}
+      </Box>
     </Box>
   );
 
@@ -168,6 +181,7 @@ function DrawerAppBar({ window, children }) {
               alignItems: "center",
               textAlign: "center",
               width: { xs: "100%", sm: "25%" }, // Take full width in mobile view
+              position: 'relative',
             }}
           >
             <Link
@@ -195,6 +209,10 @@ function DrawerAppBar({ window, children }) {
                 SINDHULI BAZAR
               </Typography>
             </Link>
+            {/* InstallAppBtn beside title, only on desktop/tablet */}
+            <Box sx={{ ml: 1, display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
+              <InstallAppBtn />
+            </Box>
           </Typography>
 
           {/* Desktop view menu items */}
