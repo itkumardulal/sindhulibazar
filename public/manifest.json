@@ -4,23 +4,36 @@
   "icons": [
     {
       "src": "/mainlogo3.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "sizes": "16x16"
     },
     {
       "src": "/mainlogo3.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "24x24"
     },
     {
       "src": "/mainlogo3.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/mainlogo3.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "/mainlogo3.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/mainlogo3.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "orientation": "portrait-primary",
   "background_color": "#ffffff",
-  "orientation": "portrait-primary"
+  "theme_color": "#FBA518"
 }

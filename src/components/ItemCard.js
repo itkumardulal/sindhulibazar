@@ -45,8 +45,7 @@ const LoadingOverlay = () => (
     }}
   >
     <img
-      src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/88367851ab55e1e40038dd2af0ad05a07caa1d10/public/mainlogo3.png
-" // Replace with your logo
+      src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/88367851ab55e1e40038dd2af0ad05a07caa1d10/public/mainlogo3.png"
       alt="Loading"
       style={{ width: 100, marginBottom: 20 }}
     />
@@ -90,7 +89,6 @@ export default function ImgMediaCard({ data }) {
 
     // Update cart state directly, triggers re-render everywhere consuming CartContext
     setCart([...cart, newProduct]);
-    // <LoadingOverlay />;
 
     showToast("🛒 Product added to cart!");
 

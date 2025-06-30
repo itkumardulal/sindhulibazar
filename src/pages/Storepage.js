@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react"; // add useContext
-import { CartContext } from "../context/CartContext"; // import your CartContext
+import React, { useState, useEffect, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import DrawerAppBar from "../components/Navbar";
 import ImgMediaCard from "../components/ItemCard";
 import { Box, Button, Tooltip } from "@mui/material";
@@ -8,6 +8,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { keyframes } from "@emotion/react";
 import CartBtn from "../components/CartBtn";
 import Search from "../components/search";
+import LoadingOverlay from "../components/LoadingOverlay"; // 👈 Import the overlay
 
 const hoverAnimation = keyframes`
   0% { transform: scale(1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); }
@@ -23,57 +24,58 @@ const fadeInButton = keyframes`
 const Storepage = () => {
   const navigate = useNavigate();
   const { producttypeStore } = useParams();
+  const { cart } = useContext(CartContext);
 
-  const { cart } = useContext(CartContext); // <-- access cart context here
-
+  const [loading, setLoading] = useState(true);
   const [showButton, setShowButton] = useState(false);
   const [titleText, setTitleText] = useState("");
   const [items, setItems] = useState([]);
   const [searchData, setSearchData] = useState([]);
 
   useEffect(() => {
-    let selectedItems = [];
-    let title = "";
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      let selectedItems = [];
+      let title = "";
 
-    switch (producttypeStore) {
-      case "FoodStore":
-        selectedItems = Datacarrier.FoodStore;
-        title =
-          "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
-        break;
-      case "VehicleStore":
-        selectedItems = Datacarrier.VehicalStore;
-        title = "Make inquiry on any Vehicles below";
-        break;
-      case "GroceryStore":
-        selectedItems = Datacarrier.GroceryStore;
-        title =
-          "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
-        break;
-      case "LiquorStore":
-        selectedItems = Datacarrier.LiqureStore;
-        title =
-          "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
-        break;
-      case "HerbalStore":
-        selectedItems = Datacarrier.HerbalStore;
-        title =
-          "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
-        break;
-      case "BakeryStore":
-        selectedItems = Datacarrier.bakeryItems;
-        title =
-          "Delivery only from 8AM to 8PM inside Sindhuli for Bakery Items";
-        break;
-      default:
-        alert("Something went wrong");
-        selectedItems = [];
-        title = "";
-    }
+      switch (producttypeStore) {
+        case "FoodStore":
+          selectedItems = Datacarrier.FoodStore;
+          title = "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
+          break;
+        case "VehicleStore":
+          selectedItems = Datacarrier.VehicalStore;
+          title = "Make inquiry on any Vehicles below";
+          break;
+        case "GroceryStore":
+          selectedItems = Datacarrier.GroceryStore;
+          title = "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
+          break;
+        case "LiquorStore":
+          selectedItems = Datacarrier.LiqureStore;
+          title = "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
+          break;
+        case "HerbalStore":
+          selectedItems = Datacarrier.HerbalStore;
+          title = "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
+          break;
+        case "BakeryStore":
+          selectedItems = Datacarrier.bakeryItems;
+          title = "Delivery only from 8AM to 8PM inside Sindhuli for Bakery Items";
+          break;
+        default:
+          alert("Something went wrong");
+          selectedItems = [];
+          title = "";
+      }
 
-    setItems(selectedItems);
-    setSearchData(selectedItems);
-    setTitleText(title);
+      setItems(selectedItems);
+      setSearchData(selectedItems);
+      setTitleText(title);
+      setLoading(false);
+    }, 300); // simulate loading delay
+
+    return () => clearTimeout(timeout);
   }, [producttypeStore]);
 
   useEffect(() => {
@@ -82,29 +84,21 @@ const Storepage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleCart = () => navigate("/Addtocart");
 
-  const handleCart = () => {
-    navigate("/Addtocart");
-  };
-
-  // Calculate total items from cart context here
-  const totalItemsCount = cart.reduce(
-    (acc, item) => acc + (item.quantity || 1),
-    0
-  );
+  const totalItemsCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
 
   return (
     <>
+      {loading && <LoadingOverlay />}
+
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       />
 
       <DrawerAppBar>
-        {/* Pass totalItemsCount to CartBtn */}
         <CartBtn totalItems={totalItemsCount} handleCart={handleCart} />
 
         <br />
@@ -115,15 +109,12 @@ const Storepage = () => {
 
         <div
           style={{
-            // border: "2px solid #FFCC00",
-            // backgroundColor: "#FFF7CC",
             padding: "10px 20px",
             borderRadius: "10px",
             textAlign: "center",
             maxWidth: "1400px",
             margin: "auto",
             position: "relative",
-            // boxShadow: "0 2px 8px rgba(255, 204, 0, 0.3)",
             animation: "slideFadeIn 0.6s ease forwards",
           }}
         >
@@ -143,25 +134,15 @@ const Storepage = () => {
           </span>
 
           <style>{`
-    @keyframes slideFadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-15px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes underlineGrow {
-      0% {
-        border-bottom-width: 0;
-      }
-      100% {
-        border-bottom-width: 3px;
-      }
-    }
-  `}</style>
+            @keyframes slideFadeIn {
+              0% { opacity: 0; transform: translateY(-15px); }
+              100% { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes underlineGrow {
+              0% { border-bottom-width: 0; }
+              100% { border-bottom-width: 3px; }
+            }
+          `}</style>
         </div>
 
         <Box

@@ -1,36 +1,29 @@
-// src/App.js
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-
 import "./App.css";
-// import Preloader from "./components/Preloader";
-// Import the preloader component
+
+// Pages
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Homepage from "./pages/homepage";
 import Addtocart from "./pages/Addtocart";
 import Storepage from "./pages/Storepage";
 import Rpmcheckup from "./pages/Rpmcheckup";
+
+// Components
 import ToastNotify from "./components/ToastNotify";
+import SplashScreen from "./components/SplashScreen"; // 👈 Splash screen
 
 function App() {
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   // Set a timer to switch off the preloader after 3 seconds
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 1000);
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // 2s splash
+    return () => clearTimeout(timer);
+  }, []);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
+  if (loading) return <SplashScreen />;
 
-  // if (loading) {
-  //   // Render Preloader if loading is true
-  //   return <Preloader />;
-  // }
-
-  // Render main content if loading is false
   return (
     <div className="App">
       <Routes>

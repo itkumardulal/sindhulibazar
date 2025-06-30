@@ -131,11 +131,7 @@ function DrawerAppBar({ window, children }) {
             );
           })}
         </List>
-        {/* Removed InstallAppBtn from the bottom */}
-        {/* Place InstallAppBtn at the bottom after support */}
-        {/* <Box sx={{ mt: 'auto', mb: 2, display: 'flex', justifyContent: 'center' }}>
-          <InstallAppBtn drawerMode />
-        </Box> */}
+  
       </Box>
     </Box>
   );
@@ -210,9 +206,7 @@ function DrawerAppBar({ window, children }) {
               </Typography>
             </Link>
             {/* InstallAppBtn beside title, only on desktop/tablet */}
-            <Box sx={{ ml: 1, display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
-              <InstallAppBtn />
-            </Box>
+         
           </Typography>
 
           {/* Desktop view menu items */}
