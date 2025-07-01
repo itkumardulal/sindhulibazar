@@ -4,19 +4,27 @@
   "icons": [
     {
       "src": "/mainlogo3.png",
-      "sizes": "16x16"
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/mainlogo3.png",
-      "sizes": "24x24"
+      "sizes": "24x24",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/mainlogo3.png",
-      "sizes": "32x32"
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/mainlogo3.png",
-      "sizes": "64x64"
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/mainlogo3.png",

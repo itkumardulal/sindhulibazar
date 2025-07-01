@@ -18,5 +18,5 @@ root.render(
   </React.StrictMode>
 );
 
-// ✅ Register the service worker for PWA install prompt to work
+// Register service worker to enable PWA features
 serviceWorkerRegistration.register();
