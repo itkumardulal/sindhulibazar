@@ -12,7 +12,7 @@
         "name": "Gorkha Beer Small",
         "image": "https://i.imgur.com/PZjJpcM.jpg",
         "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
-        "price": "200",
+        "price": "210",
         "category": "Liquor"
     },
     
@@ -21,7 +21,7 @@
     "name": "chiken biryani",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/chiken%20biryani.webp",
     "description": "From Sarusali Thakali and Guest House Dhungrebas",
-    "price": "320",
+    "price": "350",
     "category": "Food"
   },
    {
@@ -37,7 +37,7 @@
     "name": "Cheese BBQ Chiken Pizza(Medium)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
     "description": "from BurgerHouse",
-    "price": "450",
+    "price": "550",
     "category": "Food"
   }, 
     {
