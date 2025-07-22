@@ -1,0 +1,36 @@
+[
+    {
+        "id":1,
+        "name":"Auto / Tempo",
+        "image":"  https://i.imgur.com/wQvUet3.png",
+        "description": "Take your order",   
+        "category": "Vehicle"
+      
+    },
+    {
+        "id":2,
+        "name":"Scorpio",
+        "image":"https://i.imgur.com/36JPDxK.png",
+        "description": "Scarpio for u need",
+       
+        "category": "Vehicle"
+    
+    },
+    {
+        "id":3,
+        "name":"Volvo Bus",
+        "image":"https://i.imgur.com/y52XfGd.png",
+        "description": "take a bus ",
+        "category": "Vehicle"
+
+    },
+    {
+        "id":6,
+        "name":"Tata Sumo",
+        "image":"https://i.imgur.com/YRdbK15.png",
+        "description": "Tata sumo fro you",
+        "category": "Vehicle"
+    }
+      
+  ]
+  

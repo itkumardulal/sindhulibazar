@@ -1,0 +1,87 @@
+
+[
+{
+    "id": 15,
+    "name": "Chicken Katti Roll",
+    "image": "https://i.imgur.com/G3CTjUi.jpg",
+    "description": "Chicken Katti Roll is a popular street Food in Nepal, consisting of spiced grilled chicken wrapped in a soft paratha. Filled with onions, bell peppers, and tangy sauces, it offers a savory and spicy flavor in every bite, making it a perfect grab-and-go meal.",
+    "price": "290",
+    "category": "Food"
+},
+{
+    "id": 5,
+    "name": "Mutter Paneer",
+    "image": "https://i.imgur.com/2TDb3Iy.jpg",
+    "description": "Mutter Paneer is a popular Nepali and Indian dish made with soft paneer (cottage cheese) and green peas in a rich, mildly spiced tomato-based gravy. Often served with rice or roti, it's a delicious vegetarian option found in many Nepali households and restaurants.",
+    "price": "280",
+    "category": "Food"
+    
+},
+{
+    "id": 25,
+    "name": "Sprite 1L",
+    "image": " https://i.imgur.com/tonmiBn.jpg",
+    "description": "Introduced in 1961, Sprite is the world's leading lemon-lime flavored soft drink. Sprite is sold in more than 190 countries and ranks as the No. 3 soft drink worldwide",
+    "price": "125",
+    "category": "Liquor"
+},
+{
+    "id":17,
+    "name":" Carlsburg",
+    "image":"https://i.imgur.com/3F1poXs.png",
+    "description": "Carlsberg, perhaps best known for its eponymous pilsner, produces much more than one beer. The Copenhagen-based brand operates 75 breweries in 33 countries, employs upwards of 40,000 people, and produces hundreds of brands ",
+    "price": "500",    
+    "category": "Liquor"
+},
+{
+    "id":4,
+    "name":"Nude vodka",
+    "image":"https://i.imgur.com/caIJBvQ.jpg",
+    "description": "Nude Vodka is a convenient, pre-mixed cocktail option, combining vodka with a variety of appealing flavo  Packaged in portable containers, it's perfect for on-the-go enjoyment at parties or gatherings. With a balanced and refreshing taste, Nude Vodka provides a quick and hassle-free way to savor well-crafted cocktails.",
+    "price": "2100",    
+    "category": "Liquor"
+},
+{
+    "id":16,
+    "name":"Nepal ice",
+    "image":"https://i.imgur.com/0VxhDmP.png",
+    "description": "Nepal Ice is a popular brand of beer from Nepal. It's well-regarded for its refreshing and crisp taste, making it a favorite among beer enthusiasts in Nepal and beyond. Nepal Ice offers various beer varieties, including lagers and pilsners, which are known for their quality and enjoyable flavor profile. This brand is often enjoyed at social gatherings and is a symbol of Nepalese brewing tradition and culture.",
+    "price": "350",    
+    "category": "Liquor"
+},
+{
+    "id": 24,
+    "name": "Sprite 2.25L",
+    "image": " https://i.imgur.com/rAWuoUs.jpg",
+    "description": "Introduced in 1961, Sprite is the world's leading lemon-lime flavored soft drink. Sprite is sold in more than 190 countries and ranks as the No. 3 soft drink worldwide.",
+    "price": "260",
+    "category": "Liquor"
+},
+{
+    "id":19,
+    "name":"Gorkha Beer Big",
+    "image":" https://i.imgur.com/oMMAmT2.jpg",
+    "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
+    "price": "360",    
+    "category": "Liquor"
+
+   
+},
+{
+    "id":6,
+    "name":"Big Master white (Wine)",
+    "image":"https://i.imgur.com/xhEkeWO.jpg",
+    "description": "This wine is aromatic, refreshing, lighter in taste and tangy. Can be consumed as an aperitif during meal with dessert or as a refreshing drink..",
+    "price": "850",    
+    "category": "Liquor"
+},
+   {
+    "id":16,
+    "name":"Nepal ice Small",
+    "image":"https://i.imgur.com/0VxhDmP.png",
+    "description": "Nepal Ice is a popular brand of beer from Nepal. It's well-regarded for its refreshing and crisp taste, making it a favorite among beer enthusiasts in Nepal and beyond. Nepal Ice offers various beer varieties, including lagers and pilsners, which are known for their quality and enjoyable flavor profile. This brand is often enjoyed at social gatherings and is a symbol of Nepalese brewing tradition and culture.",
+    "price": "200",    
+    "category": "Liquor"
+   
+    }
+]

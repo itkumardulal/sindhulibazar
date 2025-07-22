@@ -1,0 +1,104 @@
+[
+    {
+        "id":1,
+        "name":"Propolis Soap (100g)",
+        "image":"https://i.imgur.com/UE5m4P6.png",
+        "description": "UTURN Propolis soap is prepared by using natural herbs and ingredients that are heathier and beneficial for the skin and are less likely to cause any damaging effect on your beautiful skin and hair. Propolis is the resinous materials that honeybees gather from flower and leaf buds from different plants. It help to inhibit microbial growth and keep sterile environment to bee hives. This luxurious product with propolis is triple milled and blended with honey and sweet almond oil provides a rich soothing effect, leaving your skin beautifully smooth and supple. Bee propolis is added because of its natural antibacterial and anti-inflammatory action and is very best use for acne and pimple on the face and body.",
+        "price": "165" ,    
+        "category": "Herbal"
+    },
+    {
+        "id":2,
+        "name":"Special Therapy Honey (500 gm)",
+        "image":"https://i.imgur.com/bQoBBl7.png",
+        "description": "Special Therapy Honey is another bee product of Uturn. Special Therapy Honey nourishes your skin and face. Using Special Therapy Honey for skin is very useful because of its moisturizing and nourishing properties. Special Therapy Honey is the best natural moisturizer, especially for your dry skin and it is also very easy to apply. Many people also use Special Therapy Honey masks for skin tone correction and also for body massage",
+        "price": "1025",    
+        "category": "Herbal"
+    
+    },
+    {
+        "id":3,
+        "name":"Himalayan Tea",
+        "image":"https://i.imgur.com/m4fB1hX.png",
+        "description": "Himalayan Yes Herbal Tea is prepared by blending more than twenty medicinal herbs like Holy basil(Tulasi), Heart leaved moonseed( Gurjo), Liquorice root(Jethimadhu), Malabarunt leaf( Asuro), gooseberry fruit( Amala), Ginger-Rhizome( Sutho),Long Pepper-Fruit( Pipala), Turmeric( Besar), Cloce( Lwang), Cardamom fruit( Sukmel), Sweet flag( bojho), Guava leaf and so on. This tea is recommended to drink for all (child to adult) as it is enrich in antioxidant, immunomodulator, nutrients and other many more health beneficial properties. It contains many herbs that have tested and approved from science and Vedas for healthy life. This may serve you as a key to good health, happiness, wisdom, refreshment with numbers of health benefits. You will certainly feel the real benefits when you use it..",
+        "price": "590",    
+        "category": "Herbal"
+
+       
+    },
+    {
+        "id":4,
+        "name":" Amala Juice",
+        "image":"https://i.imgur.com/hdYawcC.png",
+        "description": "Amala is a very popular berry in the globe having many health benefits to human health. UHbee Propolis Amala juice is prepared the with aqua extraction & blending method with the supervision of adequate food technicians, following GMP guidelines. This drink promotes immune function of the body. Amala is a great source of Vitamin “C’ and it’s water soluble vitamin has proved to have antioxidant effects. The Propolis Amala juice may have many health benefits that include enhancing liver health, supporting healthy digestion, increasing hair growth, improving kidney health, and so on.",
+        "price": "770",    
+        "category": "Herbal"
+    },
+    {
+        "id":5,
+        "name":"Night cream",
+        "image":"https://i.imgur.com/hdYawcC.png",
+        "description": "Night cream;cream;Night cream.",
+        "price": "1335",    
+        "category": "Herbal"
+    },
+    {
+        "id":6,
+        "name":"Tulsi Drop",
+        "image":" https://i.imgur.com/aHiSAv4.png",
+        "description": "Pancha Tulsi drops is extracted from five types of fresh tulsi ie; Nimbu Tulsi, Bisnu Tulsi, Krishna Tulsi, Maruna Tulsi, Rama TUlsi. Pancha Tulsi Drops has Anti-oxidant, Anti-aging, Anti-bacterial, Anti viral properties. Benefits of Pancha Tulsi Drops are as follows: Useful in common cold, Acidity, Nasal congestion, Asthma, Vomiting, Constipation, Abdominal discomfort, Viral & seasonal fever, Lungs infection, Hypertension, Fatigue, Obesity, Arthritis etc",
+        "price": "550",    
+        "category": "Herbal"
+    },
+    {
+        "id":7,
+        "name":"Day cream",
+        "image":"https://i.imgur.com/3ChJb0l.png",
+        "description": "Day cream;Day creamy cream",
+        "price": "1295",    
+        "category": "Herbal"
+
+       
+    },
+    {
+        "id":8,
+        "name":" Propolis Shampoo(400ml)",
+        "image":"https://i.imgur.com/9e0G9sM.png",
+        "description": "UTURN Shampoo is a unique hair care production the form of viscous liquid. This novel combination of herbal phenolic extracts, bioactive ingredients and useful high end constituents which are useful for cleaning hair to remove dirt, dandruff, pollutants and other contaminant particles that gradually builds up in hair. KEY INGREDIENTS AND THEIR ROLE: 1. Propolis, Neem, Aloe Vera, Ginger, pro vitamin, Wheat Protein, helps to nourish the hair, may help reduce hair loss, can keep hair moist, moisturize your hair, hair grow longer and scalp, its protect your hair from everyday damage. 2. Ginger, Propolis, Neem, Aloe Vera, pro vitamin, Wheat Protein helps to control microbs and antioxidant in nature. 3. There are five ingredients which are much helpful to hair nutrition which was added to shampoo products like Vitamin B5, Vitamin E, Vitamin C, Vitamin H, Vitamin B3 that can help to provide hair nutrition and improve scalp circulation.",
+        "price": "450",    
+        "category": "Herbal"
+    },
+    {
+        "id":9,
+        "name":"Satwik Baby Sattu",
+        "image":"https://i.imgur.com/GJtymFk.jpg",
+        "description": "Satwik Baby Sattu.",
+        "price": "975",    
+        "category": "Herbal"
+    },
+    {
+        "id":10,
+        "name":"Sisnu Powder",
+        "image":" https://i.imgur.com/aHiSAv4.png",
+        "description": "Sisnu Powder is organic nepali product. Sisnu Powder contains Protein, Fiber, Fat, Carbohydrate, Calcium, Iron. Sisnu Powder method of use: Pour a spoonful Himalayan Nettle Poder in a cup of hot water and stirrer for a minute then take slowly or can add 3 to 4 spoonful in cooked pulses or curry with stirring a minute for regular use. Benefits of Sisnu Powder: Containing for nutrients of body, For improve physical and mental energy, May cures Diabetes, Uric acid, Prostate enlargement, Arthritis, Hypertension, Obesity etc., To reduce pain & inflammation of body, As prevention of abdominal problems like Gastritis, constipation etc.",
+        "price": "675",    
+        "category": "Herbal"
+    },
+    {
+        "id":11,
+        "name":"Sun Protection Cream(100g)",
+        "image":"https://i.imgur.com/vf0lKxs.png",
+        "description": "Uturn Sun Protection Cream helps to protect from UVA & UVB radiation, inhibit signs of aging, soothe redness and prevent dryness due to sun exposure. It contain Royal Jelly, Licorice extract, Aloe Vera extract, Wheatgerm oil, Almond oil, Jojoba oil, Vitamin B, Vitamin E, Titanium dioxide, zinc oxide. It protects skins collagen to help prevent wrinkles caused by frequent exposure. HOW TO USE: 1.Take an appropriate quantity of sunscreen and apply liberally on the exposed parts of your body like face, neck and arms. 2.Apply 15 to 20 minutes before sun exposure. 3.Reapply after swimming and after heavy sweat. Avoid the sensitive area around eyes",
+        "price": "495",    
+        "category": "Herbal"
+    },
+    {
+        "id":12,
+        "name":"Prisa Herbal Toothpaste",
+        "image":"https://i.imgur.com/GoGAKKk.jpg",
+        "description": "Ingredients: Bozo, Jhakrilahara, Bajradanti, Neem, Tulasi, Timmur, Glycerene etc  and It is one of the best Nepal herbal products It makes teeth strong and healthy It prevents bleeding and toothache It makes fresh/healthy breath and strong gum It removes dental plaque and calculas.",
+        "price": "200",    
+        "category": "Herbal"
+    }
+  ]
+  

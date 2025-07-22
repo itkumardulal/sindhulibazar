@@ -1,0 +1,39 @@
+Toast container adjustments
+.Toastify__toast-container {
+  z-index: 9999; /* Ensure it's on top */
+}
+
+/* Toast box styling */
+.custom-toast {
+  background-color: #222 !important;   /* Dark background */
+  color: #f0f0f0 !important;           /* Light text */
+  font-weight: 600;
+  font-size: 13px !important;          /* Smaller font */
+  padding: 8px 16px !important;        /* Comfortable padding */
+  max-width: 320px !important;         /* Limit width */
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0.95;
+  cursor: pointer;                     /* Indicate clickable */
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Hover effect to make it stand out */
+.custom-toast:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Toast body spacing */
+.custom-toast-body {
+  margin: 0 8px !important;
+}
+
+/* Slide animation speed */
+.Toastify__slide-enter--top-center {
+  animation-duration: 250ms !important;
+}
+
+.Toastify__slide-exit--top-center {
+  animation-duration: 250ms !important;
+}
