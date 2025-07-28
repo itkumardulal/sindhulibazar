@@ -3,7 +3,7 @@
     "id": 21,
     "name": "chiken biryani",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/chiken%20biryani.webp",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From Sindhuli Bazar",
     "price": "350",
     "category": "Food"
   },
@@ -182,7 +182,7 @@
     "id": 22,
     "name": "egg biryani",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/egg%20biryani.avif",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From Sindhuli Bazar",
     "price": "300",
     "category": "Food"
   },
@@ -190,7 +190,7 @@
     "id": 23,
     "name": "mutton biryani",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/mutton%20biryani.webp",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "420",
     "category": "Food"
   },
@@ -199,7 +199,7 @@
     "id": 25,
     "name": "buff chilli",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/chilli%20item/buff%20chilli.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "280",
     "category": "Food"
   },
@@ -207,7 +207,7 @@
     "id": 26,
     "name": "chicken chilli",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/chilli%20item/chikewn%20chilli.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "300",
     "category": "Food"
   },
@@ -215,7 +215,7 @@
     "id": 27,
     "name": "drumstick Leg piece",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/chilli%20item/drumstic%20Leg%20pic.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "180",
     "category": "Food"
   },
@@ -223,7 +223,7 @@
     "id": 28,
     "name": "french fries",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/chilli%20item/french%20fry.png",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "160",
     "category": "Food"
   },
@@ -231,7 +231,7 @@
     "id": 29,
     "name": "pork chilli",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/chilli%20item/pork%20chilli.png",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "280",
     "category": "Food"
   },
@@ -239,7 +239,7 @@
     "id": 30,
     "name": "potato chilli",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/chilli%20item/potato%20chilli.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "180",
     "category": "Food"
   },
@@ -247,7 +247,7 @@
     "id": 31,
     "name": "chicken roast khaja set",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/khaja/chiken%20rost%20khaja%20set.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From Sindhuli Bazar",
     "price": "360",
     "category": "Food"
   },
@@ -255,15 +255,16 @@
     "id": 32,
     "name": "fish fry khaja set",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/khaja/fish%20fry%20khaja%20set.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "300",
     "category": "Food"
+
   },
   {
     "id": 33,
     "name": "mutton khaja set",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/khaja/mutton%20khaja%20set.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From Sindhuli Bazar",
     "price": "400",
     "category": "Food"
   },
@@ -271,7 +272,7 @@
     "id": 34,
     "name": "pork khaja set",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/khaja/pork%20khaja%20set.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From Sindhuli Bazar",
     "price": "300",
     "category": "Food"
   },
@@ -279,7 +280,7 @@
     "id": 35,
     "name": "Sukuti khaja set",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/khaja/Sukuti%20khaja%20set.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "300",
     "category": "Food"
   },
@@ -287,7 +288,7 @@
     "id": 36,
     "name": "Buff Mo:Mo",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/buff%20momo.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "150",
     "category": "Food"
   },
@@ -295,7 +296,7 @@
     "id": 37,
     "name": "Chicken Mo:Mo",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/chiken%20momo.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "FSpecial From Sindhuli Bazar",
     "price": "150",
     "category": "Food"
   },
@@ -305,7 +306,7 @@
     "id": 40,
     "name": "Buff Chowmein",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/momo%20chawmein/buff%20chowmein.webp",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "150",
     "category": "Food"
   },
@@ -313,7 +314,7 @@
     "id": 41,
     "name": "chicken-Chowmein",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/chicken-chow-mein.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "150",
     "category": "Food"
   },
@@ -321,7 +322,7 @@
     "id": 42,
     "name": "chicken Sausage/Piece",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/chiken%20sausage.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "50",
     "category": "Food"
   },
@@ -329,7 +330,7 @@
     "id": 43,
     "name": "Buff Sausage/ Piece",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/buff%20susage.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "FSpecial From Sindhuli Bazar",
     "price": "50",
     "category": "Food"
   },
@@ -337,7 +338,7 @@
     "id": 44,
     "name": "Egg Chowmein",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/Egg%20chow%20mein.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "150",
     "category": "Food"
   },
@@ -345,7 +346,7 @@
     "id": 45,
     "name": "Mix Chowmein",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/mix%20chow%20mein.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "200",
     "category": "Food"
   },
@@ -354,7 +355,7 @@
     "name": "Pork Chowmein",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/momo%20chawmein/pork%20chow%20mein.webp",
     
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "160",
     "category": "Food"
   },
@@ -363,7 +364,7 @@
     "id": 48,
     "name": "Chicken Current Noodles",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/Noodles/current%20chiken%20noodles.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Bazar",
     "price": "150",
     "category": "Food"
   },
@@ -371,7 +372,7 @@
     "id": 50,
     "name": "Egg Curren Noodles",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/Noodles/egg%20current.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "120",
     "category": "Food"
   },
@@ -379,7 +380,7 @@
     "id": 51,
     "name": "Mix Current Noodles",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/Noodles/mix%20current%20noodles.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "180",
     "category": "Food"
   },
@@ -387,7 +388,7 @@
     "id": 52,
     "name": "Bhatmas Sadeko",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sadeko%20item/bhatmas%20sadeko.png",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "120",
     "category": "Food"
   },
@@ -395,7 +396,7 @@
     "id": 53,
     "name": "Chicken Sadeko",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sadeko%20item/chiken%20sadeko.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "250",
     "category": "Food"
   },
@@ -403,7 +404,7 @@
     "id": 54,
     "name": "Pinut Sadeko",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sadeko%20item/pinut%20sadeko.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "120",
     "category": "Food"
   },
@@ -411,7 +412,7 @@
     "id": 55,
     "name": "Fruit Salad",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/salad/fruit%20salad.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "350",
     "category": "Food"
   },
@@ -419,7 +420,7 @@
     "id": 56,
     "name": "Green Salad",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/salad/green%20salad.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "100",
     "category": "Food"
   },
@@ -427,7 +428,7 @@
     "id": 57,
     "name": "Pop-Corn",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/salad/pop%5B%20corn.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "50",
     "category": "Food"
   },
@@ -435,7 +436,7 @@
     "id": 58,
     "name": "Buff Choila",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sukuti%20choila/buff%20choila.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "280",
     "category": "Food"
   },
@@ -443,7 +444,7 @@
     "id": 59,
     "name": "Chicken Choila",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sukuti%20choila/chiken%20choila.png",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "350",
     "category": "Food"
   },
@@ -451,7 +452,7 @@
     "id": 60,
     "name": "Pork Choila",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sukuti%20choila/pork-choila.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "300",
     "category": "Food"
   },
@@ -459,7 +460,7 @@
     "id": 61,
     "name": "Sukuti /per Plate",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sukuti%20choila/sukuti.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "250",
     "category": "Food"
   },
@@ -467,7 +468,7 @@
     "id": 62,
     "name": "Chicken Khana",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/chiken%20khana.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "380",
     "category": "Food"
   },
@@ -475,7 +476,7 @@
     "id": 63,
     "name": "Fish Khana",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/Fish%20khana.jpg",
-    "description": "From Sasurali Thakali and Guest House Dhungrebas",
+    "description": "From best options from Sindhuli Bazar",
     "price": "380",
     "category": "Food"
   },
@@ -483,7 +484,7 @@
     "id": 64,
     "name": "Local Chicken Khana",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/local%20chiken%20khana.png",
-    "description": "From Sarusali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Baza",
     "price": "500",
     "category": "Food"
   },
@@ -491,7 +492,7 @@
     "id": 65,
     "name": "Mutton Khana",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/THAKALI/Muton%20khana.jpg",
-    "description": "From Sarusali Thakali and Guest House Dhungrebas",
+    "description": "Special From Sindhuli Baza",
     "price": "420",
     "category": "Food"
   }

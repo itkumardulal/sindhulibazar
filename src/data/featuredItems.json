@@ -20,7 +20,7 @@
     "id": 21,
     "name": "chiken biryani",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/chiken%20biryani.webp",
-    "description": "From Sarusali Thakali and Guest House Dhungrebas",
+    "description": "From Sindhuli Bazar",
     "price": "350",
     "category": "Food"
   },
@@ -28,7 +28,7 @@
     "id": 51,
     "name": "Mix Current Noodles",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/Noodles/mix%20current%20noodles.jpg",
-    "description": "From Sarusali Thakali and Guest House Dhungrebas",
+    "description": "From Sindhuli Bazar",
     "price": "180",
     "category": "Food"
   },
