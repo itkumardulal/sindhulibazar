@@ -1,0 +1,25 @@
+{
+  "vehicle": {
+    "type": "Electric",
+    "name": "NIU NQi GT",
+    "seater": 2,
+    "motorPower": "3000W Bosch",
+    "battery": "60V 35Ah Lithium-ion",
+    "rangeKm": "95-120 km per charge",
+    "price": 400000,
+    "discount": 25000,
+    "currentPrice": 375000,
+    "warranty": {
+      "battery": "2 years",
+      "motor": "3 years"
+    },
+    "groundClearance": "180 mm",
+    "colorOptions": ["Black", "White", "Red", "Grey"],
+    "images": [
+      "https://i.imgur.com/wQvUet3.png",
+      "https://i.imgur.com/36JPDxK.png",
+      "https://i.imgur.com/y52XfGd.png",
+      "https://i.imgur.com/YRdbK15.png"
+    ]
+  }
+}
