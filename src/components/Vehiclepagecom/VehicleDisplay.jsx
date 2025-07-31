@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Data for the vehicle, assuming it's imported or defined here
 const vehicleData = {
@@ -19,8 +19,8 @@ const vehicleData = {
     groundClearance: "180 mm",
     colorOptions: ["Black", "White", "Red", "Grey"],
     images: [
-      "https://i.imgur.com/wQvUet3.png",
       "https://i.imgur.com/36JPDxK.png",
+      "https://i.imgur.com/wQvUet3.png",
       "https://i.imgur.com/y52XfGd.png",
       "https://i.imgur.com/YRdbK15.png",
     ],
@@ -29,13 +29,13 @@ const vehicleData = {
 
 // Helper component for displaying specification icons
 const SpecIcon = ({ icon, label, value }) => (
-  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
     {" "}
     {/* flex items-center space-x-3 */}
     <div
       style={{
         backgroundColor: "#f3f4f6",
-        padding: "8px",
+        padding: "5px",
         borderRadius: "8px",
       }}
     >
@@ -43,7 +43,7 @@ const SpecIcon = ({ icon, label, value }) => (
       {/* bg-gray-100 p-2 rounded-lg */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        style={{ height: "24px", width: "24px", color: "#4b5563" }}
+        style={{ height: "23px", width: "23px", color: "#4b5563" }}
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -55,7 +55,7 @@ const SpecIcon = ({ icon, label, value }) => (
     <div>
       <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>{label}</p>{" "}
       {/* text-sm text-gray-500 */}
-      <p style={{ fontWeight: "600", color: "#1f2937" }}>{value}</p>{" "}
+      <p style={{ fontWeight: "350", color: "#1f2937" }}>{value}</p>{" "}
       {/* font-semibold text-gray-800 */}
     </div>
   </div>
@@ -66,6 +66,40 @@ export default function VehicleDisplay() {
   const { vehicle } = vehicleData;
   const [selectedImage, setSelectedImage] = useState(vehicle.images[0]);
   const [selectedColor, setSelectedColor] = useState(vehicle.colorOptions[0]);
+  const [resizingImage, setResizingImage] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [imgheight, setImgHeight] = useState(300);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Set up event listener
+    window.addEventListener("resize", handleResize);
+
+    // Initial check
+    handleResize();
+
+    // Clean up
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Update resizingImage when windowWidth changes
+  useEffect(() => {
+    if (windowWidth < 700) {
+      setResizingImage("cover");
+      setImgHeight(250);
+    } else {
+      setResizingImage("contain");
+      setImgHeight(700);
+    }
+  }, [windowWidth]);
+  //   console.log(windowWidth);
+
+  //   return <div>Current window width: {windowWidth}px</div>;
 
   // Function to handle inquiry button click
   const handleInquiry = () => {
@@ -90,7 +124,7 @@ export default function VehicleDisplay() {
           margin: "auto",
           padding: "10px",
           marginBottom: "10px",
-          marginTop: "-30px",
+          marginTop: "-60px",
         }}
       >
         {" "}
@@ -116,14 +150,14 @@ export default function VehicleDisplay() {
             {" "}
             {/* grid grid-cols-1 lg:grid-cols-2 */}
             {/* Image Gallery Section */}
-            <div style={{ padding: "5px", backgroundColor: "#f3f4f6" }}>
+            <div style={{ padding: "24px", backgroundColor: "#f3f4f6" }}>
               {" "}
               {/* p-6 md:p-8 bg-gray-100 */}
               {/* Image container with a flexible height to prevent layout breaking, max height set */}
               <div
                 style={{
                   marginBottom: "16px",
-                  height: "400px",
+                  height: `${imgheight}px`,
                   maxHeight: "350px",
                   borderRadius: "12px",
                   overflow: "hidden",
@@ -143,7 +177,7 @@ export default function VehicleDisplay() {
                   style={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "contain",
+                    objectFit: `${resizingImage}`,
                     transition: "transform 0.3s ease-in-out",
                   }} // w-full h-full object-contain transition-transform duration-300 ease-in-out transform hover:scale-105
                   onError={(e) => {
@@ -170,6 +204,7 @@ export default function VehicleDisplay() {
                       borderRadius: "8px",
                       overflow: "hidden",
                       border: "2px solid",
+                      //   height: "100px",
                       borderColor:
                         selectedImage === image ? "#3b82f6" : "transparent",
                       transition: "all 0.2s ease-in-out",
@@ -186,7 +221,7 @@ export default function VehicleDisplay() {
                       style={{
                         width: "100%",
                         height: "100%",
-                        objectFit: "cover",
+                        objectFit: `${resizingImage}`,
                       }} // w-full h-full object-cover
                       onError={(e) => {
                         e.target.onerror = null;
@@ -201,7 +236,7 @@ export default function VehicleDisplay() {
             {/* Vehicle Details Section */}
             <div
               style={{
-                padding: "24px",
+                padding: "10px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -212,7 +247,7 @@ export default function VehicleDisplay() {
               <div>
                 <span
                   style={{
-                    fontSize: "0.75rem",
+                    fontSize: "0.65rem",
                     fontWeight: "600",
                     display: "inline-block",
                     padding: "4px 8px",
@@ -228,11 +263,11 @@ export default function VehicleDisplay() {
                 </span>
                 <h1
                   style={{
-                    fontSize: "2.25rem",
-                    lineHeight: "2.5rem",
+                    fontSize: "1.9rem",
+                    lineHeight: "1.9rem",
                     fontWeight: "700",
                     color: "#1f2937",
-                    marginTop: "8px",
+                    marginTop: "1px",
                     marginBottom: "5px",
                   }}
                 >
@@ -332,8 +367,8 @@ export default function VehicleDisplay() {
                       width: "100%",
                       backgroundColor: "#FDB813",
                       color: "#ffffff",
-                      fontWeight: "700",
-                      padding: "16px 24px",
+                      fontWeight: "600",
+                      padding: "10px 24px",
                       borderRadius: "12px",
                       fontSize: "1.125rem",
                       border: "none",
