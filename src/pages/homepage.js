@@ -79,6 +79,7 @@ const Homepage = () => {
       <div className="homepage-container">
         <Search data={Datacarrier} />
 
+{/* Service btn are the all the feature box parent */}
         <Servicesbtn />
 
         {[

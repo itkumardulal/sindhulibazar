@@ -42,6 +42,14 @@ export default function Servicesbtn() {
         />
         <h3>Cake and Celebration</h3>
       </button>
+      {/* <button onClick={() => handlebuttonNav("Bakery")} className="box-button">
+        <img
+          src="https://i.imgur.com/pDDdWjJ.png"
+          alt="bakery"
+          style={{ height: 100 }}
+        />
+        <h3>Send parcel Abroad</h3>
+      </button> */}
     </div>
   );
 }

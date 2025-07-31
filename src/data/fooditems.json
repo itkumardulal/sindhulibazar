@@ -3,7 +3,7 @@
     "id": 21,
     "name": "chiken biryani",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/chiken%20biryani.webp",
-    "description": "From Sindhuli Bazar",
+    "description": "From Sindhuli Bazar Special",
     "price": "350",
     "category": "Food"
   },
@@ -20,15 +20,15 @@
     "id": 9,
     "name": "Cheese BBQ Chiken Pizza(Medium)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "from BurgerHouse, Available : 8AM to 8PM",
+    "description": " Available : 8AM to 8PM",
     "price": "450",
     "category": "Food"
   },
     {
     "id": 55,
-    "name": "Cheese Chiken Pizza(Medium)",
+    "name": "Cheese BBQ Chiken Pizza(Medium plus)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "from Smile cafe, Available : 8AM to 8PM",
+    "description": " Available : 8AM to 8PM, better version of Medium pizza",
     "price": "550",
     "category": "Food"
   },
@@ -60,7 +60,7 @@
     "id": 5,
     "name": "Buff Chowmein ",
     "image": "https://i.imgur.com/4oFFAFQ.jpg",
-    "description": "Pulami Khaza Ghar, Madhutar",
+    "description": "Sindhuli Bazar Ghar, Madhutar",
     "price": "150",
     "category": "Food"
   },
@@ -76,7 +76,7 @@
     "id": 7,
     "name": "Hawaiian Pizza(Large)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/refs/heads/master/assetsimages/hawaiianpizza.avif",
-    "description": "from BurgerHouse, Available : 8AM to 8PM",
+    "description": "from SindhuliBAzar, Available : 8AM to 8PM",
     "price": "820",
     "category": "Food"
   },
@@ -84,7 +84,7 @@
     "id": 8,
     "name": "Hawaiian Pizza(Medium)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/refs/heads/master/assetsimages/hawaiianpizza.avif",
-    "description": "from BurgerHouse .Available : 8AM to 8PM",
+    "description": "from SindhuliBAzar .Available : 8AM to 8PM",
     "price": "550",
     "category": "Food"
   },
@@ -93,7 +93,7 @@
     "id": 10,
     "name": "Cheese BBQ Chiken Pizza (Large)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "from BurgerHouse, Available : 8AM to 8PM",
+    "description": "from Sindhuli BAzar, Available : 8AM to 8PM",
     "price": "750",
     "category": "Food"
   },
@@ -109,7 +109,7 @@
     "id": 12,
     "name": "Sausage Pizza(Large)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/6672b114ade44a597ff5e33e674e221a05dc9106/assetsimages/susagepizza.jpg",
-    "description": "from BurgerHouse, Available : 8AM to 8PM",
+    "description": "from Sindhuli BAzar, Available : 8AM to 8PM",
     "price": "750",
     "category": "Food"
   },
@@ -117,7 +117,7 @@
     "id": 13,
     "name": "Ghatto Kalejo Khaja Set",
     "image": "https://i.imgur.com/PoJToTu.png",
-    "description": "Pulami Khaza Ghar Madhutar",
+    "description": "Sindhuli Bazar Ghar Madhutar",
     "price": "260",
     "category": "Food"
   },
@@ -133,7 +133,7 @@
     "id": 15,
     "name": "Sukuti Khaja Set",
     "image": "https://i.imgur.com/XEYOs6u.jpg",
-    "description": "Pulami Khaza Ghar Madhutar",
+    "description": "Sindhuli Bazar Ghar Madhutar",
     "price": "280",
     "category": "Food"
   },
@@ -149,7 +149,7 @@
     "id": 17,
     "name": "Pork fry 1/2kg",
     "image": "https://i.imgur.com/6TuysW9.png",
-    "description": "Pulami Khaza Ghar Madhutar",
+    "description": "Sindhuli Bazar Ghar Madhutar",
     "price": "500",
     "category": "Food"
   },
@@ -157,7 +157,7 @@
     "id": 18,
     "name": "Pork khaza set",
     "image": "https://i.imgur.com/jDbWcKv.png",
-    "description": "Pulami Khaza Ghar Madhutar",
+    "description": "Sindhuli Bazar Ghar Madhutar",
     "price": "300",
     "category": "Food"
   },
@@ -165,7 +165,7 @@
     "id": 19,
     "name": "Pork Chawmien",
     "image": "https://i.imgur.com/qqlJdKs.png",
-    "description": "Pulami Khaza Ghar Madhutar",
+    "description": "Sindhuli Bazar Ghar Madhutar",
     "price": "150",
     "category": "Food"
   },
