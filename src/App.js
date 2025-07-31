@@ -36,7 +36,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/rpmcheckup" element={<Rpmcheckup />} />
-        <Route path="/vehicalinfo" element={<VehiclePage />} />
+        <Route path="/vehicleinfo" element={<VehiclePage />} />
       </Routes>
       <ToastNotify />
     </div>

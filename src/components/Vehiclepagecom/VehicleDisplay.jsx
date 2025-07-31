@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 // Data for the vehicle, assuming it's imported or defined here
 const vehicleData = {
   vehicle: {
-    type: "Electric",
-    name: "NIU NQi GT",
-    seater: 2,
-    motorPower: "3000W Bosch",
-    battery: "60V 35Ah Lithium-ion",
-    rangeKm: "95-120 km per charge",
-    price: 400000,
-    discount: 25000,
-    currentPrice: 375000,
+    vendor: "Siddhababa Trade And Concern, Sindhuli",
+    type: "Electric Commercial ",
+    name: "King Long EV Van",
+    seater: 11,
+    speed: " up to 100km/hour",
+    motorPower: "80 kW PMSM",
+    battery: "50.23 kWh LiFePO4 (CATL)",
+    rangeKm: "300 km per charge (NEDC)",
+    price: 3999000, // Estimated NPR based on market
+    discount: 200000,
+    currentPrice: 3799000,
+    facility: "30% Downpayment 70% Finance",
+    ac: "Dual AC ",
+    airbag: "Dual Airbag ",
     warranty: {
-      battery: "2 years",
-      motor: "3 years",
+      battery: "5 years or 200,000 km",
+      motor: "5 years or 200,000 km",
     },
-    groundClearance: "180 mm",
-    colorOptions: ["Black", "White", "Red", "Grey"],
+    groundClearance: "180 mm",
+    colorOptions: ["White", "Silver"],
     images: [
-      "https://i.imgur.com/36JPDxK.png",
-      "https://i.imgur.com/wQvUet3.png",
-      "https://i.imgur.com/y52XfGd.png",
-      "https://i.imgur.com/YRdbK15.png",
+      "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/d7b326d7f2d7b010b3b9405eb16aa2cc5e0acc62/Vehicle/kyc11.png",
+      "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/d7b326d7f2d7b010b3b9405eb16aa2cc5e0acc62/Vehicle/kyc22.png",
+      "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/d7b326d7f2d7b010b3b9405eb16aa2cc5e0acc62/Vehicle/kyc33.png",
+      "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/d7b326d7f2d7b010b3b9405eb16aa2cc5e0acc62/Vehicle/kyc44.png",
     ],
   },
 };
@@ -242,7 +248,24 @@ export default function VehicleDisplay() {
                 justifyContent: "space-between",
               }}
             >
-              {" "}
+              {vehicleData.vehicle.facility && (
+                <div
+                  style={{
+                    backgroundColor: "#FEF9C3", // light yellow
+                    border: "1px solid #FACC15", // yellow border
+                    color: "#92400E", // dark amber text
+                    padding: "8px 16px",
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                    display: "inline-block",
+                  }}
+                >
+                  🎁 {vehicleData.vehicle.facility}
+                </div>
+              )}
+
               {/* p-6 md:p-8 flex flex-col justify-between */}
               <div>
                 <span
@@ -275,41 +298,59 @@ export default function VehicleDisplay() {
                 </h1>{" "}
                 {/* text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4 */}
                 {/* Price Section */}
-                <div style={{ marginBottom: "19px" }}>
-                  {" "}
-                  {/* mb-6 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  style={{
+                    marginBottom: "24px",
+                  }}
+                >
+                  {/* Current Price */}
                   <p
                     style={{
-                      fontSize: "1.9rem",
-                      lineHeight: "2.2rem",
-                      fontWeight: "600",
+                      fontSize: "clamp(1.5rem, 2vw, 2.2rem)",
+                      fontWeight: "700",
                       color: "#FF5714",
+                      margin: 0,
                     }}
                   >
-                    {" "}
-                    {/* text-4xl font-extrabold text-blue-600 */}₹
-                    {vehicle.currentPrice.toLocaleString("en-IN")}
+                    ₹{vehicle.currentPrice.toLocaleString("ne-NP")}
                   </p>
+
+                  {/* Original Price and Discount */}
                   <div
                     style={{
                       display: "flex",
+                      flexWrap: "wrap",
                       alignItems: "baseline",
-                      gap: "8px",
-                      color: "#6b7280",
+                      gap: "10px",
+                      marginTop: "6px",
                     }}
                   >
-                    {" "}
-                    {/* flex items-baseline space-x-2 text-gray-500 */}
-                    <p style={{ textDecoration: "line-through" }}>
-                      ₹{vehicle.price.toLocaleString("en-IN")}
-                    </p>{" "}
-                    {/* line-through */}
-                    <p style={{ color: "#22c55e", fontWeight: "600" }}>
-                      Save ₹{vehicle.discount.toLocaleString("en-IN")}
-                    </p>{" "}
-                    {/* text-green-500 font-semibold */}
+                    <p
+                      style={{
+                        textDecoration: "line-through",
+                        color: "#9CA3AF",
+                        fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
+                        margin: 0,
+                      }}
+                    >
+                      ₹{vehicle.price.toLocaleString("ne-NP")}
+                    </p>
+
+                    <p
+                      style={{
+                        color: "#16A34A",
+                        fontWeight: "600",
+                        fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
+                        margin: 0,
+                      }}
+                    >
+                      Save ₹{vehicle.discount.toLocaleString("ne-NP")}
+                    </p>
                   </div>
-                </div>
+                </motion.div>
                 {/* inquiry btns  */}
                 <div style={{ marginBottom: "10px" }}>
                   {" "}
@@ -382,6 +423,21 @@ export default function VehicleDisplay() {
                   </button>
                 </div>
                 {/* Specifications */}
+                <p
+                  style={{
+                    display: "inline-block",
+                    padding: "8px 14px",
+                    marginTop: "20px",
+                    backgroundColor: "#F3F4F6", // light gray background
+                    color: "#374151", // dark text
+                    borderRadius: "8px",
+                    fontSize: "0.95rem",
+                    fontWeight: 500,
+                    boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
+                  }}
+                >
+                  📍 Supplied by: {vehicle.vendor}
+                </p>
                 <div
                   style={{
                     display: "grid",
@@ -463,12 +519,45 @@ export default function VehicleDisplay() {
                       />
                     }
                     label="Warranty"
-                    value={`Motor: ${vehicle.warranty.motor}, Battery: ${vehicle.warranty.battery}`}
+                    value={
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "2px",
+                        }}
+                      >
+                        <span>Motor: {vehicle.warranty.motor}</span>
+                        <span>Battery: {vehicle.warranty.battery}</span>
+                      </div>
+                    }
+                  />
+                  <SpecIcon
+                    icon={
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 7h12M6 12h12M6 17h12" // simple AC-like icon (3 lines)
+                      />
+                    }
+                    label="AC"
+                    value={`${vehicle.ac} ✅️`}
+                  />
+                  <SpecIcon
+                    icon={
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 2L3 7v6c0 5 9 9 9 9s9-4 9-9V7l-9-5z M12 9v5" // shield-like airbag icon
+                      />
+                    }
+                    label="Airbag"
+                    value={`${vehicle.airbag} ✅️`}
                   />
                 </div>
-                {/* Color Options */}
               </div>
-              {/* Inquiry Button */}
             </div>
           </div>
         </div>
