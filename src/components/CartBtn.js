@@ -8,7 +8,10 @@ const CartBtn = ({ handleCart }) => {
   const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    const itemCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    const itemCount = cart.reduce(
+      (total, item) => total + (item.quantity || 1),
+      0
+    );
     setTotalItems(itemCount);
   }, [cart]);
 
