@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./AddToCart.css";
 import DrawerAppBar from "../components/Navbar";
-import WhatsAppMessageLink from "../components/Whatsappme";
-import WhatsAppmebulk from "../components/WhatsAppmebulk";
+import WhatsAppMessageLink from "../messagecarrier/Whatsappme";
+import WhatsAppmebulk from "../messagecarrier/WhatsAppmebulk";
 import { CartContext } from "../context/CartContext"; // adjust path
 
 const AddToCart = () => {

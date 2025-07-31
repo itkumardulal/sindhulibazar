@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import ConfirmModal from "./ConfirmItem";
-import WhatsAppMessageLink from "./Whatsappme";
+import WhatsAppMessageLink from "../messagecarrier/Whatsappme";
 import ToastNotify, { showToast } from "../components/ToastNotify";
 import { CartContext } from "../context/CartContext"; // 👈 Import context
 

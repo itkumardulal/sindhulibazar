@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import WhatsappInquiry from "../../messagecarrier/WhatsappInquiry";
 
 // Data for the vehicle, assuming it's imported or defined here
 const vehicleData = {
@@ -75,23 +76,25 @@ export default function VehicleDisplay() {
   const [resizingImage, setResizingImage] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [imgheight, setImgHeight] = useState(300);
+  const [whatsAppMessage, setWhatsAppMessage] = useState("");
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  const handleInquiry = () => {
+    const message = `
+🔍 Vehicle Inquiry
+---------------------------
+🚗 Name: ${vehicle.name}
+💰 Price: ₹${vehicle.currentPrice.toLocaleString("ne-NP")}
+🔧 Warranty: Motor - ${vehicle.warranty.motor}, Battery - ${
+      vehicle.warranty.battery
+    }
+❄️ AC: ${vehicle.ac}
+🛡️ Airbag: ${vehicle.airbag}
+📍 Vendor: ${vehicle.vendor}
+🖼️ Image: ${vehicle.images?.[0] || "No image available"}
+`;
 
-    // Set up event listener
-    window.addEventListener("resize", handleResize);
-
-    // Initial check
-    handleResize();
-
-    // Clean up
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    setWhatsAppMessage(message);
+  };
 
   // Update resizingImage when windowWidth changes
   useEffect(() => {
@@ -108,11 +111,6 @@ export default function VehicleDisplay() {
   //   return <div>Current window width: {windowWidth}px</div>;
 
   // Function to handle inquiry button click
-  const handleInquiry = () => {
-    // In a real application, this would open a contact form, modal, or lead to a contact page.
-    console.log(`Inquiry for: ${vehicle.name}, Color: ${selectedColor}`);
-    // You can replace this with a more interactive element like a modal.
-  };
 
   return (
     <div
@@ -421,6 +419,12 @@ export default function VehicleDisplay() {
                   >
                     Make an Inquiry
                   </button>
+                  {whatsAppMessage && (
+                    <WhatsappInquiry
+                      message={whatsAppMessage}
+                      phone="9779741667448"
+                    />
+                  )}
                 </div>
                 {/* Specifications */}
                 <p

@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";  
+import React, { useState, useContext } from "react";
 import "./Search.css";
 import { useNavigate } from "react-router-dom";
-import WhatsAppMessageLink from "./Whatsappme";
+import WhatsAppMessageLink from "../messagecarrier/Whatsappme";
 import { distance } from "fastest-levenshtein";
 import ToastNotify, { showToast } from "../components/ToastNotify";
 import { CartContext } from "../context/CartContext";
@@ -48,14 +48,18 @@ export default function Search({ data }) {
 
     const matchedResults = [];
 
-    const allItemsArray = Array.isArray(data) ? data : Object.values(data).flat();
+    const allItemsArray = Array.isArray(data)
+      ? data
+      : Object.values(data).flat();
 
     allItemsArray.forEach((item) => {
       const { name, description, vehicleInfo, count = 1 } = item;
 
       const nameScore = calculateMatchScore(name, query, true);
       const descriptionScore = calculateMatchScore(description, query);
-      const vehicleScore = vehicleInfo ? calculateMatchScore(vehicleInfo, query) : 0;
+      const vehicleScore = vehicleInfo
+        ? calculateMatchScore(vehicleInfo, query)
+        : 0;
 
       const totalScore = nameScore + descriptionScore + vehicleScore;
 
@@ -64,7 +68,9 @@ export default function Search({ data }) {
       }
     });
 
-    const sortedResults = matchedResults.sort((a, b) => b.score - a.score).slice(0, 5);
+    const sortedResults = matchedResults
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
 
     setSearchResults(sortedResults);
   };
@@ -104,7 +110,8 @@ export default function Search({ data }) {
     setSearchResults((prevResults) =>
       prevResults.map((item) => {
         if (item.id === itemId) {
-          const newCount = operation === "increment" ? item.count + 1 : item.count - 1;
+          const newCount =
+            operation === "increment" ? item.count + 1 : item.count - 1;
           return { ...item, count: Math.max(newCount, 1) };
         }
         return item;
@@ -138,34 +145,39 @@ export default function Search({ data }) {
       </div>
 
       <div className="search-results">
-        {searchResults.length > 0 ? (
-          searchResults.map((item) => (
-            <div className="search-result-item" key={item.id}>
-              <img src={item.image} alt={item.name} className="item-image" />
-              <div className="item-details">
-                <h3>{item.name}</h3>
-                <p>Category: {item.category}</p>
-                <p>Price: {item.price}</p>
-                <div className="count-controls">
-                  <button onClick={() => updateCount(item.id, "decrement")}>-</button>
-                  <span>{item.count}</span>
-                  <button onClick={() => updateCount(item.id, "increment")}>+</button>
+        {searchResults.length > 0
+          ? searchResults.map((item) => (
+              <div className="search-result-item" key={item.id}>
+                <img src={item.image} alt={item.name} className="item-image" />
+                <div className="item-details">
+                  <h3>{item.name}</h3>
+                  <p>Category: {item.category}</p>
+                  <p>Price: {item.price}</p>
+                  <div className="count-controls">
+                    <button onClick={() => updateCount(item.id, "decrement")}>
+                      -
+                    </button>
+                    <span>{item.count}</span>
+                    <button onClick={() => updateCount(item.id, "increment")}>
+                      +
+                    </button>
+                  </div>
+                  {item.vehicleInfo && <p>Vehicle Info: {item.vehicleInfo}</p>}
                 </div>
-                {item.vehicleInfo && <p>Vehicle Info: {item.vehicleInfo}</p>}
+                <div className="product-actions fixed-width">
+                  <button
+                    className="add-to-cart fixed-width"
+                    onClick={() => handleClickAddtoCart(item)}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+                <div className="fixed-width whatsapp-wrapper">
+                  <WhatsAppMessageLink orderDetails={item} />
+                </div>
               </div>
-              <div className="product-actions fixed-width">
-                <button className="add-to-cart fixed-width" onClick={() => handleClickAddtoCart(item)}>
-                  Add to Cart
-                </button>
-              </div>
-              <div className="fixed-width whatsapp-wrapper">
-                <WhatsAppMessageLink orderDetails={item} />
-              </div>
-            </div>
-          ))
-        ) : (
-          searchQuery && <p>No products found.</p>
-        )}
+            ))
+          : searchQuery && <p>No products found.</p>}
       </div>
     </div>
   );
