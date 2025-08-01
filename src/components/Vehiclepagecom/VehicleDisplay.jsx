@@ -79,10 +79,10 @@ export default function VehicleDisplay() {
   const [imgheight, setImgHeight] = useState(300);
   const [whatsAppMessage, setWhatsAppMessage] = useState("");
 
-  const handleInquiry = () => {
-    const colors = vehicle.colorOptions.join(", ");
+const handleInquiry = () => {
+  const colors = vehicle.colorOptions.join(", ");
 
-    const message = `
+  const message = `
 🔍 *Vehicle Inquiry*
 ---------------------------
 🚗 *Name:* ${vehicle.name}
@@ -92,17 +92,20 @@ export default function VehicleDisplay() {
 💰 *SEMI Option Price:* ₹${vehicle.currentPrice2.toLocaleString("ne-NP")}
 🔋 *Battery Backup:* ${vehicle.rangeKm}
 💸 *Finance:* ${vehicle.facility}
-🔧 *Warranty:* Motor - ${vehicle.warranty.motor}, Battery - ${
-      vehicle.warranty.battery
-    }
+🔧 *Warranty:* Motor - ${vehicle.warranty.motor}, Battery - ${vehicle.warranty.battery}
 ❄ *AC:* ${vehicle.ac}
 🛡 *Airbag:* ${vehicle.airbag}
 📍 *Vendor:* ${vehicle.vendor}
 🖼 *Image:* ${vehicle.images?.[0] || "No image available"}
-`;
+  `;
 
-    setWhatsAppMessage(message);
-  };
+  const encodedMessage = encodeURIComponent(message);
+  const phoneNumber = "9779741667448"; // Replace with your WhatsApp number
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  window.open(whatsappURL, "_blank");
+};
+
 
   // Update resizingImage when windowWidth changes
   useEffect(() => {
@@ -497,7 +500,7 @@ export default function VehicleDisplay() {
                     onClick={handleInquiry}
                     style={{
                       width: "100%",
-                      backgroundColor: "#FDB813",
+                      backgroundColor: "#0084FF", // Messenger Blue
                       color: "#ffffff",
                       fontWeight: "600",
                       padding: "10px 24px",
@@ -508,16 +511,30 @@ export default function VehicleDisplay() {
                       boxShadow:
                         "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
                       transition: "all 0.3s ease-in-out",
-                    }} // w-full bg-blue-600 text-white font-bold py-4 px-6 rounded-xl text-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl transform hover:-translate-y-1
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "10px",
+                    }}
                   >
+                    {/* Messenger Icon (SVG) */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="20"
+                      viewBox="0 0 512 512"
+                      fill="white"
+                    >
+                      <path d="M256 0C114.6 0 0 114.6 0 256c0 76.5 32.7 145.5 85.3 193.7v62.3l57.7-31.6c35.6 13.2 74.3 20.3 112.9 20.3 141.4 0 256-114.6 256-256S397.4 0 256 0zm70.3 280.3l-51.7-55.4c-8.4-9-22.6-9.4-31.5-.8l-61.2 57.4c-6.6 6.2-17.3 1.2-17.3-7.6v-77c0-6.6 5.4-12 12-12h189.3c9.7 0 14.7 11.4 7.9 18.4l-47.5 48.3c-4.7 4.8-4.9 12.5-.5 17.5l50.7 54.4c5.4 5.8 1.3 15.3-6.6 15.3h-194c-6.6 0-12-5.4-12-12v-12.5c0-4.6 2.6-8.7 6.7-10.7l75.5-34.2c6.4-2.9 13.6-4.5 20.8-4.5 18.7 0 34.9 10.2 44.1 25.8l14.4 25c4.2 7.2-2.5 15.7-10.2 12.8z" />
+                    </svg>
                     Make an Inquiry
                   </button>
-                  {whatsAppMessage && (
+
+                  {/* {whatsAppMessage && (
                     <WhatsappInquiry
                       message={whatsAppMessage}
                       phone="9779741667448"
                     />
-                  )}
+                  )} */}
                 </div>
                 {/* Specifications */}
                 <p
