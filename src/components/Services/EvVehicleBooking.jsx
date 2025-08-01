@@ -37,7 +37,7 @@ const EvVehicleBooking = () => {
         </p>
 
         <p className="price-info">
-          <span className="original-price">NPR 3,999,000</span> 👉{" "}
+          <span className="original-price">NPR 4550000</span> 👉{" "}
           <span className="discounted-price">Now NPR 3,799,000 🎉</span>
         </p>
 

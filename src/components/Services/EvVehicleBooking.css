@@ -171,3 +171,37 @@
     transform: translateY(0);
   }
 }
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .ev-booking-card {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .ev-booking-content h2 {
+    font-size: 1.1rem; /* Reduced from 1.4rem */
+    margin-bottom: 8px;
+  }
+
+  .ev-booking-content p {
+    font-size: 0.9rem; /* Reduced from 1rem */
+    margin-bottom: 10px;
+  }
+
+  .price-info {
+    font-size: 0.95rem;
+  }
+
+  .original-price {
+    font-size: 0.9rem;
+  }
+
+  .discounted-price {
+    font-size: 1.05rem; /* Slightly smaller */
+  }
+
+  .ev-booking-btn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+}

@@ -79,10 +79,10 @@ export default function VehicleDisplay() {
   const [imgheight, setImgHeight] = useState(300);
   const [whatsAppMessage, setWhatsAppMessage] = useState("");
 
-const handleInquiry = () => {
-  const colors = vehicle.colorOptions.join(", ");
+  const handleInquiry = () => {
+    const colors = vehicle.colorOptions.join(", ");
 
-  const message = `
+    const message = `
 🔍 *Vehicle Inquiry*
 ---------------------------
 🚗 *Name:* ${vehicle.name}
@@ -92,20 +92,21 @@ const handleInquiry = () => {
 💰 *SEMI Option Price:* ₹${vehicle.currentPrice2.toLocaleString("ne-NP")}
 🔋 *Battery Backup:* ${vehicle.rangeKm}
 💸 *Finance:* ${vehicle.facility}
-🔧 *Warranty:* Motor - ${vehicle.warranty.motor}, Battery - ${vehicle.warranty.battery}
+🔧 *Warranty:* Motor - ${vehicle.warranty.motor}, Battery - ${
+      vehicle.warranty.battery
+    }
 ❄ *AC:* ${vehicle.ac}
 🛡 *Airbag:* ${vehicle.airbag}
 📍 *Vendor:* ${vehicle.vendor}
 🖼 *Image:* ${vehicle.images?.[0] || "No image available"}
   `;
 
-  const encodedMessage = encodeURIComponent(message);
-  const phoneNumber = "9779741667448"; // Replace with your WhatsApp number
-  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const encodedMessage = encodeURIComponent(message);
+    const phoneNumber = "9779741667448"; // Replace with your WhatsApp number
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-  window.open(whatsappURL, "_blank");
-};
-
+    window.open(whatsappURL, "_blank");
+  };
 
   // Update resizingImage when windowWidth changes
   useEffect(() => {
@@ -341,166 +342,204 @@ const handleInquiry = () => {
                     marginBottom: "24px",
                   }}
                 >
-                  {/* Current Price */}
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: "column",
-                      gap: "1rem",
-                      backgroundColor: "#fff8f4",
-                      padding: "1.5rem",
-                      borderRadius: "12px",
-                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-                      maxWidth: "400px",
-                      width: "100%",
+                      justifyContent: "space-around",
+                      // backgroundColor: "red",
+                      flexDirection: "row",
+                      flexWrap: "wrap",
                     }}
                   >
-                    <h3
-                      style={{
-                        fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
-                        marginBottom: "0.5rem",
-                        color: "#333",
-                      }}
-                    >
-                      Available Options
-                    </h3>
-
-                    {/* Full Option */}
+                    {/* Current Price */}
                     <div
                       style={{
                         display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        backgroundColor: "#fff",
-                        padding: "1rem",
-                        borderRadius: "10px",
-                        border: "2px solid #FF5714",
+                        flexDirection: "column",
+                        gap: "1rem",
+                        // backgroundColor: "#fff8f4",
+                        padding: "1.5rem",
+                        borderRadius: "12px",
+                        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                        maxWidth: "400px",
+                        width: "100%",
+                        marginTop: "12px",
                       }}
                     >
-                      <span
+                      <h3
                         style={{
-                          fontWeight: 600,
-                          fontSize: "1rem",
+                          fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
+                          marginBottom: "0.5rem",
                           color: "#333",
                         }}
                       >
-                        Full Option
-                      </span>
-                      <span
+                        Available Options
+                      </h3>
+
+                      {/* Full Option */}
+                      <div
                         style={{
-                          fontWeight: 700,
-                          fontSize: "1.2rem",
-                          color: "#FF5714",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          backgroundColor: "#fff",
+                          padding: "1rem",
+                          borderRadius: "10px",
+                          border: "2px solid #FF5714",
                         }}
                       >
-                        ₹ {vehicle.currentPrice1.toLocaleString("ne-NP")}
-                      </span>
+                        <span
+                          style={{
+                            fontWeight: 600,
+                            fontSize: "1rem",
+                            color: "#333",
+                          }}
+                        >
+                          Full Option
+                        </span>
+                        <span
+                          style={{
+                            fontWeight: 700,
+                            fontSize: "1.2rem",
+                            color: "#FF5714",
+                          }}
+                        >
+                          ₹ {vehicle.currentPrice1.toLocaleString("ne-NP")}
+                        </span>
+                      </div>
+
+                      {/* Semi Option */}
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          backgroundColor: "#fff",
+                          padding: "1rem",
+                          borderRadius: "10px",
+                          border: "2px solid #999",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontWeight: 600,
+                            fontSize: "1rem",
+                            color: "#333",
+                          }}
+                        >
+                          Semi Option
+                        </span>
+                        <span
+                          style={{
+                            fontWeight: 700,
+                            fontSize: "1.2rem",
+                            color: "#555",
+                          }}
+                        >
+                          ₹ {vehicle.currentPrice2.toLocaleString("ne-NP")}
+                        </span>
+                      </div>
                     </div>
-
-                    {/* Semi Option */}
+                    {/* Current Price */}
                     <div
                       style={{
                         display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        backgroundColor: "#fff",
-                        padding: "1rem",
-                        borderRadius: "10px",
-                        border: "2px solid #999",
+                        flexDirection: "column",
+                        gap: "1rem",
+                        // backgroundColor: "#fff8f4",
+                        padding: "1.5rem",
+height:"150px",
+                        maxWidth: "400px",
+                        width: "100%",
                       }}
                     >
-                      <span
+                      <h3
                         style={{
-                          fontWeight: 600,
-                          fontSize: "1rem",
-                          color: "#333",
+                          fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
+                          marginBottom: "0.5rem",
                         }}
                       >
-                        Semi Option
-                      </span>
-                      <span
+                        Available Colors
+                      </h3>
+
+                      {/* Full Option */}
+                      <div
                         style={{
-                          fontWeight: 700,
-                          fontSize: "1.2rem",
-                          color: "#555",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+
+                          padding: "1rem",
+                          borderRadius: "10px",
+                          width: "100%",
                         }}
                       >
-                        ₹ {vehicle.currentPrice2.toLocaleString("ne-NP")}
-                      </span>
+                        {/* inquiry btns  */}
+                        <div style={{ marginBottom: "10px" }}>
+                          {" "}
+                          {/* mb-8 */}
+                          {/* text-lg font-semibold text-gray-800 mb-3 */}
+                          <div
+                            style={{
+                              display: "flex",
+                              gap: "60px",
+                              width: "100%",
+                              justifyContent: "center",
+                            }}
+                          >
+                            {" "}
+                            {/* flex space-x-3 */}
+                            {vehicle.colorOptions.map((color) => (
+                              <button
+                                key={color}
+                                onClick={() => setSelectedColor(color)}
+                                style={{
+                                  width: "100px",
+                                  height: "50px",
+                                  borderRadius: "9999px",
+                                  border: "2px solid",
+                                  borderColor:
+                                    selectedColor === color
+                                      ? "#3b82f6"
+                                      : "#d1d5db",
+                                  transition: "transform 0.2s ease-in-out",
+                                  backgroundColor: color.toLowerCase(),
+                                  outline:
+                                    selectedColor === color
+                                      ? "2px solid #19d4cbff"
+                                      : "none",
+                                  outlineOffset:
+                                    selectedColor === color ? "1px" : "0",
+                                }} // w-8 h-8 rounded-full border-2 transition-transform duration-200 transform hover:scale-110 ${selectedColor === color ? 'border-blue-500 ring-2 ring-blue-500 ring-offset-1' : 'border-gray-300'}
+                                aria-label={`Select ${color} color`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Original Price and Discount */}
-                  <div
+                </motion.div>
+                {/* Original Price and Discount */}
+                {/* <div
                     style={{
                       display: "flex",
                       flexWrap: "wrap",
                       alignItems: "center",
-                      gap: "12px",
-                      marginTop: "8px",
+
                       backgroundColor: "#F9FAFB",
-                      padding: "0.75rem 1rem",
+
                       borderRadius: "10px",
                       boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)",
                     }}
-                  ></div>
-                </motion.div>
-                {/* inquiry btns  */}
-                <div style={{ marginBottom: "10px" }}>
-                  {" "}
-                  {/* mb-8 */}
-                  <h3
-                    style={{
-                      fontSize: "1.125rem",
-                      fontWeight: "600",
-                      color: "#1f2937",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    Color
-                  </h3>{" "}
-                  {/* text-lg font-semibold text-gray-800 mb-3 */}
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "12px",
-                      width: "100%",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {" "}
-                    {/* flex space-x-3 */}
-                    {vehicle.colorOptions.map((color) => (
-                      <button
-                        key={color}
-                        onClick={() => setSelectedColor(color)}
-                        style={{
-                          width: "32px",
-                          height: "32px",
-                          borderRadius: "9999px",
-                          border: "2px solid",
-                          borderColor:
-                            selectedColor === color ? "#3b82f6" : "#d1d5db",
-                          transition: "transform 0.2s ease-in-out",
-                          backgroundColor: color.toLowerCase(),
-                          outline:
-                            selectedColor === color
-                              ? "2px solid #19d4cbff"
-                              : "none",
-                          outlineOffset: selectedColor === color ? "1px" : "0",
-                        }} // w-8 h-8 rounded-full border-2 transition-transform duration-200 transform hover:scale-110 ${selectedColor === color ? 'border-blue-500 ring-2 ring-blue-500 ring-offset-1' : 'border-gray-300'}
-                        aria-label={`Select ${color} color`}
-                      />
-                    ))}
-                  </div>
-                </div>
+                  ></div> */}
+                {/*INQUIRY BUTTON */}
                 <div style={{ marginTop: "auto" }}>
-                  {/* mt-auto */}
                   <button
                     onClick={handleInquiry}
                     style={{
                       width: "100%",
-                      backgroundColor: "#0084FF", // Messenger Blue
+                      backgroundColor: "#FFC107", // Messenger yellow
                       color: "#ffffff",
                       fontWeight: "600",
                       padding: "10px 24px",
@@ -520,7 +559,7 @@ const handleInquiry = () => {
                     {/* Messenger Icon (SVG) */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      height="20"
+                      height="27"
                       viewBox="0 0 512 512"
                       fill="white"
                     >
@@ -528,13 +567,6 @@ const handleInquiry = () => {
                     </svg>
                     Make an Inquiry
                   </button>
-
-                  {/* {whatsAppMessage && (
-                    <WhatsappInquiry
-                      message={whatsAppMessage}
-                      phone="9779741667448"
-                    />
-                  )} */}
                 </div>
                 {/* Specifications */}
                 <p
