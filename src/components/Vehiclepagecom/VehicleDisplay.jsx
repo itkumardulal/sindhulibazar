@@ -79,18 +79,24 @@ export default function VehicleDisplay() {
   const [whatsAppMessage, setWhatsAppMessage] = useState("");
 
   const handleInquiry = () => {
+    const colors = vehicle.colorOptions.join(", ");
+
     const message = `
-🔍 Vehicle Inquiry
+🔍 *Vehicle Inquiry*
 ---------------------------
-🚗 Name: ${vehicle.name}
-💰 Price: ₹${vehicle.currentPrice.toLocaleString("ne-NP")}
-🔧 Warranty: Motor - ${vehicle.warranty.motor}, Battery - ${
+🚗 *Name:* ${vehicle.name}
+🎨 *Available Colors:* ${colors}
+🧍 *Seater:* ${vehicle.seater} Seater
+💰 *Price:* ₹${vehicle.currentPrice.toLocaleString("ne-NP")}
+🔋 *Battery Backup:* ${vehicle.rangeKm}
+💸 *Finance:* ${vehicle.facility}
+🔧 *Warranty:* Motor - ${vehicle.warranty.motor}, Battery - ${
       vehicle.warranty.battery
     }
-❄️ AC: ${vehicle.ac}
-🛡️ Airbag: ${vehicle.airbag}
-📍 Vendor: ${vehicle.vendor}
-🖼️ Image: ${vehicle.images?.[0] || "No image available"}
+❄ *AC:* ${vehicle.ac}
+🛡 *Airbag:* ${vehicle.airbag}
+📍 *Vendor:* ${vehicle.vendor}
+🖼 *Image:* ${vehicle.images?.[0] || "No image available"}
 `;
 
     setWhatsAppMessage(message);

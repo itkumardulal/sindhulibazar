@@ -28,14 +28,21 @@ const WhatsAppMessageLink = ({ orderDetails }) => {
   const totalCost = orderDetails.count * orderDetails.price + deliveryCharge;
 
   const generateWhatsAppLink = () => {
-    const message = `Hello, This is my order details!
-      ##${currentShift}
-    ## Item Name: ${orderDetails.name}
-     ## Quantity: ${orderDetails.count}
-    ## Price per piece: Rs.${orderDetails.price}
-  
-    ## Delivery Charge: Rs.${deliveryCharge}
-    ## Total Price: Rs.${totalCost}`;
+    const message = `नमस्ते, यो मेरो अर्डर विवरण हो!
+
+\`\`\`
+Shift:        ${currentShift}
+----------------------------------------
+Item Name     | Quantity | Price/piece
+----------------------------------------
+${orderDetails.name.padEnd(12)} | ${orderDetails.count
+      .toString()
+      .padEnd(8)} | Rs.${orderDetails.price.toString().padEnd(10)}
+----------------------------------------
+Delivery Charge: Rs.${deliveryCharge}
+Total Price:    Rs.${totalCost}
+\`\`\`
+`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${admin}&text=${encodedMessage}`;

@@ -10,6 +10,7 @@ import CartBtn from "../components/CartBtn";
 import Search from "../components/search";
 import { CartContext } from "../context/CartContext";
 import FeaturedProducts from "../components/homepagecom/FeaturedProducts";
+import EvVehicleBooking from "../components/Services/EvVehicleBooking";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -79,20 +80,29 @@ const Homepage = () => {
       <div className="homepage-container">
         <Search data={Datacarrier} />
 
-{/* Service btn are the all the feature box parent */}
+        {/* Service btn are the all the feature box parent */}
         <Servicesbtn />
+        <EvVehicleBooking />
 
         {[
           { title: "Featured Products", products: randomFeaturedproduct },
           { title: "Grab Food", products: randomFoodProducts },
-          { title: "Find your favorite drinks", products: randomLiquorProducts },
+          {
+            title: "Find your favorite drinks",
+            products: randomLiquorProducts,
+          },
           { title: "Cook Something Fresh", products: randomGroceryProducts },
           { title: "Take a Ride", products: randomVehicalProducts },
-          { title: "Bee Herbals: Your Health Ally", products: randomHerbalProducts },
+          {
+            title: "Bee Herbals: Your Health Ally",
+            products: randomHerbalProducts,
+          },
         ].map(({ title, products }, idx) => (
           <section
             key={title}
-            className={`featured-section ${idx % 2 === 0 ? "bg-light" : "bg-white"}`}
+            className={`featured-section ${
+              idx % 2 === 0 ? "bg-light" : "bg-white"
+            }`}
             style={{ padding: "10px 0" }}
           >
             <FeaturedProducts
@@ -100,7 +110,6 @@ const Homepage = () => {
               products={products}
               onProductClick={handlebuttonNav}
             />
-      
           </section>
         ))}
       </div>

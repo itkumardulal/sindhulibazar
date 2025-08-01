@@ -34,7 +34,7 @@ const WhatsAppmebulk = ({ message }) => {
 
   const generateWhatsAppLink = () => {
     const formattedMessage = `
-Items Ordered:
+
 ${message}
     `;
 
