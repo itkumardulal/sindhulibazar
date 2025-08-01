@@ -7,20 +7,21 @@ const vehicleData = {
   vehicle: {
     vendor: "Siddhababa Trade And Concern, Sindhuli",
     type: "Electric Commercial ",
-    name: "King Long EV Van",
-    seater: 11,
+    name: "kyc EV Van",
+    seater: "11/14",
     speed: " up to 100km/hour",
-    motorPower: "80 kW PMSM",
-    battery: "50.23 kWh LiFePO4 (CATL)",
+    motorPower: "50 kW PMSM",
+    battery: "38 kWh LiFePO4 (CATL)",
     rangeKm: "300 km per charge (NEDC)",
-    price: 3999000, // Estimated NPR based on market
-    discount: 200000,
-    currentPrice: 3799000,
+    price: 455000, // Estimated NPR based on market
+    discount: "Negotiation",
+    currentPrice1: 3999000,
+    currentPrice2: 3799000,
     facility: "30% Downpayment 70% Finance",
     ac: "Dual AC ",
     airbag: "Dual Airbag ",
     warranty: {
-      battery: "5 years or 200,000 km",
+      battery: "6 years or 360,000 km",
       motor: "5 years or 200,000 km",
     },
     groundClearance: "180 mm",
@@ -87,7 +88,8 @@ export default function VehicleDisplay() {
 🚗 *Name:* ${vehicle.name}
 🎨 *Available Colors:* ${colors}
 🧍 *Seater:* ${vehicle.seater} Seater
-💰 *Price:* ₹${vehicle.currentPrice.toLocaleString("ne-NP")}
+💰 *FULL Option Price:* ₹${vehicle.currentPrice1.toLocaleString("ne-NP")}
+💰 *SEMI Option Price:* ₹${vehicle.currentPrice2.toLocaleString("ne-NP")}
 🔋 *Battery Backup:* ${vehicle.rangeKm}
 💸 *Finance:* ${vehicle.facility}
 🔧 *Warranty:* Motor - ${vehicle.warranty.motor}, Battery - ${
@@ -300,6 +302,32 @@ export default function VehicleDisplay() {
                 >
                   {vehicle.name}
                 </h1>{" "}
+                {/* Original Price (Striked Through) */}
+                <p
+                  style={{
+                    textDecoration: "line-through",
+                    color: "#9CA3AF",
+                    fontSize: "clamp(0.9rem, 1.4vw, 1rem)",
+                    margin: 0,
+                    fontWeight: 500,
+                  }}
+                >
+                  MRP: ₹{vehicle.price.toLocaleString("ne-NP")}
+                </p>
+                {/* Discount Info */}
+                <p
+                  style={{
+                    color: "#16A34A",
+                    fontWeight: "600",
+                    fontSize: "clamp(0.9rem, 1.4vw, 1rem)",
+                    margin: 0,
+                    backgroundColor: "#ECFDF5",
+                    padding: "4px 10px",
+                    borderRadius: "6px",
+                  }}
+                >
+                  Save ₹{vehicle.discount.toLocaleString("ne-NP")}
+                </p>
                 {/* text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4 */}
                 {/* Price Section */}
                 <motion.div
@@ -311,49 +339,108 @@ export default function VehicleDisplay() {
                   }}
                 >
                   {/* Current Price */}
-                  <p
+                  <div
                     style={{
-                      fontSize: "clamp(1.5rem, 2vw, 2.2rem)",
-                      fontWeight: "700",
-                      color: "#FF5714",
-                      margin: 0,
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "1rem",
+                      backgroundColor: "#fff8f4",
+                      padding: "1.5rem",
+                      borderRadius: "12px",
+                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                      maxWidth: "400px",
+                      width: "100%",
                     }}
                   >
-                    ₹{vehicle.currentPrice.toLocaleString("ne-NP")}
-                  </p>
+                    <h3
+                      style={{
+                        fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
+                        marginBottom: "0.5rem",
+                        color: "#333",
+                      }}
+                    >
+                      Available Options
+                    </h3>
+
+                    {/* Full Option */}
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        backgroundColor: "#fff",
+                        padding: "1rem",
+                        borderRadius: "10px",
+                        border: "2px solid #FF5714",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontWeight: 600,
+                          fontSize: "1rem",
+                          color: "#333",
+                        }}
+                      >
+                        Full Option
+                      </span>
+                      <span
+                        style={{
+                          fontWeight: 700,
+                          fontSize: "1.2rem",
+                          color: "#FF5714",
+                        }}
+                      >
+                        ₹ {vehicle.currentPrice1.toLocaleString("ne-NP")}
+                      </span>
+                    </div>
+
+                    {/* Semi Option */}
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        backgroundColor: "#fff",
+                        padding: "1rem",
+                        borderRadius: "10px",
+                        border: "2px solid #999",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontWeight: 600,
+                          fontSize: "1rem",
+                          color: "#333",
+                        }}
+                      >
+                        Semi Option
+                      </span>
+                      <span
+                        style={{
+                          fontWeight: 700,
+                          fontSize: "1.2rem",
+                          color: "#555",
+                        }}
+                      >
+                        ₹ {vehicle.currentPrice2.toLocaleString("ne-NP")}
+                      </span>
+                    </div>
+                  </div>
 
                   {/* Original Price and Discount */}
                   <div
                     style={{
                       display: "flex",
                       flexWrap: "wrap",
-                      alignItems: "baseline",
-                      gap: "10px",
-                      marginTop: "6px",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginTop: "8px",
+                      backgroundColor: "#F9FAFB",
+                      padding: "0.75rem 1rem",
+                      borderRadius: "10px",
+                      boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)",
                     }}
-                  >
-                    <p
-                      style={{
-                        textDecoration: "line-through",
-                        color: "#9CA3AF",
-                        fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
-                        margin: 0,
-                      }}
-                    >
-                      ₹{vehicle.price.toLocaleString("ne-NP")}
-                    </p>
-
-                    <p
-                      style={{
-                        color: "#16A34A",
-                        fontWeight: "600",
-                        fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
-                        margin: 0,
-                      }}
-                    >
-                      Save ₹{vehicle.discount.toLocaleString("ne-NP")}
-                    </p>
-                  </div>
+                  ></div>
                 </motion.div>
                 {/* inquiry btns  */}
                 <div style={{ marginBottom: "10px" }}>
