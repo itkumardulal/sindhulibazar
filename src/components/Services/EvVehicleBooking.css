@@ -4,9 +4,9 @@
   background: rgba(144, 146, 4, 0.137);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(233, 243, 98, 0.842);
-  padding: 20px;
+  padding: 10px;
   margin: 20px auto;
-  max-width: 1200px;
+  max-width: 1400px;
   cursor: pointer;
   display: flex;
   flex-direction: column;

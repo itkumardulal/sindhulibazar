@@ -14,6 +14,7 @@ import Search from "../components/search";
 import { CartContext } from "../context/CartContext";
 import FeaturedProducts from "../components/homepagecom/FeaturedProducts";
 import EvVehicleBooking from "../components/Services/EvVehicleBooking";
+import FoodMenuCanva from "../components/homepagecom/FoodMenuCanva";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -88,41 +89,8 @@ const Homepage = () => {
         <Servicesbtn />
              <EvVehicleBooking />
               {/* //Addition code ectra ----------------------------- */}
-     <section>
-        <Container>
-          <Row>
-            <Col lg="6" md="6">
-              <div className="hero__content">
-                <h5 className="mb-3">Easy order & fast delivery</h5>
-                <h1 className="mb-4 hero__title">
-                  <span>Enjoy</span> your favorite Food
-                </h1>
+              <FoodMenuCanva/>
 
-               <button className="order__btn d-flex align-items-center justify-content-between">
-  <Link
-    to="/FoodStore"
-    style={{ color: "white", textDecoration: "none" }}
-    className="d-flex align-items-center justify-content-between w-100"
-  >
-    Menu
-  </Link>
-</button>
-
-              </div>
-            </Col>
-                    <div className="delivery-containerss">
-      <div className="delivery-image">
-        <img src={guyImg} alt="Delivery Guy" />
-      </div>
-      <div className="delivery-content">
-        <h2>Fast Delivery Service</h2>
-        <p>Your favorite items delivered quickly and safely to your doorstep.</p>
-      </div>
-    </div>
-
-    </Row>
-        </Container>
-      </section>
 
       {/* Additohnal ends */}
    
