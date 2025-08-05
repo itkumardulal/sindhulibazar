@@ -1,0 +1,42 @@
+  [
+        {
+            "id": 1,
+            "name": "Vanilla flavour cake 1 pound with celebration items",
+            "image": "https://i.imgur.com/ICHAPzY.jpg",
+            "description": "Vanilla flavour cake 1 pound with celebration items.",
+            "price": "1300",
+            "category": "bakery items"
+        },
+        {
+            "id": 2,
+            "name": "Chocolate flavour cake 1 pound with celebration items",
+            "image": "https://i.imgur.com/K4LJrgi.jpg",
+            "description": "Chocolate flavour cake 1 pound with celebration items.",
+            "price": "1350",
+            "category": "bakery items"
+        },
+        {
+            "id": 3,
+            "name": "Black Forest cake 1 pound with celebration items for you",
+            "image": "https://i.imgur.com/cYDh3jm.jpg",
+            "description": "Black Forest  cake 1 pound with celebration items.",
+            "price": "1400",
+            "category": "bakery items"
+        },
+        {
+            "id": 4,
+            "name": "White Forest cake 1 pound with celebration items/with supprise",
+            "image": "https://i.imgur.com/elMnGEz.jpg",
+            "description": "White Forest cake 1 pound with celebration items.",
+            "price": "1650",
+            "category": "bakery items"
+        },
+             {
+            "id": 5,
+            "name": "White Forest cake 1 pound with celebration items/with supprise",
+            "image": "https://i.imgur.com/elMnGEz.jpg",
+            "description": "White Forest cake 1 pound with celebration items.",
+            "price": "1650",
+            "category": "bakery items"
+        }
+    ]

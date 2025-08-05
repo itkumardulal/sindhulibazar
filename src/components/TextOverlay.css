@@ -1,0 +1,58 @@
+/* TextOverlay.css */
+.overlay {
+    position: relative;
+ top: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(177, 105, 12);
+    padding: 10px;
+ 
+width:100% ;
+    box-shadow: 0 4px 15px rgba(198, 219, 5, 0.5); /* Shadow effect */
+
+  }
+  
+  .title {
+    font-size: 2.5rem; /* Default size for desktop */
+    margin: 0;
+  }
+  
+  .description {
+    font-size: 1.2rem; /* Default size for desktop */
+    margin-top: 10px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .overlay {
+      padding: 15px; /* Reduced padding for mobile */
+      top: 10%; /* Adjust position for mobile */
+    }
+  
+    .title {
+      font-size: 2rem; /* Smaller title for mobile */
+    }
+  
+    .description {
+      font-size: 1rem; /* Smaller description for mobile */
+    }
+
+  }
+  
+  @media (max-width: 480px) {
+    .overlay {
+      padding: 10px; /* Further reduced padding for smaller screens */
+    }
+  
+    .title {
+      font-size: 1.5rem; /* Even smaller title for very small screens */
+    }
+  
+    .description {
+      font-size: 0.5rem; /* Even smaller description for very small screens */
+    }
+    
+
+  }
+  
