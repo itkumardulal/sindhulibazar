@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Soup, ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
+
+import React, { useState, useEffect, useMemo } from 'react';
+import { Soup, ChevronDown, ChevronUp, Loader2, Feather } from 'lucide-react';
 import './FoodGenerator.css'; // Add this line to import your stylesheet
 import DrawerAppBar from '../components/Navbar';
 
 import { useNavigate } from "react-router-dom";
+import FoodMenuCanva from '../components/homepagecom/FoodMenuCanva';
+import Footer from '../components/footer';
+import FeaturedProducts from '../components/homepagecom/FeaturedProducts';
+import Datacarrier from '../data/Datacarrier';
 
 // The main application component
 const FoodGenerator = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   // Constants for app configuration
-  const maxDailyCalls = 12;
+  const maxDailyCalls = 14;
   const foodEmojis = ['🍲', '🥘', '🍛', '🍜', '🍚', '🥗', '🌶️', '🥟', '🥪'];
 
   // State management for API calls, UI, and data
@@ -23,7 +28,24 @@ const FoodGenerator = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [expandedRecipeName, setExpandedRecipeName] = useState(null);
 
+  // Array of API keys to cycle through
+  const apiKeys = [
+    process.env.REACT_APP_GEMINI_API_KEY_1,
+    process.env.REACT_APP_GEMINI_API_KEY_2,
+    process.env.REACT_APP_GEMINI_API_KEY_3,
+  ].filter(key => key); // Filter out any undefined keys
 
+  const shuffleArray = (array) => {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  };
+  const handlebuttonNav = (producttype) => {
+    navigate(`/${producttype}Store`);
+  };
   // Function to get a random emoji from the list
   const getRandomEmoji = () => {
     return foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
@@ -52,28 +74,42 @@ const FoodGenerator = () => {
     localStorage.setItem('dailyRecipeLastCallDate', new Date().toLocaleDateString());
   };
 
-  // Handle API calls with exponential backoff and error handling
-  const makeApiCall = async (apiUrl, payload, retries = 5, delay = 1000) => {
+  // Handle API calls with exponential backoff and error handling, now with key rotation
+  const makeApiCall = async (apiUrl, payload, apiKeyIndex = 0, retries = 5, delay = 1000) => {
+    // If we have run out of API keys, throw an error
+    if (apiKeyIndex >= apiKeys.length || apiKeys.length === 0) {
+      throw new Error('All API keys have failed or are unavailable.');
+    }
+
+    const currentApiKey = apiKeys[apiKeyIndex];
+    const urlWithKey = `${apiUrl}?key=${currentApiKey}`;
+
     try {
-      const response = await fetch(apiUrl, {
+      const response = await fetch(urlWithKey, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
+      
       if (!response.ok) {
         if (response.status === 429 && retries > 0) {
-          console.warn(`API call limit exceeded. Retrying in ${delay}ms...`);
+          console.warn(`API call limit exceeded for key ${apiKeyIndex + 1}. Retrying with same key in ${delay}ms...`);
           await new Promise(res => setTimeout(res, delay));
-          return makeApiCall(apiUrl, payload, retries - 1, delay * 2);
+          return makeApiCall(apiUrl, payload, apiKeyIndex, retries - 1, delay * 2);
+        } else {
+          // API key failure or other error, try the next key
+          console.error(`API Error with key ${apiKeyIndex + 1}: ${response.statusText}. Trying next key.`);
+          return makeApiCall(apiUrl, payload, apiKeyIndex + 1, 5); // Reset retries for the new key
         }
-        throw new Error(`API error: ${response.statusText}`);
       }
       return await response.json();
     } catch (error) {
       console.error("API Call Error:", error);
-      throw error;
+      // If the fetch call itself fails (e.g., network error), try the next key
+      return makeApiCall(apiUrl, payload, apiKeyIndex + 1, 5);
     }
   };
+
 
   // Fetches a list of recipe ideas from the Gemini API
   const generateRecipeIdeas = async () => {
@@ -122,9 +158,8 @@ const FoodGenerator = () => {
       }
     };
 
-    const apiKey = process.env.REACT_APP_GEMINI_API_KEY; // API key is automatically provided by the Canvas environment
-    // Correct model name is gemini-1.5-flash
-const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+    // The API key is now handled by makeApiCall
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent`;
     
     try {
       const result = await makeApiCall(apiUrl, payload);
@@ -176,8 +211,8 @@ const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1
       }
     };
 
-    const apiKey = process.env.REACT_APP_GEMINI_API_KEY; // API key is automatically provided by the Canvas environment
-    const apiUrl =  `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+    // The API key is now handled by makeApiCall
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent`;
 
     try {
       const result = await makeApiCall(apiUrl, payload);
@@ -228,10 +263,37 @@ const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1
     const totalCalls = callCount + (mode === 'daily' ? 5 : 3);
     return isGeneratingIdeas || (mode === 'ingredients' && ingredients.trim() === '') || totalCalls > maxDailyCalls;
   };
-    const handleCart = () => {
+  const handleCart = () => {
     navigate("/Addtocart");
   };
+  useEffect(() => {
+    const gameContainer = document.createElement('div');
+    gameContainer.className = 'burger-game-container';
+    document.body.appendChild(gameContainer);
 
+    const createBurger = () => {
+      const burger = document.createElement('div');
+      burger.className = 'burger';
+      burger.style.left = `${Math.random() * 90}%`;
+      burger.style.animationDuration = `${3 + Math.random() * 2}s`;
+      gameContainer.appendChild(burger);
+
+      setTimeout(() => {
+        burger.remove();
+      }, 5000);
+    };
+
+    const interval = setInterval(createBurger, 500);
+    return () => {
+      clearInterval(interval);
+      gameContainer.remove();
+    };
+  }, []);
+  // Memoize shuffled products so shuffle runs only once per page load
+  const randomFeaturedproduct = useMemo(
+    () => shuffleArray(Datacarrier.FeaturedStore).slice(0, 6),
+    []
+  );
 
   return (
     <>
@@ -239,9 +301,8 @@ const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1
       
       <DrawerAppBar >
 
-    
-
       <div className="app-container">
+      
         <div className="main-card">
           <div className="header-section">
             <Soup className="header-icon" />
@@ -287,27 +348,27 @@ const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1
               />
             </div>
           )}
-<div className="controls-container">
-  <div className="language-selector">
-    <label htmlFor="language-select">Select Language:</label>
-    <select
-      id="language-select"
-      value={language}
-      onChange={(e) => setLanguage(e.target.value)}
-      className="language-dropdown"
-    >
-      <option value="en">English</option>
-      <option value="ne">Nepali</option>
-    </select>
-  </div>
-  <button 
-    onClick={generateRecipeIdeas}
-    disabled={getButtonDisabled()}
-    className="generate-button"
-  >
-    {getButtonText()}
-  </button>
-</div>
+          <div className="controls-container">
+            <div className="language-selector">
+              <label htmlFor="language-select">Select Language:</label>
+              <select
+                id="language-select"
+                value={language}
+                onChange={(e) => setLanguage(e.target.value)}
+                className="language-dropdown"
+              >
+                <option value="en">English</option>
+                <option value="ne">Nepali</option>
+              </select>
+            </div>
+            <button 
+              onClick={generateRecipeIdeas}
+              disabled={getButtonDisabled()}
+              className="generate-button"
+            >
+              {getButtonText()}
+            </button>
+          </div>
 
           {isGeneratingIdeas && (
             <div className="loading-indicator">
@@ -366,9 +427,39 @@ const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1
               ))}
             </div>
           )}
+          <br></br>
+        {/* Additional ends */}
+        
+
+          {[
+            { title: "Featured Products", products: randomFeaturedproduct },
+            
+          ].map(({ title, products }, idx) => (
+            <section
+              key={title}
+              className={`featured-section ${
+                idx % 2 === 0 ? "bg-light" : "bg-white"
+              }`}
+              style={{ padding: "10px 0" }}
+            >
+              <FeaturedProducts
+                title={title}
+                products={products}
+                onProductClick={handlebuttonNav}
+              />
+            </section>
+          ))}
+          
+            
+          
         </div>
+      
       </div>
+      <br></br>
+    
+    
       </DrawerAppBar>
+        <Footer/>
     </>
   );
 };

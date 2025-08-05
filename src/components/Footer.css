@@ -1,78 +1,86 @@
 .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-  }
+    background: linear-gradient(
+    to right,
+    #06d1af 0%,
+    #3f8b13 25%,
+    #d40808 100%
+  );
   
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
+  color: #fff700; /* bright yellow */
+  padding: 40px 20px;
+  text-align: center;
+  opacity: 00.5;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  margin: 10px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff700;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: #ffef9f; /* soft yellow for links */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #fff700; /* bright yellow on hover */
+}
+
+.footer-social {
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  margin: 0 10px;
+  color: #ffef9f; /* muted yellow */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #fff700;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  margin: 0;
+  color: #ffef9f;
+}
+
+@media (max-width: 768px) {
   .footer-links {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    flex-direction: column;
   }
-  
+
   .footer-column {
-    flex: 1;
-    margin: 10px;
+    margin: 20px 0;
   }
-  
-  .footer-column h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .footer-column ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .footer-column ul li {
-    margin-bottom: 8px;
-  }
-  
-  .footer-column ul li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .footer-column ul li a:hover {
-    color: #fff;
-  }
-  
-  .footer-social {
-    margin-bottom: 20px;
-  }
-  
-  .footer-social a {
-    margin: 0 10px;
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .footer-social a:hover {
-    color: #fff;
-  }
-  
-  .footer-bottom p {
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  @media (max-width: 768px) {
-    .footer-links {
-      flex-direction: column;
-    }
-  
-    .footer-column {
-      margin: 20px 0;
-    }
-  }
-  
+}

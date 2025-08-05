@@ -1,9 +1,5 @@
 import React, { useContext, useEffect, useState, useMemo } from "react";
 import "./homepage.css";
-import { Container, Row, Col } from "reactstrap";
-import guyImg from "../../src/images/delivery-guy.png";
-import { Link } from "react-router-dom";
-
 import DrawerAppBar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/footer";

@@ -1,12 +1,12 @@
 .food-menu-canva {
   padding: 1rem 0;
-  background: linear-gradient(to right, #f9f9f9, #ffffff);
-
+  background: linear-gradient(to right, #fff3e0, #fff8e1);
+  animation: slideFadeIn 1.2s ease-in-out both;
 }
 
 /* Hero Section Styles */
 .hero__content {
-  padding-top: 10px;
+  padding-top: 7px;
 }
 
 .hero__title {
@@ -31,8 +31,8 @@
 .order__btn {
     
   display: inline-block;
-  padding: 12px 24px;
-  font-size: 1.05rem;
+  padding: 12px 20px;
+  font-size: 0.85rem;
   font-weight: 600;
   background: linear-gradient(to right, #ff5722, #ff7043);
   color: #fff;
@@ -44,6 +44,7 @@
   box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
   transition: all 0.25s ease;
   margin-top: 12px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
@@ -51,6 +52,91 @@
   background: linear-gradient(to right, #ff7043, #ff5722);
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(255, 87, 34, 0.4);
+} 
+/* Animation for .food-menu-canva section
+.food-menu-canva {
+  padding: 1rem 0;
+  background: linear-gradient(to right, #fff3e0, #fff8e1);
+  animation: slideFadeIn 1.2s ease-in-out both;
+}
+
+/* Animate the section sliding in from left */
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Text fade and zoom-in for title/subtitle */
+.hero__title {
+  font-size: 2.5rem;
+  line-height: 55px;
+  animation: zoomFade 1.5s ease forwards;
+}
+
+.hero__content h5,
+.hero__content p {
+  animation: fadeUp 1.2s ease forwards;
+}
+
+@keyframes zoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Neon glow effect for .order__btn */
+/* .order__btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+} */
+
+/* .order__btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 0, 0.2), transparent 60%);
+  animation: neonGlow 4s linear infinite;
+  z-index: -1;
+  transform: rotate(50deg);
+
+} */
+
+@keyframes neonGlow {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate(20%, 20%) rotate(45deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(45deg);
+  }
 }
 
 
@@ -77,7 +163,7 @@
   transform-style: preserve-3d;
   background: #f9fafb;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  /* box-shadow: 0 8px 16px rgba(0,0,0,0.1); */
   margin-top: 8px;
 }
 
@@ -133,6 +219,8 @@ flex-direction: column;
   .delivery-containerss {
     flex-direction: column;
     text-align: center;
+    width: 100%;
+   
   }
 
   .delivery-content {
@@ -165,10 +253,13 @@ flex-direction: column;
   .delivery-content {
     padding-left: 30px;
     text-align: left;
+   
   }
 
   .delivery-image img {
-    max-width: 320px;
+    max-width: 700px;
+    resize: none;
+    max-height: 5000px;
   }
 }
 
