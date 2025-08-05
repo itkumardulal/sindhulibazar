@@ -14,6 +14,7 @@ import Rpmcheckup from "./pages/Rpmcheckup";
 import ToastNotify from "./components/ToastNotify";
 import SplashScreen from "./components/SplashScreen"; // 👈 Splash screen
 import VehiclePage from "./pages/VehiclePage";
+import FoodGenerator from "./pages/FoodGenerator";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/rpmcheckup" element={<Rpmcheckup />} />
         <Route path="/vehicleinfo" element={<VehiclePage />} />
+        <Route path="/FoodGenerator" element={<FoodGenerator />} />
       </Routes>
       <ToastNotify />
     </div>

@@ -1,0 +1,74 @@
+/* FoodGenerator.css */
+.food-generator {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 15px;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.food-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.food-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  margin: 0;
+}
+
+.toggle-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #222;
+  transition: transform 0.3s ease;
+}
+
+.toggle-button:hover {
+  transform: scale(1.1);
+}
+
+.food-list {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.food-item {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.food-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .food-generator {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .food-header h2 {
+    font-size: 20px;
+  }
+
+  .food-item {
+    font-size: 16px;
+  }
+}
