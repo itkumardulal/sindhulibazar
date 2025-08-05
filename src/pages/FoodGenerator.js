@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const FoodGenerator = () => {
     const navigate = useNavigate();
   // Constants for app configuration
-  const maxDailyCalls = 100;
+  const maxDailyCalls = 12;
   const foodEmojis = ['🍲', '🥘', '🍛', '🍜', '🍚', '🥗', '🌶️', '🥟', '🥪'];
 
   // State management for API calls, UI, and data
@@ -123,7 +123,8 @@ const FoodGenerator = () => {
     };
 
     const apiKey = process.env.REACT_APP_GEMINI_API_KEY; // API key is automatically provided by the Canvas environment
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+    // Correct model name is gemini-1.5-flash
+const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
     
     try {
       const result = await makeApiCall(apiUrl, payload);
@@ -176,7 +177,7 @@ const FoodGenerator = () => {
     };
 
     const apiKey = process.env.REACT_APP_GEMINI_API_KEY; // API key is automatically provided by the Canvas environment
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+    const apiUrl =  `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
 
     try {
       const result = await makeApiCall(apiUrl, payload);
