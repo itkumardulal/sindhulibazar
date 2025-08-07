@@ -3,12 +3,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Soup, ChevronDown, ChevronUp, Loader2, Feather } from 'lucide-react';
 import './FoodGenerator.css'; // Add this line to import your stylesheet
 import DrawerAppBar from '../components/Navbar';
-
 import { useNavigate } from "react-router-dom";
-import FoodMenuCanva from '../components/homepagecom/FoodMenuCanva';
 import Footer from '../components/footer';
-import FeaturedProducts from '../components/homepagecom/FeaturedProducts';
+// import FeaturedProducts from '../components/homepagecom/FeaturedProducts';
 import Datacarrier from '../data/Datacarrier';
+import scrollToTop from '../tinyfunction/scrollToTop';
 
 // The main application component
 const FoodGenerator = () => {
@@ -23,7 +22,7 @@ const FoodGenerator = () => {
   const [isGeneratingIdeas, setIsGeneratingIdeas] = useState(false);
   const [isLoadingRecipe, setIsLoadingRecipe] = useState({});
   const [language, setLanguage] = useState('ne');
-  const [mode, setMode] = useState('daily');
+  const [mode, setMode] = useState('ingredients');
   const [ingredients, setIngredients] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [expandedRecipeName, setExpandedRecipeName] = useState(null);
@@ -35,21 +34,24 @@ const FoodGenerator = () => {
     process.env.REACT_APP_GEMINI_API_KEY_3,
   ].filter(key => key); // Filter out any undefined keys
 
-  const shuffleArray = (array) => {
-    const arr = [...array];
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  };
-  const handlebuttonNav = (producttype) => {
-    navigate(`/${producttype}Store`);
-  };
+  // const shuffleArray = (array) => {
+  //   const arr = [...array];
+  //   for (let i = arr.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [arr[i], arr[j]] = [arr[j], arr[i]];
+  //   }
+  //   return arr;
+  // };
+  // const handlebuttonNav = (producttype) => {
+  //   navigate(`/${producttype}Store`);
+  // };
   // Function to get a random emoji from the list
   const getRandomEmoji = () => {
     return foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
   };
+   useEffect(() => {
+    scrollToTop();
+  }, []);
 
   // Fetch daily call count from localStorage on component mount
   useEffect(() => {
@@ -290,10 +292,10 @@ const FoodGenerator = () => {
     };
   }, []);
   // Memoize shuffled products so shuffle runs only once per page load
-  const randomFeaturedproduct = useMemo(
-    () => shuffleArray(Datacarrier.FeaturedStore).slice(0, 6),
-    []
-  );
+  // const randomFeaturedproduct = useMemo(
+  //   () => shuffleArray(Datacarrier.FeaturedStore).slice(0, 6),
+  //   []
+  // );
 
   return (
     <>
@@ -323,18 +325,19 @@ const FoodGenerator = () => {
           )}
 
           <div className="mode-buttons">
+                   <button 
+              onClick={() => { setMode('ingredients'); setSuggestions([]); setIngredients(''); }}
+              className={`mode-button ${mode === 'ingredients' ? 'active' : 'inactive'}`}
+            >
+              My Ingredients
+            </button>
             <button 
               onClick={() => { setMode('daily'); setSuggestions([]); setIngredients(''); }}
               className={`mode-button ${mode === 'daily' ? 'active' : 'inactive'}`}
             >
               Daily Suggestion
             </button>
-            <button 
-              onClick={() => { setMode('ingredients'); setSuggestions([]); setIngredients(''); }}
-              className={`mode-button ${mode === 'ingredients' ? 'active' : 'inactive'}`}
-            >
-              My Ingredients
-            </button>
+     
           </div>
 
           {mode === 'ingredients' && (
@@ -431,7 +434,7 @@ const FoodGenerator = () => {
         {/* Additional ends */}
         
 
-          {[
+          {/* {[
             { title: "Featured Products", products: randomFeaturedproduct },
             
           ].map(({ title, products }, idx) => (
@@ -448,7 +451,7 @@ const FoodGenerator = () => {
                 onProductClick={handlebuttonNav}
               />
             </section>
-          ))}
+          ))} */}
           
             
           

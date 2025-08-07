@@ -12,14 +12,22 @@ import FeaturedProducts from "../components/homepagecom/FeaturedProducts";
 import EvVehicleBooking from "../components/Services/EvVehicleBooking";
 import FoodMenuCanva from "../components/homepagecom/FoodMenuCanva";
 
+
+import RakshyaBandhan from "../components/offerwalls/RakshyaBAndhan";
+import scrollToTop from "../tinyfunction/scrollToTop";
+
 const Homepage = () => {
   const navigate = useNavigate();
   const { cart } = useContext(CartContext);
   const [cartCount, setCartCount] = useState(cart.length);
 
+
+  useEffect(() => {
+    scrollToTop();  }, []);
   useEffect(() => {
     setCartCount(cart.length);
   }, [cart]);
+  
 
   const handlebuttonNav = (producttype) => {
     navigate(`/${producttype}Store`);
@@ -83,9 +91,12 @@ const Homepage = () => {
 
         {/* Service btn are the all the feature box parent */}
         <Servicesbtn />
+<RakshyaBandhan/>
+      <FoodMenuCanva/>
              <EvVehicleBooking />
               {/* //Addition code ectra ----------------------------- */}
-              <FoodMenuCanva/>
+              
+        
 
 
       {/* Additohnal ends */}

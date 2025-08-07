@@ -32,6 +32,7 @@ const Storepage = () => {
   const [items, setItems] = useState([]);
   const [searchData, setSearchData] = useState([]);
 
+ 
   useEffect(() => {
     setLoading(true);
     const timeout = setTimeout(() => {

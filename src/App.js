@@ -16,6 +16,8 @@ import SplashScreen from "./components/SplashScreen"; // 👈 Splash screen
 import VehiclePage from "./pages/VehiclePage";
 import FoodGenerator from "./pages/FoodGenerator";
 
+
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -25,9 +27,11 @@ function App() {
   }, []);
 
   if (loading) return <SplashScreen />;
+  
 
   return (
     <div className="App">
+ 
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/Addtocart" element={<Addtocart />} />
@@ -40,6 +44,7 @@ function App() {
         <Route path="/vehicleinfo" element={<VehiclePage />} />
         <Route path="/FoodGenerator" element={<FoodGenerator />} />
       </Routes>
+     
       <ToastNotify />
     </div>
   );
