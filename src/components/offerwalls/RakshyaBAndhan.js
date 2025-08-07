@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from "framer-motion";
 import './RakshaBandhan.css';
+import WhatsAppMessageLink from '../../messagecarrier/Whatsappme';
 
 // This is the main component for the Raksha Bandhan offer banner.
 export default function RakshyaBandhan() {
   const [orderSent, setOrderSent] = useState(false);
-  const [quantity, setQuantity] = useState(1);
+  const [count, setQuantity] = useState(1);
   const [isOrderUnlocked, setIsOrderUnlocked] = useState(false);
   const scrollContainerRef = useRef(null);
   const [itemsViewed, setItemsViewed] = useState(new Set());
@@ -14,7 +15,7 @@ export default function RakshyaBandhan() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-
+var name = "Raksha Bandhan Special";
   // Define the combo items as an array of objects.
   const comboItems = [
     {
@@ -64,7 +65,7 @@ export default function RakshyaBandhan() {
   // This function handles the 'Send Order' button click.
   const handleOrderClick = () => {
     if (isOrderUnlocked) {
-      console.log(`Order sent for ${quantity} of ${mainItem.name}!`);
+      console.log(`Order sent for ${count} of ${mainItem.name}!`);
       setOrderSent(true);
     }
   };
@@ -129,7 +130,7 @@ export default function RakshyaBandhan() {
     }
   }, [itemsViewed, comboItems.length]);
 
-  const totalPrice = 999 * quantity;
+  const price = 999 * count;
 
   return (
     <div className="app-container">
@@ -234,7 +235,7 @@ export default function RakshyaBandhan() {
             // transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           >
             <span>Total Price</span>
-            <span>Rs. {totalPrice}</span>
+            <span>Rs. {price}</span>
           </motion.div>
           
           {/* Quantity selector */}
@@ -250,7 +251,7 @@ export default function RakshyaBandhan() {
             >
               -
             </button>
-            <span className="quantity-count">{quantity}</span>
+            <span className="quantity-count">{count}</span>
             <button
               onClick={handleQuantityIncrease}
               className="quantity-button"
@@ -258,10 +259,11 @@ export default function RakshyaBandhan() {
               +
             </button>
           </motion.div>
+                
         </motion.div>
         
         {/* 'Send Order' button at the very bottom */}
-        <div className="order-button-container">
+        {/* <div className="order-button-container">
           {!orderSent ? (
             <motion.button
               onClick={handleOrderClick}
@@ -279,7 +281,9 @@ export default function RakshyaBandhan() {
               Order Sent!
             </div>
           )}
-        </div>
+        </div> */}
+            <WhatsAppMessageLink orderDetails={{ name, price, count }} />
+
       </motion.div>
     </div>
   );
