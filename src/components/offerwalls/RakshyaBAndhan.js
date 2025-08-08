@@ -5,13 +5,11 @@ import WhatsAppMessageLink from '../../messagecarrier/Whatsappme';
 
 // This is the main component for the Raksha Bandhan offer banner.
 export default function RakshyaBandhan() {
-  const [orderSent, setOrderSent] = useState(false);
+
   const [count, setQuantity] = useState(1);
-  const [isOrderUnlocked, setIsOrderUnlocked] = useState(false);
   const scrollContainerRef = useRef(null);
   const [itemsViewed, setItemsViewed] = useState(new Set());
   
-  // State for drag-to-scroll functionality
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
@@ -22,38 +20,38 @@ var name = "Raksha Bandhan Special";
       id: 1,
       name: "Designer Rakhi Set",
       description: "A beautiful rakhi for your brother.",
-      imageUrl: "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/201aa0b101d634bfa12e64a7b072e6b5587ba81c/offerWalls/rakshya%20bandan/1.png"
+      imageUrl: "https://i.imgur.com/LeaLeZO.jpeg"
     },
        {
       id: 2,
       name: "Combo Set",
       description: "A hamper full of assorted goodies.",
-      imageUrl: "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/b005075952fcee24ce1990fa08c8e024bcf43c3e/offerWalls/rakshya%20bandan/boxall.png"
+      imageUrl: "https://i.imgur.com/8qRTynh.jpeg"
     },
     {
       id: 3,
       name: "Men Wallets",
       description: "A sweet treat for the sweet bond.",
-      imageUrl: "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/201aa0b101d634bfa12e64a7b072e6b5587ba81c/offerWalls/rakshya%20bandan/2.png"
+      imageUrl: "https://i.imgur.com/JouFe7g.jpeg"
     },
    
     {
       id: 4,
       name: "perfume",
       description: "A heartfelt message for your sibling.",
-      imageUrl: "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/201aa0b101d634bfa12e64a7b072e6b5587ba81c/offerWalls/rakshya%20bandan/4.png"
+      imageUrl: "https://i.imgur.com/6Oa0iB0.jpeg"
     },
     {
       id: 5,
       name: "Rakhi",
       description: "A traditional box of delicious sweets.",
-      imageUrl: "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/b005075952fcee24ce1990fa08c8e024bcf43c3e/offerWalls/rakshya%20bandan/18.png"
+      imageUrl: "https://i.imgur.com/sG1VGYp.jpeg"
     },
      {
       id: 6,
       name: "Hankerchief",
       description: "Capture your favorite memory.",
-      imageUrl: "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/201aa0b101d634bfa12e64a7b072e6b5587ba81c/offerWalls/rakshya%20bandan/3.png"
+      imageUrl: "https://i.imgur.com/X0md6WW.jpeg"
     },
  
   ];
@@ -63,12 +61,12 @@ var name = "Raksha Bandhan Special";
   const [mainItem, setMainItem] = useState(comboItems[0]);
 
   // This function handles the 'Send Order' button click.
-  const handleOrderClick = () => {
-    if (isOrderUnlocked) {
-      console.log(`Order sent for ${count} of ${mainItem.name}!`);
-      setOrderSent(true);
-    }
-  };
+  // const handleOrderClick = () => {
+  //   if (isOrderUnlocked) {
+  //     console.log(`Order sent for ${count} of ${mainItem.name}!`);
+  //     setOrderSent(true);
+  //   }
+  // };
 
   // This function handles a click on a small image, updating the main image and tracking viewed items.
   const handleImageClick = (item) => {
@@ -124,11 +122,6 @@ var name = "Raksha Bandhan Special";
   };
   
   // Check if all items have been viewed to unlock the order button.
-  useEffect(() => {
-    if (itemsViewed.size === comboItems.length) {
-      setIsOrderUnlocked(true);
-    }
-  }, [itemsViewed, comboItems.length]);
 
   const price = 999 * count;
 
