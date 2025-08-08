@@ -134,10 +134,8 @@ var name = "Raksha Bandhan Special";
 
   return (
     <div className="app-container">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+      <div
+     
         className="banner-container"
       >
         {/* Abstract background elements */}
@@ -261,30 +259,10 @@ var name = "Raksha Bandhan Special";
           </motion.div>
                 
         </motion.div>
-        
-        {/* 'Send Order' button at the very bottom */}
-        {/* <div className="order-button-container">
-          {!orderSent ? (
-            <motion.button
-              onClick={handleOrderClick}
-              className={`send-order-button ${isOrderUnlocked ? 'unlocked' : ''}`}
-              whileHover={{ scale: isOrderUnlocked ? 1.05 : 1, boxShadow: isOrderUnlocked ? "0 10px 15px -3px rgba(251,191,36,0.3)" : "none" }}
-              whileTap={{ scale: isOrderUnlocked ? 0.95 : 1 }}
-              animate={isOrderUnlocked ? { scale: [1, 1.05, 1] } : {}}
-              transition={isOrderUnlocked ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" } : {}}
-              disabled={!isOrderUnlocked}
-            >
-              Send Order
-            </motion.button>
-          ) : (
-            <div className="order-sent-message">
-              Order Sent!
-            </div>
-          )}
-        </div> */}
+ 
             <WhatsAppMessageLink orderDetails={{ name, price, count }} />
 
-      </motion.div>
+      </div>
     </div>
   );
 }

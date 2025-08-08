@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./EvVehicleBooking.css";
+import scrollToTop from "../../tinyfunction/scrollToTop";
 
 const EvVehicleBooking = () => {
   const navigate = useNavigate();
+
+
 
   // Prevent click bubbling on button and navigate
   const handleClick = (e) => {
     e.stopPropagation();
     navigate("/vehicleinfo");
   };
+
 
   return (
     <div
