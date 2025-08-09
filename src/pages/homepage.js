@@ -91,7 +91,7 @@ const Homepage = () => {
 
         {/* Service btn are the all the feature box parent */}
         <Servicesbtn />
-<RakshyaBandhan/>
+{/* <RakshyaBandhan/> */}
       <FoodMenuCanva/>
              <EvVehicleBooking />
               {/* //Addition code ectra ----------------------------- */}
