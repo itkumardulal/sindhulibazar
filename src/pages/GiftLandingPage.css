@@ -1,0 +1,166 @@
+/* Reset and base */
+.gift-landing-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fff7e6, #ffd54f);
+  min-height: 100vh;
+  color: #7f0000;
+  margin: 0;
+justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  color: #b71c1c;
+}
+
+blockquote {
+  font-style: italic;
+  margin: 0 0 20px 0;
+  max-width: 320px;
+  color: #5a1a1a;
+}
+
+/* Wheel container */
+.wheel-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin-bottom: 20px;
+}
+
+.wheel-svg {
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(183, 28, 28, 0.3);
+  user-select: none;
+  cursor: grab;
+  background: white;
+  transition: box-shadow 0.3s ease;
+}
+
+.wheel-svg.spinning {
+  cursor: progress;
+  box-shadow: 0 0 15px 5px #ffca28;
+}
+
+/* Pointer triangle at top center */
+.pointer {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #b71c1c;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+  z-index: 10;
+}
+
+/* Spin button */
+.spin-btn,
+.claim-btn {
+  background-color: #b71c1c;
+  color: #ffd54f;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(183, 28, 28, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  min-width: 180px;
+  margin: 12px 0;
+}
+
+.spin-btn:hover:not(:disabled),
+.claim-btn:hover:not(:disabled) {
+  background-color: #d32f2f;
+  box-shadow: 0 8px 15px rgba(211, 47, 47, 0.9);
+}
+
+.spin-btn:disabled,
+.claim-btn:disabled {
+  background-color: #8b0000;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Gift details */
+.gift-details {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #4a0000;
+}
+
+/* Highlight the selected segment visually */
+.selected-segment path {
+  stroke-width: 4 !important;
+  filter: drop-shadow(0 0 6px #ffb300);
+}
+
+/* Celebration message */
+.celebration {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d32f2f;
+  animation: pop 0.8s ease forwards;
+  user-select: none;
+}
+
+/* Simple pop animation */
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .wheel-container {
+    width: 260px;
+    height: 260px;
+  }
+  .wheel-svg {
+    width: 260px !important;
+    height: 260px !important;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  .spin-btn,
+  .claim-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    min-width: 140px;
+  }
+  blockquote {
+    max-width: 260px;
+    font-size: 0.9rem;
+  }
+}

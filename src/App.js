@@ -15,6 +15,7 @@ import ToastNotify from "./components/ToastNotify";
 import SplashScreen from "./components/SplashScreen"; // 👈 Splash screen
 import VehiclePage from "./pages/VehiclePage";
 import FoodGenerator from "./pages/FoodGenerator";
+import GiftLandingPage from "./pages/GiftLandingPage";
 
 
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/rpmcheckup" element={<Rpmcheckup />} />
         <Route path="/vehicleinfo" element={<VehiclePage />} />
         <Route path="/FoodGenerator" element={<FoodGenerator />} />
+        <Route path="/order_for_friend" element={<GiftLandingPage />} />
       </Routes>
      
       <ToastNotify />
