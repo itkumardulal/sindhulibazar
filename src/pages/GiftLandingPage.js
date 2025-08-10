@@ -24,13 +24,20 @@ const data = {
 };
 
 const giftImages = {
-  "RedBull": "https://i.imgur.com/otpOUzI.jpeg",
-  "MOMO": "https://i.imgur.com/aFsI0aE.jpeg",
-  "A Ride": "https://i.imgur.com/36JPDxK.png",
-  "Tempo Ride": "https://i.imgur.com/wQvUet3.png",
-  "MASALA": "https://i.imgur.com/XtEMfzE.jpeg",
-  "MOMO": "https://i.imgur.com/aFsI0aE.jpeg",
+
+  "KITKAt": "https://i.imgur.com/9dD2svy.jpeg",
+  "Badam drink": "https://i.imgur.com/4QPSmOG.png",
+  "momo": "https://i.imgur.com/o2QbpYA.png",
+  "diary": "https://i.imgur.com/MruKJiG.jpeg",
+  "key chain": "https://i.imgur.com/uZhBu5M.png",
+  "small pizza": "https://i.imgur.com/8uiKBzl.png",
+ 
+  "xtreme": "https://i.imgur.com/N5KVwWY.png",
+  "Dairy milk": "https://i.imgur.com/qC48m1v.png",
+
 };
+
+
 
 const radius = 150;
 
