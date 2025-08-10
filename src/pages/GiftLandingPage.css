@@ -1,17 +1,16 @@
 /* Reset and base */
 .gift-landing-page {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #fff7e6, #ffd54f);
+  /* background: linear-gradient(135deg, #ffffff, #ffd54f); */
   min-height: 80vh;
   color: #7f0000;
   margin: 0;
-justify-content: center;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-
+  background-color: #ffffff;
 }
 
 h1 {
@@ -125,6 +124,88 @@ blockquote {
   user-select: none;
 }
 
+/* Confetti celebration */
+.full-celebration {
+  margin-top: 30px;
+  color: #d32f2f;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  overflow: visible;
+  animation: pop 1s ease forwards;
+}
+
+.full-celebration h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.full-celebration p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Confetti container */
+.confetti-container {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 300px;
+  height: 100px;
+  pointer-events: none;
+  overflow: visible;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+/* Individual confetti */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background-color: #d32f2f;
+  opacity: 0.8;
+  border-radius: 2px;
+  animation: confetti-fall 2.5s infinite ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Alternate confetti colors */
+.confetti:nth-child(odd) {
+  background-color: #ffca28;
+}
+
+.confetti:nth-child(even) {
+  background-color: #f44336;
+}
+
+/* Confetti horizontal positions and delays */
+.confetti:nth-child(1)  { left: 5%;  animation-delay: 0s;   }
+.confetti:nth-child(2)  { left: 15%; animation-delay: 0.2s; }
+.confetti:nth-child(3)  { left: 25%; animation-delay: 0.4s; }
+.confetti:nth-child(4)  { left: 35%; animation-delay: 0.6s; }
+.confetti:nth-child(5)  { left: 45%; animation-delay: 0.8s; }
+.confetti:nth-child(6)  { left: 55%; animation-delay: 1s;   }
+.confetti:nth-child(7)  { left: 65%; animation-delay: 1.2s; }
+.confetti:nth-child(8)  { left: 75%; animation-delay: 1.4s; }
+.confetti:nth-child(9)  { left: 85%; animation-delay: 1.6s; }
+.confetti:nth-child(10) { left: 95%; animation-delay: 1.8s; }
+
+/* Confetti falling animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 /* Simple pop animation */
 @keyframes pop {
   0% {
@@ -163,4 +244,33 @@ blockquote {
     max-width: 260px;
     font-size: 0.9rem;
   }
+  .continue-btn {
+  background-color: #4a148c;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(74, 20, 140, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  margin-top: 20px;
+  min-width: 200px;
+}
+
+.continue-btn:hover {
+  background-color: #6a1b9a;
+  box-shadow: 0 8px 15px rgba(106, 27, 154, 0.9);
+}
+
+@media (max-width: 480px) {
+  .continue-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    min-width: 160px;
+  }
+}
+
 }

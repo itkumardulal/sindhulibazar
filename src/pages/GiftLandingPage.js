@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import "./GiftLandingPage.css";
 import DrawerAppBar from "../components/Navbar";
+import Footer from "../components/footer";
+import { useNavigate } from "react-router-dom";
 
 const data = {
   id: "eea58c73-ccf3-45c2-b29c-b9b8f84c0423",
@@ -48,18 +50,20 @@ function describeArc(cx, cy, r, startAngle, endAngle) {
 }
 
 export default function GiftLandingPage() {
+    const navigate = useNavigate();
   const gifts = data.itemsOrdered.map((item) => ({
     name: item.name,
     img: giftImages[item.name] || "https://via.placeholder.com/50",
   }));
 
+  const [showGifts, setShowGifts] = useState(false);
   const [spinning, setSpinning] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [claimed, setClaimed] = useState(false);
   const wheelRef = useRef(null);
 
   const spinWheel = () => {
-    if (spinning || claimed || selectedIndex !== null) return; // prevent multiple spins
+    if (spinning || claimed || selectedIndex !== null) return;
     setSpinning(true);
     setSelectedIndex(null);
 
@@ -91,125 +95,165 @@ export default function GiftLandingPage() {
     <>
       <DrawerAppBar>
         <div className="gift-landing-page" role="main" aria-label="Gift Landing Page">
-          <header>
-            <h1>
-              Happy {data.occasion}, {data.receiverName}!
-            </h1>
-            <h3>
-              A special wish from {data.senderName} ({data.relationship})
-            </h3>
-            <blockquote>{data.message || "No message provided."}</blockquote>
-          </header>
-
-          <section className="wheel-container" aria-label="Gift spinner">
-            <svg
-              width={radius * 2}
-              height={radius * 2}
-              viewBox={`0 0 ${radius * 2} ${radius * 2}`}
-              ref={wheelRef}
-              className={`wheel-svg ${spinning ? "spinning" : ""} ${claimed ? "claimed" : ""}`}
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              {gifts.map((gift, i) => {
-                const segments = gifts.length;
-                const segmentAngle = 360 / segments;
-                const startAngle = segmentAngle * i - 90;
-                const endAngle = startAngle + segmentAngle;
-
-                const midAngle = (startAngle + endAngle) / 2;
-                const textRadius = radius * 0.65;
-                const rad = (Math.PI / 180) * midAngle;
-                const textX = radius + textRadius * Math.cos(rad);
-                const textY = radius + textRadius * Math.sin(rad);
-
-                return (
-                  <g
-                    key={i}
-                    aria-label={gift.name}
-                    tabIndex={-1}
-                    className={i === selectedIndex ? "selected-segment" : ""}
-                  >
-                    <path
-                      d={describeArc(radius, radius, radius, startAngle, endAngle)}
-                      fill={i % 2 === 0 ? "#FFC107" : "#FFEB3B"}
-                      stroke="#B71C1C"
-                      strokeWidth="2"
-                    />
-                    <image
-                      href={gift.img}
-                      x={textX - 25}
-                      y={textY - 50}
-                      height="50"
-                      width="50"
-                      style={{ pointerEvents: "none", userSelect: "none" }}
-                      alt={gift.name}
-                    />
-                    <text
-                      x={textX}
-                      y={textY + 15}
-                      fill="#7F0000"
-                      fontSize="12"
-                      fontWeight="700"
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      pointerEvents="none"
-                      style={{ userSelect: "none" }}
-                    >
-                      {gift.name}
-                    </text>
-                  </g>
-                );
-              })}
-              <circle
-                cx={radius}
-                cy={radius}
-                r={40}
-                fill="#B71C1C"
-                stroke="#FFC107"
-                strokeWidth="4"
-              />
-            </svg>
-
-            {/* Pointer at the top center */}
-            <span className="pointer" aria-hidden="true" />
-          </section>
-
-          {/* Show Spin button only if not spun yet */}
-          {selectedIndex === null && !claimed && (
-            <button
-              onClick={spinWheel}
-              className="spin-btn"
-              disabled={spinning}
-              aria-disabled={spinning}
-            >
-              {spinning ? "Spinning..." : "Spin the Wheel 🎡"}
-            </button>
-          )}
-
-          {/* Show claim button only if spun */}
-          {selectedIndex !== null && (
-            <>
-              <section className="gift-details" aria-live="polite" aria-atomic="true">
-                🎁 You won: <strong>{gifts[selectedIndex].name}</strong>
-              </section>
+          {!showGifts ? (
+            <section className="wish-section fade-in">
+              <h1>
+                Happy {data.occasion}, {data.receiverName}!
+              </h1>
+              <h3>
+                A special wish from {data.senderName} ({data.relationship})
+              </h3>
+              <blockquote>{data.message || "No message provided."}</blockquote>
               <button
-                className="claim-btn"
-                onClick={claimGift}
-                disabled={claimed}
-                aria-disabled={claimed}
+                className="view-gifts-btn"
+                onClick={() => setShowGifts(true)}
+                aria-label="View Gifts"
               >
-                {claimed ? "Gift Claimed 🎉" : "Claim My Gift"}
+                View Gifts 🎁
               </button>
-              {claimed && (
-                <section className="celebration" role="alert" aria-live="assertive">
-                  🎉🎉🎉 Congratulations! 🎉🎉🎉
+            </section>
+          ) : (
+            <section className="gift-section fade-in">
+              {!claimed && (
+                <section className="wheel-container" aria-label="Gift spinner">
+                  <svg
+                    width={radius * 2}
+                    height={radius * 2}
+                    viewBox={`0 0 ${radius * 2} ${radius * 2}`}
+                    ref={wheelRef}
+                    className={`wheel-svg ${spinning ? "spinning" : ""} ${claimed ? "claimed" : ""}`}
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
+                    {gifts.map((gift, i) => {
+                      const segments = gifts.length;
+                      const segmentAngle = 360 / segments;
+                      const startAngle = segmentAngle * i - 90;
+                      const endAngle = startAngle + segmentAngle;
+
+                      const midAngle = (startAngle + endAngle) / 2;
+                      const textRadius = radius * 0.65;
+                      const rad = (Math.PI / 180) * midAngle;
+                      const textX = radius + textRadius * Math.cos(rad);
+                      const textY = radius + textRadius * Math.sin(rad);
+
+                      return (
+                        <g
+                          key={i}
+                          aria-label={gift.name}
+                          tabIndex={-1}
+                          className={i === selectedIndex ? "selected-segment" : ""}
+                        >
+                          <path
+                            d={describeArc(radius, radius, radius, startAngle, endAngle)}
+                            fill={i % 2 === 0 ? "#FFC107" : "#FFEB3B"}
+                            stroke="#B71C1C"
+                            strokeWidth="2"
+                          />
+                          <image
+                            href={gift.img}
+                            x={textX - 25}
+                            y={textY - 50}
+                            height="50"
+                            width="50"
+                            style={{ pointerEvents: "none", userSelect: "none" }}
+                            alt={gift.name}
+                          />
+                          <text
+                            x={textX}
+                            y={textY + 15}
+                            fill="#7F0000"
+                            fontSize="12"
+                            fontWeight="700"
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            pointerEvents="none"
+                            style={{ userSelect: "none" }}
+                          >
+                            {gift.name}
+                          </text>
+                        </g>
+                      );
+                    })}
+                    <circle
+                      cx={radius}
+                      cy={radius}
+                      r={40}
+                      fill="#B71C1C"
+                      stroke="#FFC107"
+                      strokeWidth="4"
+                    />
+                  </svg>
+
+                  <span className="pointer" aria-hidden="true" />
                 </section>
               )}
-            </>
+
+              {!claimed && selectedIndex === null && (
+                <button
+                  onClick={spinWheel}
+                  className="spin-btn"
+                  disabled={spinning}
+                  aria-disabled={spinning}
+                >
+                  {spinning ? "Spinning..." : "Spin the Wheel 🎡"}
+                </button>
+              )}
+
+              {!claimed && selectedIndex !== null && (
+                <>
+                  <section className="gift-details" aria-live="polite" aria-atomic="true">
+                    🎁 You won: <strong>{gifts[selectedIndex].name}</strong>
+                  </section>
+                  <button
+                    className="claim-btn"
+                    onClick={claimGift}
+                    disabled={claimed}
+                    aria-disabled={claimed}
+                  >
+                    Claim My Gift
+                  </button>
+                </>
+              )}
+
+        {claimed && (
+  <section
+    className="celebration full-celebration"
+    role="alert"
+    aria-live="assertive"
+    style={{ textAlign: "center" }}
+  >
+    <div className="confetti-container">
+      {[...Array(30)].map((_, i) => (
+        <div key={i} className="confetti"></div>
+      ))}
+    </div>
+    <h2>🎉 Congratulations! 🎉</h2>
+    <p>You will receive your package soon. Thank you for claiming your gift!</p>
+
+    <button
+      onClick={() => (window.location.href = "/home")}
+      style={{
+        marginTop: "20px",
+        padding: "10px 20px",
+        backgroundColor: "#ff9800",
+        color: "#fff",
+        border: "none",
+        borderRadius: "8px",
+        cursor: "pointer",
+        fontSize: "16px",
+      }}
+    >
+      Continue to Website
+    </button>
+  </section>
+)}
+
+            </section>
           )}
         </div>
       </DrawerAppBar>
+      <Footer />
     </>
   );
 }
