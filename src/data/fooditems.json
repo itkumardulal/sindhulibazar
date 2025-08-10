@@ -10,10 +10,18 @@
   },
   {
     "id": 2,
-    "name": "BBQ Chiken Pizza(Rakshi OFFER 10%off)",
+    "name": "BBQ Chiken Pizza (Medium)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "  Previous price : 550 Available : 8AM to 8PM, better version of Medium pizza. ",
+    "description": "  8AM to 8PM, Medium pizza good for 2 person. ",
     "price": "495",
+    "category": "Food"
+  },
+  {
+    "id": 2,
+    "name": "Cheese Pizza (Medium)",
+    "image": "https://i.imgur.com/lf3sm27.png",
+    "description": "  8AM to 8PM, Medium pizza good for 2 person. ",
+    "price": "450",
     "category": "Food"
   },
     {

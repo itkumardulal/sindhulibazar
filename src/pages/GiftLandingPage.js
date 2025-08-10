@@ -3,6 +3,7 @@ import "./GiftLandingPage.css";
 import DrawerAppBar from "../components/Navbar";
 import Footer from "../components/footer";
 import { useNavigate } from "react-router-dom";
+import giftImages from "../data/spinnergiftitems.json";
 
 const data = {
   id: "eea58c73-ccf3-45c2-b29c-b9b8f84c0423",
@@ -23,19 +24,7 @@ const data = {
   claimedAt: null,
 };
 
-const giftImages = {
 
-  "KITKAt": "https://i.imgur.com/9dD2svy.jpeg",
-  "Badam drink": "https://i.imgur.com/4QPSmOG.png",
-  "momo": "https://i.imgur.com/o2QbpYA.png",
-  "diary": "https://i.imgur.com/MruKJiG.jpeg",
-  "key chain": "https://i.imgur.com/uZhBu5M.png",
-  "small pizza": "https://i.imgur.com/8uiKBzl.png",
- 
-  "xtreme": "https://i.imgur.com/N5KVwWY.png",
-  "Dairy milk": "https://i.imgur.com/qC48m1v.png",
-
-};
 
 
 
