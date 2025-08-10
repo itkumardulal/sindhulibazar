@@ -24,7 +24,7 @@ const data = {
 };
 
 const giftImages = {
-  "Red BUll": "https://i.imgur.com/otpOUzI.jpeg",
+  "RedBull": "https://i.imgur.com/otpOUzI.jpeg",
   "MOMO": "https://i.imgur.com/aFsI0aE.jpeg",
   "A Ride": "https://i.imgur.com/36JPDxK.png",
   "Tempo Ride": "https://i.imgur.com/wQvUet3.png",
@@ -50,17 +50,18 @@ function describeArc(cx, cy, r, startAngle, endAngle) {
 }
 
 export default function GiftLandingPage() {
-    const navigate = useNavigate();
-  const gifts = data.itemsOrdered.map((item) => ({
-    name: item.name,
-    img: giftImages[item.name] || "https://via.placeholder.com/50",
-  }));
+
 
   const [showGifts, setShowGifts] = useState(false);
   const [spinning, setSpinning] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [claimed, setClaimed] = useState(false);
   const wheelRef = useRef(null);
+      const navigate = useNavigate();
+const gifts = Object.entries(giftImages).map(([name, img]) => ({
+  name,
+  img
+}));
 
   const spinWheel = () => {
     if (spinning || claimed || selectedIndex !== null) return;
