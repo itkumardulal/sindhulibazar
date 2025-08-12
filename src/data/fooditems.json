@@ -197,7 +197,7 @@
     "name": "Cheese BBQ Chiken Pizza(Medium)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
     "description": " Available : 8AM to 8PM",
-    "price": "450",
+    "price": "550",
     "category": "Food"
   },
    {
@@ -264,7 +264,7 @@
     "name": "Chicken Burger",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/Burger/chicken-burger-800x1203.webp",
     "description": "Delicious Chicken Burger from Sindhuli Bazar",
-    "price": "195",
+    "price": "220",
     "category": "Food"
   },
   {
@@ -272,7 +272,7 @@
     "name": "Veg Burger",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/Burger/veg%20burrger981dd6.webp",
     "description": "Healthy Veg Burger from Sindhuli Bazar",
-    "price": "145",
+    "price": "160",
     "category": "Food"
   },
   {
@@ -288,7 +288,7 @@
     "name": "Ham Burger",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/f31d163f5520c2424d282e1b303f96164e2efce8/Burger/ham%20burger25.jpg",
     "description": "Tasty Ham Burger from Sindhuli Bazar",
-    "price": "185",
+    "price": "200",
     "category": "Food"
   },
   {

@@ -1,0 +1,141 @@
+.gpi-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.gpi-modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gpi-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.gpi-title {
+  text-align: center;
+  color: rgb(255, 112, 67);
+  margin-bottom: 1rem;
+}
+
+.gpi-info-text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.gpi-instruction-box {
+  background-color: #fff7f9;
+  border: 1.5px solid #ec4899;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.15);
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gpi-instruction {
+  font-size: 14px;
+  color: #ec4899;
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.gpi-sub-instruction {
+  font-size: 13px;
+  color: #777;
+  font-weight: 400;
+}
+
+.gpi-error-msg {
+  color: #dc2626;
+  background-color: #fee2e2;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.gpi-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.gpi-label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.gpi-input,
+.gpi-textarea,
+.gpi-select {
+  padding: 0.6rem 0.8rem;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 1.2rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.gpi-textarea {
+  resize: vertical;
+}
+
+.gpi-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gpi-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.gpi-back-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+.gpi-next-btn {
+  background-color: rgb(241, 196, 15);
+  color: white;
+}
+
+.gpi-submit-btn {
+  background-color: #f0c508;
+  color: white;
+  width: 100%;
+  margin-left: 20px;
+}

@@ -3,7 +3,7 @@ import "./Search.css";
 import { useNavigate } from "react-router-dom";
 import WhatsAppMessageLink from "../messagecarrier/Whatsappme";
 import { distance } from "fastest-levenshtein";
-import ToastNotify, { showToast } from "../components/ToastNotify";
+import toast from 'react-hot-toast';
 import { CartContext } from "../context/CartContext";
 
 export default function Search({ data }) {
@@ -97,12 +97,13 @@ export default function Search({ data }) {
         category,
         quantity: count,
       });
+    
     }
 
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-    showToast("🛒 Product added to cart!");
+   toast.success('🎉 Item added to cart!');
     setShowOverlay(true);
   };
 
@@ -121,7 +122,7 @@ export default function Search({ data }) {
 
   return (
     <div className="search-container">
-      <ToastNotify />
+    
 
       <div className="product-search">
         <input

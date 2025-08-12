@@ -9,8 +9,9 @@ import { Box } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import ConfirmModal from "./ConfirmItem";
 import WhatsAppMessageLink from "../messagecarrier/Whatsappme";
-import ToastNotify, { showToast } from "../components/ToastNotify";
+
 import { CartContext } from "../context/CartContext"; // 👈 Import context
+import toast from 'react-hot-toast';
 
 // Define keyframes for zoom-in animation
 const zoomInAnimation = `
@@ -45,7 +46,7 @@ const LoadingOverlay = () => (
     }}
   >
     <img
-      src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/88367851ab55e1e40038dd2af0ad05a07caa1d10/public/mainlogo3.png"
+      src="https://i.imgur.com/dsqZa9R.png"
       alt="Loading"
       style={{ width: 100, marginBottom: 20 }}
     />
@@ -90,7 +91,7 @@ export default function ImgMediaCard({ data }) {
     // Update cart state directly, triggers re-render everywhere consuming CartContext
     setCart([...cart, newProduct]);
 
-    showToast("🛒 Product added to cart!");
+  toast.success('🎉 Item added to cart!')
 
     setShowOverlay(true);
     setTimeout(() => setShowOverlay(false), 1000);
@@ -99,7 +100,7 @@ export default function ImgMediaCard({ data }) {
   return (
     <>
       <style>{zoomInAnimation}</style>
-      <ToastNotify />
+      
       {showOverlay && <LoadingOverlay />}
       <ConfirmModal open={open} setOpen={setOpen} handleClose={handleClose} />
       <Card

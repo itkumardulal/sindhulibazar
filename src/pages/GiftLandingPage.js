@@ -1,9 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef ,useEffect} from "react";
 import "./GiftLandingPage.css";
 import DrawerAppBar from "../components/Navbar";
 import Footer from "../components/footer";
 import { useNavigate } from "react-router-dom";
 import giftImages from "../data/spinnergiftitems.json";
+import { useParams } from 'react-router-dom';
+import { getGiftData } from "../components/orderforfriendcom/order_api/getGiftData";
+
 
 const data = {
   id: "eea58c73-ccf3-45c2-b29c-b9b8f84c0423",
@@ -24,14 +27,10 @@ const data = {
   claimedAt: null,
 };
 
-
-
-
-
 const radius = 150;
 
 function describeArc(cx, cy, r, startAngle, endAngle) {
-  const rad = Math.PI / 180;
+  const rad = Math.PI / 180; 
   const x1 = cx + r * Math.cos(rad * startAngle);
   const y1 = cy + r * Math.sin(rad * startAngle);
   const x2 = cx + r * Math.cos(rad * endAngle);
@@ -46,8 +45,10 @@ function describeArc(cx, cy, r, startAngle, endAngle) {
 }
 
 export default function GiftLandingPage() {
-
-
+   const { id } = useParams();
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [showGifts, setShowGifts] = useState(false);
   const [spinning, setSpinning] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -58,6 +59,20 @@ const gifts = Object.entries(giftImages).map(([name, img]) => ({
   name,
   img
 }));
+
+  useEffect(() => {
+    async function fetchOrders() {
+      try {
+        const data = await getGiftData(id);
+        setOrders(data);
+      } catch (err) {
+        setError(err.message || 'Failed to load orders');
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchOrders();
+  }, []);
 
   const spinWheel = () => {
     if (spinning || claimed || selectedIndex !== null) return;
@@ -250,6 +265,7 @@ const gifts = Object.entries(giftImages).map(([name, img]) => ({
           )}
         </div>
       </DrawerAppBar>
+      <div>User ID is: {id}</div>
       <Footer />
     </>
   );

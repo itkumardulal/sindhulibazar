@@ -5,14 +5,17 @@ import WhatsAppMessageLink from "../messagecarrier/Whatsappme";
 import WhatsAppmebulk from "../messagecarrier/WhatsAppmebulk";
 import { CartContext } from "../context/CartContext";
 import Carthandler from "../components/handlers/Carthandler";
+import GiftPreInstructModel from "../components/orderforfriendcom/GiftPreInstructModel";
 
-const AddToCart = () => {
+const   AddToCart = () => {
   const { cart, setCart } = useContext(CartContext);
   const [totalItems, setTotalItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [checkoutMessage, setCheckoutMessage] = useState("");
   const [isNightShift, setIsNightShift] = useState(false);
   const [deliveryChargeFinal, setDeliveryChargeFinal] = useState(50);
+  const [isGiftModalOpen, setIsGiftModalOpen] = useState(false);
+
 
   useEffect(() => {
     const currentHour = new Date().getHours();
@@ -70,6 +73,23 @@ const AddToCart = () => {
       setCart
     );
   };
+  const handleSendGift = () => {
+
+
+    //form open 
+
+    //here the checkout message is created inside carthandler
+    // Carthandler(
+      
+    //   cart,
+    //   isNightShift,
+    //   totalPrice - deliveryChargeFinal,
+    //   setCheckoutMessage,
+    //   setCart
+    // );
+     setIsGiftModalOpen(true);
+  };
+  
 
   return (
     <>
@@ -220,6 +240,31 @@ const AddToCart = () => {
                 </ul>
               </div>
             </div>
+                 {/* <button
+              className="checkout-all-button"
+              style={{
+                backgroundColor: "green",
+                color: "white",
+                padding: "20px 50px",
+                borderRadius: "5px",
+                cursor: "pointer",
+                marginTop: "10px",
+                width: "100%",
+              }}
+              onClick={handleSendGift}
+            >
+             Send as Gift to Friend
+            </button> */}
+            {isGiftModalOpen && ( console.log(totalPrice, deliveryChargeFinal, totalItems, cart),<GiftPreInstructModel
+  orderData={{
+    totalPrice,
+    deliveryChargeFinal,
+    totalItems,
+   cart
+  }}
+    onClose={() => setIsGiftModalOpen(false)}
+  />
+)}
 
             <button
               className="checkout-all-button"
@@ -234,8 +279,9 @@ const AddToCart = () => {
               }}
               onClick={handleCheckoutAll}
             >
-              I want to order all items
+              Order for myself
             </button>
+                
 
             {checkoutMessage && <WhatsAppmebulk message={checkoutMessage} />}
           </div>

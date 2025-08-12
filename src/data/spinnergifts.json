@@ -1,0 +1,250 @@
+{
+  "giftItems": [
+    {
+      "priceRange": "10-30",
+      "items": [
+        {
+          "id": 1,
+          "name": "Budget Keychain",
+          "price": 15,
+          "picture": "https://www.w3schools.com/w3images/keychain.jpg"
+        },
+        {
+          "id": 2,
+          "name": "Small Notebook",
+          "price": 25,
+          "picture": "https://www.w3schools.com/w3images/notebook.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Colorful Pen Set",
+          "price": 20,
+          "picture": "https://www.w3schools.com/w3images/pens.jpg"
+        },
+        {
+          "id": 4,
+          "name": "Sticker Pack",
+          "price": 10,
+          "picture": "https://www.w3schools.com/w3images/stickers.jpg"
+        },
+        {
+          "id": 5,
+          "name": "Fridge Magnet",
+          "price": 18,
+          "picture": "https://www.w3schools.com/w3images/magnet.jpg"
+        },
+        {
+          "id": 6,
+          "name": "Mini Photo Frame",
+          "price": 30,
+          "picture": "https://www.w3schools.com/w3images/photoframe.jpg"
+        }
+      ]
+    },
+    {
+      "priceRange": "100-300",
+      "items": [
+        {
+          "id": 7,
+          "name": "Wireless Mouse",
+          "price": 250,
+          "picture": "https://www.w3schools.com/w3images/mouse.jpg"
+        },
+        {
+          "id": 8,
+          "name": "Bluetooth Speaker",
+          "price": 300,
+          "picture": "https://www.w3schools.com/w3images/speaker.jpg"
+        },
+        {
+          "id": 9,
+          "name": "Smartphone Stand",
+          "price": 150,
+          "picture": "https://www.w3schools.com/w3images/phonestand.jpg"
+        },
+        {
+          "id": 10,
+          "name": "Desk Organizer",
+          "price": 200,
+          "picture": "https://www.w3schools.com/w3images/organizer.jpg"
+        },
+        {
+          "id": 11,
+          "name": "Portable Charger",
+          "price": 280,
+          "picture": "https://www.w3schools.com/w3images/charger.jpg"
+        },
+        {
+          "id": 12,
+          "name": "LED Desk Lamp",
+          "price": 300,
+          "picture": "https://www.w3schools.com/w3images/lamp.jpg"
+        }
+      ]
+    },
+    {
+      "priceRange": "300-500",
+      "items": [
+        {
+          "id": 13,
+          "name": "Bluetooth Headphones",
+          "price": 450,
+          "picture": "https://www.w3schools.com/w3images/headphones.jpg"
+        },
+        {
+          "id": 14,
+          "name": "Smart Fitness Band",
+          "price": 400,
+          "picture": "https://www.w3schools.com/w3images/fitnessband.jpg"
+        },
+        {
+          "id": 15,
+          "name": "Backpack",
+          "price": 480,
+          "picture": "https://www.w3schools.com/w3images/backpack.jpg"
+        },
+        {
+          "id": 16,
+          "name": "Coffee Maker",
+          "price": 350,
+          "picture": "https://www.w3schools.com/w3images/coffeemaker.jpg"
+        },
+        {
+          "id": 17,
+          "name": "Smartwatch",
+          "price": 500,
+          "picture": "https://www.w3schools.com/w3images/smartwatch.jpg"
+        },
+        {
+          "id": 18,
+          "name": "Gaming Mouse",
+          "price": 380,
+          "picture": "https://www.w3schools.com/w3images/gamingmouse.jpg"
+        }
+      ]
+    },
+    {
+      "priceRange": "500-1000",
+      "items": [
+        {
+          "id": 19,
+          "name": "Tablet",
+          "price": 900,
+          "picture": "https://www.w3schools.com/w3images/tablet.jpg"
+        },
+        {
+          "id": 20,
+          "name": "Digital Camera",
+          "price": 850,
+          "picture": "https://www.w3schools.com/w3images/camera.jpg"
+        },
+        {
+          "id": 21,
+          "name": "Noise Cancelling Headphones",
+          "price": 950,
+          "picture": "https://www.w3schools.com/w3images/noisecancelling.jpg"
+        },
+        {
+          "id": 22,
+          "name": "Smart Home Assistant",
+          "price": 700,
+          "picture": "https://www.w3schools.com/w3images/homeassistant.jpg"
+        },
+        {
+          "id": 23,
+          "name": "Gaming Keyboard",
+          "price": 650,
+          "picture": "https://www.w3schools.com/w3images/keyboard.jpg"
+        },
+        {
+          "id": 24,
+          "name": "Electric Kettle",
+          "price": 550,
+          "picture": "https://www.w3schools.com/w3images/kettle.jpg"
+        }
+      ]
+    },
+    {
+      "priceRange": "1000-1500",
+      "items": [
+        {
+          "id": 25,
+          "name": "Fitness Treadmill",
+          "price": 1200,
+          "picture": "https://www.w3schools.com/w3images/treadmill.jpg"
+        },
+        {
+          "id": 26,
+          "name": "Air Fryer",
+          "price": 1400,
+          "picture": "https://www.w3schools.com/w3images/airfryer.jpg"
+        },
+        {
+          "id": 27,
+          "name": "Smart TV",
+          "price": 1500,
+          "picture": "https://www.w3schools.com/w3images/smarttv.jpg"
+        },
+        {
+          "id": 28,
+          "name": "Portable Projector",
+          "price": 1300,
+          "picture": "https://www.w3schools.com/w3images/projector.jpg"
+        },
+        {
+          "id": 29,
+          "name": "Home Security Camera",
+          "price": 1250,
+          "picture": "https://www.w3schools.com/w3images/securitycamera.jpg"
+        },
+        {
+          "id": 30,
+          "name": "Electric Scooter",
+          "price": 1100,
+          "picture": "https://www.w3schools.com/w3images/scooter.jpg"
+        }
+      ]
+    },
+    {
+      "priceRange": "1500-2000",
+      "items": [
+        {
+          "id": 31,
+          "name": "Laptop",
+          "price": 1800,
+          "picture": "https://www.w3schools.com/w3images/laptop.jpg"
+        },
+        {
+          "id": 32,
+          "name": "Smart Refrigerator",
+          "price": 2000,
+          "picture": "https://www.w3schools.com/w3images/refrigerator.jpg"
+        },
+        {
+          "id": 33,
+          "name": "Wireless Home Theater",
+          "price": 1900,
+          "picture": "https://www.w3schools.com/w3images/hometheater.jpg"
+        },
+        {
+          "id": 34,
+          "name": "Advanced DSLR Camera",
+          "price": 1950,
+          "picture": "https://www.w3schools.com/w3images/dslrcamera.jpg"
+        },
+        {
+          "id": 35,
+          "name": "Robot Vacuum Cleaner",
+          "price": 1700,
+          "picture": "https://www.w3schools.com/w3images/robotvacuum.jpg"
+        },
+        {
+          "id": 36,
+          "name": "Gaming Console",
+          "price": 1600,
+          "picture": "https://www.w3schools.com/w3images/gamingconsole.jpg"
+        }
+      ]
+    }
+  ]
+}

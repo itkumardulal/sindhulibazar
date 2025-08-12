@@ -6,7 +6,7 @@ const Carthandler = (
   setCheckoutMessage,
   setCart
 ) => {
-  const shortenName = (name) => (name.length > 25 ? name.slice(-25) : name);
+  const shortenName = (name) => (name.length > 30 ? name.slice(-25) : name);
 
   // 📝 Review section
   const itemLines = cart.map((item, idx) => {
