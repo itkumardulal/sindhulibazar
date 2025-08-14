@@ -1,28 +1,27 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
 export async function getGiftData(id) {
+//id is avalable here check alreasdy 
   if (!id) throw new Error("Order ID is required");
 
   try {
-    const res = await fetch(`${API_URL}/getGiftData`, {
-      method: "POST",               // Use POST method
+    const res = await fetch(`${API_URL}/getGiftData/${id}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id }), // Send id in request body as JSON
     });
 
+    // Check for non-OK HTTP response early to avoid JSON parse errors
     if (!res.ok) {
-      const errData = await res.json();
-      throw new Error(errData.error || "Failed to fetch gift data");
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.error || `Failed to fetch gift data (status ${res.status})`);
     }
 
     const data = await res.json();
-    console.log(data);
     return data;
-
   } catch (err) {
-    console.error("❌ Fetching gift data failed:", err.message);
+    console.error("Error fetching gift data:", err.message);
     throw err;
   }
 }

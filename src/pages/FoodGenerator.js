@@ -4,10 +4,11 @@ import { Soup, ChevronDown, ChevronUp, Loader2, Feather } from 'lucide-react';
 import './FoodGenerator.css'; // Add this line to import your stylesheet
 import DrawerAppBar from '../components/Navbar';
 import { useNavigate } from "react-router-dom";
-import Footer from '../components/footer';
+
 // import FeaturedProducts from '../components/homepagecom/FeaturedProducts';
 import Datacarrier from '../data/Datacarrier';
 import scrollToTop from '../tinyfunction/scrollToTop';
+import Footer from '../components/footer';
 
 // The main application component
 const FoodGenerator = () => {

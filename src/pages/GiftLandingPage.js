@@ -1,31 +1,38 @@
 import React, { useState, useRef ,useEffect} from "react";
 import "./GiftLandingPage.css";
 import DrawerAppBar from "../components/Navbar";
-import Footer from "../components/footer";
+import giftlist from "../data/giftlist.json"; 
 import { useNavigate } from "react-router-dom";
-import giftImages from "../data/spinnergiftitems.json";
+// import giftImages from "../data/spinnergiftitems.json";
 import { useParams } from 'react-router-dom';
 import { getGiftData } from "../components/orderforfriendcom/order_api/getGiftData";
+import PromoCardGiftForFriend from "../components/orderforfriendcom/PromoCardGiftForFriend";
+import Footer from "../components/footer";
+import ClaimedGiftAuthModel from "../components/orderforfriendcom/ClaimedGiftAuthModel";
+import isValidUUID from "../tinyfunction/isValidUUID";
+import { updateGiftWinItem } from "../components/orderforfriendcom/order_api/updateGiftWinItem";
+//orderforfrnfcom updated
 
 
-const data = {
-  id: "eea58c73-ccf3-45c2-b29c-b9b8f84c0423",
-  senderName: "John Doe",
-  receiverName: "Jane Smith",
-  relationship: "Best Friend",
-  message: "Happy Birthday Jane! Wishing you all the best 🎉",
-  occasion: "Birthday",
-  itemsOrdered: [
-    { name: "Perfume Gift Set", quantity: 1, price: "1500.00" },
-    { name: "Spa Voucher", quantity: 1, price: "2500.00" },
-    { name: "Chocolate Box", quantity: 1, price: "500.00" },
-    { name: "Book Collection", quantity: 1, price: "1200.00" },
-    { name: "Gift Card", quantity: 1, price: "1000.00" },
-    { name: "Coffee Mug", quantity: 1, price: "300.00" },
-  ],
-  claimed: false,
-  claimedAt: null,
-};
+// const data = {
+//   id: "eea58c73-ccf3-45c2-b29c-b9b8f84c0423",
+//   senderName: "John Doe",
+//   receiverName: "Jane Smith",
+//   relationship: "Best Friend",
+//   message: "Happy Birthday Jane! Wishing you all the best 🎉",
+//   occasion: "Birthday",
+//   itemsOrdered: [
+//     { name: "Perfume Gift Set", quantity: 1, price: "1500.00" },
+//     { name: "Spa Voucher", quantity: 1, price: "2500.00" },
+//     { name: "Chocolate Box", quantity: 1, price: "500.00" },
+//     { name: "Book Collection", quantity: 1, price: "1200.00" },
+//     { name: "Gift Card", quantity: 1, price: "1000.00" },
+//     { name: "Coffee Mug", quantity: 1, price: "300.00" },
+//   ],
+//   claimed: false,
+//   claimedAt: null,
+// };
+
 
 const radius = 150;
 
@@ -44,42 +51,119 @@ function describeArc(cx, cy, r, startAngle, endAngle) {
   ].join(" ");
 }
 
+    const handleOrderNow = () => {
+    // navigate to order page or open modal
+    alert("Redirecting to order page...");
+  };
 export default function GiftLandingPage() {
    const { id } = useParams();
-  const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [showGifts, setShowGifts] = useState(false);
   const [spinning, setSpinning] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [claimed, setClaimed] = useState(false);
+    // const [isValid, setIsValid] = useState(null);
   const wheelRef = useRef(null);
-      const navigate = useNavigate();
-const gifts = Object.entries(giftImages).map(([name, img]) => ({
-  name,
-  img
-}));
 
-  useEffect(() => {
-    async function fetchOrders() {
-      try {
-        const data = await getGiftData(id);
-        setOrders(data);
-      } catch (err) {
-        setError(err.message || 'Failed to load orders');
-      } finally {
-        setLoading(false);
-      }
+  // const [filteredGifts, setFilteredGifts] = useState(giftlist); // example
+
+
+const navigate = useNavigate();
+// const gifts = Object.entries(orderData.image).map(([name, img]) => ({
+//   name,
+//   img
+// }));
+
+
+  const [orderData, setOrderData] = useState(null);
+ const [showNoGifts, setShowNoGifts] = useState(false);
+
+
+
+   const handleCheckGifts = () => {
+    // your logic; if none:
+    setShowNoGifts(true);
+  };
+
+// 1️⃣ ID validation function
+// function isValidUUID(id) {
+//   // UUID v4 regex
+//   const uuidV4Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+//   return uuidV4Regex.test(id);
+// }
+
+// 2️⃣ Updated useEffect with validation
+useEffect(() => {
+  if (!id) return;
+
+  // Validate ID first
+  if (!isValidUUID(id)) {
+     navigate("/order_for_friend/giftpromo");
+    // console.warn("❌ Invalid order ID, skipping API request:", id);
+    // setError("Invalid order ID format."); // optional
+    // return; // stops execution, will render PromoCardGiftForFriend
+  }
+
+  async function fetchOrder() {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const orderData = await getGiftData(id);
+      setOrderData(orderData);
+    
+    } catch (err) {
+      console.error("❌ Failed to fetch order data:", err);
+      // setError(err.message);
+    } finally {
+      setLoading(false);
     }
-    fetchOrders();
-  }, []);
+  }
 
+  fetchOrder();
+}, [id]);
+
+// 3️⃣ Render logic remains the same
+if (loading) return <p>Loading...</p>;
+// if (!isValidUUID(id)) return <PromoCardGiftForFriend onOrderNow={handleOrderNow} />;
+if (!orderData) return <ClaimedGiftAuthModel onOrderNow={handleOrderNow} />;
+
+  console.log("gfhsddjkfhkdjhfdjk",orderData.giftRange,orderData)
+
+// setSelectedAgeGroup(orderData.ageGroup)
+  ////filter giftitem as per user has send data gender,agea and price range
+const filteredGifts = giftlist.filter((gift) => {
+  let matches = true;
+
+  if (orderData.receiverAgeGroup) {
+    matches =
+      matches &&
+      gift.ageGroup.toLowerCase() === orderData.receiverAgeGroup.toLowerCase();
+  }
+
+  if (orderData.receiverGender) {
+    matches =
+      matches &&
+      gift.gender.toLowerCase() === orderData.receiverGender.toLowerCase();
+  }
+
+  if (orderData.giftRange) {
+    const [min, max] = orderData.giftRange.split("-").map(Number);
+    matches = matches && gift.price >= min && gift.price <= max;
+  }
+
+  return matches;
+});
+
+
+// console.log(orderData)
   const spinWheel = () => {
     if (spinning || claimed || selectedIndex !== null) return;
     setSpinning(true);
     setSelectedIndex(null);
 
-    const segments = gifts.length;
+    const segments = filteredGifts.length;
     const segmentAngle = 360 / segments;
     const randomIndex = Math.floor(Math.random() * segments);
     const extraRounds = 6;
@@ -98,24 +182,44 @@ const gifts = Object.entries(giftImages).map(([name, img]) => ({
     }, 5200);
   };
 
-  const claimGift = () => {
-    if (claimed || selectedIndex === null) return;
-    setClaimed(true);
-  };
+const claimGift = async (index) => {
+
+  if (claimed || index === null) return;
+
+  setClaimed(true);
+
+  // try {
+  //   const gift = filteredGifts[index]; // get the gift based on clicked index
+  //   // console.log(id, gift.name,gift.price)
+  //    // call API
+  //    await updateGiftWinItem({
+  //     orderId: id,
+  //     giftName: gift.name,
+  //     price: gift.price,
+  //   });
+  //   // console.log("✅ Gift claimed successfully:", gift.name,id);
+  // } catch (err) {
+  //   console.error("❌ Error claiming gift:", err);
+  //   setError("Failed to claim gift. Please try again.");
+  //   setClaimed(false); // revert claimed state if API fails
+  // }
+};
+
 
   return (
     <>
       <DrawerAppBar>
+  
         <div className="gift-landing-page" role="main" aria-label="Gift Landing Page">
           {!showGifts ? (
             <section className="wish-section fade-in">
               <h1>
-                Happy {data.occasion}, {data.receiverName}!
+                Happy {orderData.occasion}, {orderData.receiverName}!
               </h1>
               <h3>
-                A special wish from {data.senderName} ({data.relationship})
+                A special wish from {orderData.senderName} ({orderData.relationship})
               </h3>
-              <blockquote>{data.message || "No message provided."}</blockquote>
+              <blockquote>{orderData.message || "No message provided."}</blockquote>
               <button
                 className="view-gifts-btn"
                 onClick={() => setShowGifts(true)}
@@ -137,8 +241,8 @@ const gifts = Object.entries(giftImages).map(([name, img]) => ({
                     aria-live="polite"
                     aria-atomic="true"
                   >
-                    {gifts.map((gift, i) => {
-                      const segments = gifts.length;
+                    {filteredGifts.map((gift, i) => {
+                      const segments = filteredGifts.length;
                       const segmentAngle = 360 / segments;
                       const startAngle = segmentAngle * i - 90;
                       const endAngle = startAngle + segmentAngle;
@@ -150,41 +254,91 @@ const gifts = Object.entries(giftImages).map(([name, img]) => ({
                       const textY = radius + textRadius * Math.sin(rad);
 
                       return (
-                        <g
-                          key={i}
-                          aria-label={gift.name}
-                          tabIndex={-1}
-                          className={i === selectedIndex ? "selected-segment" : ""}
-                        >
-                          <path
-                            d={describeArc(radius, radius, radius, startAngle, endAngle)}
-                            fill={i % 2 === 0 ? "#FFC107" : "#FFEB3B"}
-                            stroke="#B71C1C"
-                            strokeWidth="2"
-                          />
-                          <image
-                            href={gift.img}
-                            x={textX - 25}
-                            y={textY - 50}
-                            height="50"
-                            width="50"
-                            style={{ pointerEvents: "none", userSelect: "none" }}
-                            alt={gift.name}
-                          />
-                          <text
-                            x={textX}
-                            y={textY + 15}
-                            fill="#7F0000"
-                            fontSize="12"
-                            fontWeight="700"
-                            textAnchor="middle"
-                            dominantBaseline="middle"
-                            pointerEvents="none"
-                            style={{ userSelect: "none" }}
-                          >
-                            {gift.name}
-                          </text>
-                        </g>
+                    <g
+  key={gift.id}
+  aria-label={gift.name}
+  tabIndex={-1}
+  className={i === selectedIndex ? "selected-segment" : ""}
+>
+  {/* Segment path */}
+  <path
+    d={describeArc(radius, radius, radius, startAngle, endAngle)}
+    fill={i % 2 === 0 ? "#FFC107" : "#FFEB3B"}
+    stroke="#B71C1C"
+    strokeWidth="2"
+  />
+
+  {/* Gift Image */}
+  <image
+    href={gift.image}
+    x={textX - 50}  
+    y={textY - 40}  
+    height="60"
+    width="80"
+    style={{ pointerEvents: "none", userSelect: "none" }}
+    alt={gift.name}
+  />
+
+  {/* Background rectangle for text */}
+  <rect
+    x={textX - 20}           // center around text
+    y={textY - 40}           // start above to cover both name & price
+    width="30"                // narrow for vertical line
+    height="80"               // enough for name + price
+    fill="rgba(23, 95, 5, 0.66)"
+    rx="6"
+    ry="6"
+  />
+
+  {/* Gift Name */}
+<text
+  x={textX}
+  y={textY - 10}          // adjust vertical position
+  fill="#fff"
+  fontSize="12"
+  fontWeight="600"
+  textAnchor="middle"
+  dominantBaseline="middle"
+  pointerEvents="none"
+  style={{ userSelect: "none" }}
+  transform={`rotate(-90, ${textX}, ${textY})`}  // rotate around center
+>
+  {gift.name}
+</text>
+
+<text
+  x={textX}
+  y={textY + 10}          // adjust below the name
+  fill="#fff"
+  fontSize="6.5"
+  fontWeight="500"
+  textAnchor="middle"
+  dominantBaseline="middle"
+  pointerEvents="none"
+  style={{ userSelect: "none" }}
+  transform={`rotate(-90, ${textX}, ${textY + 10})`}
+>
+  Rs {gift.price}
+</text>
+
+
+  {/* Gift Price */}
+  {/* <text
+    x={textX}
+    y={textY + 10}  // second line inside rect
+    fill="#fff"
+    fontSize="12"
+    fontWeight="500"
+    textAnchor="middle"
+    dominantBaseline="middle"
+    pointerEvents="none"
+    style={{ userSelect: "none" }}
+  >
+    Rs {gift.price}
+  </text> */}
+</g>
+
+                        
                       );
                     })}
                     <circle
@@ -215,11 +369,11 @@ const gifts = Object.entries(giftImages).map(([name, img]) => ({
               {!claimed && selectedIndex !== null && (
                 <>
                   <section className="gift-details" aria-live="polite" aria-atomic="true">
-                    🎁 You won: <strong>{gifts[selectedIndex].name}</strong>
+                    🎁 You won: <strong>{filteredGifts[selectedIndex].name}</strong>
                   </section>
                   <button
                     className="claim-btn"
-                    onClick={claimGift}
+                    onClick={() => claimGift(selectedIndex)}
                     disabled={claimed}
                     aria-disabled={claimed}
                   >

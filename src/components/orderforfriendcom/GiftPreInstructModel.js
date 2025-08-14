@@ -11,23 +11,29 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
   const totalPrice = 500;
 
   const giftRanges = [
-    { label: "१० देखि ३०", value: "10-30", cost: 0 },
-    { label: "१०० देखि ३००", value: "100-300", cost: 200 },
-    { label: "३०० देखि ५००", value: "300-500", cost: 400 },
-    { label: "५०० देखि १०००", value: "500-1000", cost: 1200 },
-    { label: "१००० देखि १५००", value: "1000-1500", cost: 1800 },
-    { label: "१५०० देखि २०००", value: "1500-2000", cost: 1700 },
-    { label: "२००० देखि २५००", value: "2000-2500", cost: 2200 },
-    { label: "२५०० देखि ३५००", value: "2500-3500", cost: 3000 },
-    { label: "३५०० देखि ४०००", value: "3500-4000", cost: 3600 },
+     { label: "१० देखि १००", value: "10-100", cost: 50 },
+  { label: "१०० देखि ३००", value: "100-300", cost: 200 },
+  { label: "३०० देखि ६००", value: "300-600", cost: 500 },
+  { label: "६०० देखि १०००", value: "600-1000", cost: 800 },
+  { label: "१००० देखि १५००", value: "1000-1500", cost: 1250 },
+  { label: "१५०० देखि २०००", value: "1500-2000", cost: 1750 }
   ];
 
   const LINK_GENERATION_COST = 50;
+// const gift_range_cost = {
+//   "10-100": 50,      // midpoint or average cost
+//   "100-300": 200,
+//   "300-600": 500,
+//   "600-1000": 800,
+//   "1000-1500": 1250,
+//   "1500-2000": 1750
+// };
 
   const [step, setStep] = useState(0);
   const [additionalCost, setAdditionalCost] = useState(0);
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
+ 
 
   const [formData, setFormData] = useState({
     senderName: "",
@@ -42,10 +48,11 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
     giftRange: "",
   });
 
-  useEffect(() => {
-    const rangeObj = giftRanges.find((r) => r.value === formData.giftRange);
-    setAdditionalCost(rangeObj ? rangeObj.cost : 0);
-  }, [formData.giftRange]);
+useEffect(() => {
+  const rangeObj = giftRanges.find(r => r.value === formData.giftRange);
+  setAdditionalCost(rangeObj ? rangeObj.cost : 0);
+}, [formData.giftRange]);
+ 
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -63,34 +70,49 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
 
   // Form fields including new Age Group and Gender dropdowns
   const fields = [
-    { label: "प्रेषकको नाम", name: "senderName", placeholder: "सोफिया" },
-    { label: "प्रेषकको फोन (वैकल्पिक)", name: "senderPhone", placeholder: "९८७६५४३२१०", optional: true },
-    { label: "प्राप्तकर्ताको नाम", name: "receiverName", placeholder: "खड्का" },
-    { label: "प्राप्तकर्ताको फोन (वैकल्पिक)", name: "receiverPhone", placeholder: "९१२३४५६७८९", optional: true },
+   { label: "Sender's Name", name: "senderName", placeholder: "Your name" },
+{ label: "Sender's Phone (Optional)", name: "senderPhone", placeholder: "9876543210", optional: true },
+{ label: "Receiver's Name", name: "receiverName", placeholder: "Receiver name" },
+{ label: "Receiver's Phone (Optional)", name: "receiverPhone", placeholder: "98********", optional: true },
+
 
     // New Age Group select field
-    { label: "आयु समूह", name: "ageGroup", isSelect: true, options: [
-      { label: "छोराछोरी (Children)", value: "children" },
-      { label: "किशोरावस्था (Teenage)", value: "teenage" },
-      { label: "प्रौढ (Adult)", value: "adult" },
-      { label: "बृद्ध (Old)", value: "old" },
-    ]},
+{ 
+  label: "Age Group", 
+  name: "ageGroup", 
+  isSelect: true, 
+  options: [
+    { label: "Children", value: "children" },
+    { label: "Teenage", value: "teenage" },
+    { label: "Adult", value: "adult" },
+    { label: "Old", value: "old" },
+  ]
+},
 
-    // New Gender select field
-    { label: "लिंग", name: "gender", isSelect: true, options: [
-      { label: "पुरुष (Male)", value: "male" },
-      { label: "महिला (Female)", value: "female" },
-    ]},
+// Gender select field
+{ 
+  label: "Gender", 
+  name: "gender", 
+  isSelect: true, 
+  options: [
+    { label: "Male", value: "male" },
+    { label: "Female", value: "female" },
+  ]
+},
 
-    { label: "उपहार मूल्य दायरा", name: "giftRange", isGiftRange: true },
-    { label: "सम्बन्ध", name: "relationship", placeholder: "सर्वोत्तम मित्र" },
-    {
-      label: "सन्देश",
-      name: "message",
-      placeholder: "जन्मदिनको शुभकामना सोफिया! तपाईलाई सबै राम्रो होस्। मैले तपाईलाई उपहार पठाएको छु। आशा छ मन पर्छ 🎉",
-      multiline: true,
-    },
-    { label: "अवसर", name: "occasion", placeholder: "जन्मदिन" },
+{ label: "Gift Price Range", name: "giftRange", isGiftRange: true },
+
+{ label: "Relationship", name: "relationship", placeholder: "Best Friend" },
+
+{
+  label: "Message",
+  name: "message",
+  placeholder: "Happy Birthday Sofia! Wishing you all the best. I have sent you a gift. Hope you like it 🎉",
+  multiline: true,
+},
+
+{ label: "Occasion", name: "occasion", placeholder: "Birthday" },
+
   ];
 
   const currentField = fields[step];
@@ -118,6 +140,7 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
       return;
     }
     setErrorMsg("");
+const selectedRange = giftRanges.find(r => r.value === formData.giftRange);
 
     const orderData = {
       senderName: formData.senderName,
@@ -132,6 +155,8 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
       deliveryCharge: additionalCost,
       totalPrice: totalPrice + additionalCost + LINK_GENERATION_COST,
       itemsOrdered: itemOrdered,
+      giftRange:formData.giftRange,
+        giftCost: selectedRange ? selectedRange.cost : 0,
     };
 
     try {
