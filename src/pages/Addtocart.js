@@ -240,21 +240,53 @@ const   AddToCart = () => {
                 </ul>
               </div>
             </div>
-                 {/* <button
-              className="checkout-all-button"
-              style={{
-                backgroundColor: "green",
-                color: "white",
-                padding: "20px 50px",
-                borderRadius: "5px",
-                cursor: "pointer",
-                marginTop: "10px",
-                width: "100%",
-              }}
-              onClick={handleSendGift}
-            >
-             Send as Gift to Friend
-            </button> */}
+          <button
+
+
+
+
+////// btn SEND AS A GIFT
+  className="checkout-all-button"
+  style={{
+    backgroundColor: "#9e9e9e", // gray to indicate disabled
+    color: "white",
+    padding: "20px 50px",
+    borderRadius: "5px",
+    cursor: "not-allowed",
+    marginTop: "10px",
+    width: "100%",
+    position: "relative",
+    overflow: "hidden",
+  }}
+  disabled
+>
+  {/* Animated gradient or shimmer effect */}
+  <span
+    style={{
+      position: "absolute",
+      top: 0,
+      left: "-100%",
+      width: "200%",
+      height: "100%",
+      background:
+        "linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.2) 100%)",
+      animation: "shine 2s infinite",
+      pointerEvents: "none",
+    }}
+  ></span>
+  Send as Gift to Friend (Coming Soon)
+</button>
+
+{/* Add this CSS in your global CSS or a <style> tag */}
+<style>
+  {`
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+  `}
+</style>
+
             {isGiftModalOpen && ( console.log(totalPrice, deliveryChargeFinal, totalItems, cart),<GiftPreInstructModel
   orderData={{
     totalPrice,

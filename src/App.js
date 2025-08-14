@@ -17,6 +17,7 @@ import FoodGenerator from "./pages/FoodGenerator";
 import GiftLandingPage from "./pages/GiftLandingPage";
 import { Toaster } from 'react-hot-toast';
 import PromoCardGiftForFriend from "./components/orderforfriendcom/PromoCardGiftForFriend";
+import AdmissionPage from "./pages/Admissionpage";
 
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/FoodGenerator" element={<FoodGenerator />} />
         <Route path="/order_for_friend/:id" element={<GiftLandingPage />} />
         <Route path="/order_for_friend/giftpromo" element={<PromoCardGiftForFriend />} />
+        <Route path="/btech_sindhuli" element={<AdmissionPage />} />
         {/* <Route path="/order_for_friend/:id" element={<GiftLandingPage />} /> */}
         {/* /// use  0563b9e1-a5a7-4a9a-9f99-cf52a4b9f98d  as id  for test*/}
 

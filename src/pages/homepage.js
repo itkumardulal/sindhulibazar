@@ -15,6 +15,7 @@ import FoodMenuCanva from "../components/homepagecom/FoodMenuCanva";
 
 import RakshyaBandhan from "../components/offerwalls/RakshyaBAndhan";
 import scrollToTop from "../tinyfunction/scrollToTop";
+import StudyIt from "../components/offerwalls/StudyIt";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -91,6 +92,7 @@ const Homepage = () => {
 
         {/* Service btn are the all the feature box parent */}
         <Servicesbtn />
+        <StudyIt/>
 {/* <RakshyaBandhan/> */}
       <FoodMenuCanva/>
              <EvVehicleBooking />
