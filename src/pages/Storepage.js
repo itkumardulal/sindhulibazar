@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import DrawerAppBar from "../components/Navbar";
-import ImgMediaCard from "../components/ItemCard";
+import ImgMediaCard from "../components/productcardview/ImgMediaCard";
 import { Box, Button, Tooltip } from "@mui/material";
 import Datacarrier from "../data/Datacarrier";
 import { useParams, useNavigate } from "react-router-dom";
@@ -110,7 +110,7 @@ const Storepage = () => {
 
         <div
           style={{
-            padding: "10px 20px",
+            // padding: "10px 20px",
             borderRadius: "10px",
             textAlign: "center",
             maxWidth: "1400px",
@@ -121,7 +121,7 @@ const Storepage = () => {
         >
           <span
             style={{
-              fontSize: 18,
+              fontSize: 12,
               color: "#333",
               fontWeight: "600",
               paddingBottom: "6px",
@@ -156,29 +156,26 @@ const Storepage = () => {
             backgroundColor: "#f5f5f5",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              flexWrap: "wrap",
-              gap: { xs: 1, sm: 2, md: 3 },
-              width: "100%",
-              maxWidth: "1200px",
-            }}
-          >
-            {items.map((dt, index) => (
-              <ImgMediaCard
-                key={index}
-                data={dt}
-                sx={{
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  "&:hover": {
-                    animation: `${hoverAnimation} 1s ease-in-out`,
-                  },
-                }}
-              />
-            ))}
-          </Box>
+<Box
+  sx={{
+    display: "grid",
+    gridTemplateColumns: {
+      xs: "repeat(2, 1fr)", // 2 columns on mobile
+      sm: "repeat(3, 1fr)", // 3 columns on tablets
+      md: "repeat(4, 1fr)", // 4 columns on desktop
+    },
+    gap: { xs: 1, sm: 2, md: 3 },
+    width: "100%",
+    maxWidth: "1200px",
+    margin: "0 auto",
+    boxSizing: "border-box",
+  }}
+>
+  {items.map((dt, index) => (
+    <ImgMediaCard key={index} data={dt} index={index} />
+  ))}
+</Box>
+
 
           {showButton && (
             <Tooltip title="Back to Top" arrow>

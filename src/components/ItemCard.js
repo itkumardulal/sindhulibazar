@@ -54,7 +54,7 @@ const LoadingOverlay = () => (
   </div>
 );
 
-export default function ImgMediaCard({ data }) {
+export default function ImgMediaCard1({ data }) {
   const { id, name, image, description, price, category } = data;
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(1);

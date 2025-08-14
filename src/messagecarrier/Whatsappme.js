@@ -112,9 +112,16 @@ Total Price:    Rs.${totalCost}
             }}
             className="whatsapp-icon"
           />
-          <span style={{ textDecoration: "underline", fontSize: "16px" }}>
-            SEND ORDER
-          </span>
+      <span
+  style={{
+    textDecoration: "underline",
+    fontSize: "calc(0.5rem + 0.5vw)", // scales with viewport width
+    whiteSpace: "nowrap",
+  }}
+>
+  SEND ORDER
+</span>
+
         </Button>
       </a>
     </div>

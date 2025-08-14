@@ -75,7 +75,7 @@ const StudyIt = () => {
     <div style={bannerStyle}>
       <div style={overlayStyle}></div>
       <h2 style={textStyle}>
-        Learn Technology, Lead Education – B.Tech.Ed IT Sindhuli for <span style={highlightStyle}>Low Cost</span>
+        Learn Technology, Lead Education – B.Tech.Ed IT Sindhuli in <span style={highlightStyle}>Lower Cost</span>
       </h2>
       <p style={subTextStyle}>
         म प्रविधि र शिक्षामा अध्ययन गर्न चाहन्छु – Be better personal & professional!

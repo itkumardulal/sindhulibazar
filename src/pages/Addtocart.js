@@ -240,12 +240,8 @@ const   AddToCart = () => {
                 </ul>
               </div>
             </div>
+
           <button
-
-
-
-
-////// btn SEND AS A GIFT
   className="checkout-all-button"
   style={{
     backgroundColor: "#9e9e9e", // gray to indicate disabled
