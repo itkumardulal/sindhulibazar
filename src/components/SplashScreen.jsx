@@ -5,18 +5,29 @@ const SplashScreen = () => {
     <>
       <style>
         {`
-          @keyframes fadeInPulse {
+          @keyframes logo3DSpin {
             0% {
               opacity: 0;
-              transform: scale(0.9);
+              transform: rotateY(-180deg) scale(0.5);
             }
             50% {
               opacity: 1;
-              transform: scale(1.05);
+              transform: rotateY(20deg) scale(1.1);
             }
             100% {
               opacity: 1;
-              transform: scale(1);
+              transform: rotateY(0deg) scale(1);
+            }
+          }
+
+          @keyframes titleSlideUp {
+            0% {
+              opacity: 0;
+              transform: translateY(40px) scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0) scale(1);
             }
           }
 
@@ -26,35 +37,39 @@ const SplashScreen = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #FBA518, #F9CB45);
+            background: radial-gradient(circle at center, #FBA518, #F97300);
             flex-direction: column;
+            perspective: 1000px; /* Needed for 3D effect */
           }
 
           .logo {
-            width: 120px;
-            height: 120px;
-            animation: fadeInPulse 2s ease-in-out forwards;
+            width: 150px;
+            height: 150px;
+            animation: logo3DSpin 1.8s ease-in-out forwards;
+            transform-style: preserve-3d;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            background: white url('https://i.imgur.com/kBxK8jj.png') center/cover no-repeat;
           }
 
           .title {
-            color: #fff;
-            margin-top: 16px;
-            font-family: Arial, sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            animation: fadeInPulse 2s ease-in-out forwards;
-            animation-delay: 0.3s;
+            color: white;
+            margin-top: 20px;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            animation: titleSlideUp 1s ease-out forwards;
+            animation-delay: 1.2s;
+            opacity: 0;
           }
         `}
       </style>
 
       <div className="splash-container">
-        <img
-          src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/e57d5d19dab393b717e70a9801fb57fb988c28c5/public/mainlogo3.png"
-          alt="logo"
-          className="logo"
-        />
-        <h2 className="title">SINDHULIBAZAR.COM</h2>
+        <div className="logo"></div>
+        <div className="title">SINDHULI BAZAR</div>
       </div>
     </>
   );

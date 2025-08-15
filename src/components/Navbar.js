@@ -61,7 +61,7 @@ function DrawerAppBar({ window, children }) {
         <div style={{ display: "flex", alignItems: "center" }}>
           <img
             style={{ height: 50, width: 50, marginRight: "2px" }}
-            src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/e57d5d19dab393b717e70a9801fb57fb988c28c5/public/mainlogo3.png"
+            src="https://i.imgur.com/d2BvVn5.png"
             alt="logo"
           />
           <Typography
@@ -198,16 +198,23 @@ function DrawerAppBar({ window, children }) {
             >
               <img
                 style={{ height: 55, width: 55, marginRight: "1px" }}
-                src="https://raw.githubusercontent.com/itkumardulal/sindhulibazar/e57d5d19dab393b717e70a9801fb57fb988c28c5/public/mainlogo3.png"
+                src="https://i.imgur.com/d2BvVn5.png"
                 alt="logo"
               />
               <Typography
-                variant="h6"
+                variant="h5"
                 sx={{
-                  fontFamily: "Arial",
-                  fontWeight: "bold",
-                  color: "white",
-                  fontSize: 20,
+                  fontFamily: "'Poppins', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 18,
+                  textTransform: "uppercase",
+                  letterSpacing: 0.7,
+                  background: "linear-gradient(90deg, #FFD700, #f15a02ff)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  textShadow: "1px 1px 2px rgba(22, 8, 8, 0.5)",
+                  cursor: "pointer",
+                  userSelect: "none",
                 }}
               >
                 SINDHULI BAZAR

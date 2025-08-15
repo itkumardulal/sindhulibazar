@@ -87,14 +87,14 @@
   { "id": "071", "name": "Story Books Set", "image": "https://www.w3schools.com/w3images/mountains.jpg", "price": 680, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Male" },
   { "id": "072", "name": "Board Game", "image": "https://www.w3schools.com/w3images/nature.jpg", "price": 720, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Male" },
 
-  { "id": "073", "name": "Doll Set", "image": "https://www.w3schools.com/w3images/fjords.jpg", "price": 650, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
-  { "id": "074", "name": "Art & Craft Kit", "image": "https://www.w3schools.com/w3images/lights.jpg", "price": 720, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
-  { "id": "075", "name": "Coloring Books Set", "image": "https://www.w3schools.com/w3images/mountains.jpg", "price": 680, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
-  { "id": "076", "name": "Plush Toys Set", "image": "https://www.w3schools.com/w3images/nature.jpg", "price": 800, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
-  { "id": "077", "name": "Jewelry Craft Kit", "image": "https://www.w3schools.com/w3images/fjords.jpg", "price": 750, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
-  { "id": "078", "name": "Board Game", "image": "https://www.w3schools.com/w3images/lights.jpg", "price": 700, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
-  { "id": "079", "name": "Story Books Set", "image": "https://www.w3schools.com/w3images/mountains.jpg", "price": 720, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
-  { "id": "080", "name": "Puzzle Game", "image": "https://www.w3schools.com/w3images/nature.jpg", "price": 690, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" }
+  { "id": "073", "name": "Doll Set", "image": "", "price": 6, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
+  { "id": "074", "name": "Art & Craft Kit", "image": "", "price": 600, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
+  { "id": "075", "name": "Coloring Books Set", "image": "", "price": 600, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
+  { "id": "076", "name": "Plush Toys Set", "image": "", "price": 600, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
+  { "id": "077", "name": "Jewelry Craft Kit", "image": "", "price": 600, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
+  { "id": "078", "name": "Board Game", "image": "", "price": 600, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
+  { "id": "079", "name": "Story Books Set", "image": "", "price": 600, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" },
+  { "id": "080", "name": "Puzzle Game", "image": "", "price": 600, "giftRange": "600-1000", "ageGroup": "Children", "gender": "Female" }
 
 , 
  { "id": "081", "name": "Wireless Earphones", "image": "https://www.w3schools.com/w3images/fjords.jpg", "price": 650, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Male" },
@@ -106,14 +106,14 @@
   { "id": "087", "name": "Cap & Hat Set", "image": "https://www.w3schools.com/w3images/mountains.jpg", "price": 620, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Male" },
   { "id": "088", "name": "Sports Wristband", "image": "https://www.w3schools.com/w3images/nature.jpg", "price": 680, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Male" },
 
-  { "id": "089", "name": "Fashion Handbag", "image": "https://www.w3schools.com/w3images/fjords.jpg", "price": 700, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
-  { "id": "090", "name": "Skater Dress", "image": "https://www.w3schools.com/w3images/lights.jpg", "price": 750, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
-  { "id": "091", "name": "Bracelet Set", "image": "https://www.w3schools.com/w3images/mountains.jpg", "price": 650, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
-  { "id": "092", "name": "Wireless Earphones", "image": "https://www.w3schools.com/w3images/nature.jpg", "price": 900, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
-  { "id": "093", "name": "Sports Sneakers", "image": "https://www.w3schools.com/w3images/fjords.jpg", "price": 850, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
-  { "id": "094", "name": "Notebook & Pen Set", "image": "https://www.w3schools.com/w3images/lights.jpg", "price": 620, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
-  { "id": "095", "name": "Hair Accessory Kit", "image": "https://www.w3schools.com/w3images/mountains.jpg", "price": 680, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
-  { "id": "096", "name": "Tote Bag", "image": "https://www.w3schools.com/w3images/nature.jpg", "price": 720, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" }
+  { "id": "089", "name": "Fashion Handbag", "image": "https://imgur.com/a/pa2D8aG", "price": 600, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
+  { "id": "090", "name": "Skater Dress", "image": "https://imgur.com/a/X45EoCh", "price": 600, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
+  { "id": "091", "name": "Bracelet Set", "image": "https://imgur.com/a/UWMlRKG", "price": 600, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
+  { "id": "092", "name": "Wireless Earphones", "image": "https://imgur.com/a/8KHcEeR", "price": 600, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
+  { "id": "093", "name": "Sports Sneakers", "image": "https://imgur.com/a/LP0Dkm2", "price": 600, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
+  { "id": "094", "name": "Notebook & Pen Set", "image": "https://imgur.com/a/ZF7kEKU", "price": 600, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
+  { "id": "095", "name": "Hair Accessory Kit", "image": "https://imgur.com/a/3cMpgvA", "price": 600, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" },
+  { "id": "096", "name": "Tote Bag", "image": "https://imgur.com/a/bYOYvp9", "price": 600, "giftRange": "600-1000", "ageGroup": "Teenage", "gender": "Female" }
 ,
   { "id": "097", "name": "Leather Wallet", "image": "https://www.w3schools.com/w3images/fjords.jpg", "price": 650, "giftRange": "600-1000", "ageGroup": "Adult", "gender": "Male" },
   { "id": "098", "name": "Formal Shirt", "image": "https://www.w3schools.com/w3images/lights.jpg", "price": 700, "giftRange": "600-1000", "ageGroup": "Adult", "gender": "Male" },

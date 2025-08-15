@@ -7,11 +7,10 @@
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
   width: 320px;  /* wider card */
   max-width: 90%;
   margin: 10px auto;
-  background-color: #fff;
+  /* background-color: #fff; */
   height: auto;
   justify-content: flex-start;
 }
