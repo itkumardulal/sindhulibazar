@@ -117,6 +117,7 @@ const Storepage = () => {
             margin: "auto",
             position: "relative",
             animation: "slideFadeIn 0.6s ease forwards",
+           
           }}
         >
           <span
