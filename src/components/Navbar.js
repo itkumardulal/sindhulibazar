@@ -158,8 +158,8 @@ function DrawerAppBar({ window, children }) {
           // #FBA518
           // #E52020
           // #F9CB45
-          // #04ccdaf6
-          background: "linear-gradient(135deg, #04ccdaf6,#FBA518)",
+          // #d6da04f6
+          background: "#e99308ff",
         }}
       >
         <Toolbar>
@@ -206,13 +206,13 @@ function DrawerAppBar({ window, children }) {
                 sx={{
                   fontFamily: "'Poppins', sans-serif",
                   fontWeight: 700,
-                  fontSize: 18,
+                  fontSize: 20,
                   textTransform: "uppercase",
                   letterSpacing: 0.7,
                   background: "linear-gradient(90deg, #FFD700, #f15a02ff)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  textShadow: "1px 1px 2px rgba(22, 8, 8, 0.5)",
+                  textShadow: "1px 1px 2px rgba(155, 17, 17, 0.5)",
                   cursor: "pointer",
                   userSelect: "none",
                 }}

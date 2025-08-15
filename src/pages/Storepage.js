@@ -32,7 +32,6 @@ const Storepage = () => {
   const [items, setItems] = useState([]);
   const [searchData, setSearchData] = useState([]);
 
- 
   useEffect(() => {
     setLoading(true);
     const timeout = setTimeout(() => {
@@ -42,7 +41,8 @@ const Storepage = () => {
       switch (producttypeStore) {
         case "FoodStore":
           selectedItems = Datacarrier.FoodStore;
-          title = "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
+          title =
+            "24 hours delivery within 30 minutes inside Sindhuli for Food Items";
           break;
         case "VehicleStore":
           selectedItems = Datacarrier.VehicalStore;
@@ -50,19 +50,23 @@ const Storepage = () => {
           break;
         case "GroceryStore":
           selectedItems = Datacarrier.GroceryStore;
-          title = "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
+          title =
+            "Delivery only from 8AM to 8PM inside Sindhuli for Grocery Items";
           break;
         case "LiquorStore":
           selectedItems = Datacarrier.LiqureStore;
-          title = "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
+          title =
+            "24 hours delivery within 30 minutes inside Sindhuli for Liquor";
           break;
         case "HerbalStore":
           selectedItems = Datacarrier.HerbalStore;
-          title = "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
+          title =
+            "Delivery only from 8AM to 8PM inside Sindhuli for Bee herbal products";
           break;
         case "BakeryStore":
           selectedItems = Datacarrier.bakeryItems;
-          title = "Delivery only from 8AM to 8PM inside Sindhuli for Bakery Items";
+          title =
+            "Delivery only from 8AM to 8PM inside Sindhuli for Bakery Items";
           break;
         default:
           alert("Something went wrong");
@@ -88,7 +92,10 @@ const Storepage = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const handleCart = () => navigate("/Addtocart");
 
-  const totalItemsCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+  const totalItemsCount = cart.reduce(
+    (acc, item) => acc + (item.quantity || 1),
+    0
+  );
 
   return (
     <>
@@ -104,7 +111,7 @@ const Storepage = () => {
 
         <br />
 
-        <div style={{ width: "99%",  marginTop:"-23px", }}>
+        <div style={{ width: "99%", marginTop: "-23px" }}>
           <Search data={searchData} />
         </div>
 
@@ -117,10 +124,9 @@ const Storepage = () => {
             margin: "auto",
             position: "relative",
             animation: "slideFadeIn 0.6s ease forwards",
-           
           }}
         >
-          <span 
+          <span
             style={{
               fontSize: 15,
               color: "#333",
@@ -131,7 +137,6 @@ const Storepage = () => {
               letterSpacing: "0.03em",
               animation: "underlineGrow 0.6s ease forwards",
             }}
-            
           >
             {titleText}
           </span>
@@ -158,35 +163,31 @@ const Storepage = () => {
             backgroundColor: "#f5f5f5",
           }}
         >
-<Box
-  sx={{
-    display: "flex",
-    flexWrap: "wrap",
-    gap: { xs: 1, sm: 2, md: 3 },
-    width: "100%",
-    maxWidth: "1200px",
-    margin: "0 auto",
-    boxSizing: "border-box",
-    justifyContent: "center",
-  }}
->
-  {items.map((dt, index) => (
- <Box
-  key={index}
-  sx={{
-    flex: "0 1 auto", // allow card to size itself
-    display: "flex",
-    justifyContent: "center",
-  }}
->
-  <ImgMediaCard data={dt} index={index} />
-</Box>
-
-  ))}
-</Box>
-
-
-
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: { xs: 1, sm: 2, md: 3 },
+              width: "100%",
+              maxWidth: "1200px",
+              margin: "0 auto",
+              boxSizing: "border-box",
+              justifyContent: "center",
+            }}
+          >
+            {items.map((dt, index) => (
+              <Box
+                key={index}
+                sx={{
+                  flex: "0 1 auto", // allow card to size itself
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <ImgMediaCard data={dt} index={index} />
+              </Box>
+            ))}
+          </Box>
 
           {showButton && (
             <Tooltip title="Back to Top" arrow>

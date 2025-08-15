@@ -13,7 +13,7 @@ import "./ImgMediaCard.css";
 
 const gradients = [
   // "linear-gradient(135deg, #f3f3f3, #ecd060ff)",
-  "linear-gradient(135deg, #e6dec0ff, #d8d38aff)",
+  "linear-gradient(135deg, #dfddd6ff, #fafafaff)",
   // "linear-gradient(135deg, #d6ddc7ff, #b3be4aff)",
 ];
 
