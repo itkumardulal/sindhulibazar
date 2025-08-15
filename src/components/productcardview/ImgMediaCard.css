@@ -3,11 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 20px 24px;
+  padding: 15px 10px 7px;
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
+  width: 350px;
   max-width: 800px; /* wider on large screens */
   margin: 1px auto;
   box-sizing: border-box;
@@ -17,6 +17,15 @@
   justify-content: flex-start;
   gap: 5px;
 }
+
+/* Make card full width on small screens */
+@media (max-width: 480px) {
+  .card {
+    width: 330px;
+    max-width: 80%;
+  }
+}
+
 
 /* On small screens, it stays full width */
 @media (max-width: 900px) {
@@ -82,7 +91,7 @@
 /* Image wrapper */
 .image-wrapper {
   position: relative; /* already set */
-  width: 100%;
+  width:80%;
   max-width: "100%";
   border-radius: 14px;
   overflow: hidden;

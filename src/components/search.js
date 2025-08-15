@@ -9,15 +9,12 @@ import { CartContext } from "../context/CartContext";
 export default function Search({ data }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [showOverlay, setShowOverlay] = useState(false);
-
   const { cart, setCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const calculateMatchScore = (text, query, isNameField = false) => {
     const normalizedText = text?.toLowerCase() || "";
     const normalizedQuery = query?.toLowerCase() || "";
-
     let score = 0;
     const queryWords = normalizedQuery.split(/\s+/);
     const textWords = normalizedText.split(/\s+/);
@@ -28,7 +25,6 @@ export default function Search({ data }) {
         const dist = distance(qWord, tWord);
         bestDistance = Math.min(bestDistance, dist);
       });
-
       if (bestDistance <= 2) {
         score += (isNameField ? 10 : 5) - bestDistance;
       }
@@ -46,33 +42,24 @@ export default function Search({ data }) {
       return;
     }
 
-    const matchedResults = [];
-
     const allItemsArray = Array.isArray(data)
       ? data
       : Object.values(data).flat();
 
-    allItemsArray.forEach((item) => {
-      const { name, description, vehicleInfo, count = 1 } = item;
-
-      const nameScore = calculateMatchScore(name, query, true);
-      const descriptionScore = calculateMatchScore(description, query);
-      const vehicleScore = vehicleInfo
-        ? calculateMatchScore(vehicleInfo, query)
-        : 0;
-
-      const totalScore = nameScore + descriptionScore + vehicleScore;
-
-      if (totalScore > 0) {
-        matchedResults.push({ ...item, score: totalScore, count });
-      }
-    });
-
-    const sortedResults = matchedResults
+    const matchedResults = allItemsArray
+      .map((item) => {
+        const { name, description, vehicleInfo, count = 1 } = item;
+        const nameScore = calculateMatchScore(name, query, true);
+        const descriptionScore = calculateMatchScore(description, query);
+        const vehicleScore = vehicleInfo ? calculateMatchScore(vehicleInfo, query) : 0;
+        const totalScore = nameScore + descriptionScore + vehicleScore;
+        return totalScore > 0 ? { ...item, score: totalScore, count } : null;
+      })
+      .filter(Boolean)
       .sort((a, b) => b.score - a.score)
       .slice(0, 5);
 
-    setSearchResults(sortedResults);
+    setSearchResults(matchedResults);
   };
 
   const generateUniqueCartId = () =>
@@ -80,7 +67,6 @@ export default function Search({ data }) {
 
   const handleClickAddtoCart = (item) => {
     const { id, name, image, description, price, category, count = 1 } = item;
-
     let updatedCart = [...cart];
     const existingIndex = updatedCart.findIndex((p) => p.id === id);
 
@@ -97,33 +83,25 @@ export default function Search({ data }) {
         category,
         quantity: count,
       });
-    
     }
 
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-   toast.success('🎉 Item added to cart!');
-    setShowOverlay(true);
+    toast.success('🎉 Item added to cart!');
   };
 
   const updateCount = (itemId, operation) => {
     setSearchResults((prevResults) =>
-      prevResults.map((item) => {
-        if (item.id === itemId) {
-          const newCount =
-            operation === "increment" ? item.count + 1 : item.count - 1;
-          return { ...item, count: Math.max(newCount, 1) };
-        }
-        return item;
-      })
+      prevResults.map((item) =>
+        item.id === itemId
+          ? { ...item, count: Math.max(item.count + (operation === "increment" ? 1 : -1), 1) }
+          : item
+      )
     );
   };
 
   return (
     <div className="search-container">
-    
-
       <div className="product-search">
         <input
           type="text"
@@ -146,39 +124,34 @@ export default function Search({ data }) {
       </div>
 
       <div className="search-results">
-        {searchResults.length > 0
-          ? searchResults.map((item) => (
-              <div className="search-result-item" key={`${item.id}-${item.n}`}>
-                <img src={item.image} alt={item.name} className="item-image" />
-                <div className="item-details">
-                  <h3>{item.name}</h3>
-                  <span>Category: {item.category}</span>
-                  <span>Price: {item.price}</span>
-                  <div className="count-controls">
-                    <button onClick={() => updateCount(item.id, "decrement")}>
-                      -
-                    </button>
-                    <span>{item.count}</span>
-                    <button onClick={() => updateCount(item.id, "increment")}>
-                      +
-                    </button>
-                  </div>
-                  {item.vehicleInfo && <span>Vehicle Info: {item.vehicleInfo}</span>}
+        {searchResults.length > 0 ? (
+          searchResults.map((item) => (
+            <div className="search-result-item" key={`${item.id}-${item.count}`}>
+              <img src={item.image} alt={item.name} className="item-image" />
+              <div className="item-details">
+                <h3>{item.name}</h3>
+                <span className="category">Category: {item.category}</span>
+                <span className="price">Price: {item.price}</span>
+                {item.vehicleInfo && <span className="vehicle">Vehicle: {item.vehicleInfo}</span>}
+                <div className="count-controls">
+                  <button onClick={() => updateCount(item.id, "decrement")}>-</button>
+                  <span>{item.count}</span>
+                  <button onClick={() => updateCount(item.id, "increment")}>+</button>
                 </div>
-                <div className="product-actions fixed-width">
-                  <button
-                    className="add-to-cart fixed-width"
-                    onClick={() => handleClickAddtoCart(item)}
-                  >
+                <div className="product-actions">
+                  <button className="add-to-cart" onClick={() => handleClickAddtoCart(item)}>
                     Add to Cart
                   </button>
-                </div>
-                <div className="fixed-width whatsapp-wrapper">
-                  <WhatsAppMessageLink orderDetails={item} />
+                  <div className="whatsapp-wrapper">
+                    <WhatsAppMessageLink orderDetails={item} />
+                  </div>
                 </div>
               </div>
-            ))
-          : searchQuery && <span>No products found.</span>}
+            </div>
+          ))
+        ) : (
+          searchQuery && <span>No products found.</span>
+        )}
       </div>
     </div>
   );

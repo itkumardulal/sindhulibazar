@@ -5,21 +5,20 @@
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  margin-top: -8px;
 }
 
 .product-search {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1400px; /* max width on big screens */
-  margin-bottom: 05px;
+  max-width: 1400px;
+  margin-bottom: 8px;
 }
 
 .search-bar {
   flex: 1;
   padding: 12px 14px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 6px;
   margin-right: 10px;
   font-size: 16px;
@@ -36,249 +35,148 @@
   color: #888;
 }
 
-/* SEARCH RESULTS GRID */
+/* GRID */
+
+/* Make grid adapt better to tiny screens */
 .search-results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* smaller min for mobile */
+  gap: 12px;
   width: 100%;
-  max-width: 1400px;
-  padding: 0 5px;
+  padding: 0 8px;
   box-sizing: border-box;
-  align-items: start;
 }
 
-@media (max-width: 1024px) {
+/* Optional: for very large screens, increase the minimum size */
+@media (min-width: 1024px) {
   .search-results {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 2fr));
   }
 }
 
-/* Keep 2 columns down to 480px */
-@media (max-width: 768px) {
-  .search-results {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
+/* Image auto shrink */
+.item-image {
+  width: 80px; /* was 90px */
+  height: 80px;
+  flex-shrink: 0;
 }
 
-/* ONLY below 480px show 1 column */
+/* MOBILE FIXES */
 @media (max-width: 480px) {
+  .item-image {
+    width: 60px;
+    height: 60px;
+  }
+
   .search-results {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* smaller min width */
+    gap: 12px;
+    width: 100%; /* full width, no overflow */
+    box-sizing: border-box;
   }
 }
 
-/* If you really want 1 column only under, say, 350px, add: */
-@media (max-width: 350px) {
-  .search-results {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* INDIVIDUAL SEARCH RESULT CARD */
+/* CARD - Search result style */
 .search-result-item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
-  width: 100%;
-  max-width: 280px; /* consistent card width */
-  background-color: #fff;
+  padding: 12px;
+  background: #fff;
+  gap: 5px;
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: default;
+  max-width: 100%; /* Prevent card overflow */
+  box-sizing: border-box;
 }
+
 .search-result-item:hover {
   box-shadow: 0 6px 15px rgb(0 0 0 / 0.15);
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 
-/* ITEM IMAGE */
+/* Stack vertically on small screens */
+@media (max-width: 480px) {
+  .search-result-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+
+/* IMAGE */
 .item-image {
-  max-width: 100%;
-  height: 100px; /* slightly taller for better visibility */
-  border-radius: 6px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
-  margin-bottom: 12px;
+  border-radius: 6px;
 }
 
-/* ITEM DETAILS TEXT */
+/* DETAILS */
 .item-details {
-  text-align: center;
-  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-
 .item-details h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
   color: #222;
-  margin: 8px 0 4px;
-  min-height: 48px; /* fix height to align cards */
 }
-
-.item-details p {
-  font-size: 0.9rem;
+.item-details .category,
+.item-details .price,
+.item-details .vehicle {
+  font-size: 0.85rem;
   color: #555;
-  margin: 2px 0;
-  white-space: normal;
-  word-wrap: break-word;
 }
 
-/* COUNT CONTROLS */
+/* COUNT */
 .count-controls {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 12px 0;
-  gap: 10px;
+  gap: 8px;
+  margin: 6px 0;
 }
-
 .count-controls button {
-  padding: 6px 12px;
+  padding: 4px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9rem;
-  background-color: #f9f9f9;
-  transition: background-color 0.2s ease;
+  background: #f9f9f9;
 }
 .count-controls button:hover {
-  background-color: #e6e6e6;
+  background: #e6e6e6;
 }
-
 .count-controls span {
-  font-size: 1rem;
-  min-width: 24px;
+  min-width: 20px;
   text-align: center;
 }
 
-/* PRODUCT ACTIONS BUTTONS (Add to Cart, Buy Now, WhatsApp) */
+/* ACTIONS */
 .product-actions {
   display: flex;
-  flex-wrap: wrap;          /* allow wrapping */
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 8px;
   gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
 }
-
-.add-to-cart,
-.buy-now,
-.whatsapp-button {
-  flex: 1 1 120px;          /* grow, shrink, basis */
-  min-width: 120px;         /* minimum button width */
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: white;
-  transition: background-color 0.3s ease;
-  text-align: center;
-  user-select: none;
-  box-sizing: border-box;
-}
-
 .add-to-cart {
   background-color: #28a745;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px 10px;
+  cursor: pointer;
 }
 .add-to-cart:hover {
   background-color: #218838;
 }
-
-.buy-now {
-  background-color: #007bff;
-}
-.buy-now:hover {
-  background-color: #0056b3;
-}
-
-.whatsapp-button {
-  background-color: #25d366;
-}
-.whatsapp-button:hover {
-  background-color: #1ebe57;
-}
-
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 768px) {
-  .search-results {
-    grid-template-columns: repeat(2, 1fr); /* exactly 2 columns on tablets */
-    gap: 16px;
-  }
-
-  .search-result-item {
-    max-width: 100%;
-    padding: 14px;
-  }
-
-  .item-image {
-    height: 80px;
-    margin-bottom: 10px;
-  }
-
-  .item-details h3 {
-    font-size: 1rem;
-    min-height: auto;
-  }
-
-  .count-controls button {
-    padding: 5px 10px;
-    font-size: 0.85rem;
-  }
-
-  .add-to-cart,
-  .buy-now,
-  .whatsapp-button {
-    font-size: 0.85rem;
-    padding: 6px 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .search-results {
-    grid-template-columns: 1fr; /* single column on small phones */
-    gap: 14px;
-  }
-
-  .product-actions {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .add-to-cart,
-  .buy-now,
-  .whatsapp-button {
-    flex: unset;
-    width: 100%;
-  }
-  /* Fixed width container for buttons and WhatsApp */
-.fixed-width {
-  width: 200px;
-}
-
-/* Optional: center contents in button */
-.product-actions.fixed-width {
-  flex: 1;
-  color: red; /* if you want red text */
-  justify-content: center;
-  align-items: center;
-}
-
-.product-actions.fixed-width .add-to-cart {
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* WhatsApp button wrapper width */
 .whatsapp-wrapper {
-  width: 200px;
-}
-
-  
+  flex: 1;
 }
