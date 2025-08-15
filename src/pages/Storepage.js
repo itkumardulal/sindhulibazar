@@ -158,23 +158,38 @@ const Storepage = () => {
         >
 <Box
   sx={{
-    display: "grid",
-    gridTemplateColumns: {
-      xs: "repeat(2, 1fr)", // 2 columns on mobile
-      sm: "repeat(3, 1fr)", // 3 columns on tablets
-      md: "repeat(4, 1fr)", // 4 columns on desktop
-    },
+    display: "flex",
+    flexWrap: "wrap",
     gap: { xs: 1, sm: 2, md: 3 },
     width: "100%",
     maxWidth: "1200px",
     margin: "0 auto",
     boxSizing: "border-box",
+    justifyContent: "center",
   }}
 >
   {items.map((dt, index) => (
-    <ImgMediaCard key={index} data={dt} index={index} />
+    <Box
+      key={index}
+      sx={{
+        flex: {
+          xs: "1 1 100%",   // Mobile: full width (1 column)
+          sm: "1 1 48%",    // Tablet: roughly 2 per row
+          md: "1 1 30%",    // Desktop: roughly 3 per row
+        },
+        maxWidth: {
+          xs: "100%",
+          sm: "48%",
+          md: "30%",
+        },
+      }}
+    >
+      <ImgMediaCard data={dt} index={index} />
+    </Box>
   ))}
 </Box>
+
+
 
 
           {showButton && (

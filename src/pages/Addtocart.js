@@ -76,9 +76,9 @@ const   AddToCart = () => {
   const handleSendGift = () => {
 
 
-    //form open 
+    // form open 
 
-    //here the checkout message is created inside carthandler
+    // here the checkout message is created inside carthandler
     // Carthandler(
       
     //   cart,
