@@ -104,14 +104,14 @@ const Storepage = () => {
 
         <br />
 
-        <div style={{ width: "100%",  marginTop:"-20px", }}>
+        <div style={{ width: "99%",  marginTop:"-23px", }}>
           <Search data={searchData} />
         </div>
 
         <div
           style={{
             // padding: "10px 20px",
-            borderRadius: "10px",
+            borderRadius: "15px",
             textAlign: "center",
             maxWidth: "1400px",
             margin: "auto",
@@ -120,9 +120,9 @@ const Storepage = () => {
            
           }}
         >
-          <span
+          <span 
             style={{
-              fontSize: 12,
+              fontSize: 15,
               color: "#333",
               fontWeight: "600",
               paddingBottom: "6px",
@@ -131,6 +131,7 @@ const Storepage = () => {
               letterSpacing: "0.03em",
               animation: "underlineGrow 0.6s ease forwards",
             }}
+            
           >
             {titleText}
           </span>
@@ -170,23 +171,17 @@ const Storepage = () => {
   }}
 >
   {items.map((dt, index) => (
-    <Box
-      key={index}
-      sx={{
-        flex: {
-          xs: "1 1 100%",   // Mobile: full width (1 column)
-          sm: "1 1 48%",    // Tablet: roughly 2 per row
-          md: "1 1 30%",    // Desktop: roughly 3 per row
-        },
-        maxWidth: {
-          xs: "100%",
-          sm: "48%",
-          md: "30%",
-        },
-      }}
-    >
-      <ImgMediaCard data={dt} index={index} />
-    </Box>
+ <Box
+  key={index}
+  sx={{
+    flex: "0 1 auto", // allow card to size itself
+    display: "flex",
+    justifyContent: "center",
+  }}
+>
+  <ImgMediaCard data={dt} index={index} />
+</Box>
+
   ))}
 </Box>
 

@@ -60,17 +60,17 @@ export default function ImgMediaCard({ data, index }) {
 
         <div className="image-wrapper">
           <img src={image} alt={name} className="card-image" />
-          <Button
+        
+        </div>
+  <Button
             className="add-to-bag-bottom-right"
-            startIcon={<ShoppingCartIcon />}
+        startIcon={<ShoppingCartIcon  />}
             onClick={handleAddToCart}
             size="small"
             variant="contained"
           >
             Add to Bag
           </Button>
-        </div>
-
         <div className="card-details">
           <Typography className="product-name" title={name}>{name}</Typography>
           <Typography className="product-desc" title={description}>{description}</Typography>
