@@ -29,16 +29,22 @@ const AddToCart = () => {
   }, []);
 
 useEffect(() => {
-  if (checkoutRef.current && cart.length > 0) {
+  let hasScrolled = false;
+
+  if (!hasScrolled && checkoutRef.current && cart.length > 0) {
     const element = checkoutRef.current;
     const y = element.getBoundingClientRect().top + window.scrollY;
 
     window.scrollTo({
-      top: y - 500, // 👈 adjust this value (100px above)
+      top: y - 500, // adjust this value
       behavior: "smooth",
     });
+
+    hasScrolled = true;
   }
-}, [cart]);
+  // 👇 no dependencies -> runs only once on mount
+}, []);
+
 
 
 
