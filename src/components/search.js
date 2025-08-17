@@ -3,15 +3,17 @@ import "./Search.css";
 import { useNavigate } from "react-router-dom";
 import WhatsAppMessageLink from "../messagecarrier/Whatsappme";
 import { distance } from "fastest-levenshtein";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import { CartContext } from "../context/CartContext";
 
 export default function Search({ data }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [recentSearch, setRecentSearch] = useState(""); // store only one recent search
   const { cart, setCart } = useContext(CartContext);
   const navigate = useNavigate();
 
+  // Calculate fuzzy match score
   const calculateMatchScore = (text, query, isNameField = false) => {
     const normalizedText = text?.toLowerCase() || "";
     const normalizedQuery = query?.toLowerCase() || "";
@@ -22,31 +24,20 @@ export default function Search({ data }) {
     queryWords.forEach((qWord) => {
       let bestDistance = Infinity;
       textWords.forEach((tWord) => {
-        const dist = distance(qWord, tWord);
-        bestDistance = Math.min(bestDistance, dist);
+        bestDistance = Math.min(bestDistance, distance(qWord, tWord));
       });
-      if (bestDistance <= 2) {
-        score += (isNameField ? 10 : 5) - bestDistance;
-      }
+      if (bestDistance <= 2) score += (isNameField ? 10 : 5) - bestDistance;
     });
 
     return score;
   };
 
-  const handleSearchChange = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
+  // Perform search and return results
+  const performSearch = (query) => {
+    if (!query.trim()) return [];
+    const allItems = Array.isArray(data) ? data : Object.values(data).flat();
 
-    if (query.trim() === "") {
-      setSearchResults([]);
-      return;
-    }
-
-    const allItemsArray = Array.isArray(data)
-      ? data
-      : Object.values(data).flat();
-
-    const matchedResults = allItemsArray
+    return allItems
       .map((item) => {
         const { name, description, vehicleInfo, count = 1 } = item;
         const nameScore = calculateMatchScore(name, query, true);
@@ -58,10 +49,36 @@ export default function Search({ data }) {
       .filter(Boolean)
       .sort((a, b) => b.score - a.score)
       .slice(0, 5);
-
-    setSearchResults(matchedResults);
   };
 
+  // Handle input change for live search
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    setSearchResults(performSearch(query));
+  };
+
+  // Handle enter key press
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (!searchQuery.trim()) return;
+
+      const results = performSearch(searchQuery);
+      setRecentSearch(searchQuery);
+      setSearchResults(results);
+      setSearchQuery(""); // clear input but placeholder remains default
+    }
+  };
+
+  // Cancel recent search
+  const handleCancelSearch = () => {
+    setRecentSearch("");
+    setSearchResults([]);
+    setSearchQuery("");
+  };
+
+  // Add item to cart
   const generateUniqueCartId = () =>
     `cart-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
@@ -87,7 +104,7 @@ export default function Search({ data }) {
 
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    toast.success('🎉 Item added to cart!');
+    toast.success("🎉 Item added to cart!");
   };
 
   const updateCount = (itemId, operation) => {
@@ -102,6 +119,7 @@ export default function Search({ data }) {
 
   return (
     <div className="search-container">
+      {/* Input */}
       <div className="product-search">
         <input
           type="text"
@@ -109,20 +127,23 @@ export default function Search({ data }) {
           placeholder="Search products..."
           value={searchQuery}
           onChange={handleSearchChange}
+          onKeyDown={handleKeyDown}
         />
-        <div className="search-bar-icon">
-          <svg
-            className="search-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="-5 -15 30 40"
-            width="30"
-            height="32"
-          >
-            <path d="M10 2a8 8 0 016.32 12.906l5.387 5.387a1 1 0 01-1.415 1.415l-5.387-5.387A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z" />
-          </svg>
-        </div>
       </div>
 
+      {/* Recent Search */}
+      {recentSearch && searchResults.length > 0 && (
+        <div className="recent-search-container">
+          <span>
+            Your search results for: <strong>{recentSearch}</strong>
+          </span>
+          <button className="cancel-search-btn" onClick={handleCancelSearch}>
+            ✖
+          </button>
+        </div>
+      )}
+
+      {/* Search Results */}
       <div className="search-results">
         {searchResults.length > 0 ? (
           searchResults.map((item) => (
@@ -133,30 +154,17 @@ export default function Search({ data }) {
                 <span className="category">Category: {item.category}</span>
                 <span className="price">Price: {item.price}</span>
                 {item.vehicleInfo && <span className="vehicle">Vehicle: {item.vehicleInfo}</span>}
+
                 <div className="count-controls">
                   <button onClick={() => updateCount(item.id, "decrement")}>-</button>
                   <span>{item.count}</span>
                   <button onClick={() => updateCount(item.id, "increment")}>+</button>
                 </div>
+
                 <div className="product-actions">
                   <button className="add-to-cart" onClick={() => handleClickAddtoCart(item)}>
-                   <span class="cart-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" 
-       width="25" height="15" 
-       viewBox="5 -5 15 24" 
-       fill="currentColor">
-    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 
-             2-2-.9-2-2-2M1 2v2h2l3.6 7.59-1.35 2.45
-             c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42
-             c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45
-             c.75 0 1.41-.41 1.75-1.03l3.58-6.49
-             c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21
-             l-.94-2zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 
-             1.99 2 2-.9 2-2-.9-2-2-2"/>
-  </svg>
-</span> Add to BAG
+                    🛒 Add to BAG
                   </button>
-                    <span class="loader"></span>
                   <div className="whatsapp-wrapper">
                     <WhatsAppMessageLink orderDetails={item} />
                   </div>
@@ -165,7 +173,7 @@ export default function Search({ data }) {
             </div>
           ))
         ) : (
-          searchQuery && <span>No products found.</span>
+          recentSearch && <span>No products found.</span>
         )}
       </div>
     </div>

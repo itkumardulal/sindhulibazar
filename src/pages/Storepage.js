@@ -30,6 +30,8 @@ const Storepage = () => {
   const [showButton, setShowButton] = useState(false);
   const [titleText, setTitleText] = useState("");
   const [items, setItems] = useState([]);
+  const [isSticky, setIsSticky] = useState(false);
+
   const [searchData, setSearchData] = useState([]);
 
   useEffect(() => {
@@ -83,6 +85,16 @@ const Storepage = () => {
     return () => clearTimeout(timeout);
   }, [producttypeStore]);
 
+
+useEffect(() => {
+  const handleScroll = () => {
+    setIsSticky(window.scrollY > 20); // adjust threshold
+  };
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
   useEffect(() => {
     const handleScroll = () => setShowButton(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
@@ -110,10 +122,23 @@ const Storepage = () => {
         <CartBtn totalItems={totalItemsCount} handleCart={handleCart} />
 
         <br />
+<div
+  style={{
+    width: "100%",
+    position: isSticky ? "sticky" : "relative",
+    top: isSticky ? 0 : "auto",
+    zIndex: 1100,
+    backgroundColor: "#fff", // always white to prevent flashing
+    padding: "8px 0",
+    boxShadow: isSticky ? "0 2px 4px rgba(0,0,0,0.1)" : "none",
+    transition: "box-shadow 0.3s ease",
+    marginTop:"-10px",
+  }}
+>
+  <Search data={searchData} />
+</div>
 
-        <div style={{ width: "99%", marginTop: "-23px" }}>
-          <Search data={searchData} />
-        </div>
+
 
         <div
           style={{
@@ -126,20 +151,23 @@ const Storepage = () => {
             animation: "slideFadeIn 0.6s ease forwards",
           }}
         >
-          <span
-            style={{
-              fontSize: 15,
-              color: "#333",
-              fontWeight: "600",
-              paddingBottom: "6px",
-              borderBottom: "3px solid #E63946",
-              display: "inline-block",
-              letterSpacing: "0.03em",
-              animation: "underlineGrow 0.6s ease forwards",
-            }}
-          >
-            {titleText}
-          </span>
+<span
+  style={{
+    fontSize: "clamp(14px, 2vw, 18px)", // responsive font size between 14px and 18px
+    color: "#333",
+    fontWeight: 600,
+    paddingBottom: "6px",
+    borderBottom: "3px solid #E63946",
+    display: "inline-block",
+    width: "80%", // set width to 80%
+    textAlign: "center", // center the text within 80% width
+    letterSpacing: "0.03em",
+    animation: "underlineGrow 0.6s ease forwards",
+  }}
+>
+  {titleText}
+</span>
+
 
           <style>{`
             @keyframes slideFadeIn {

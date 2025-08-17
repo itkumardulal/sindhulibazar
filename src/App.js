@@ -18,6 +18,7 @@ import GiftLandingPage from "./pages/GiftLandingPage";
 import { Toaster } from 'react-hot-toast';
 import PromoCardGiftForFriend from "./components/orderforfriendcom/PromoCardGiftForFriend";
 import AdmissionPage from "./pages/Admissionpage";
+import KhyalGLanding from "./components/KhyalG";
 
 
 
@@ -30,8 +31,6 @@ function App() {
   }, []);
 
   if (loading) return <SplashScreen />;
-  
-
   return (
     <div className="App">
  
@@ -49,9 +48,9 @@ function App() {
         <Route path="/order_for_friend/:id" element={<GiftLandingPage />} />
         <Route path="/order_for_friend/giftpromo" element={<PromoCardGiftForFriend />} />
         <Route path="/btech_sindhuli" element={<AdmissionPage />} />
+        <Route path="/Khyalg" element={<KhyalGLanding />} />
         {/* <Route path="/order_for_friend/:id" element={<GiftLandingPage />} /> */}
         {/* /// use  0563b9e1-a5a7-4a9a-9f99-cf52a4b9f98d  as id  for test*/}
-
                 
       </Routes>
      <Toaster position="top-center" reverseOrder={false} />

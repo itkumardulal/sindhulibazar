@@ -8,6 +8,8 @@
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
+  position: relative; /* for overlay search results */
+  z-index: 100;
 }
 
 .product-search {
@@ -22,6 +24,7 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   position: relative;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  z-index: 101;
 }
 
 .product-search:focus-within {
@@ -76,13 +79,54 @@
 }
 
 /* ===========================
+   RECENT SEARCH CONTAINER
+=========================== */
+.recent-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px 12px;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.cancel-search-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.cancel-search-btn:hover {
+  color: #ff4d4d;
+}
+
+/* ===========================
    SEARCH RESULTS GRID
 =========================== */
 .search-results {
+  position: absolute; /* overlay under search bar */
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-width: 1400px;
+  background: #fff;
+  z-index: 99;
+  /* padding: 8px; */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
-  width: 100%;
+  max-height: 400px; /* scrollable */
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
@@ -205,6 +249,10 @@
 
   .search-icon {
     font-size: 16px;
+  }
+
+  .search-results {
+    max-height: 300px;
   }
 }
 
