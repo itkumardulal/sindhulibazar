@@ -245,13 +245,13 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: #ff7043;
+  background: #0ed138;
   color: #fff;
   font-weight: 700;
   font-size: clamp(16px, 1.5vw, 22px);
   padding: 20px 0;
   text-align: center;
-  width: 100%;
+  width: 80%;
   max-width: 600px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
