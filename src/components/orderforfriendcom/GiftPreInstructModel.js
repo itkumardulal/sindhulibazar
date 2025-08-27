@@ -1,58 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { createOrder } from "./order_api/createOrder";
 
-
 export default function GiftPreInstructModel({ orderData, onClose }) {
   const itemOrdered = orderData.cart.map((item) => ({
     name: item.name,
     quantity: item.quantity,
     price: item.price,
   }));
-  const totalPrice = 500;
-
+  const totalPrice = orderData.totalPrice;
+  const deliveryCharge = orderData.deliveryChargeFinal;
   const giftRanges = [
-     { label: "१० देखि १००", value: "10-100", cost: 50 },
-  { label: "१०० देखि ३००", value: "100-300", cost: 200 },
-  { label: "३०० देखि ६००", value: "300-600", cost: 500 },
-  { label: "६०० देखि १०००", value: "600-1000", cost: 800 },
-  { label: "१००० देखि १५००", value: "1000-1500", cost: 1250 },
-  { label: "१५०० देखि २०००", value: "1500-2000", cost: 1750 }
+    { label: "१० देखि १००", value: "10-100", cost: 50 },
+    { label: "१०० देखि ३००", value: "100-300", cost: 200 },
+    { label: "३०० देखि ६००", value: "300-600", cost: 500 },
+    { label: "६०० देखि १०००", value: "600-1000", cost: 800 },
+    { label: "१००० देखि १५००", value: "1000-1500", cost: 1250 },
+    { label: "१५०० देखि २०००", value: "1500-2000", cost: 1750 },
   ];
 
   const LINK_GENERATION_COST = 50;
-// const gift_range_cost = {
-//   "10-100": 50,      // midpoint or average cost
-//   "100-300": 200,
-//   "300-600": 500,
-//   "600-1000": 800,
-//   "1000-1500": 1250,
-//   "1500-2000": 1750
-// };
+  // const gift_range_cost = {
+  //   "10-100": 50,      // midpoint or average cost
+  //   "100-300": 200,
+  //   "300-600": 500,
+  //   "600-1000": 800,
+  //   "1000-1500": 1250,
+  //   "1500-2000": 1750
+  // };
 
   const [step, setStep] = useState(0);
   const [additionalCost, setAdditionalCost] = useState(0);
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
- 
+  
 
   const [formData, setFormData] = useState({
     senderName: "",
     senderPhone: "",
     receiverName: "",
     receiverPhone: "",
-    ageGroup: "",       // new field
-    gender: "",         // new field
+    ageGroup: "", // new field
+    gender: "", // new field
     relationship: "",
     message: "",
     occasion: "",
     giftRange: "",
   });
 
-useEffect(() => {
-  const rangeObj = giftRanges.find(r => r.value === formData.giftRange);
-  setAdditionalCost(rangeObj ? rangeObj.cost : 0);
-}, [formData.giftRange]);
- 
+  useEffect(() => {
+    const rangeObj = giftRanges.find((r) => r.value === formData.giftRange);
+    setAdditionalCost(rangeObj ? rangeObj.cost : 0);
+  }, [formData.giftRange]);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -70,56 +68,72 @@ useEffect(() => {
 
   // Form fields including new Age Group and Gender dropdowns
   const fields = [
-   { label: "Sender's Name", name: "senderName", placeholder: "Your name" },
-{ label: "Sender's Phone (Optional)", name: "senderPhone", placeholder: "9876543210", optional: true },
-{ label: "Receiver's Name", name: "receiverName", placeholder: "Receiver name" },
-{ label: "Receiver's Phone (Optional)", name: "receiverPhone", placeholder: "98********", optional: true },
-
+    { label: "Sender's Name", name: "senderName", placeholder: "Your name" },
+    {
+      label: "Sender's Phone (Optional)",
+      name: "senderPhone",
+      placeholder: "9876543210",
+      optional: true,
+    },
+    {
+      label: "Receiver's Name",
+      name: "receiverName",
+      placeholder: "Receiver name",
+    },
+    {
+      label: "Receiver's Phone (Optional)",
+      name: "receiverPhone",
+      placeholder: "98********",
+      optional: true,
+    },
 
     // New Age Group select field
-{ 
-  label: "Age Group", 
-  name: "ageGroup", 
-  isSelect: true, 
-  options: [
-    { label: "Children", value: "children" },
-    { label: "Teenage", value: "teenage" },
-    { label: "Adult", value: "adult" },
-    { label: "Old", value: "old" },
-  ]
-},
+    {
+      label: "Age Group",
+      name: "ageGroup",
+      isSelect: true,
+      options: [
+        { label: "Children", value: "children" },
+        { label: "Teenage", value: "teenage" },
+        { label: "Adult", value: "adult" },
+        { label: "Old", value: "old" },
+      ],
+    },
 
-// Gender select field
-{ 
-  label: "Gender", 
-  name: "gender", 
-  isSelect: true, 
-  options: [
-    { label: "Male", value: "male" },
-    { label: "Female", value: "female" },
-  ]
-},
+    // Gender select field
+    {
+      label: "Gender",
+      name: "gender",
+      isSelect: true,
+      options: [
+        { label: "Male", value: "male" },
+        { label: "Female", value: "female" },
+      ],
+    },
 
-{ label: "Gift Price Range", name: "giftRange", isGiftRange: true },
+    { label: "Gift Price Range", name: "giftRange", isGiftRange: true },
 
-{ label: "Relationship", name: "relationship", placeholder: "Best Friend" },
+    { label: "Relationship", name: "relationship", placeholder: "Best Friend" },
 
-{
-  label: "Message",
-  name: "message",
-  placeholder: "Happy Birthday Sofia! Wishing you all the best. I have sent you a gift. Hope you like it 🎉",
-  multiline: true,
-},
+    {
+      label: "Message",
+      name: "message",
+      placeholder:
+        "Happy Birthday Sofia! Wishing you all the best. I have sent you a gift. Hope you like it 🎉",
+      multiline: true,
+    },
 
-{ label: "Occasion", name: "occasion", placeholder: "Birthday" },
-
+    { label: "Occasion", name: "occasion", placeholder: "Birthday" },
   ];
 
   const currentField = fields[step];
 
   const handleNext = () => {
     const currentValue = formData[currentField.name];
-    if (!currentField.optional && (!currentValue || currentValue.trim() === "")) {
+    if (
+      !currentField.optional &&
+      (!currentValue || currentValue.trim() === "")
+    ) {
       setErrorMsg("कृपया यो फिल्ड भर्नुहोस्।");
       return;
     }
@@ -135,28 +149,33 @@ useEffect(() => {
   const handleSubmitOrder = async (e) => {
     e.preventDefault();
     const currentValue = formData[currentField.name];
-    if (!currentField.optional && (!currentValue || currentValue.trim() === "")) {
+    if (
+      !currentField.optional &&
+      (!currentValue || currentValue.trim() === "")
+    ) {
       setErrorMsg("कृपया यो फिल्ड भर्नुहोस्।");
       return;
     }
     setErrorMsg("");
-const selectedRange = giftRanges.find(r => r.value === formData.giftRange);
+    const selectedRange = giftRanges.find(
+      (r) => r.value === formData.giftRange
+    );
 
     const orderData = {
       senderName: formData.senderName,
       senderPhone: formData.senderPhone,
       receiverName: formData.receiverName,
       receiverPhone: formData.receiverPhone,
-      receiverAgeGroup: formData.ageGroup,         // included in submission
-      receiverGender: formData.gender,             // included in submission
+      receiverAgeGroup: formData.ageGroup, // included in submission
+      receiverGender: formData.gender, // included in submission
       relationship: formData.relationship,
       message: formData.message,
       occasion: formData.occasion,
-      deliveryCharge: additionalCost,
+      deliveryCharge: deliveryCharge,
       totalPrice: totalPrice + additionalCost + LINK_GENERATION_COST,
       itemsOrdered: itemOrdered,
-      giftRange:formData.giftRange,
-        giftCost: selectedRange ? selectedRange.cost : 0,
+      giftRange: formData.giftRange,
+      giftCost: selectedRange ? selectedRange.cost : 0,
     };
 
     try {
@@ -165,7 +184,7 @@ const selectedRange = giftRanges.find(r => r.value === formData.giftRange);
       console.log("✅ Order created:", result);
       alert("🎉 अर्डर सफलतापूर्वक गरिएको छ!");
       console.log("✅ Order ID:", result.orderId);
-      //create a rout link 
+      //create a rout link
       onClose();
     } catch (err) {
       setErrorMsg(err.message || "अर्डर गर्न असफल भयो");
@@ -177,16 +196,20 @@ const selectedRange = giftRanges.find(r => r.value === formData.giftRange);
   return (
     <div style={styles.overlay}>
       <div style={styles.modal}>
-        <button style={styles.closeBtn} onClick={onClose}>✖</button>
+        <button style={styles.closeBtn} onClick={onClose}>
+          ✖
+        </button>
         <h2 style={styles.title}>🎁 उपहार निर्देशनहरू</h2>
         <p style={styles.infoText}>
           आधार मूल्य: <strong>रु. {totalPrice}</strong>
           <br />
-          उपहार दायराको लागि अतिरिक्त लागत: <strong>रु. {additionalCost}</strong>
+          उपहार दायराको लागि अतिरिक्त लागत:{" "}
+          <strong>रु. {additionalCost}</strong>
           <br />
           लिंक निर्माण शुल्क: <strong>रु. {LINK_GENERATION_COST}</strong>
           <br />
-          <strong>अन्तिम मूल्य:</strong> रु. {totalPrice + additionalCost + LINK_GENERATION_COST}
+          <strong>अन्तिम मूल्य:</strong> रु.{" "}
+          {totalPrice + additionalCost + LINK_GENERATION_COST}
         </p>
 
         <form onSubmit={handleSubmitOrder} style={styles.form}>
@@ -260,17 +283,29 @@ const selectedRange = giftRanges.find(r => r.value === formData.giftRange);
 
           <div style={styles.buttons}>
             {step > 0 && (
-              <button type="button" onClick={handleBack} style={{ ...styles.button, ...styles.backButton }}>
+              <button
+                type="button"
+                onClick={handleBack}
+                style={{ ...styles.button, ...styles.backButton }}
+              >
                 ← पछाडि
               </button>
             )}
 
             {step < fields.length - 1 ? (
-              <button type="button" onClick={handleNext} style={{ ...styles.button, ...styles.nextButton }}>
+              <button
+                type="button"
+                onClick={handleNext}
+                style={{ ...styles.button, ...styles.nextButton }}
+              >
                 अगाडि →
               </button>
             ) : (
-              <button type="submit" style={{ ...styles.button, ...styles.submitButton }} disabled={loading}>
+              <button
+                type="submit"
+                style={{ ...styles.button, ...styles.submitButton }}
+                disabled={loading}
+              >
                 {loading ? "बुझाउँदै..." : "बुझाउनुहोस्"}
               </button>
             )}

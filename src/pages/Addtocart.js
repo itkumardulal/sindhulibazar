@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState,useRef } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddToCart.css";
 import DrawerAppBar from "../components/Navbar";
@@ -20,42 +20,42 @@ const AddToCart = () => {
   const [isGiftModalOpen, setIsGiftModalOpen] = useState(false);
   const checkoutRef = useRef(null);
 
-
-
   // Detect night shift
   useEffect(() => {
     const hour = new Date().getHours();
     setIsNightShift(hour >= 20 || hour < 6);
   }, []);
 
-useEffect(() => {
-  let hasScrolled = false;
+  useEffect(() => {
+    let hasScrolled = false;
 
-  if (!hasScrolled && checkoutRef.current && cart.length > 0) {
-    const element = checkoutRef.current;
-    const y = element.getBoundingClientRect().top + window.scrollY;
+    if (!hasScrolled && checkoutRef.current && cart.length > 0) {
+      const element = checkoutRef.current;
+      const y = element.getBoundingClientRect().top + window.scrollY;
 
-    window.scrollTo({
-      top: y - 500, // adjust this value
-      behavior: "smooth",
-    });
+      window.scrollTo({
+        top: y - 500, // adjust this value
+        behavior: "smooth",
+      });
 
-    hasScrolled = true;
-  }
-  // 👇 no dependencies -> runs only once on mount
-}, []);
-
-
-
+      hasScrolled = true;
+    }
+    // 👇 no dependencies -> runs only once on mount
+  }, []);
 
   // Calculate total items, price, and delivery charges
   useEffect(() => {
     const itemCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
     setTotalItems(itemCount);
 
-    const priceSum = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const priceSum = cart.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
 
-    const uniqueCategories = Array.from(new Set(cart.map((item) => item.category)));
+    const uniqueCategories = Array.from(
+      new Set(cart.map((item) => item.category))
+    );
 
     // First category charge
     let deliveryCharge = isNightShift ? 120 : 50;
@@ -85,100 +85,127 @@ useEffect(() => {
       )
     );
 
-  const handleRemove = (id) => setCart((prev) => prev.filter((item) => item.cartId !== id));
+  const handleRemove = (id) =>
+    setCart((prev) => prev.filter((item) => item.cartId !== id));
   const handleCheckoutAll = () =>
-    Carthandler(cart, isNightShift, totalPrice - deliveryChargeFinal, setCheckoutMessage, setCart);
+    Carthandler(
+      cart,
+      isNightShift,
+      totalPrice - deliveryChargeFinal,
+      setCheckoutMessage,
+      setCart
+    );
   const handleSendGift = () => setIsGiftModalOpen(true);
   const handleAddMore = () => navigate("/FoodStore");
 
   return (
     <>
-    
       <DrawerAppBar />
 
-<div className="cart-wrapper">
-  <div className="cart-container">
-    <h2 className="cart-title">My Bag ({totalItems} items)</h2>
+      <div className="cart-wrapper">
+        <div className="cart-container">
+          <h2 className="cart-title">My Bag ({totalItems} items)</h2>
 
-
-        {cart.length === 0 ? (
-          <p className="empty-cart">Your cart is empty.</p>
-        ) : (
-          <>
-            {/* Cart Items */}
-            <div className="cart-list">
-              {cart.map((item) => (
-                <div className="cart-row" key={item.cartId}>
-                  <div className="remove-badge-left" onClick={() => handleRemove(item.cartId)}>×</div>
-
-                  <div className="cart-info">
-                    <strong>{item.name}</strong>
-                    <small>Category: {item.category}</small>
-                    <span>Rs. {item.price} x {item.quantity} = Rs. {item.price * item.quantity}</span>
-                  </div>
-
-                  <div className="cart-actions">
-                    <div className="qty-control">
-                      <button onClick={() => decrement(item.cartId)}>-</button>
-                      <span>{item.quantity}</span>
-                      <button onClick={() => increment(item.cartId)}>+</button>
+          {cart.length === 0 ? (
+            <p className="empty-cart">Your cart is empty.</p>
+          ) : (
+            <>
+              {/* Cart Items */}
+              <div className="cart-list">
+                {cart.map((item) => (
+                  <div className="cart-row" key={item.cartId}>
+                    <div
+                      className="remove-badge-left"
+                      onClick={() => handleRemove(item.cartId)}
+                    >
+                      ×
                     </div>
 
-                    <WhatsAppMessageLink
-                      orderDetails={{ name: item.name, price: item.price, count: item.quantity }}
-                    />
+                    <div className="cart-info">
+                      <strong>{item.name}</strong>
+                      <small>Category: {item.category}</small>
+                      <span>
+                        Rs. {item.price} x {item.quantity} = Rs.{" "}
+                        {item.price * item.quantity}
+                      </span>
+                    </div>
+
+                    <div className="cart-actions">
+                      <div className="qty-control">
+                        <button onClick={() => decrement(item.cartId)}>
+                          -
+                        </button>
+                        <span>{item.quantity}</span>
+                        <button onClick={() => increment(item.cartId)}>
+                          +
+                        </button>
+                      </div>
+
+                      <WhatsAppMessageLink
+                        orderDetails={{
+                          name: item.name,
+                          price: item.price,
+                          count: item.quantity,
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <button className="checkout-btn add-more" onClick={handleAddMore}>
-              Add More Items
-            </button>
-
-            {/* Notices / Info Boxes */}
-            <div className="cart-notices">
-              {isNightShift && (
-                <div className="notice-box warning">
-                  🌙 Night delivery: Food & Liquor available. Grocery & Bakery unavailable.
-                </div>
-              )}
-              <div className="notice-box info">
-                📌 Delivery charges: Rs. 50 for first category (Day) / Rs. 120 (Night), + Rs. 50 per extra category
+                ))}
               </div>
-            </div>
 
-            {/* Checkout Summary */}
-            <div className="checkout-summary" ref={checkoutRef}>
-              <p>Delivery Charges: Rs. {deliveryChargeFinal}</p>
-              <p><strong>Total: Rs. {totalPrice}</strong></p>
-
-              <button 
-                className="checkout-btn gift" 
-                onClick={handleSendGift} 
-                disabled
-              >
-                Send as Gift (Coming Soon)
+              <button className="checkout-btn add-more" onClick={handleAddMore}>
+                Add More Items
               </button>
 
-              <button className="checkout-btn" onClick={handleCheckoutAll}>
-                Order for Myself
-              </button>
+              {/* Notices / Info Boxes */}
+              <div className="cart-notices">
+                {isNightShift && (
+                  <div className="notice-box warning">
+                    🌙 Night delivery: Food & Liquor available. Grocery & Bakery
+                    unavailable.
+                  </div>
+                )}
+                <div className="notice-box info">
+                  📌 Delivery charges: Rs. 50 for first category (Day) / Rs. 120
+                  (Night), + Rs. 50 per extra category
+                </div>
+              </div>
 
-              {checkoutMessage && <WhatsAppmebulk message={checkoutMessage} />}
-            </div>
-          </>
-        )}
+              {/* Checkout Summary */}
+              <div className="checkout-summary" ref={checkoutRef}>
+                <p>Delivery Charges: Rs. {deliveryChargeFinal}</p>
+                <p>
+                  <strong>Total: Rs. {totalPrice}</strong>
+                </p>
 
-        {isGiftModalOpen && (
-          <GiftPreInstructModel
-            orderData={{ totalPrice, deliveryChargeFinal, totalItems, cart }}
-            onClose={() => setIsGiftModalOpen(false)}
-          />
-        )}
-      </div>
+                <button
+                  className="checkout-btn"
+                  onClick={handleSendGift}
+                  disabled
+                >
+                  Send as Gift (Coming Soon)
+                </button>
 
-      <Footer/>
+                <button className="checkout-btn" onClick={handleCheckoutAll}>
+                  Order for Myself
+                </button>
+
+                {checkoutMessage && (
+                  <WhatsAppmebulk message={checkoutMessage} />
+                )}
+              </div>
+            </>
+          )}
+
+          {isGiftModalOpen && (
+            <GiftPreInstructModel
+              orderData={{ totalPrice, deliveryChargeFinal, totalItems, cart }}
+              onClose={() => setIsGiftModalOpen(false)}
+            />
+          )}
+        </div>
+
+        <Footer />
       </div>
     </>
   );

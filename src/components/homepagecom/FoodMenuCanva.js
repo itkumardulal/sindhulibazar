@@ -1,8 +1,8 @@
-import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import './FoodMenuCanva.css';
-import guyImg from '../../images/delivery-guy.png'; // Adjust path if needed
+import React from "react";
+import { Container, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
+import "./FoodMenuCanva.css";
+import guyImg from "../../images/delivery-guy.png"; // Adjust path if needed
 
 const FoodMenuCanva = () => {
   return (
@@ -25,18 +25,22 @@ const FoodMenuCanva = () => {
               </div>
               <div className="delivery-content">
                 <h2>Fast Delivery Service</h2>
-                <p>Your favorite items delivered quickly and safely to your doorstep.</p>
+                <p>
+                  Your favorite items delivered quickly and safely to your
+                  doorstep.
+                </p>
 
-                <div className="btncontainercanva" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  
+                <div
+                  className="btncontainercanva"
+                  style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}
+                >
                   <Link to="/FoodStore" className="order__btn">
                     🍔 Order Now
                   </Link>
 
                   <Link to="/FoodGenerator" className="order__btn">
-                    🧑‍🍳 Cook Yourself
+                    🧑‍🍳 Cook with AI
                   </Link>
-
                 </div>
               </div>
             </div>
