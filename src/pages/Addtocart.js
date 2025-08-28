@@ -179,9 +179,9 @@ const AddToCart = () => {
                 </p>
 
                 <button
-                  className="checkout-btns"
+                  className="checkout-btn"
                   onClick={handleSendGift}
-                  disabled
+                  // disabled
                 >
                   Send as Gift (Coming Soon)
                 </button>

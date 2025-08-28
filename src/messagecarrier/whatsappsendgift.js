@@ -66,6 +66,6 @@ export function createWhatsAppLink(toPhone, message) {
 // MAIN function to call
 export function sendWhatsAppBill(orderData, orderid) {
   const billText = createBillText(orderData, orderid);
-  const waLink = createWhatsAppLink("9741667448", billText);
+  const waLink = createWhatsAppLink("9703782444", billText);
   window.open(waLink, "_blank");
 }

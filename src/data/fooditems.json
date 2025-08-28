@@ -2,26 +2,21 @@
 [
   {
     "id": 1,
-    "name": "Pork Sekuwa (1/2 kg)",
+    "name": "Pork Sekuwa (1kg)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/f31d163f5520c2424d282e1b303f96164e2efce8/sekuwa/pork%20sekuwa%20.jpg",
-    "description": "1/2 kg",
-    "price": "550",
+    "description": "1kg",
+    "price": "1050",
     "category": "Food"
   },
-  {
-    "id": 2,
-    "name": "BBQ Chiken Pizza (Medium)",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
-    "description": "  8AM to 8PM, Medium pizza good for 2 person. ",
-    "price": "495",
-    "category": "Food"
-  },
+  
+   
+  
   {
     "id": 2,
     "name": "Cheese Pizza (Medium)",
     "image": "https://i.imgur.com/lf3sm27.png",
     "description": "  8AM to 8PM, Medium pizza good for 2 person. ",
-    "price": "450",
+    "price": "500",
     "category": "Food"
   },
     {
@@ -86,7 +81,7 @@
     "name": "Veg Chowmein",
     "image": "https://i.imgur.com/HFy54bX.jpg",
     "description": "from SIndhuli BAzar",
-    "price": "100",
+    "price": "110",
     "category": "Food"
   },
   {
@@ -118,7 +113,7 @@
     "name": "Sukuti Khaja Set",
     "image": "https://i.imgur.com/XEYOs6u.jpg",
     "description": "Sindhuli Bazar Ghar Madhutar",
-    "price": "280",
+    "price": "300",
     "category": "Food"
   },
 
@@ -128,7 +123,7 @@
     "name": "Chicken Sekuwa (1/2 kg)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/f31d163f5520c2424d282e1b303f96164e2efce8/sekuwa/Chicken-Sekuwa-recipe-1024x693.jpg",
     "description": "Best out of Sindhuli BAzar",
-    "price": "450",
+    "price": "600",
     "category": "Food"
   },
 
@@ -148,7 +143,7 @@
     "name": "Mutton Sekuwa (1/2 kg)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/8ea27ef4c26425ecfe629dcb2176c664a90ae769/sekuwa/muttonsekuwa.jpeg",
     "description": "Best out of SindhuliBAzar",
-    "price": "900",
+    "price": "1200",
     "category": "Food"
   },
 
@@ -173,7 +168,7 @@
     "name": "Sausage Pizza (Medium)",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/6672b114ade44a597ff5e33e674e221a05dc9106/assetsimages/susagepizza.jpg",
     "description": " Available : 8AM to 8PM",
-    "price": "500",
+    "price": "550",
     "category": "Food"
   },
   {
@@ -256,7 +251,7 @@
     "name": "Pork Chilli",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/chilli%20item/pork%20chilli.png",
     "description": "Special From Sindhuli Bazar",
-    "price": "280",
+    "price": "300",
     "category": "Food"
   },
   {
@@ -304,7 +299,7 @@
     "name": "Mix Current Noodles",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/Noodles/mix%20current%20noodles.jpg",
     "description": "From best options from Sindhuli Bazar",
-    "price": "180",
+    "price": "200",
     "category": "Food"
   },
   {
@@ -320,7 +315,7 @@
     "name": "Buff Choila",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sukuti%20choila/buff%20choila.jpg",
     "description": "From best options from Sindhuli Bazar",
-    "price": "280",
+    "price": "300",
     "category": "Food"
   },
   {
@@ -344,7 +339,7 @@
     "name": "Sukuti /per Plate",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sukuti%20choila/sukuti.jpg",
     "description": "From best options from Sindhuli Bazar",
-    "price": "250",
+    "price": "300",
     "category": "Food"
   },
   {
@@ -352,7 +347,7 @@
     "name": "Pork fry 1/2kg",
     "image": "https://i.imgur.com/6TuysW9.png",
     "description": "Sindhuli Bazar Ghar Madhutar",
-    "price": "500",
+    "price": "550",
     "category": "Food"
   },
   {
@@ -424,7 +419,7 @@
     "name": "French Fries",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/chilli%20item/french%20fry.png",
     "description": "Special From Sindhuli Bazar",
-    "price": "160",
+    "price": "220",
     "category": "Food"
   },
   {
@@ -448,7 +443,7 @@
     "name": "Chicken Sausage/Piece",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/chiken%20sausage.jpg",
     "description": "Special From Sindhuli Bazar",
-    "price": "50",
+    "price": "60",
     "category": "Food"
   },
   {
@@ -456,7 +451,7 @@
     "name": "Buff Sausage/ Piece",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/momo%20chawmein/buff%20susage.jpg",
     "description": "FSpecial From Sindhuli Bazar",
-    "price": "50",
+    "price": "60",
     "category": "Food"
   },
   {
@@ -464,7 +459,7 @@
     "name": "Bhatmas Sadeko",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sadeko%20item/bhatmas%20sadeko.png",
     "description": "From best options from Sindhuli Bazar",
-    "price": "120",
+    "price": "150",
     "category": "Food"
   },
   {
@@ -472,31 +467,23 @@
     "name": "Chicken Sadeko",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sadeko%20item/chiken%20sadeko.jpg",
     "description": "From best options from Sindhuli Bazar",
-    "price": "250",
+    "price": "280",
     "category": "Food"
   },
   {
     "id": 68,
-    "name": "Pinut Sadeko",
+    "name": "Peanut Sadeko",
     "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/sadeko%20item/pinut%20sadeko.jpg",
     "description": "From best options from Sindhuli Bazar",
-    "price": "120",
+    "price": "150",
     "category": "Food"
   },
   {
     "id": 69,
     "name": "Fruit Salad",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/salad/fruit%20salad.jpg",
+    "image": "https://i.imgur.com/NZaxNF1.jpeg",
     "description": "From best options from Sindhuli Bazar",
     "price": "350",
-    "category": "Food"
-  },
-  {
-    "id": 70,
-    "name": "Green Salad",
-    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/salad/green%20salad.jpg",
-    "description": "From best options from Sindhuli Bazar",
-    "price": "100",
     "category": "Food"
   },
   {
@@ -506,5 +493,243 @@
     "description": "From best options from Sindhuli Bazar",
     "price": "50",
     "category": "Food"
+  },
+  {
+    "id": 72,
+    "name": "Fried Rice Buff",
+    "image": "https://i.imgur.com/8T0To7j.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "190",
+    "category": "Food"
+  },
+  
+  {
+    "id": 73,
+    "name": "Buffalo Wings per plate",
+    "image": "https://i.imgur.com/RrW2ibZ.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "380",
+    "category": "Food"
+  },
+  {
+    "id": 74,
+    "name": "Hot Wing",
+    "image": "https://i.imgur.com/QZRChXV.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "400",
+    "category": "Food"
+  },
+  {
+    "id": 75,
+    "name": "Keema Noodles",
+    "image": "https://i.imgur.com/HFWpDSC.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "220",
+    "category": "Food"
+  },
+  {
+    "id": 76,
+    "name": "Veg Jhol Momo",
+    "image": "https://i.imgur.com/VGErYyL.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "140",
+    "category": "Food"
+  },
+  {
+    "id": 77,
+    "name": "Chicken Jhol Momo",
+    "image": "https://i.imgur.com/Nf2TK77.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "180",
+    "category": "Food"
+  },
+  {
+    "id": 78,
+    "name": "Buff Jhol Momo",
+    "image": "",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "160",
+    "category": "Food"
+  },
+  {
+    "id": 79,
+    "name": "Veg Thukpa",
+    "image": "https://i.imgur.com/qvc1m6J.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "130",
+    "category": "Food"
+  },
+  {
+    "id": 80,
+    "name": "Egg Thukpa",
+    "image": "https://i.imgur.com/WAGwqh8.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "140",
+    "category": "Food"
+  },
+  {
+    "id": 81,
+    "name": "Chicken Thukpa",
+    "image": "https://i.imgur.com/Wvie7Vt.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "190",
+    "category": "Food"
+  },
+  {
+    "id": 82,
+    "name": "Buff Thukpa",
+    "image": "https://i.imgur.com/scyVDrB.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "180",
+    "category": "Food"
+  },
+  {
+    "id": 83,
+    "name": "Mix Thukpa",
+    "image": "https://i.imgur.com/Y3trUur.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "230",
+    "category": "Food"
+  },
+  {
+    "id": 84,
+    "name": "Chicken Tawa",
+    "image": "https://i.imgur.com/KBUtHjO.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "300",
+    "category": "Food"
+  },
+  {
+    "id": 85,
+    "name": "Buff Tawa",
+    "image": "https://i.imgur.com/mQxuGBu.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "300",
+    "category": "Food"
+  },
+  {
+    "id": 86,
+    "name": "Mushroom Chilli",
+    "image": "https://i.imgur.com/2UvLV9N.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "300",
+    "category": "Food"
+  },
+  {
+    "id": 87,
+    "name": "Paneer Chilly",
+    "image": "https://i.imgur.com/CEM3d7F.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "350",
+    "category": "Food"
+  },
+  {
+    "id": 88,
+    "name": "Nepali Salad",
+    "image": "https://i.imgur.com/nhvZWjK.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "160",
+    "category": "Food"
+  },
+  {
+    "id": 89,
+    "name": "Veg Sandwich",
+    "image": "https://i.imgur.com/sQbVwdJ.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "160",
+    "category": "Food"
+  },
+  {
+    "id": 90,
+    "name": "Cheese Sandwich",
+    "image": "https://i.imgur.com/o6au9Xn.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "220",
+    "category": "Food"
+  },
+  {
+    "id": 91,
+    "name": "Chicken Sandwich",
+    "image": "https://i.imgur.com/BSRthrz.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "240",
+    "category": "Food"
+  },
+  {
+    "id": 92,
+    "name": "Veg Kathi Roll",
+    "image": "https://i.imgur.com/xEDWbAw.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "210",
+    "category": "Food"
+  },
+  {
+    "id": 93,
+    "name": "Egg Kathi Roll",
+    "image": "https://i.imgur.com/DMw9Bwi.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "230",
+    "category": "Food"
+  },
+  {
+    "id": 94,
+    "name": "Paneer Kathi Roll",
+    "image": "https://i.imgur.com/kkjPEiF.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "260",
+    "category": "Food"
+  },
+  {
+    "id": 95,
+    "name": "Chicken Kathi Roll",
+    "image": "https://i.imgur.com/Gt6Aae0.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "280",
+    "category": "Food"
+  },
+  {
+    "id": 96,
+    "name": "Mix Kathi Roll",
+    "image": "https://i.imgur.com/M9xy8mO.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "320",
+    "category": "Food"
+  },
+  {
+    "id": 97,
+    "name": "Veg Fred Rice",
+    "image": "https://i.imgur.com/E0fIJho.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "150",
+    "category": "Food"
+  },
+  {
+    "id": 98,
+    "name": "Egg Fred Rice",
+    "image": "https://i.imgur.com/r50pt3d.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "170",
+    "category": "Food"
+  },
+  
+   
+  {
+    "id": 100,
+    "name": "Chicken Fred Rice",
+    "image": "https://i.imgur.com/lNsnroq.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "220",
+    "category": "Food"
+  },
+  {
+    "id": 101,
+    "name": "Mix Fred Rice",
+    "image": "https://i.imgur.com/PdTDsO1.jpeg",
+    "description": "From best options from Sindhuli Bazar",
+    "price": "260",
+    "category": "Food"
   }
+
+
+
 ]
