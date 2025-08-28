@@ -224,5 +224,15 @@
   { "id": "223", "name": "Jewelry Box", "ageGroup": "old", "gender": "female", "price": 1850, "giftRange": "1500-2000", "img": "https://www.w3schools.com/w3images/nature.jpg" },
   { "id": "224", "name": "Knitted Gloves", "ageGroup": "old", "gender": "female", "price": 1900, "giftRange": "1500-2000", "img": "https://www.w3schools.com/w3images/mountains.jpg" }
 
+,
+  { "id": "0011", "name": "Dairy Milk (Small)", "image": "https://www.w3schools.com/w3images/fjords.jpg", "price": 20, "giftRange": "10-40" },
+  { "id": "0022", "name": "Perk Chocolate", "image": "https://www.w3schools.com/w3images/lights.jpg", "price": 15, "giftRange": "10-40" },
+  { "id": "0033", "name": "KitKat (2 Finger)", "image": "https://www.w3schools.com/w3images/mountains.jpg", "price": 30, "giftRange": "10-40" },
+  { "id": "0044", "name": "Munch Bar", "image": "https://www.w3schools.com/w3images/nature.jpg", "price": 12, "giftRange": "10-40" },
+  { "id": "0055", "name": "Snickers Mini", "image": "https://www.w3schools.com/w3images/fjords.jpg", "price": 35, "giftRange": "10-40" },
+  { "id": "0066", "name": "Tango Wafer", "image": "https://www.w3schools.com/w3images/lights.jpg", "price": 18, "giftRange": "10-40" },
+  { "id": "0077", "name": "Choco Fun", "image": "https://www.w3schools.com/w3images/mountains.jpg", "price": 10, "giftRange": "10-40" },
+  { "id": "0088", "name": "Mars Mini", "image": "https://www.w3schools.com/w3images/nature.jpg", "price": 40, "giftRange": "10-40" }
+
 
 ]

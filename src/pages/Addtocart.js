@@ -179,7 +179,7 @@ const AddToCart = () => {
                 </p>
 
                 <button
-                  className="checkout-btn"
+                  className="checkout-btns"
                   onClick={handleSendGift}
                   disabled
                 >

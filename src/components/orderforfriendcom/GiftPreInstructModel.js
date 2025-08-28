@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createOrder } from "./order_api/createOrder";
+import { sendWhatsAppBill } from "../../messagecarrier/whatsappsendgift";
 
 export default function GiftPreInstructModel({ orderData, onClose }) {
   const itemOrdered = orderData.cart.map((item) => ({
@@ -10,12 +11,12 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
   const totalPrice = orderData.totalPrice;
   const deliveryCharge = orderData.deliveryChargeFinal;
   const giftRanges = [
-    { label: "१० देखि १००", value: "10-100", cost: 50 },
+    { label: "10 देखि 50", value: "10-40", cost: 0 },
     { label: "१०० देखि ३००", value: "100-300", cost: 200 },
-    { label: "३०० देखि ६००", value: "300-600", cost: 500 },
+    // { label: "३०० देखि ६००", value: "300-600", cost: 500 },
     { label: "६०० देखि १०००", value: "600-1000", cost: 800 },
-    { label: "१००० देखि १५००", value: "1000-1500", cost: 1250 },
-    { label: "१५०० देखि २०००", value: "1500-2000", cost: 1750 },
+    // { label: "१००० देखि १५००", value: "1000-1500", cost: 1250 },
+    // { label: "१५०० देखि २०००", value: "1500-2000", cost: 1750 },
   ];
 
   const LINK_GENERATION_COST = 50;
@@ -32,7 +33,6 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
   const [additionalCost, setAdditionalCost] = useState(0);
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
-  
 
   const [formData, setFormData] = useState({
     senderName: "",
@@ -181,9 +181,12 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
     try {
       setLoading(true);
       const result = await createOrder(orderData);
-      console.log("✅ Order created:", result);
-      alert("🎉 अर्डर सफलतापूर्वक गरिएको छ!");
-      console.log("✅ Order ID:", result.orderId);
+      // console.log("✅ Order created:", result);
+      // alert("🎉 अर्डर सफलतापूर्वक गरिएको छ!");
+      // {result && <WhatsappSendGift orderData={orderData} />}
+      sendWhatsAppBill(orderData, result.orderId);
+
+      // console.log("✅ Order ID:", result.orderId);
       //create a rout link
       onClose();
     } catch (err) {

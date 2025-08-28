@@ -7,7 +7,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getGiftData } from "../components/orderforfriendcom/order_api/getGiftData";
 import PromoCardGiftForFriend from "../components/orderforfriendcom/PromoCardGiftForFriend";
 import Footer from "../components/footer";
-import ClaimedGiftAuthModel from "../components/orderforfriendcom/ClaimedGiftAuthModel";
 import isValidUUID from "../tinyfunction/isValidUUID";
 import { updateGiftWinItem } from "../components/orderforfriendcom/order_api/updateGiftWinItem";
 
@@ -81,27 +80,46 @@ export default function GiftLandingPage() {
   }, [id]);
 
   if (loading) return <p>Loading...</p>;
-  if (!orderData) return <ClaimedGiftAuthModel onOrderNow={handleOrderNow} />;
+  if (!orderData) return <PromoCardGiftForFriend />;
 
   const filteredGifts = giftlist.filter((gift) => {
     let matches = true;
 
-    if (orderData.receiverAgeGroup) {
-      matches =
-        matches &&
-        gift.ageGroup.toLowerCase() ===
-          orderData.receiverAgeGroup.toLowerCase();
-    }
-
-    if (orderData.receiverGender) {
-      matches =
-        matches &&
-        gift.gender.toLowerCase() === orderData.receiverGender.toLowerCase();
-    }
-
-    if (orderData.giftRange) {
+    // ✅ 1. Price range (always mandatory)
+    if (orderData.giftRange && gift.price != null) {
       const [min, max] = orderData.giftRange.split("-").map(Number);
-      matches = matches && gift.price >= min && gift.price <= max;
+
+      if (!isNaN(min) && !isNaN(max)) {
+        matches = gift.price >= min && gift.price <= max;
+      } else {
+        matches = false; // invalid range = no match
+      }
+    }
+
+    if (!matches) return false; // stop here if price fails
+
+    // ✅ 2. Age group (optional)
+    if (
+      orderData.receiverAgeGroup &&
+      orderData.receiverAgeGroup.toLowerCase() !== "any"
+    ) {
+      if (gift.ageGroup) {
+        matches =
+          gift.ageGroup.toLowerCase() ===
+          orderData.receiverAgeGroup.toLowerCase();
+      }
+    }
+
+    // ✅ 3. Gender (optional)
+    if (
+      matches &&
+      orderData.receiverGender &&
+      orderData.receiverGender.toLowerCase() !== "any"
+    ) {
+      if (gift.gender) {
+        matches =
+          gift.gender.toLowerCase() === orderData.receiverGender.toLowerCase();
+      }
     }
 
     return matches;
