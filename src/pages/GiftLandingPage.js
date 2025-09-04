@@ -292,7 +292,7 @@ export default function GiftLandingPage() {
                             }}
                             alt={gift.name}
                           />
-                          <rect
+                          {/* <rect
                             x={textX - 20}
                             y={textY - 40}
                             width="30"
@@ -313,7 +313,7 @@ export default function GiftLandingPage() {
                             transform={`rotate(-90, ${textX}, ${textY})`}
                           >
                             {gift.name}
-                          </text>
+                          </text> */}
                           <text
                             x={textX}
                             y={textY + 10}

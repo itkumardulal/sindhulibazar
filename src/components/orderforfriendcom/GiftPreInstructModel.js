@@ -12,8 +12,8 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
   const deliveryCharge = orderData.deliveryChargeFinal;
   const giftRanges = [
     { label: "10 देखि 50", value: "10-40", cost: 0 },
-    { label: "१०० देखि ३००", value: "100-300", cost: 200 },
-    { label: "६०० देखि १०००", value: "600-1000", cost: 800 },
+    // { label: "१०० देखि ३००", value: "100-300", cost: 200 },
+    // { label: "६०० देखि १०००", value: "600-1000", cost: 800 },
   ];
 
   const LINK_GENERATION_COST = 50;
@@ -73,7 +73,11 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
       placeholder: "9876543210",
       optional: true,
     },
-    { label: "Receiver's Name", name: "receiverName", placeholder: "Receiver name" },
+    {
+      label: "Receiver's Name",
+      name: "receiverName",
+      placeholder: "Receiver name",
+    },
     {
       label: "Receiver's Phone (Optional)",
       name: "receiverPhone",
@@ -101,21 +105,33 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
       ],
     },
     { label: "Gift Price Range", name: "giftRange", isGiftRange: true },
-    { label: "Relationship", name: "relationship", placeholder: "Best Friend" },
+    {
+      label: "Relationship",
+      name: "relationship",
+      placeholder: "Friend/mum/brother",
+    },
     {
       label: "Message",
       name: "message",
-      placeholder: "Happy Birthday Sofia! Wishing you all the best. I have sent you a gift. Hope you like it 🎉",
+      placeholder:
+        "Happy Birthday Sofia! Wishing you all the best. I have sent you a gift. Hope you like it 🎉",
       multiline: true,
     },
-    { label: "Occasion", name: "occasion", placeholder: "Birthday" },
+    {
+      label: "Occasion",
+      name: "occasion",
+      placeholder: "Birthday/New Year/celebration",
+    },
   ];
 
   const currentField = fields[step];
 
   const handleNext = () => {
     const currentValue = formData[currentField.name];
-    if (!currentField.optional && (!currentValue || currentValue.trim() === "")) {
+    if (
+      !currentField.optional &&
+      (!currentValue || currentValue.trim() === "")
+    ) {
       setErrorMsg("कृपया यो फिल्ड भर्नुहोस्।");
       return;
     }
@@ -131,13 +147,18 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
   const handleSubmitOrder = async (e) => {
     e.preventDefault();
     const currentValue = formData[currentField.name];
-    if (!currentField.optional && (!currentValue || currentValue.trim() === "")) {
+    if (
+      !currentField.optional &&
+      (!currentValue || currentValue.trim() === "")
+    ) {
       setErrorMsg("कृपया यो फिल्ड भर्नुहोस्।");
       return;
     }
     setErrorMsg("");
 
-    const selectedRange = giftRanges.find((r) => r.value === formData.giftRange);
+    const selectedRange = giftRanges.find(
+      (r) => r.value === formData.giftRange
+    );
 
     const orderDataObj = {
       senderName: formData.senderName,
@@ -171,16 +192,20 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
   return (
     <div style={styles.overlay}>
       <div style={styles.modal}>
-        <button style={styles.closeBtn} onClick={onClose}>✖</button>
+        <button style={styles.closeBtn} onClick={onClose}>
+          ✖
+        </button>
         <h2 style={styles.title}>🎁 उपहार निर्देशनहरू</h2>
         <p style={styles.infoText}>
           आधार मूल्य: <strong>रु. {totalPrice}</strong>
           <br />
-          उपहार दायराको लागि अतिरिक्त लागत: <strong>रु. {additionalCost}</strong>
+          उपहार दायराको लागि अतिरिक्त लागत:{" "}
+          <strong>रु. {additionalCost}</strong>
           <br />
           लिंक निर्माण शुल्क: <strong>रु. {LINK_GENERATION_COST}</strong>
           <br />
-          <strong>अन्तिम मूल्य:</strong> रु. {totalPrice + additionalCost + LINK_GENERATION_COST}
+          <strong>अन्तिम मूल्य:</strong> रु.{" "}
+          {totalPrice + additionalCost + LINK_GENERATION_COST}
         </p>
 
         <form onSubmit={handleSubmitOrder} style={styles.form}>
@@ -218,7 +243,9 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
               >
                 <option value="">छान्नुहोस्</option>
                 {currentField.options.map(({ label, value }) => (
-                  <option key={value} value={value}>{label}</option>
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
                 ))}
               </select>
             </>
@@ -287,20 +314,90 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
 }
 
 const styles = {
-  overlay: { position: "fixed", inset: 0, backgroundColor: "rgba(0,0,0,0.6)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 9999, padding: "1rem" },
-  modal: { background: "#fff", borderRadius: "12px", padding: "2rem", maxWidth: "480px", width: "100%", boxShadow: "0 4px 20px rgba(0,0,0,0.2)", position: "relative", fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" },
-  closeBtn: { position: "absolute", top: "12px", right: "15px", fontSize: "18px", background: "none", border: "none", cursor: "pointer", color: "#666" },
-  title: { textAlign: "center", color: "rgb(255, 112, 67)", marginBottom: "1rem" },
-  infoText: { fontSize: "14px", color: "#333", marginBottom: "1rem", lineHeight: 1.4, textAlign: "center" },
+  overlay: {
+    position: "fixed",
+    inset: 0,
+    backgroundColor: "rgba(0,0,0,0.6)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 9999,
+    padding: "1rem",
+  },
+  modal: {
+    background: "#fff",
+    borderRadius: "12px",
+    padding: "2rem",
+    maxWidth: "480px",
+    width: "100%",
+    boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+    position: "relative",
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  },
+  closeBtn: {
+    position: "absolute",
+    top: "12px",
+    right: "15px",
+    fontSize: "18px",
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    color: "#666",
+  },
+  title: {
+    textAlign: "center",
+    color: "rgb(255, 112, 67)",
+    marginBottom: "1rem",
+  },
+  infoText: {
+    fontSize: "14px",
+    color: "#333",
+    marginBottom: "1rem",
+    lineHeight: 1.4,
+    textAlign: "center",
+  },
   form: { display: "flex", flexDirection: "column" },
   label: { marginBottom: "0.4rem", fontWeight: "600", color: "#444" },
-  input: { padding: "0.6rem 0.8rem", fontSize: "14px", borderRadius: "6px", border: "1px solid #ccc", marginBottom: "1.2rem", outline: "none" },
-  textarea: { padding: "0.6rem 0.8rem", fontSize: "14px", borderRadius: "6px", border: "1px solid #ccc", resize: "vertical", marginBottom: "1.2rem", outline: "none" },
-  select: { padding: "0.6rem 0.8rem", fontSize: "14px", borderRadius: "6px", border: "1px solid #ccc", marginBottom: "1.2rem", outline: "none" },
+  input: {
+    padding: "0.6rem 0.8rem",
+    fontSize: "14px",
+    borderRadius: "6px",
+    border: "1px solid #ccc",
+    marginBottom: "1.2rem",
+    outline: "none",
+  },
+  textarea: {
+    padding: "0.6rem 0.8rem",
+    fontSize: "14px",
+    borderRadius: "6px",
+    border: "1px solid #ccc",
+    resize: "vertical",
+    marginBottom: "1.2rem",
+    outline: "none",
+  },
+  select: {
+    padding: "0.6rem 0.8rem",
+    fontSize: "14px",
+    borderRadius: "6px",
+    border: "1px solid #ccc",
+    marginBottom: "1.2rem",
+    outline: "none",
+  },
   buttons: { display: "flex", justifyContent: "space-between" },
-  button: { padding: "0.6rem 1.2rem", fontSize: "14px", borderRadius: "8px", border: "none", cursor: "pointer" },
+  button: {
+    padding: "0.6rem 1.2rem",
+    fontSize: "14px",
+    borderRadius: "8px",
+    border: "none",
+    cursor: "pointer",
+  },
   backButton: { backgroundColor: "#ddd", color: "#333" },
   nextButton: { backgroundColor: "rgb(241, 196, 15)", color: "white" },
   submitButton: { backgroundColor: "#10b981", color: "white", width: "100%" },
-  errorMsg: { color: "red", fontWeight: "600", marginTop: "0.5rem", minHeight: "20px" },
+  errorMsg: {
+    color: "red",
+    fontWeight: "600",
+    marginTop: "0.5rem",
+    minHeight: "20px",
+  },
 };
