@@ -15,7 +15,8 @@ const OrderModal = ({ order, onClose }) => {
           <strong>Sender:</strong> {order.sender_name} ({order.sender_phone})
         </p>
         <p>
-          <strong>Receiver:</strong> {order.receiver_name} ({order.receiver_phone})
+          <strong>Receiver:</strong> {order.receiver_name} (
+          {order.receiver_phone})
         </p>
         <p>
           <strong>Message:</strong> {order.message}
@@ -58,12 +59,15 @@ const OrderRow = ({ order, onToggle, onView }) => {
       <td>{order.receiver_name}</td>
       <td>{order.sender_phone}</td>
       <td>{order.receiver_phone}</td>
-      <td>{giftNames}</td>
+      <td>{order.gift_item}</td>
+
       <td>
         <input
           type="checkbox"
           checked={order.claimed === 1}
-          onChange={(e) => onToggle(order.id, "claimed", e.target.checked ? 1 : 0)}
+          onChange={(e) =>
+            onToggle(order.id, "claimed", e.target.checked ? 1 : 0)
+          }
         />
       </td>
       <td>
@@ -114,7 +118,9 @@ const AdminControl = () => {
 
     const fetchOrders = async () => {
       try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/getAllOrders`);
+        const res = await fetch(
+          `${process.env.REACT_APP_API_URL}/getAllOrders`
+        );
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         const data = await res.json();
         setOrders(Array.isArray(data) ? data : []);
@@ -154,7 +160,8 @@ const AdminControl = () => {
       (filter === "undelivered" && order.delivery_delivered === 0);
 
     const matchesSearch =
-      order.sender_phone.includes(search) || order.receiver_phone.includes(search);
+      order.sender_phone.includes(search) ||
+      order.receiver_phone.includes(search);
 
     return matchesFilter && matchesSearch;
   });
@@ -163,10 +170,14 @@ const AdminControl = () => {
   const totalPages = Math.ceil(filteredOrders.length / ordersPerPage);
   const indexOfLastOrder = currentPage * ordersPerPage;
   const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
-  const currentOrders = filteredOrders.slice(indexOfFirstOrder, indexOfLastOrder);
+  const currentOrders = filteredOrders.slice(
+    indexOfFirstOrder,
+    indexOfLastOrder
+  );
 
   const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
-  const handleNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const handleNext = () =>
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
 
   // LOGIN VIEW
   if (!isLoggedIn) {
