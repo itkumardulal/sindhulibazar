@@ -250,6 +250,7 @@
   display: flex;
   justify-content: center;
   gap: 18px;
+  align-items: center;
 }
 .whatsapp-btn {
   text-transform: none;

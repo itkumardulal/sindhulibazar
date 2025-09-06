@@ -20,6 +20,7 @@ import PromoCardGiftForFriend from "./components/orderforfriendcom/PromoCardGift
 import AdmissionPage from "./pages/Admissionpage";
 import KhyalGLanding from "./components/KhyalG";
 import AdminControl from "./pages/AdminControl";
+import AllOrders from "./pages/AllOrders";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +45,7 @@ function App() {
         <Route path="/vehicleinfo" element={<VehiclePage />} />
         <Route path="/FoodGenerator" element={<FoodGenerator />} />
         <Route path="/order_for_friend/:id" element={<GiftLandingPage />} />
+        <Route path="/myorders" element={<AllOrders />} />
         <Route
           path="/order_for_friend/giftpromo"
           element={<PromoCardGiftForFriend />}

@@ -131,7 +131,11 @@ const AdminControl = () => {
         setLoading(false);
       }
     };
-    fetchOrders();
+
+    fetchOrders(); // immediate fetch on login
+
+    const interval = setInterval(fetchOrders, 300000); // every 2 minutes
+    return () => clearInterval(interval); // cleanup on unmount or logout
   }, [isLoggedIn]);
 
   const handleToggle = async (orderId, field, value) => {
