@@ -5,8 +5,6 @@ import "./AdminControl.css";
 const OrderModal = ({ order, onClose }) => {
   if (!order) return null;
 
-  // const total = order.items?.reduce((sum, i) => sum + i.price * i.quantity, 0);
-
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -17,6 +15,9 @@ const OrderModal = ({ order, onClose }) => {
         <p>
           <strong>Receiver:</strong> {order.receiver_name} (
           {order.receiver_phone})
+        </p>
+        <p>
+          <strong>Receiver Address:</strong> {order.receiver_address || "N/A"}
         </p>
         <p>
           <strong>Message:</strong> {order.message}
@@ -51,16 +52,15 @@ const OrderModal = ({ order, onClose }) => {
 
 // Table Row Component
 const OrderRow = ({ order, onToggle, onView }) => {
-  const giftNames = order.items?.map((i) => i.item_name).join(", ");
   return (
     <tr>
       <td>{order.id}</td>
       <td>{order.sender_name}</td>
       <td>{order.receiver_name}</td>
+      <td>{order.receiver_address || "N/A"}</td>
       <td>{order.sender_phone}</td>
       <td>{order.receiver_phone}</td>
       <td>{order.gift_item}</td>
-
       <td>
         <input
           type="checkbox"
@@ -160,8 +160,8 @@ const AdminControl = () => {
       (filter === "undelivered" && order.delivery_delivered === 0);
 
     const matchesSearch =
-      order.sender_phone.includes(search) ||
-      order.receiver_phone.includes(search);
+      (order.sender_phone || "").includes(search) ||
+      (order.receiver_phone || "").includes(search);
 
     return matchesFilter && matchesSearch;
   });
@@ -250,6 +250,7 @@ const AdminControl = () => {
                 "Order ID",
                 "Sender",
                 "Receiver",
+                "Receiver Address", // NEW
                 "Sender Phone",
                 "Receiver Phone",
                 "Gift Item",
@@ -264,7 +265,7 @@ const AdminControl = () => {
           <tbody>
             {currentOrders.length === 0 ? (
               <tr>
-                <td colSpan="9" className="text-center">
+                <td colSpan="10" className="text-center">
                   No orders found
                 </td>
               </tr>
