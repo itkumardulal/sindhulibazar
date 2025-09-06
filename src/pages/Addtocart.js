@@ -8,6 +8,7 @@ import { CartContext } from "../context/CartContext";
 import Carthandler from "../components/handlers/Carthandler";
 import GiftPreInstructModel from "../components/orderforfriendcom/GiftPreInstructModel";
 import Footer from "../components/footer";
+import OrderForm from "../components/ordersprocess/OrderForm";
 
 const AddToCart = () => {
   const { cart, setCart } = useContext(CartContext);
@@ -18,7 +19,19 @@ const AddToCart = () => {
   const [isNightShift, setIsNightShift] = useState(false);
   const [deliveryChargeFinal, setDeliveryChargeFinal] = useState(50);
   const [isGiftModalOpen, setIsGiftModalOpen] = useState(false);
+  const [modalId, setModalId] = useState(null); // null means no modal open yet
+
   const checkoutRef = useRef(null);
+  const orderFormRef = useRef(null);
+
+  useEffect(() => {
+    if (modalId === 0 && orderFormRef.current) {
+      orderFormRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center", // center the form in viewport
+      });
+    }
+  }, [modalId]);
 
   // Detect night shift
   useEffect(() => {
@@ -87,15 +100,24 @@ const AddToCart = () => {
 
   const handleRemove = (id) =>
     setCart((prev) => prev.filter((item) => item.cartId !== id));
-  const handleCheckoutAll = () =>
-    Carthandler(
-      cart,
-      isNightShift,
-      totalPrice - deliveryChargeFinal,
-      setCheckoutMessage,
-      setCart
-    );
-  const handleSendGift = () => setIsGiftModalOpen(true);
+  // const handleCheckoutAll = () =>
+  //   Carthandler(
+  //     cart,
+  //     isNightShift,
+  //     totalPrice - deliveryChargeFinal,
+  //     setCheckoutMessage,
+  //     setCart
+  //   );
+  const handleCheckoutAll = () => {
+    setModalId(0); // or any ID you want for checkout
+    setIsGiftModalOpen(true);
+  };
+
+  const handleSendGift = () => {
+    setModalId(1); // different ID for gift
+    setIsGiftModalOpen(true);
+  };
+
   const handleAddMore = () => navigate("/FoodStore");
 
   return (
@@ -183,7 +205,7 @@ const AddToCart = () => {
                   onClick={handleSendGift}
                   // disabled
                 >
-                  Send as Gift (Coming Soon)
+                  Send as Gift (new)
                 </button>
 
                 <button className="checkout-btn" onClick={handleCheckoutAll}>
@@ -197,11 +219,38 @@ const AddToCart = () => {
             </>
           )}
 
-          {isGiftModalOpen && (
+          {/* {isGiftModalOpen && (
+
             <GiftPreInstructModel
               orderData={{ totalPrice, deliveryChargeFinal, totalItems, cart }}
               onClose={() => setIsGiftModalOpen(false)}
             />
+          )} */}
+          {isGiftModalOpen && (
+            <>
+              {modalId === 1 ? (
+                <GiftPreInstructModel
+                  orderData={{
+                    totalPrice,
+                    deliveryChargeFinal,
+                    totalItems,
+                    cart,
+                  }}
+                  onClose={() => setIsGiftModalOpen(false)}
+                />
+              ) : (
+                <OrderForm
+                  ref={orderFormRef}
+                  orderData={{
+                    totalPrice,
+                    deliveryChargeFinal,
+                    totalItems,
+                    cart,
+                  }}
+                  onClose={() => setIsGiftModalOpen(false)}
+                />
+              )}
+            </>
           )}
         </div>
 

@@ -70,7 +70,7 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
     {
       label: "Sender's Phone (Optional)",
       name: "senderPhone",
-      placeholder: "9876543210",
+      placeholder: "98........",
       optional: true,
     },
     {
@@ -180,6 +180,15 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
     try {
       setLoading(true);
       const result = await createOrder(orderDataObj);
+      if (result.success) {
+        alert("Order placed successfully! You will receive a call shortly.");
+        sendWhatsAppBill(orderDataObj, result.data.orderId);
+        onClose();
+      } else {
+        setErrorMsg(result.error || "अर्डर गर्न असफल भयो");
+      }
+      alert("✅ Order placed successfully! You will receive a call shortly.");
+
       sendWhatsAppBill(orderDataObj, result.orderId);
       onClose();
     } catch (err) {

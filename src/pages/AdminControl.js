@@ -5,7 +5,7 @@ import "./AdminControl.css";
 const OrderModal = ({ order, onClose }) => {
   if (!order) return null;
 
-  const total = order.items?.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  // const total = order.items?.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -39,7 +39,7 @@ const OrderModal = ({ order, onClose }) => {
           ))}
         </ul>
         <p>
-          <strong>Total:</strong> Rs.{total}
+          <strong>Total:</strong> Rs.{order.total_price}
         </p>
         <button className="close-btn" onClick={onClose}>
           Close
