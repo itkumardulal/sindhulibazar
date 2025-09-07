@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./AllOrders.css";
 import DrawerAppBar from "../components/Navbar";
-import Footer from "../components/footer";
+
 import toast from "react-hot-toast";
 
 const AllOrders = () => {
@@ -28,7 +28,6 @@ const AllOrders = () => {
           <h2>🛒 No Orders Yet!</h2>
           <p>Your orders will appear here once placed. Stay tuned! ✨</p>
         </div>
-        <Footer />
       </DrawerAppBar>
     );
   }
@@ -75,7 +74,6 @@ const AllOrders = () => {
           </>
         )}
       </div>
-      <Footer />
     </DrawerAppBar>
   );
 };
@@ -168,7 +166,7 @@ const OrderItem = ({
             }}
           >
             <strong style={{ color: "#d46b08", fontSize: "13px" }}>
-              🎡✨ Play & Win Big!,Spinner :  ✨🎉
+              🎡✨ Play & Win Big!,Spinner : ✨🎉
             </strong>
 
             <a
