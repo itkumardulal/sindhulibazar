@@ -246,7 +246,7 @@ useEffect(() => {
             </Tooltip>
           )}
         </Box>
-        <footer />
+   
       </DrawerAppBar>
     </>
   );

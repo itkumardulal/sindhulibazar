@@ -1,92 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./AdminControl.css";
+import toast from "react-hot-toast";
+import DrawerAppBar from "../components/Navbar";
 
-// Modal Component
-const OrderModal = ({ order, onClose }) => {
-  if (!order) return null;
-
-  return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <h2>Order Details - #{order.id}</h2>
-        <p>
-          <strong>Sender:</strong> {order.sender_name} ({order.sender_phone})
-        </p>
-        <p>
-          <strong>Receiver:</strong> {order.receiver_name} (
-          {order.receiver_phone})
-        </p>
-        <p>
-          <strong>Receiver Address:</strong> {order.receiver_address || "N/A"}
-        </p>
-        <p>
-          <strong>Message:</strong> {order.message}
-        </p>
-        <p>
-          <strong>Occasion:</strong> {order.occasion}
-        </p>
-        <p>
-          <strong>Gift Range:</strong> {order.gift_Range} |{" "}
-          <strong>Gift Cost:</strong> Rs.{order.gift_Cost}
-        </p>
-        <p>
-          <strong>Items:</strong>
-        </p>
-        <ul>
-          {order.items?.map((i) => (
-            <li key={i.id}>
-              {i.item_name} × {i.quantity} — Rs.{i.price}
-            </li>
-          ))}
-        </ul>
-        <p>
-          <strong>Total:</strong> Rs.{order.total_price}
-        </p>
-        <button className="close-btn" onClick={onClose}>
-          Close
-        </button>
-      </div>
-    </div>
-  );
-};
-
-// Table Row Component
-const OrderRow = ({ order, onToggle, onView }) => {
-  return (
-    <tr>
-      <td>{order.id}</td>
-      <td>{order.sender_name}</td>
-      <td>{order.receiver_name}</td>
-      <td>{order.receiver_address || "N/A"}</td>
-      <td>{order.sender_phone}</td>
-      <td>{order.receiver_phone}</td>
-      <td>{order.gift_item}</td>
-      <td>
-        <input
-          type="checkbox"
-          checked={order.claimed === 1}
-          onChange={(e) =>
-            onToggle(order.id, "claimed", e.target.checked ? 1 : 0)
-          }
-        />
-      </td>
-      <td>
-        <input
-          type="checkbox"
-          checked={order.delivery_delivered === 1}
-          onChange={(e) =>
-            onToggle(order.id, "delivery_delivered", e.target.checked ? 1 : 0)
-          }
-        />
-      </td>
-      <td>
-        <button onClick={() => onView(order)}>View</button>
-      </td>
-    </tr>
-  );
-};
-
-// Main AdminControl Component
 const AdminControl = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [password, setPassword] = useState("");
@@ -97,9 +13,14 @@ const AdminControl = () => {
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState("");
   const [search, setSearch] = useState("");
-  const [modalOrder, setModalOrder] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const ordersPerPage = 10;
+  const [expandedOrders, setExpandedOrders] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(10);
+
+  // LocalStorage for viewed orders
+  const [viewedOrders, setViewedOrders] = useState(() => {
+    const stored = localStorage.getItem("viewedOrders");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   // Login check
   const handleLogin = (e) => {
@@ -116,6 +37,9 @@ const AdminControl = () => {
   useEffect(() => {
     if (!isLoggedIn) return;
 
+    let isMounted = true;
+    let intervalId;
+
     const fetchOrders = async () => {
       try {
         const res = await fetch(
@@ -123,21 +47,50 @@ const AdminControl = () => {
         );
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         const data = await res.json();
-        setOrders(Array.isArray(data) ? data : []);
+        if (isMounted) {
+          const sortedOrders = Array.isArray(data)
+            ? [...data].sort(
+                (a, b) => new Date(b.created_at) - new Date(a.created_at)
+              )
+            : [];
+          setOrders(sortedOrders);
+          setLoading(false);
+        }
       } catch (err) {
         console.error(err);
-        setFetchError("Failed to fetch orders");
-      } finally {
-        setLoading(false);
+        if (isMounted) setFetchError("Failed to fetch orders");
       }
     };
 
-    fetchOrders(); // immediate fetch on login
+    fetchOrders();
 
-    const interval = setInterval(fetchOrders, 300000); // every 2 minutes
-    return () => clearInterval(interval); // cleanup on unmount or logout
+    const timeoutId = setTimeout(() => {
+      intervalId = setInterval(fetchOrders, 10000); // every 10 sec
+    }, 30000);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
   }, [isLoggedIn]);
 
+  // Toggle expand and mark as viewed
+  const toggleExpand = (orderId) => {
+    setExpandedOrders((prev) =>
+      prev.includes(orderId)
+        ? prev.filter((id) => id !== orderId)
+        : [...prev, orderId]
+    );
+
+    if (!viewedOrders.includes(orderId)) {
+      const newViewed = [...viewedOrders, orderId];
+      setViewedOrders(newViewed);
+      localStorage.setItem("viewedOrders", JSON.stringify(newViewed));
+    }
+  };
+
+  // Update claimed / delivered
   const handleToggle = async (orderId, field, value) => {
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/${orderId}`, {
@@ -149,12 +102,14 @@ const AdminControl = () => {
       setOrders((prev) =>
         prev.map((o) => (o.id === orderId ? { ...o, [field]: value } : o))
       );
+      toast.success("Updated successfully!");
     } catch (err) {
       console.error(err);
-      alert("Failed to update order");
+      toast.error("Failed to update order");
     }
   };
 
+  // Filter & Search
   const filteredOrders = orders.filter((order) => {
     const matchesFilter =
       filter === "all" ||
@@ -170,18 +125,144 @@ const AdminControl = () => {
     return matchesFilter && matchesSearch;
   });
 
-  // Pagination
-  const totalPages = Math.ceil(filteredOrders.length / ordersPerPage);
-  const indexOfLastOrder = currentPage * ordersPerPage;
-  const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
-  const currentOrders = filteredOrders.slice(
-    indexOfFirstOrder,
-    indexOfLastOrder
-  );
+  // Split orders
+  const latestOrders = filteredOrders.slice(0, 2);
+  const previousOrders = filteredOrders.slice(2);
 
-  const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
-  const handleNext = () =>
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  // Render order
+  const renderOrder = (order) => {
+    const totalItems =
+      order.items?.reduce((sum, i) => sum + i.quantity, 0) || 0;
+    const hasGift = order.gift_item ? "Yes" : "No";
+    const dateTime = order.created_at
+      ? new Date(order.created_at.replace(" ", "T")).toLocaleString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })
+      : "N/A";
+
+    // Background color based on viewed status
+    const cardBgColor = viewedOrders.includes(order.id)
+      ? "#ffffff" // white if viewed
+      : "#bdbdb3ff"; // light grey if not viewed
+
+    return (
+      <li key={order.id} className="order-item">
+        <div className="order-card" style={{ backgroundColor: cardBgColor }}>
+          {/* Date & Time */}
+          <div className="order-card-header">
+            <span>{dateTime}</span>
+          </div>
+
+          <div
+            className="order-summary"
+            style={{
+              justifyContent: "flex-start",
+              flexWrap: "wrap",
+              gap: "10px",
+            }}
+          >
+            <span>
+              <strong>🎯 Receiver:</strong> {order.receiver_name}
+            </span>
+            <span>
+              <strong>📞 Contact:</strong> {order.receiver_phone}
+            </span>
+            <span>
+              <strong>🏠 Address:</strong> {order.receiver_address || "N/A"}
+            </span>
+            <span>
+              <strong>🎁 Gift:</strong>{" "}
+              <span
+                style={{
+                  color: order.gift_item ? "green" : "red",
+                  fontWeight: "bold",
+                }}
+              >
+                {hasGift}
+              </span>
+            </span>
+            <button
+              className="eye-btn"
+              onClick={() => toggleExpand(order.id)}
+              title="View Details"
+              style={{
+                backgroundColor: viewedOrders.includes(order.id)
+                  ? "#ffffff"
+                  : "#e0e0e0",
+                color: viewedOrders.includes(order.id) ? "#e63946" : "#555",
+              }}
+            >
+              👁
+            </button>
+          </div>
+
+          {expandedOrders.includes(order.id) && (
+            <div className="order-details">
+              <p>
+                <strong>Sender:</strong> {order.sender_name} |{" "}
+                {order.sender_phone}
+              </p>
+              <p>
+                <strong>Gift Item:</strong> {order.gift_item || "N/A"}
+              </p>
+              <p>
+                <strong>Message:</strong> {order.message || "N/A"}
+              </p>
+              <p>
+                <strong>Occasion:</strong> {order.occasion || "N/A"}
+              </p>
+              <p>
+                <strong>Gift Range:</strong> {order.gift_Range} |{" "}
+                <strong>Gift Cost:</strong> Rs.{order.gift_Cost}
+              </p>
+              <p>
+                <strong>Claimed:</strong>{" "}
+                <input
+                  type="checkbox"
+                  checked={order.claimed === 1}
+                  onChange={(e) =>
+                    handleToggle(order.id, "claimed", e.target.checked ? 1 : 0)
+                  }
+                />{" "}
+                &nbsp;&nbsp;
+                <strong>Delivered:</strong>{" "}
+                <input
+                  type="checkbox"
+                  checked={order.delivery_delivered === 1}
+                  onChange={(e) =>
+                    handleToggle(
+                      order.id,
+                      "delivery_delivered",
+                      e.target.checked ? 1 : 0
+                    )
+                  }
+                />
+              </p>
+              <p>
+                <strong>Items Ordered:</strong>
+              </p>
+              <ul>
+                {order.items?.map((i) => (
+                  <li key={i.id}>
+                    {i.item_name} × {i.quantity} — Rs.{i.price}
+                  </li>
+                ))}
+              </ul>
+              <p>
+                <strong>Total Items:</strong> {totalItems} |{" "}
+                <strong>Total Price:</strong> Rs.{order.total_price}
+              </p>
+            </div>
+          )}
+        </div>
+      </li>
+    );
+  };
 
   // LOGIN VIEW
   if (!isLoggedIn) {
@@ -211,7 +292,6 @@ const AdminControl = () => {
         <p className="loading-text">Loading orders...</p>
       </div>
     );
-
   if (fetchError)
     return (
       <div className="center-screen">
@@ -219,90 +299,60 @@ const AdminControl = () => {
       </div>
     );
 
-  // ADMIN PANEL
   return (
-    <div className="admin-panel">
-      <h1>SINDHULIBAZAR : Order Management</h1>
+    <>
+      <DrawerAppBar />
+      <div className="admin-panel">
+        <h1>SINDHULIBAZAR : Order Management</h1>
 
-      <div className="filters-search">
-        <div className="buttons-group">
-          {["all", "claimed", "unclaimed", "delivered", "undelivered"].map(
-            (f) => (
-              <button
-                key={f}
-                className={filter === f ? "active" : ""}
-                onClick={() => setFilter(f)}
-              >
-                {f}
-              </button>
-            )
-          )}
-        </div>
-        <input
-          type="text"
-          placeholder="Search by sender/receiver phone..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
-
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              {[
-                "Order ID",
-                "Sender",
-                "Receiver",
-                "Receiver Address", // NEW
-                "Sender Phone",
-                "Receiver Phone",
-                "Gift Item",
-                "Claimed",
-                "Delivered",
-                "View",
-              ].map((h) => (
-                <th key={h}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {currentOrders.length === 0 ? (
-              <tr>
-                <td colSpan="10" className="text-center">
-                  No orders found
-                </td>
-              </tr>
-            ) : (
-              currentOrders.map((order) => (
-                <OrderRow
-                  key={order.id}
-                  order={order}
-                  onToggle={handleToggle}
-                  onView={setModalOrder}
-                />
-              ))
+        {/* Filters and Search */}
+        <div className="filters-search">
+          <div className="buttons-group">
+            {["all", "claimed", "unclaimed", "delivered", "undelivered"].map(
+              (f) => (
+                <button
+                  key={f}
+                  className={filter === f ? "active" : ""}
+                  onClick={() => setFilter(f)}
+                >
+                  {f}
+                </button>
+              )
             )}
-          </tbody>
-        </table>
-      </div>
-
-      {filteredOrders.length > ordersPerPage && (
-        <div className="pagination">
-          <button onClick={handlePrev} disabled={currentPage === 1}>
-            Previous
-          </button>
-          <span>
-            Page {currentPage} of {totalPages}
-          </span>
-          <button onClick={handleNext} disabled={currentPage === totalPages}>
-            Next
-          </button>
+          </div>
+          <input
+            type="text"
+            placeholder="Search by sender/receiver phone..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
-      )}
 
-      <OrderModal order={modalOrder} onClose={() => setModalOrder(null)} />
-    </div>
+        {/* Latest Orders */}
+        <h2>Latest Orders</h2>
+        <ul className="orders-list">
+          {latestOrders.length === 0 && <li>No latest orders</li>}
+          {latestOrders.map(renderOrder)}
+        </ul>
+
+        {/* Previous Orders */}
+        <h2>Previous Orders</h2>
+        <ul className="orders-list">
+          {previousOrders.length === 0 && <li>No previous orders</li>}
+          {previousOrders.slice(0, visibleCount).map(renderOrder)}
+        </ul>
+
+        {/* Show More Button */}
+        {visibleCount < previousOrders.length && (
+          <button
+            className="show-more-btn"
+            onClick={() => setVisibleCount((prev) => prev + 10)}
+          >
+            Show More
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

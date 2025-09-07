@@ -242,6 +242,7 @@ const AddToCart = () => {
                 <OrderForm
                   ref={orderFormRef}
                   orderData={{
+               
                     totalPrice,
                     deliveryChargeFinal,
                     totalItems,

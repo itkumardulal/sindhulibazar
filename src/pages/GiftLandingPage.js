@@ -8,10 +8,9 @@ import { getGiftData } from "../components/orderforfriendcom/order_api/getGiftDa
 import PromoCardGiftForFriend from "../components/orderforfriendcom/PromoCardGiftForFriend";
 import Footer from "../components/footer";
 import isValidUUID from "../tinyfunction/isValidUUID";
-import { updateGiftWinItem } from "../components/orderforfriendcom/order_api/updateGiftWinItem";
-
 import spinSound from "./spinner12.mp3";
-// Wheel radius
+import toast from "react-hot-toast";
+
 const radius = 150;
 
 function describeArc(cx, cy, r, startAngle, endAngle) {
@@ -29,55 +28,43 @@ function describeArc(cx, cy, r, startAngle, endAngle) {
   ].join(" ");
 }
 
-const handleOrderNow = () => {
-  alert("Redirecting to order page...");
-};
-
 export default function GiftLandingPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const wheelRef = useRef(null);
+  const spinSoundRef = useRef(null);
+
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [orderData, setOrderData] = useState(null);
   const [showGifts, setShowGifts] = useState(false);
   const [spinning, setSpinning] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [claimed, setClaimed] = useState(false);
-  const wheelRef = useRef(null);
-
-  // 🎵 audio ref
-  const spinSoundRef = useRef(null);
-
   const [claimAttempts, setClaimAttempts] = useState(() => {
     const savedAttempts = localStorage.getItem(`claimAttempts_${id}`);
     return savedAttempts ? Number(savedAttempts) : 0;
   });
 
-  const navigate = useNavigate();
-  const [orderData, setOrderData] = useState(null);
-  const [showNoGifts, setShowNoGifts] = useState(false);
-
   useEffect(() => {
-    if (!id) return;
-
-    if (!isValidUUID(id)) {
+    if (!id || !isValidUUID(id)) {
       navigate("/order_for_friend/giftpromo");
+      return;
     }
 
     async function fetchOrder() {
       setLoading(true);
-      setError(null);
-
       try {
-        const orderData = await getGiftData(id);
-        setOrderData(orderData);
+        const data = await getGiftData(id);
+        setOrderData(data);
       } catch (err) {
-        console.error("❌ Failed to fetch order data:", err);
+        console.error("Failed to fetch order data:", err);
       } finally {
         setLoading(false);
       }
     }
 
     fetchOrder();
-  }, [id]);
+  }, [id, navigate]);
 
   if (loading) return <p>Loading...</p>;
   if (!orderData) return <PromoCardGiftForFriend />;
@@ -85,41 +72,33 @@ export default function GiftLandingPage() {
   const filteredGifts = giftlist.filter((gift) => {
     let matches = true;
 
-    // ✅ 1. Price range (always mandatory)
+    // Price range
     if (orderData.giftRange && gift.price != null) {
       const [min, max] = orderData.giftRange.split("-").map(Number);
-
-      if (!isNaN(min) && !isNaN(max)) {
+      if (!isNaN(min) && !isNaN(max))
         matches = gift.price >= min && gift.price <= max;
-      } else {
-        matches = false; // invalid range = no match
-      }
+      else matches = false;
     }
+    if (!matches) return false;
 
-    if (!matches) return false; // stop here if price fails
-
-    // ✅ 2. Age group (optional)
+    // Age group
     if (
       orderData.receiverAgeGroup &&
       orderData.receiverAgeGroup.toLowerCase() !== "any"
     ) {
-      if (gift.ageGroup) {
-        matches =
-          gift.ageGroup.toLowerCase() ===
-          orderData.receiverAgeGroup.toLowerCase();
-      }
+      matches =
+        gift.ageGroup?.toLowerCase() ===
+        orderData.receiverAgeGroup.toLowerCase();
     }
 
-    // ✅ 3. Gender (optional)
+    // Gender
     if (
       matches &&
       orderData.receiverGender &&
       orderData.receiverGender.toLowerCase() !== "any"
     ) {
-      if (gift.gender) {
-        matches =
-          gift.gender.toLowerCase() === orderData.receiverGender.toLowerCase();
-      }
+      matches =
+        gift.gender?.toLowerCase() === orderData.receiverGender.toLowerCase();
     }
 
     return matches;
@@ -130,63 +109,47 @@ export default function GiftLandingPage() {
     setSpinning(true);
     setSelectedIndex(null);
 
-    // 🎵 Play spin sound
     if (spinSoundRef.current) {
       spinSoundRef.current.currentTime = 0;
-      spinSoundRef.current.play().catch((err) => {
-        console.warn("Sound play blocked:", err);
-      });
+      spinSoundRef.current.play().catch(() => {});
     }
 
     const segments = filteredGifts.length;
     const segmentAngle = 360 / segments;
     const randomIndex = Math.floor(Math.random() * segments);
-    const extraRounds = 20; // enough for 15s spin
-
+    const extraRounds = 20;
     const rotation =
       360 * extraRounds +
       (360 - (randomIndex * segmentAngle + segmentAngle / 2));
 
     if (wheelRef.current) {
       wheelRef.current.style.transition =
-        "transform 15s cubic-bezier(0.33, 1, 0.68, 1)"; // 15 seconds spin
+        "transform 15s cubic-bezier(0.33, 1, 0.68, 1)";
       wheelRef.current.style.transform = `rotate(${rotation}deg)`;
     }
 
     setTimeout(() => {
       setSelectedIndex(randomIndex);
       setSpinning(false);
-
-      // 🎵 Stop sound when spin ends
       if (spinSoundRef.current) {
         spinSoundRef.current.pause();
         spinSoundRef.current.currentTime = 0;
       }
-    }, 15200); // slightly more than 15s for safety
+    }, 15200);
   };
 
   const claimGifthandler = async (giftwon) => {
-    if (claimed || giftwon === null) return;
+    if (claimed || !giftwon) return;
+    if (claimAttempts >= 2)
+      return alert("Maximum attempts reached for claiming the gift.");
 
-    if (claimAttempts >= 2) {
-      alert(
-        "You have reached the maximum number of attempts for claiming this gift."
-      );
-      return;
-    }
-
-    const giftName = giftwon;
-    const orderId = id;
     const apiUrl = process.env.REACT_APP_API_URL;
-
     try {
-      const res = await axios.patch(`${apiUrl}/updateGiftWin/${orderId}`, {
-        gift_item: giftName,
+      const res = await axios.patch(`${apiUrl}/updateGiftWin/${id}`, {
+        gift_item: giftwon,
       });
-
-      alert(res.data.message || "Gift claimed successfully!");
+      toast(res.data.message || "Gift claimed successfully!");
       setClaimed(true);
-
       const newAttempts = claimAttempts + 1;
       setClaimAttempts(newAttempts);
       localStorage.setItem(`claimAttempts_${id}`, newAttempts);
@@ -201,11 +164,18 @@ export default function GiftLandingPage() {
     }
   };
 
+  // Default fallback values
+  const occasion = orderData.occasion || "Special Day";
+  const receiverName = orderData.receiverName || "Friend";
+  const senderName = orderData.senderName || "Your Well-Wisher";
+  const relationship = orderData.relationship || "Someone Special";
+  const message =
+    orderData.message ||
+    "Wishing you happiness, joy, and lots of surprises! We are thrilled to be part of your special moment.";
+
   return (
     <>
-      {/* 🎵 Spin sound (hidden) */}
       <audio ref={spinSoundRef} src={spinSound} preload="auto" />
-
       <DrawerAppBar>
         <div
           className="gift-landing-page"
@@ -215,19 +185,15 @@ export default function GiftLandingPage() {
           {!showGifts ? (
             <section className="wish-section fade-in">
               <h1>
-                Happy {orderData.occasion}, {orderData.receiverName}!
+                Happy {occasion}, {receiverName}!
               </h1>
               <h3>
-                A special wish from {orderData.senderName} (
-                {orderData.relationship})
+                A special wish from {senderName} ({relationship})
               </h3>
-              <blockquote>
-                {orderData.message || "No message provided."}
-              </blockquote>
+              <blockquote>{message}</blockquote>
               <button
                 className="view-gifts-btn"
                 onClick={() => setShowGifts(true)}
-                aria-label="View Gifts"
               >
                 View Gifts 🎁
               </button>
@@ -244,15 +210,12 @@ export default function GiftLandingPage() {
                     className={`wheel-svg ${spinning ? "spinning" : ""} ${
                       claimed ? "claimed" : ""
                     }`}
-                    aria-live="polite"
-                    aria-atomic="true"
                   >
                     {filteredGifts.map((gift, i) => {
                       const segments = filteredGifts.length;
                       const segmentAngle = 360 / segments;
                       const startAngle = segmentAngle * i - 90;
                       const endAngle = startAngle + segmentAngle;
-
                       const midAngle = (startAngle + endAngle) / 2;
                       const textRadius = radius * 0.65;
                       const rad = (Math.PI / 180) * midAngle;
@@ -262,11 +225,7 @@ export default function GiftLandingPage() {
                       return (
                         <g
                           key={gift.id}
-                          aria-label={gift.name}
-                          tabIndex={-1}
-                          className={
-                            i === selectedIndex ? "selected-segment" : ""
-                          }
+                          aria-label={gift.name || "Surprise Gift"}
                         >
                           <path
                             d={describeArc(
@@ -280,40 +239,20 @@ export default function GiftLandingPage() {
                             stroke="#B71C1C"
                             strokeWidth="2"
                           />
-                          <image
-                            href={gift.image}
-                            x={textX - 50}
-                            y={textY - 40}
-                            height="60"
-                            width="80"
-                            style={{
-                              pointerEvents: "none",
-                              userSelect: "none",
-                            }}
-                            alt={gift.name}
-                          />
-                          {/* <rect
-                            x={textX - 20}
-                            y={textY - 40}
-                            width="30"
-                            height="80"
-                            fill="rgba(23, 95, 5, 0.66)"
-                            rx="6"
-                            ry="6"
-                          />
-                          <text
-                            x={textX}
-                            y={textY - 10}
-                            fill="#fff"
-                            fontSize="12"
-                            fontWeight="600"
-                            textAnchor="middle"
-                            dominantBaseline="middle"
-                            style={{ userSelect: "none" }}
-                            transform={`rotate(-90, ${textX}, ${textY})`}
-                          >
-                            {gift.name}
-                          </text> */}
+                          {gift.image && (
+                            <image
+                              href={gift.image}
+                              x={textX - 50}
+                              y={textY - 40}
+                              height="60"
+                              width="80"
+                              style={{
+                                pointerEvents: "none",
+                                userSelect: "none",
+                              }}
+                              alt={gift.name || "Surprise Gift"}
+                            />
+                          )}
                           <text
                             x={textX}
                             y={textY + 10}
@@ -325,7 +264,7 @@ export default function GiftLandingPage() {
                             style={{ userSelect: "none" }}
                             transform={`rotate(-90, ${textX}, ${textY + 10})`}
                           >
-                            Rs {gift.price}
+                            Rs {gift.price || "N/A"}
                           </text>
                         </g>
                       );
@@ -348,7 +287,6 @@ export default function GiftLandingPage() {
                   onClick={spinWheel}
                   className="spin-btn"
                   disabled={spinning}
-                  aria-disabled={spinning}
                 >
                   {spinning ? "Spinning..." : "Spin the Wheel 🎡"}
                 </button>
@@ -356,21 +294,20 @@ export default function GiftLandingPage() {
 
               {!claimed && selectedIndex !== null && (
                 <>
-                  <section
-                    className="gift-details"
-                    aria-live="polite"
-                    aria-atomic="true"
-                  >
+                  <section className="gift-details">
                     🎁 You won:{" "}
-                    <strong>{filteredGifts[selectedIndex].name}</strong>
+                    <strong>
+                      {filteredGifts[selectedIndex].name || "Surprise Gift"}
+                    </strong>
                   </section>
                   <button
                     className="claim-btn"
                     onClick={() =>
-                      claimGifthandler(filteredGifts[selectedIndex].name)
+                      claimGifthandler(
+                        filteredGifts[selectedIndex].name || "Surprise Gift"
+                      )
                     }
                     disabled={claimed || claimAttempts >= 3}
-                    aria-disabled={claimed || claimAttempts >= 3}
                   >
                     {claimAttempts >= 2
                       ? "Max Attempts Reached"
@@ -384,8 +321,6 @@ export default function GiftLandingPage() {
               {claimed && (
                 <section
                   className="celebration full-celebration"
-                  role="alert"
-                  aria-live="assertive"
                   style={{ textAlign: "center" }}
                 >
                   <div className="confetti-container">

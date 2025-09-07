@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useMemo } from "react";
 import "./homepage.css";
 import DrawerAppBar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/footer";
+
 import Datacarrier from "../data/Datacarrier";
 import Servicesbtn from "../components/homepagecom/Servicesbtn";
 import CartBtn from "../components/CartBtn";
@@ -128,8 +128,6 @@ const Homepage = () => {
           </section>
         ))}
       </div>
-
-      <Footer />
     </>
   );
 };

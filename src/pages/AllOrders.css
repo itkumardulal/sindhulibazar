@@ -60,7 +60,7 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 300;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
   font-size: 0.8rem;
 }
@@ -88,7 +88,7 @@
   padding: 15px;
   border-radius: 10px;
   margin-top: 10px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
@@ -100,3 +100,24 @@
 .order-details li {
   margin-bottom: 5px;
 }
+.no-orders-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+  color: #f15a02; /* red-orange accent */
+  font-family: 'Poppins', sans-serif;
+}
+
+.no-orders-container h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.no-orders-container p {
+  font-size: 1rem;
+  color: #333;
+}
+

@@ -53,6 +53,7 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
     }
 
     // Build payload
+    console.log(orderData);
     const uniqueId = `order-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
     const newtotalPrice =
       Number(orderData.price) + Number(orderData.shiftValue);
@@ -87,33 +88,38 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
       const response = await createOrder(dataToSend);
 
       if (response.success) {
-        console.log("✅ Order created:", response.data);
+        console.log("✅ Order created:", response.data.orderId);
 
         // Clear form fields
         setPhone("");
         setAddressDetail("");
         localStorage.removeItem("cart");
 
-        // Store order in localStorage
+        // Attach server-generated orderId to local storage data
+        const orderWithId = {
+          ...dataToSend,
+          id: response.data.orderId, // use server response id
+        };
+
         // Store order in localStorage
         let existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
-        existingOrders.push(dataToSend);
+        existingOrders.push(orderWithId);
 
-        // If more than 5 orders, remove all previous orders
+        // Keep only last 5 orders if more
         if (existingOrders.length > 5) {
-          existingOrders = [dataToSend]; // keep only the current order
+          existingOrders = [orderWithId];
         }
 
         localStorage.setItem("orders", JSON.stringify(existingOrders));
 
         setSuccess(true);
 
-        // Delay before closing modal and reload
+        // Delay before closing modal and navigating
         setTimeout(() => {
           setSuccess(false);
           onClose();
-          navigate("/myorders"); // ✅ navigate to All Orders page
-          // window.location.reload();
+
+          navigate("/myorders");
         }, 2000);
       } else {
         setErrorMsg(response.error || "Failed to create order.");
