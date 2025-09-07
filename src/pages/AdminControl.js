@@ -249,7 +249,7 @@ const AdminControl = () => {
               <ul>
                 {order.items?.map((i) => (
                   <li key={i.id}>
-                    {i.item_name} × {i.quantity} — Rs.{i.price}
+                    {i.item_name} × {i.quantity} — Rs.{i.price * i.quantity}
                   </li>
                 ))}
               </ul>

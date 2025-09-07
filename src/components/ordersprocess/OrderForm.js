@@ -1,7 +1,6 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useRef } from "react";
 import "./OrderForm.css";
 import { createOrder } from "../../components/orderforfriendcom/order_api/createOrder";
-// import Carthandler from "../handlers/Carthandler";
 import { useNavigate } from "react-router-dom";
 
 const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
@@ -11,9 +10,19 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  // console.log("📥 orderData received:", orderData);
   const navigate = useNavigate();
   const city = "Sindhulimadhi"; // default city
+
+  // Refs for smoother keyboard navigation
+  const phoneRef = useRef(null);
+  const addressRef = useRef(null);
+
+  const handleKeyDown = (e, nextRef) => {
+    if (e.key === "Enter" && nextRef?.current) {
+      e.preventDefault();
+      nextRef.current.focus();
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,9 +33,7 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
       return;
     }
 
-    // Decide whether to use cart or single order
     let itemsOrdered = [];
-
     if (orderData.cart?.length) {
       itemsOrdered = orderData.cart.map((item) => ({
         name: item.name,
@@ -38,8 +45,7 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
         {
           name: orderData.name,
           price: orderData.price,
-
-          quantity: orderData.count || 1,
+          quantity: orderData.quantity || 1,
         },
       ];
     } else {
@@ -52,35 +58,23 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
       ];
     }
 
-    // Build payload
-    console.log(orderData);
     const uniqueId = `order-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
     const newtotalPrice =
       Number(orderData.price) + Number(orderData.shiftValue);
 
     const dataToSend = {
       id: uniqueId,
-      createdAt: new Date().toISOString(), // add timestamp
+      createdAt: new Date().toISOString(),
       senderName: "Guest",
       senderPhone: null,
-      receiverName: receiverName,
+      receiverName,
       receiverPhone: phone,
       receiverAddress: addressDetail,
-      receiverGender: null,
-      receiverAgeGroup: null,
-      relationship: null,
-      message: null,
-      occasion: null,
       deliveryCharge:
         orderData.deliveryChargeFinal || orderData.shiftValue || 0,
       totalPrice: orderData.totalPrice || newtotalPrice || 0,
-
       itemsOrdered,
-      giftRange: null,
-      giftCost: 0,
     };
-
-    console.log("📤 Payload being sent:", dataToSend);
 
     setLoading(true);
 
@@ -88,24 +82,18 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
       const response = await createOrder(dataToSend);
 
       if (response.success) {
-        console.log("✅ Order created:", response.data.orderId);
-
-        // Clear form fields
         setPhone("");
         setAddressDetail("");
         localStorage.removeItem("cart");
 
-        // Attach server-generated orderId to local storage data
         const orderWithId = {
           ...dataToSend,
-          id: response.data.orderId, // use server response id
+          id: response.data.orderId,
         };
 
-        // Store order in localStorage
         let existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
         existingOrders.push(orderWithId);
 
-        // Keep only last 5 orders if more
         if (existingOrders.length > 5) {
           existingOrders = [orderWithId];
         }
@@ -114,11 +102,9 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
 
         setSuccess(true);
 
-        // Delay before closing modal and navigating
         setTimeout(() => {
           setSuccess(false);
           onClose();
-
           navigate("/myorders");
         }, 2000);
       } else {
@@ -143,6 +129,7 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
 
         <form onSubmit={handleSubmit}>
           {errorMsg && <div className="error-msg">⚠ {errorMsg}</div>}
+
           <label>Receiver Name</label>
           <input
             type="text"
@@ -150,25 +137,34 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
             onChange={(e) => setReceiverName(e.target.value)}
             required
             placeholder="Enter receiver's name"
+            autoFocus
+            onKeyDown={(e) => handleKeyDown(e, phoneRef)}
           />
+
           <label>Phone Number</label>
           <input
             type="tel"
+            ref={phoneRef}
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
-            placeholder="Enter your phone number"
+            placeholder="98XXXXXXXX"
+            inputMode="numeric"
+            pattern="[0-9]{10}"
+            onKeyDown={(e) => handleKeyDown(e, addressRef)}
           />
 
-          <label>City</label>
-          <input type="text" value={city} readOnly className="readonly-input" />
+       <label>City</label>
+<p className="readonly-text">{city}</p>
 
           <label>Tol / Place Name</label>
-          <textarea
+          <input
+            type="text"
+            ref={addressRef}
             value={addressDetail}
             onChange={(e) => setAddressDetail(e.target.value)}
             required
-            placeholder="Enter your street/tol name, nearby places, or special notes"
+            placeholder="E.g., Ratmata, near Prayash Hotel"
           />
 
           <div className="modal-buttons">

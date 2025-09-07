@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { createOrder } from "./order_api/createOrder";
 import { sendWhatsAppBill } from "../../messagecarrier/whatsappsendgift";
+import toast from "react-hot-toast";
 
 export default function GiftPreInstructModel({ orderData, onClose }) {
   const itemOrdered = orderData.cart.map((item) => ({
@@ -160,43 +161,59 @@ export default function GiftPreInstructModel({ orderData, onClose }) {
       (r) => r.value === formData.giftRange
     );
 
-    const orderDataObj = {
-      senderName: formData.senderName,
-      senderPhone: formData.senderPhone,
-      receiverName: formData.receiverName,
-      receiverPhone: formData.receiverPhone,
-      receiverAgeGroup: formData.ageGroup,
-      receiverGender: formData.gender,
-      relationship: formData.relationship,
-      message: formData.message,
-      occasion: formData.occasion,
-      deliveryCharge: deliveryCharge,
-      totalPrice: totalPrice + additionalCost + LINK_GENERATION_COST,
-      itemsOrdered: itemOrdered,
-      giftRange: formData.giftRange,
-      giftCost: selectedRange ? selectedRange.cost : 0,
-    };
+const orderDataObj = {
+  createdAt: new Date().toISOString(),
+  senderName: formData.senderName || "Guest",
+  senderPhone: formData.senderPhone || null,
+  receiverName: formData.receiverName,
+  receiverPhone: formData.receiverPhone || null,
+  receiverAgeGroup: formData.ageGroup,
+  receiverGender: formData.gender,
+  relationship: formData.relationship,
+  message: formData.message,
+  occasion: formData.occasion,
+  deliveryCharge: deliveryCharge || 0,
+  totalPrice: Number(totalPrice) + Number(additionalCost) + Number(LINK_GENERATION_COST),
+  itemsOrdered: itemOrdered,
+  giftRange: formData.giftRange,
+  giftCost: selectedRange ? Number(selectedRange.cost) : 0,
+};
 
-    try {
-      setLoading(true);
-      const result = await createOrder(orderDataObj);
-      if (result.success) {
-        alert("Order placed successfully! You will receive a call shortly.");
-        sendWhatsAppBill(orderDataObj, result.data.orderId);
-        onClose();
-      } else {
-        setErrorMsg(result.error || "अर्डर गर्न असफल भयो");
-      }
-      alert("✅ Order placed successfully! You will receive a call shortly.");
+try {
+  setLoading(true);
+  const result = await createOrder(orderDataObj);
 
-      sendWhatsAppBill(orderDataObj, result.orderId);
-      onClose();
-    } catch (err) {
-      setErrorMsg(err.message || "अर्डर गर्न असफल भयो");
-    } finally {
-      setLoading(false);
+  if (result.success) {
+    toast("✅ Order placed successfully! You will receive a call shortly.");
+    sendWhatsAppBill(orderDataObj, result.data.orderId);
+
+    // Save order to localStorage
+    const orderWithId = { ...orderDataObj, id: result.data.orderId };
+    let existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    existingOrders.push(orderWithId);
+    if (existingOrders.length > 5) {
+      existingOrders = existingOrders.slice(-5); // keep last 5 orders
     }
-  };
+    localStorage.setItem("orders", JSON.stringify(existingOrders));
+
+    // Optional: clear cart if using one
+    localStorage.removeItem("cart");
+
+    // Close modal after short delay
+    setTimeout(() => {
+      onClose();
+      // navigate("/myorders"); // Uncomment if you want to redirect
+    }, 1000);
+
+  } else {
+    setErrorMsg(result.error || "अर्डर गर्न असफल भयो");
+  }
+} catch (err) {
+  setErrorMsg(err.message || "अर्डर गर्न असफल भयो");
+} finally {
+  setLoading(false);
+}
+  }
 
   return (
     <div style={styles.overlay}>

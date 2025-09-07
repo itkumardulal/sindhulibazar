@@ -69,74 +69,74 @@ export default function GiftLandingPage() {
   if (loading) return <p>Loading...</p>;
   if (!orderData) return <PromoCardGiftForFriend />;
 
-  const filteredGifts = giftlist.filter((gift) => {
-    let matches = true;
+// --- Inside GiftLandingPage ---
 
-    // Price range
-    if (orderData.giftRange && gift.price != null) {
-      const [min, max] = orderData.giftRange.split("-").map(Number);
-      if (!isNaN(min) && !isNaN(max))
-        matches = gift.price >= min && gift.price <= max;
-      else matches = false;
-    }
-    if (!matches) return false;
+const filteredGifts = giftlist.filter((gift) => {
+  let matches = true;
 
-    // Age group
-    if (
-      orderData.receiverAgeGroup &&
-      orderData.receiverAgeGroup.toLowerCase() !== "any"
-    ) {
-      matches =
-        gift.ageGroup?.toLowerCase() ===
-        orderData.receiverAgeGroup.toLowerCase();
-    }
+  // Convert gift price to number
+  const giftPrice = Number(gift.price);
 
-    // Gender
-    if (
-      matches &&
-      orderData.receiverGender &&
-      orderData.receiverGender.toLowerCase() !== "any"
-    ) {
-      matches =
-        gift.gender?.toLowerCase() === orderData.receiverGender.toLowerCase();
-    }
+  // Price range filter
+  if (orderData.giftRange && !isNaN(giftPrice)) {
+    const [min, max] = orderData.giftRange.split("-").map(Number);
+    matches = giftPrice >= min && giftPrice <= max;
+  }
+  if (!matches) return false;
 
-    return matches;
-  });
+  // Age group filter (fallback to 'any')
+  const giftAge = gift.ageGroup?.toLowerCase() || "any";
+  const receiverAge = orderData.receiverAgeGroup?.toLowerCase() || "any";
+  if (receiverAge !== "any") matches = giftAge === receiverAge;
+  if (!matches) return false;
 
-  const spinWheel = () => {
-    if (spinning || claimed || selectedIndex !== null) return;
-    setSpinning(true);
-    setSelectedIndex(null);
+  // Gender filter (fallback to 'any')
+  const giftGender = gift.gender?.toLowerCase() || "any";
+  const receiverGender = orderData.receiverGender?.toLowerCase() || "any";
+  if (receiverGender !== "any") matches = giftGender === receiverGender;
 
+  return matches;
+});
+
+// Fallback: show all gifts if none matched
+const finalGifts = filteredGifts.length > 0 ? filteredGifts : giftlist;
+
+
+// --- Spin logic ---
+const spinWheel = () => {
+  if (spinning || claimed || selectedIndex !== null) return;
+  setSpinning(true);
+  setSelectedIndex(null);
+
+  if (spinSoundRef.current) {
+    spinSoundRef.current.currentTime = 0;
+    spinSoundRef.current.play().catch(() => {});
+  }
+
+  const segments = finalGifts.length;
+  const segmentAngle = 360 / segments;
+  const randomIndex = Math.floor(Math.random() * segments);
+  const extraRounds = 20;
+  const rotation =
+    360 * extraRounds +
+    (360 - (randomIndex * segmentAngle + segmentAngle / 2));
+
+  if (wheelRef.current) {
+    wheelRef.current.style.transition =
+      "transform 15s cubic-bezier(0.33, 1, 0.68, 1)";
+    wheelRef.current.style.transform = `rotate(${rotation}deg)`;
+  }
+
+  setTimeout(() => {
+    setSelectedIndex(randomIndex);
+    setSpinning(false);
     if (spinSoundRef.current) {
+      spinSoundRef.current.pause();
       spinSoundRef.current.currentTime = 0;
-      spinSoundRef.current.play().catch(() => {});
     }
+  }, 15200);
+};
 
-    const segments = filteredGifts.length;
-    const segmentAngle = 360 / segments;
-    const randomIndex = Math.floor(Math.random() * segments);
-    const extraRounds = 20;
-    const rotation =
-      360 * extraRounds +
-      (360 - (randomIndex * segmentAngle + segmentAngle / 2));
-
-    if (wheelRef.current) {
-      wheelRef.current.style.transition =
-        "transform 15s cubic-bezier(0.33, 1, 0.68, 1)";
-      wheelRef.current.style.transform = `rotate(${rotation}deg)`;
-    }
-
-    setTimeout(() => {
-      setSelectedIndex(randomIndex);
-      setSpinning(false);
-      if (spinSoundRef.current) {
-        spinSoundRef.current.pause();
-        spinSoundRef.current.currentTime = 0;
-      }
-    }, 15200);
-  };
 
   const claimGifthandler = async (giftwon) => {
     if (claimed || !giftwon) return;
@@ -202,82 +202,70 @@ export default function GiftLandingPage() {
             <section className="gift-section fade-in">
               {!claimed && (
                 <section className="wheel-container" aria-label="Gift spinner">
-                  <svg
-                    width={radius * 2}
-                    height={radius * 2}
-                    viewBox={`0 0 ${radius * 2} ${radius * 2}`}
-                    ref={wheelRef}
-                    className={`wheel-svg ${spinning ? "spinning" : ""} ${
-                      claimed ? "claimed" : ""
-                    }`}
-                  >
-                    {filteredGifts.map((gift, i) => {
-                      const segments = filteredGifts.length;
-                      const segmentAngle = 360 / segments;
-                      const startAngle = segmentAngle * i - 90;
-                      const endAngle = startAngle + segmentAngle;
-                      const midAngle = (startAngle + endAngle) / 2;
-                      const textRadius = radius * 0.65;
-                      const rad = (Math.PI / 180) * midAngle;
-                      const textX = radius + textRadius * Math.cos(rad);
-                      const textY = radius + textRadius * Math.sin(rad);
+            <svg
+  width={radius * 2}
+  height={radius * 2}
+  viewBox={`0 0 ${radius * 2} ${radius * 2}`}
+  ref={wheelRef}
+  className={`wheel-svg ${spinning ? "spinning" : ""} ${
+    claimed ? "claimed" : ""
+  }`}
+>
+  {finalGifts.map((gift, i) => {
+    const segments = finalGifts.length;
+    const segmentAngle = 360 / segments;
+    const startAngle = segmentAngle * i - 90;
+    const endAngle = startAngle + segmentAngle;
+    const midAngle = (startAngle + endAngle) / 2;
+    const textRadius = radius * 0.65;
+    const rad = (Math.PI / 180) * midAngle;
+    const textX = radius + textRadius * Math.cos(rad);
+    const textY = radius + textRadius * Math.sin(rad);
 
-                      return (
-                        <g
-                          key={gift.id}
-                          aria-label={gift.name || "Surprise Gift"}
-                        >
-                          <path
-                            d={describeArc(
-                              radius,
-                              radius,
-                              radius,
-                              startAngle,
-                              endAngle
-                            )}
-                            fill={i % 2 === 0 ? "#FFC107" : "#FFEB3B"}
-                            stroke="#B71C1C"
-                            strokeWidth="2"
-                          />
-                          {gift.image && (
-                            <image
-                              href={gift.image}
-                              x={textX - 50}
-                              y={textY - 40}
-                              height="60"
-                              width="80"
-                              style={{
-                                pointerEvents: "none",
-                                userSelect: "none",
-                              }}
-                              alt={gift.name || "Surprise Gift"}
-                            />
-                          )}
-                          <text
-                            x={textX}
-                            y={textY + 10}
-                            fill="#fff"
-                            fontSize="6.5"
-                            fontWeight="500"
-                            textAnchor="middle"
-                            dominantBaseline="middle"
-                            style={{ userSelect: "none" }}
-                            transform={`rotate(-90, ${textX}, ${textY + 10})`}
-                          >
-                            Rs {gift.price || "N/A"}
-                          </text>
-                        </g>
-                      );
-                    })}
-                    <circle
-                      cx={radius}
-                      cy={radius}
-                      r={40}
-                      fill="#B71C1C"
-                      stroke="#FFC107"
-                      strokeWidth="4"
-                    />
-                  </svg>
+    return (
+      <g key={gift.id} aria-label={gift.name || "Surprise Gift"}>
+        <path
+          d={describeArc(radius, radius, radius, startAngle, endAngle)}
+          fill={i % 2 === 0 ? "#FFC107" : "#FFEB3B"}
+          stroke="#B71C1C"
+          strokeWidth="2"
+        />
+        {gift.image && (
+          <image
+            href={gift.image}
+            x={textX - 50}
+            y={textY - 40}
+            height="60"
+            width="80"
+            style={{ pointerEvents: "none", userSelect: "none" }}
+            alt={gift.name || "Surprise Gift"}
+          />
+        )}
+        <text
+          x={textX}
+          y={textY + 10}
+          fill="#fff"
+          fontSize="6.5"
+          fontWeight="500"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          style={{ userSelect: "none" }}
+          transform={`rotate(-90, ${textX}, ${textY + 10})`}
+        >
+          Rs {gift.price || "N/A"}
+        </text>
+      </g>
+    );
+  })}
+  <circle
+    cx={radius}
+    cy={radius}
+    r={40}
+    fill="#B71C1C"
+    stroke="#FFC107"
+    strokeWidth="4"
+  />
+</svg>
                   <span className="pointer" aria-hidden="true" />
                 </section>
               )}
@@ -292,31 +280,27 @@ export default function GiftLandingPage() {
                 </button>
               )}
 
-              {!claimed && selectedIndex !== null && (
-                <>
-                  <section className="gift-details">
-                    🎁 You won:{" "}
-                    <strong>
-                      {filteredGifts[selectedIndex].name || "Surprise Gift"}
-                    </strong>
-                  </section>
-                  <button
-                    className="claim-btn"
-                    onClick={() =>
-                      claimGifthandler(
-                        filteredGifts[selectedIndex].name || "Surprise Gift"
-                      )
-                    }
-                    disabled={claimed || claimAttempts >= 3}
-                  >
-                    {claimAttempts >= 2
-                      ? "Max Attempts Reached"
-                      : claimed
-                      ? "Gift Claimed"
-                      : "Claim My Gift"}
-                  </button>
-                </>
-              )}
+       {!claimed && selectedIndex !== null && (
+  <>
+    <section className="gift-details">
+      🎁 You won:{" "}
+      <strong>{finalGifts[selectedIndex].name || "Surprise Gift"}</strong>
+    </section>
+    <button
+      className="claim-btn"
+      onClick={() =>
+        claimGifthandler(finalGifts[selectedIndex].name || "Surprise Gift")
+      }
+      disabled={claimed || claimAttempts >= 3}
+    >
+      {claimAttempts >= 2
+        ? "Max Attempts Reached"
+        : claimed
+        ? "Gift Claimed"
+        : "Claim My Gift"}
+    </button>
+  </>
+)}
 
               {claimed && (
                 <section
