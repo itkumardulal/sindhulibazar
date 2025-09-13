@@ -154,8 +154,8 @@ const OrderForm = forwardRef(({ orderData = {}, onClose }, ref) => {
             onKeyDown={(e) => handleKeyDown(e, addressRef)}
           />
 
-       <label>City</label>
-<p className="readonly-text">{city}</p>
+          <label>City</label>
+          <p className="readonly-text">{city}</p>
 
           <label>Tol / Place Name</label>
           <input

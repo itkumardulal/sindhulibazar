@@ -100,18 +100,19 @@ const AddToCart = () => {
 
   const handleRemove = (id) =>
     setCart((prev) => prev.filter((item) => item.cartId !== id));
-  // const handleCheckoutAll = () =>
-  //   Carthandler(
-  //     cart,
-  //     isNightShift,
-  //     totalPrice - deliveryChargeFinal,
-  //     setCheckoutMessage,
-  //     setCart
-  //   );
-  const handleCheckoutAll = () => {
-    setModalId(0); // or any ID you want for checkout
-    setIsGiftModalOpen(true);
-  };
+  const handleCheckoutAll = () =>
+    Carthandler(
+      cart,
+      isNightShift,
+      totalPrice - deliveryChargeFinal,
+      setCheckoutMessage,
+      setCart
+    );
+  // const handleCheckoutAll = () => {
+  //   setModalId(0); // or any ID you want for checkout
+  //   setIsGiftModalOpen(true);
+
+  // };
 
   const handleSendGift = () => {
     setModalId(1); // different ID for gift
@@ -242,7 +243,6 @@ const AddToCart = () => {
                 <OrderForm
                   ref={orderFormRef}
                   orderData={{
-               
                     totalPrice,
                     deliveryChargeFinal,
                     totalItems,
