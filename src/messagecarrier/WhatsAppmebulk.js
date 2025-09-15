@@ -147,7 +147,7 @@ export const generateWhatsAppBulkLink = (cartItems) => {
 
 ${orderLines.join("\n")}
 
-🛍 तपाईंको अर्डर ${uniqueItems.length} वटा स्टोरबाट आउँदैछ।
+// 🛍 तपाईंको अर्डर ${uniqueItems.length} वटा  छ।
 
 📊 Bill Summary
 ${billHeader}
