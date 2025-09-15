@@ -1,0 +1,50 @@
+[
+  {
+      "id": 1,
+      "name": "Veg Chowmein",
+      "image": "https://i.imgur.com/HFy54bX.jpg",
+      "description": "Veg Chowmein is a stir-fried noodle dish with mixed vegetables, seasoned with soy sauce and spices. It’s a tasty, quick vegetarian favorite in Nepali cuisine.",
+      "price": "100",
+      "category": "Food"
+  },
+  {
+      "id": 2,
+      "name": "Gorkha Beer Small",
+      "image": "https://i.imgur.com/PZjJpcM.jpg",
+      "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
+      "price": "210",
+      "category": "Liquor"
+  },
+  {
+      "id": 3,
+      "name": "Atta Whole Wheat",
+      "image": "https://i.imgur.com/O7hLzKP.jpg",
+      "description": "Whole wheat flour (Gahu ko atta) is a nutritious flour made from whole wheat grains, rich in fiber and minerals. It's commonly used in Nepali cooking for making bread, roti, and other baked goods.",
+      "price": "350",
+      "category": "Grocery"
+  },
+  {
+      "id": 4,
+      "name": "Amala Juice",
+      "image": "https://i.imgur.com/hdYawcC.png",
+      "description": "Amala is a very popular berry in the globe having many health benefits to human health. UHbee Propolis Amala juice is prepared with aqua extraction & blending method with the supervision of adequate food technicians, following GMP guidelines. This drink promotes immune function of the body. Amala is a great source of Vitamin “C’ and it’s water-soluble vitamin has proved to have antioxidant effects. The Propolis Amala juice may have many health benefits that include enhancing liver health, supporting healthy digestion, increasing hair growth, improving kidney health, and so on.",
+      "price": "770",
+      "category": "Herbal"
+  },
+  {
+      "id": 5,
+      "name": "SUMO",
+      "image": "https://i.imgur.com/nD2z1tT.png",
+      "description": "Nude Vodka is a convenient, pre-mixed cocktail option, combining vodka with a variety of appealing flavors. Packaged in portable containers, it's perfect for on-the-go enjoyment at parties or gatherings. With a balanced and refreshing taste, Nude Vodka provides a quick and hassle-free way to savor well-crafted cocktails.",
+      "price": "7000",
+      "category": "Vehicle"
+  },
+  {
+      "id": 6,
+      "name": "Old Durbar Black Chimney",
+      "image": "https://i.imgur.com/D0RTlVb.jpg",
+      "description": "Old Durbar Black Chimney is a distinguished variant of the renowned Old Durbar brand of Nepali rum. This particular expression is celebrated for its deep, smoky character and rich flavor profile. The name Black Chimney hints at the robust and complex taste, making it a choice for connoisseurs seeking a distinctive and intense rum experience.",
+      "price": "3800",
+      "category": "Liquor"
+  }
+]

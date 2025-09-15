@@ -1,0 +1,431 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+body {
+  /* background: linear-gradient(135deg, #fff7e6, #fff3ed); */
+  overflow-x: hidden;
+  position: relative;
+}
+/* .burger-game-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.burger {
+  position: absolute;
+  top: -100px;
+  width: 40px;
+  height: 40px;
+  background: url('https://cdn-icons-png.flaticon.com/512/3075/3075977.png') no-repeat center/contain;
+  animation: dropBurger 4s linear infinite;
+} */
+
+@keyframes dropBurger {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+
+/* .app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: auto;
+} */
+ .app-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+}
+
+
+.main-card {
+  background-color: #ffffff;
+  border-radius: 1.0rem;
+  /* box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); */
+  max-width: 80rem;
+
+  padding: 1rem;
+  animation: fadeIn 0.5s ease-out;
+      width: 100%;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #f59e0b;
+  /* margin-bottom: 1rem; */
+}
+
+.header-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1e293b;
+  /* margin-bottom: 0.5rem; */
+}
+
+.header-subtitle {
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+.call-count {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.warning-message {
+  background-color: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  color: #b45309;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.warning-message p {
+  margin: 0;
+}
+
+.mode-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mode-button {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.mode-button.active {
+  background-color: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.mode-button.inactive {
+  background-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.mode-button.inactive:hover {
+  background-color: #cbd5e1;
+}
+
+.ingredients-input {
+  margin-bottom: 1.5rem;
+}
+
+.ingredients-textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid #cbd5e1;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  resize: none;
+}
+
+.ingredients-textarea:focus {
+  border-color: #f59e0b;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.language-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.generate-button {
+  width: 100%;
+  background-color: #f59e0b;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.generate-button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.generate-button:focus:not(:disabled) {
+  box-shadow: 0 0 0 4px rgba(250, 202, 24, 0.5);
+}
+
+.generate-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading-indicator {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  width: 2rem;
+  height: 2rem;
+  color: #f59e0b;
+  margin-right: 0.75rem;
+}
+
+.loading-text {
+  color: #475569;
+}
+
+.suggestions-container {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.suggestion-card {
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.emoji-container {
+  font-size: 3rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fffbeb;
+  border-radius: 1rem;
+  width: 20px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.suggestion-content {
+  flex-grow: 1;
+}
+
+.suggestion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.suggestion-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.suggestion-description {
+  font-size: 0.875rem;
+  color: #475569;
+  margin-top: 0.25rem;
+}
+
+.toggle-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #f59e0b;
+  transition: transform 0.3s ease-in-out;
+  flex-shrink: 0;
+}
+
+.expanded-details {
+  margin-top: 1.5rem;
+  border-top: 1px solid #cbd5e1;
+  padding-top: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  background-color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.step-text {
+  flex-grow: 1;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.details-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.step-number {
+  background-color: #f59e0b;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 350px) {
+  .app-container {
+    padding: 0rem;
+  }
+  .main-card {
+    /* padding: 2rem; */
+    width: 100%;
+  }
+  .controls-container {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .generate-button {
+    width: auto;
+  }
+    .controls-container {
+    flex-direction: row;
+    justify-content: space-between; /* Align items to the edges on larger screens */
+  }
+  
+}
+/* Add to your existing FoodGenerator.css file */
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.language-selector label {
+  font-size: 1rem;
+  color: #475569;
+}
+
+.language-dropdown {
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px; /* This makes it pill-shaped */
+  border: 2px solid #cbd5e1;
+  background-color: #f8fafc;
+  font-size: 1rem;
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  -webkit-appearance: none; /* Removes default browser styling for a cleaner look */
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* Add a custom dropdown arrow icon */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="#475569" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5rem;
+}
+
+.language-dropdown:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(250, 202, 24, 0.5);
+}
+
+/* Optional: Adjust the controls-container for better alignment */
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem; /* Increase gap for more space */
+}
+
+

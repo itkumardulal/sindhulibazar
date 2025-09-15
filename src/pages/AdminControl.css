@@ -1,0 +1,279 @@
+/* General Reset & Body */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff9f0; /* very soft warm background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Admin Panel Container */
+.admin-panel {
+  max-width: 900px;
+  margin: 25px auto;
+  padding: 20px;
+}
+
+/* Heading */
+.admin-panel h1 {
+  text-align: center;
+  color: #e63946; /* primary red */
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+/* Filters & Search */
+.filters-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters-search input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid #ffdd57; /* soft yellow */
+  min-width: 220px;
+  max-width: 300px;
+  flex: 1 1 auto;
+  transition: 0.3s;
+}
+
+.filters-search input:focus {
+  outline: none;
+  border-color: #f4a261; /* accent orange */
+  box-shadow: 0 0 5px rgba(244, 162, 97, 0.4);
+}
+
+.buttons-group button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #fff3d9; /* subtle yellow */
+  color: #e63946;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.buttons-group button.active,
+.buttons-group button:hover {
+  background: #e63946; /* red active */
+  color: #fff;
+}
+
+/* Orders List */
+.orders-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Individual Order Card */
+.order-item {
+  background: #fff5e6; /* warm light yellow */
+  border-left: 6px solid #e63946; /* red accent */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+/* Order Summary */
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 300;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  gap: 8px;
+}
+
+.order-summary span {
+  margin: 5px 0;
+}
+
+.order-summary strong {
+  color: #e63946; /* red emphasis */
+}
+
+/* Toggle Details Button */
+.eye-btn {
+  cursor: pointer;
+  background-color: #ffdd57; /* soft yellow button */
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.eye-btn:hover {
+  background-color: #f4a261; /* orange accent hover */
+  transform: translateY(-1px);
+}
+
+/* Expanded Order Details */
+.order-details {
+  background: #fff3e0;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.order-details ul {
+  padding-left: 20px;
+  margin: 5px 0;
+}
+
+.order-details li {
+  margin-bottom: 5px;
+}
+
+/* Gift Status */
+.order-summary span strong + span {
+  font-weight: 600;
+  color: #e63946; /* red for gift yes */
+}
+
+/* Loading / Error Center */
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #f4a261; /* orange accent */
+}
+
+.loading-text {
+  color: #ffdd57;
+  font-weight: 500;
+}
+
+.error-text {
+  color: #e63946;
+  font-weight: 500;
+}
+
+/* No Orders */
+.no-orders-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  text-align: center;
+  color: #f28482; /* soft red-orange */
+}
+
+.no-orders-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.no-orders-container p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Admin Login Panel */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: #fff7f0;
+}
+
+.login-card {
+  background: #fff5e6;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-card h2 {
+  font-size: 1.8rem;
+  color: #e63946; /* red heading */
+  margin-bottom: 20px;
+}
+
+.login-form input {
+  width: 90%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 2px solid #ffdd57;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #e63946; /* red focus */
+  box-shadow: 0 0 5px rgba(230, 57, 70, 0.4);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.login-form button:hover {
+  background-color: #d62828;
+  transform: translateY(-2px);
+}
+
+.error-text {
+  color: #e63946;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .order-summary {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .eye-btn {
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-item {
+    padding: 10px 12px;
+  }
+
+  .order-summary span {
+    font-size: 0.75rem;
+  }
+
+  .order-details {
+    font-size: 0.8rem;
+  }
+}

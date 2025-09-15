@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "name": "Veg Chowmein",
+        "image": "https://i.imgur.com/HFy54bX.jpg",
+        "description": "Veg Chowmein is a stir-fried noodle dish with mixed vegetables, seasoned with soy sauce and spices. It’s a tasty, quick vegetarian favorite in Nepali cuisine.",
+        "price": "100",
+        "category": "Food"
+    },
+    {
+        "id": 2,
+        "name": "Gorkha Beer Small",
+        "image": "https://i.imgur.com/PZjJpcM.jpg",
+        "description": "Crafted with passion and using only the finest ingredients, Gorkha Craft beer is perfect for those who appreciate genuine, high-quality brews. Its unique flavor comes from the addition of toasted ruby malt, which adds a bold and crisp taste to the beer.",
+        "price": "210",
+        "category": "Liquor"
+    },
+    
+  {
+    "id": 21,
+    "name": "chiken biryani",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/refs/heads/master/biryani/chiken%20biryani.webp",
+    "description": "From Sindhuli Bazar",
+    "price": "350",
+    "category": "Food"
+  },
+   {
+    "id": 51,
+    "name": "Mix Current Noodles",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazaritems/2e333102e4314babe9127dd0e43b865e5ee4c4f0/Noodles/mix%20current%20noodles.jpg",
+    "description": "From Sindhuli Bazar",
+    "price": "180",
+    "category": "Food"
+  },
+    {
+         "id": 6,
+    "name": "Cheese BBQ Chiken Pizza(Medium)",
+    "image": "https://raw.githubusercontent.com/itkumardulal/sindhulibazar/d08aab27fb432d6d279639f17ff271a6f8bd2895/assetsimages/bbqpizza.jpg",
+    "description": "from BurgerHouse",
+    "price": "550",
+    "category": "Food"
+  }, 
+    {
+        "id":7,
+        "name":"8848 Vodka",
+        "image":"https://i.imgur.com/8UxIysS.jpg",
+        "description": "Discover the pristine purity of the Himalayas in every sip of 8848 Vodka. Named after the iconic Mount Everest, this Nepali vodka offers a crystal-clear appearance and a smooth, clean taste with a hint of sweetness. Crafted with pure Himalayan water, it's perfect for sipping or mixing. Elevate your spirits with 8848 Vodka.",
+        "price": " 2600",    
+        "category": "Liquor"
+    },  {
+    "id": 17,
+    "name": "Pork Fried 1/2kg",
+    "image": "https://i.imgur.com/6TuysW9.png",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "500",
+    "category": "Food"
+  },
+  {
+    "id": 18,
+    "name": "Pork khaza set",
+    "image": "https://i.imgur.com/jDbWcKv.png",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "300",
+    "category": "Food"
+  },
+  {
+    "id": 19,
+    "name": "Pork Chawmien",
+    "image": "https://i.imgur.com/qqlJdKs.png",
+    "description": "Pulami Khaza Ghar Madhutar",
+    "price": "160",
+    "category": "Food"
+  },
+  {
+    "id": 20,
+    "name": "Buff Sukuti Khaja Set combo",
+    "image": "https://i.imgur.com/nNkDSb0.png",
+    "description": "from Mahhutar sepcial place",
+    "price": "300",
+    "category": "Food"
+  }
+    
+]

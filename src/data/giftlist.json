@@ -1,0 +1,13 @@
+[
+
+  { "id": "0234", "name": "Oreo Biscuit", "image": "https://i.imgur.com/XEZ6AKS.png", "price": 25, "giftRange": "10-40" },
+  { "id": "0235", "name": "Dairy Milk (Small)", "image": "https://i.imgur.com/pW7vwTn.png", "price": 30, "giftRange": "10-40" },
+  { "id": "0236", "name": "Fresh Apple", "image": "https://i.imgur.com/R0AQLJu.png", "price": 35, "giftRange": "10-40" },
+  { "id": "0237", "name": "5 Star Chocolate", "image": "https://i.imgur.com/ppRXWoY.png", "price": 20, "giftRange": "10-40" },
+  { "id": "0238", "name": "Coca-Cola (Small)", "image": "https://i.imgur.com/AHvIgQG.png", "price": 40, "giftRange": "10-40" },
+  { "id": "0239", "name": "Digestive Biscuit", "image": "https://i.imgur.com/5QnOTBO.png", "price": 28, "giftRange": "10-40" },
+  { "id": "0240", "name": "Real Juice", "image": "https://i.imgur.com/ZxZrsNr.png", "price": 15, "giftRange": "10-40" },
+  { "id": "0241", "name": "Lollipop", "image": "https://i.imgur.com/IJPdl2z.png", "price": 12, "giftRange": "10-40" }
+
+
+]

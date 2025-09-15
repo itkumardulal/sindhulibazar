@@ -1,0 +1,123 @@
+.orders-container {
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.orders-container h2 {
+  text-align: center;
+  color: #ff4c4c; /* bright red */
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.orders-container h3 {
+  color: #ffcc00; /* yellow accent */
+  font-size: 1.2rem;
+  margin: 20px 0 10px;
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 5px;
+}
+
+.previous-orders-label {
+  margin-top: 40px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #ff4c4c;
+}
+
+.orders-list {
+  list-style: none;
+  padding: 0;
+}
+
+.order-item {
+  background: #fff7e6; /* light yellow background */
+  border-left: 6px solid #ff4c4c; /* red accent border */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.order-date-time {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 300;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+
+.order-summary span {
+  margin: 5px 0;
+}
+
+.eye-btn {
+  cursor: pointer;
+  background-color: #ffcc00;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.eye-btn:hover {
+  background-color: #ffb700;
+}
+
+.order-details {
+  background: #fff3d9;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.order-details ul {
+  padding-left: 20px;
+  margin: 5px 0;
+}
+
+.order-details li {
+  margin-bottom: 5px;
+}
+.no-orders-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+  color: #f15a02; /* red-orange accent */
+  font-family: 'Poppins', sans-serif;
+}
+
+.no-orders-container h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.no-orders-container p {
+  font-size: 1rem;
+  color: #333;
+}
+

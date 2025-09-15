@@ -1,0 +1,208 @@
+.ev-booking-card {
+  position: relative;
+  overflow: visible;
+  background: rgba(144, 146, 4, 0.137);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(233, 243, 98, 0.842);
+  padding: 10px;
+  margin: 20px auto;
+  max-width: 1400px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  animation: offerWallIn 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(40px);
+ 
+}
+
+.ev-booking-card:hover {
+  background: rgba(211, 207, 6, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Stars wrapper */
+.stars-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 10;
+}
+
+/* Star style */
+.star {
+  position: absolute;
+  color: #fff200;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  animation-name: flyStar;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Different stars start positions, delays, durations */
+.star:nth-child(1) {
+  top: 80%;
+  left: 10%;
+  animation-duration: 4s;
+  animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+  top: 90%;
+  left: 40%;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+.star:nth-child(3) {
+  top: 85%;
+  left: 70%;
+  animation-duration: 4.5s;
+  animation-delay: 2s;
+}
+
+.star:nth-child(4) {
+  top: 75%;
+  left: 85%;
+  animation-duration: 3.8s;
+  animation-delay: 1.5s;
+}
+
+.star:nth-child(5) {
+  top: 95%;
+  left: 60%;
+  animation-duration: 4.3s;
+  animation-delay: 2.5s;
+}
+
+@keyframes flyStar {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-150px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.ev-booking-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  /* color: var(--toastify-color-success, #07bc0c); */
+  text-align: center;
+  font-weight: 700;
+  color: #1d3557;
+}
+
+.ev-booking-content p {
+  font-size: 1.1rem;
+  color: var(--toastify-color-dark, #121212);
+  margin-bottom: 15px;
+  text-align: center;
+  max-width: 90%;
+}
+
+.price-info {
+  font-weight: 600;
+  color: var(--toastify-color-dark, #121212);
+  margin-bottom: 15px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #eb0909;
+  margin-right: 8px;
+}
+
+.discounted-price {
+  font-size: 1.25rem;
+  color: var(--toastify-color-warning, #f1c40f);
+  font-weight: 700;
+}
+
+.ev-booking-btn {
+  background-color: var(--toastify-color-warning, #f1c40f);
+  color: var(--toastify-color-dark, #121212);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(241, 196, 15, 0.5);
+}
+
+.ev-booking-btn:hover {
+  background-color: #c8a309;
+  box-shadow: 0 4px 10px rgba(200, 163, 9, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ev-booking-card {
+    padding: 15px;
+  }
+
+  .ev-booking-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .ev-booking-content p {
+    font-size: 1rem;
+  }
+}
+
+@keyframes offerWallIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .ev-booking-card {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .ev-booking-content h2 {
+    font-size: 1.1rem; /* Reduced from 1.4rem */
+    margin-bottom: 8px;
+  }
+
+  .ev-booking-content p {
+    font-size: 0.9rem; /* Reduced from 1rem */
+    margin-bottom: 10px;
+  }
+
+  .price-info {
+    font-size: 0.95rem;
+  }
+
+  .original-price {
+    font-size: 0.9rem;
+  }
+
+  .discounted-price {
+    font-size: 1.05rem; /* Slightly smaller */
+  }
+
+  .ev-booking-btn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+}
