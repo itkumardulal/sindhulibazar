@@ -4,6 +4,7 @@
 // ../../messagecarrier/whatsappsendgift.js
 
 // helper: format currency
+// helper: format currency
 function currency(amount) {
   return `Rs. ${Number(amount).toFixed(2)}`;
 }
@@ -13,17 +14,21 @@ export function createBillText(orderData, orderid) {
   let subtotal = 0;
   let itemsText = "";
 
+  // Build items text and calculate subtotal (price is already total per item)
   orderData.itemsOrdered.forEach((it, idx) => {
-    const lineTotal = Number(it.quantity) * Number(it.price);
+    const lineTotal = Number(it.price); // Use price as is, no multiplication
     subtotal += lineTotal;
-    itemsText += `${idx + 1}. ${it.name} x ${it.quantity} = ${currency(
-      lineTotal
-    )}\n`;
+    itemsText += `${idx + 1}. ${it.name} x ${it.quantity} = ${currency(lineTotal)}\n`;
   });
 
-  const delivery = orderData.deliveryCharge || 0;
-  const giftCost = orderData.giftCost || 0;
-  const total = subtotal + delivery + giftCost;
+  const delivery = Number(orderData.deliveryCharge || 0);
+  const giftCost = Number(orderData.giftCost || 0);
+  const linkGenerationCost = Number(orderData.linkGenerationCost || 50); // default 50 if not provided
+
+  const total = subtotal + delivery + giftCost + linkGenerationCost;
+
+  // Add Link Generation Cost as a separate line in items text
+  itemsText += `${orderData.itemsOrdered.length + 1}. Link Generation Cost x 1 = ${currency(linkGenerationCost)}\n`;
 
   return `
 🧾 *Gift Order Invoice*
@@ -53,6 +58,7 @@ ${itemsText}
 🙏 Thank you for choosing us!
   `.trim();
 }
+
 
 // helper: whatsapp link
 export function createWhatsAppLink(toPhone, message) {

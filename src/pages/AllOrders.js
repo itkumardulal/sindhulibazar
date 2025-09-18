@@ -144,13 +144,56 @@ const OrderItem = ({
           <ul>
             {order.itemsOrdered.map((item, idx) => (
               <li key={idx}>
-                🎁 {item.name} - Rs. {item.price} × {item.quantity}
+                🎁 {item.name} X {item.quantity}- Rs.{item.price}
               </li>
             ))}
           </ul>
           <p>
             🚚 <strong>Delivery Charge:</strong> Rs. {order.deliveryCharge}
           </p>
+
+          <p
+            style={{
+              background: "#fff3f0",
+              padding: "8px 12px",
+              borderRadius: "6px",
+              border: "1px solid #ffa39e",
+              fontWeight: "700",
+              fontSize: "1rem",
+              display: "inline-block",
+              color: "#cf1322",
+            }}
+          >
+            💸 Total Bill: Rs. {Number(order.totalPrice).toFixed(2)}
+          </p>
+
+          {/* WhatsApp Inquiry Button */}
+          <a
+            href={`https://wa.me/9703782444?text=${encodeURIComponent(
+              `Hello, I would like to know the update about my order #${orderNumber} (Receiver: ${order.receiverName}, Total: Rs. ${order.totalPrice}).`
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              marginTop: "8px",
+              padding: "8px 14px",
+              borderRadius: "6px",
+              backgroundColor: "#25D366",
+              color: "#fff",
+              fontWeight: "600",
+              textDecoration: "none",
+              transition: "background 0.3s",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "#128C7E")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "#25D366")
+            }
+          >
+            💬 WhatsApp Inquiry
+          </a>
 
           <div
             style={{
@@ -166,7 +209,7 @@ const OrderItem = ({
             }}
           >
             <strong style={{ color: "#d46b08", fontSize: "13px" }}>
-              🎡✨ Play & Win Big!,Spinner : ✨🎉
+              🎡✨ Play & Win !,Spinner for Receiver : ✨🎉
             </strong>
 
             <a
