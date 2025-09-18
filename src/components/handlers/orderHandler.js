@@ -35,19 +35,29 @@ export const handleSubmitOrder = async ({
     return;
   }
 
-  // Prepare items
+  // Prepare items with proper quantities
   let itemsOrdered = [];
   if (orderData.cart?.length) {
-    itemsOrdered = orderData.cart.map((item) => ({
-      name: item.name,
-      price: item.price,
-      quantity: item.quantity,
-    }));
+    // Aggregate same items
+    const itemMap = {};
+    orderData.cart.forEach((item) => {
+      if (itemMap[item.name]) {
+        itemMap[item.name].quantity += item.quantity;
+        itemMap[item.name].price += item.price * item.quantity;
+      } else {
+        itemMap[item.name] = {
+          name: item.name,
+          quantity: item.quantity,
+          price: item.price * item.quantity,
+        };
+      }
+    });
+    itemsOrdered = Object.values(itemMap);
   } else if (orderData.name && orderData.price) {
     itemsOrdered = [
       {
         name: orderData.name,
-        price: orderData.price,
+        price: orderData.price * (orderData.quantity || 1),
         quantity: orderData.quantity || 1,
       },
     ];
@@ -125,19 +135,22 @@ export const handleSubmitOrder = async ({
 
     setSuccess(true);
 
-    // WhatsApp redirection
+    // WhatsApp redirection (fixed to use aggregated itemsOrdered)
     if (isGift) {
       sendWhatsAppBill(orderObj, response.data.orderId);
-    } else if (Array.isArray(orderData.cart) && orderData.cart.length > 0) {
-      const link = generateWhatsAppBulkLink(orderData.cart);
-      window.open(link, "_blank");
-    } else if (orderData.name && orderData.price) {
-      const link = generateWhatsAppLink({
-        name: orderData.name,
-        price: orderData.price,
-        count: orderData.quantity || 1,
-      });
-      window.open(link, "_blank");
+    } else if (itemsOrdered.length > 0) {
+      if (itemsOrdered.length === 1) {
+        const item = itemsOrdered[0];
+        const link = generateWhatsAppLink({
+          name: item.name,
+          price: item.price / item.quantity, // single unit price
+          count: item.quantity,
+        });
+        window.open(link, "_blank");
+      } else {
+        const link = generateWhatsAppBulkLink(itemsOrdered);
+        window.open(link, "_blank");
+      }
     } else {
       console.warn("No items to send via WhatsApp");
     }

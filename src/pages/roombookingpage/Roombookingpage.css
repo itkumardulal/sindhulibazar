@@ -1,0 +1,219 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background-color: #fff8f0;
+}
+
+.header {
+  background-image: linear-gradient(to right, #d32f2f, #fbc02d);
+  color: white;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.header p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.room-gallery {
+  max-width: 80rem;
+  margin: auto;
+  padding: 3rem 1.5rem;
+}
+
+.room-gallery h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #b71c1c;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .room-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .room-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.room-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.card-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d32f2f;
+}
+
+.price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #f57f17;
+}
+
+.availability {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+  border: none;
+}
+
+.view-details {
+  background-color: #fbc02d;
+  color: #000;
+}
+
+.view-details:hover {
+  background-color: #f9a825;
+}
+
+.book-now {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.book-now:hover {
+  background-color: #b71c1c;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 50;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  max-width: 42rem;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #d32f2f;
+}
+
+.modal-content .price-info {
+  font-size: 1.125rem;
+  color: #f57f17;
+}
+
+.modal-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.close-button {
+  background-color: #d32f2f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.close-button:hover {
+  background-color: #b71c1c;
+}
+.cover-photo {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.cover-photo .cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-photo .cover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.cover-photo .cover-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.cover-photo .cover-text p {
+  font-size: 1.2rem;
+}
+

@@ -21,6 +21,8 @@ import KhyalGLanding from "./components/KhyalG";
 import AdminControl from "./pages/AdminControl";
 import AllOrders from "./pages/AllOrders";
 import Footer from "./components/footer";
+import Roombookingpage from "./pages/roombookingpage/Roombookingpage";
+import RoomType from "./pages/roombookingpage/RoomType";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -52,6 +54,7 @@ function App() {
           <Route path="/FoodGenerator" element={<FoodGenerator />} />
           <Route path="/order_for_friend/:id" element={<GiftLandingPage />} />
           <Route path="/myorders" element={<AllOrders />} />
+          <Route path="/roombooking" element={<Roombookingpage />} />
           <Route
             path="/order_for_friend/giftpromo"
             element={<PromoCardGiftForFriend />}
