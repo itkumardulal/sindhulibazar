@@ -11,10 +11,11 @@ export default function BookingApp() {
   const rooms = [
     {
       id: 1,
-      title: "Single Bed Couple Room",
-      price: 2500,
-      details: "1 Bed • 1 Bathroom • 2 Guests",
+      title: "Suite Room for Couple",
+      price: 3000,
+      details: "Luxury Bed • 1 Bathroom • 2 Guests",
     },
+
     {
       id: 2,
       title: "Double Bed - 3 Person",
@@ -41,10 +42,11 @@ export default function BookingApp() {
     },
     {
       id: 6,
-      title: "Suite Room for Couple",
-      price: 3000,
-      details: "Luxury Bed • 1 Bathroom • 2 Guests",
+      title: "Single Bed Couple Room",
+      price: 2500,
+      details: "1 Bed • 1 Bathroom • 2 Guests",
     },
+
     {
       id: 7,
       title: "Suite Room Plus",

@@ -1,4 +1,5 @@
 import React from "react";
+import "./FeaturedProducts.css";
 
 const FeaturedProducts = ({ title, products, onProductClick }) => {
   return (
