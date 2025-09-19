@@ -1,76 +1,23 @@
-import React, { useState } from "react";
+// src/pages/roombookingpage/RoomType.jsx
+
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DrawerAppBar from "../../components/Navbar";
 import "./RoomType.css";
+import roomsData from "../../data/rooms.json";
 
 const RoomType = () => {
-  const rooms = [
-    {
-      id: 1,
-      title: "Single Bed Couple Room",
-      image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
-      details: "1 Bed • 1 Bathroom • 2 Guests",
-      price: 2500,
-      amenities: ["Free WiFi", "Breakfast Included"],
-      description:
-        "A cozy single-bed room perfect for couples, offering a serene and intimate stay with modern amenities.",
-    },
-    {
-      id: 2,
-      title: "Double Bed - 3 Person",
-      image: "https://images.pexels.com/photos/97083/pexels-photo-97083.jpeg",
-      details: "2 Beds • 1 Bathroom • 3 Guests",
-      price: 3000,
-      amenities: ["AC Room", "Free Parking"],
-      description:
-        "Spacious room with a double bed, comfortably accommodating up to three people with ample space.",
-    },
-    {
-      id: 3,
-      title: "Double Bed - 2 Person",
-      image: "https://images.pexels.com/photos/210604/pexels-photo-210604.jpeg",
-      details: "2 Beds • 1 Bathroom • 2 Guests",
-      price: 2500,
-      amenities: ["Free WiFi", "Balcony View"],
-      description:
-        "A comfortable double bed room designed for two, perfect for a short getaway with essential comforts.",
-    },
-    {
-      id: 4,
-      title: "Double Bed - 4 Person",
-      image: "https://images.pexels.com/photos/2029722/pexels-photo-2029722.jpeg",
-      details: "2 Beds • 2 Bathrooms • 4 Guests",
-      price: 3500,
-      amenities: ["Family Friendly", "Free WiFi"],
-      description:
-        "Spacious and comfortable room for four people, ideal for families or small groups traveling together.",
-    },
-    {
-      id: 5,
-      title: "Double Bed - 3 Person with Balcony",
-      image: "https://images.pexels.com/photos/271643/pexels-photo-271643.jpeg",
-      details: "2 Beds • 1 Bathroom • 3 Guests",
-      price: 3500,
-      amenities: ["Balcony", "Mountain View"],
-      description:
-        "Enjoy the fresh air and scenic views with this spacious 3-person room featuring a private balcony.",
-    },
-    {
-      id: 6,
-      title: "Suite Room for Couple",
-      image: "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg",
-      details: "Luxury Bed • 1 Bathroom • 2 Guests",
-      price: 3500,
-      amenities: ["Private Balcony", "Room Service"],
-      description:
-        "Luxurious suite designed exclusively for couples, offering elegance, comfort, and privacy.",
-    },
-  ];
+  const navigate = useNavigate();
+  const rooms = roomsData;
+  // All 6 rooms
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
+  const [currentImage, setCurrentImage] = useState(0);
 
   const openModal = (room) => {
     setSelectedRoom(room);
+    setCurrentImage(0);
     setIsModalOpen(true);
   };
 
@@ -78,87 +25,133 @@ const RoomType = () => {
     setIsModalOpen(false);
     setSelectedRoom(null);
   };
+  useEffect(() => {
+    // Component render भइसकेपछि scroll top
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []); // empty dependency array means only runs once on mount
+
+  const handleBooking = (room) => {
+    navigate("/confirmbooking", { state: { bookingDetails: room } });
+  };
+
+  const nextImage = () => {
+    if (selectedRoom) {
+      setCurrentImage((prev) => (prev + 1) % selectedRoom.images.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedRoom) {
+      setCurrentImage(
+        (prev) =>
+          (prev - 1 + selectedRoom.images.length) % selectedRoom.images.length
+      );
+    }
+  };
 
   return (
     <>
       <DrawerAppBar />
 
-      {/* Cover Photo / Hero Section */}
-      <div className="cover-photo">
+      {/* Hero Section */}
+      <div className="hero-section">
         <img
           src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
           alt="Hotel Cover"
-          className="cover-image"
+          className="hero-image"
         />
-        <div className="cover-text">
-          <h1>Welcome to Our Hotel</h1>
-          <p>Experience comfort, luxury, and a stay to remember.</p>
+        <div className="cover-overlay"></div>
+        <div className="hero-text">
+          <h1>Welcome to Hotel Nariyah, SINDHULI</h1>
+          <p>
+            सिन्धुली माढीमा आराम, विलासिता, र सम्झनायोग्य बसाइ अनुभव गर्नुहोस्।
+          </p>
+          <button
+            className="hero-book-btn"
+            onClick={() => handleBooking(rooms[0])}
+          >
+            Book Now
+          </button>
         </div>
       </div>
 
-      <div className="room-list-container">
-        {rooms.map((room) => (
-          <div className="room-card" key={room.id}>
-            {/* Left Image */}
-            <div className="room-image">
-              <img src={room.image} alt={room.title} />
-            </div>
-
-            {/* Right Content */}
-            <div className="room-content">
-              <div className="room-header">
-                <h2>{room.title}</h2>
-                <div className="stars">★★★★☆</div>
+      {/* Rooms Section */}
+      <div className="rooms-section">
+        <h2 className="section-title">Our Rooms</h2>
+        <div className="rooms-grid">
+          {rooms.map((room) => (
+            <div className="room-card" key={room.id}>
+              <div className="room-image">
+                <img src={room.images[0]} alt={room.title} />
+                <div className="price-badge">₹{room.price}</div>
               </div>
-
-              <div className="room-meta">
-                <span className="room-info">{room.details}</span>
-              </div>
-
-              <div className="amenities">
-                {room.amenities.map((a, i) => (
-                  <React.Fragment key={i}>
-                    <span>{a}</span>
-                    {i < room.amenities.length - 1 && (
-                      <span className="dot">•</span>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-
-              <div className="description">
-                <p>{room.description}</p>
-              </div>
-
-              <div className="room-footer">
-                <div className="price">
-                  <span className="amount">₹{room.price} / night</span>
-                  <span className="deal">Free cancellation • Free WiFi</span>
+              <div className="room-info">
+                <h3>{room.title}</h3>
+                <div className="stars">
+                  {Array(5)
+                    .fill(0)
+                    .map((_, i) => (
+                      <span
+                        key={i}
+                        className={
+                          i < room.rating ? "star-filled" : "star-empty"
+                        }
+                      >
+                        ★
+                      </span>
+                    ))}
                 </div>
-                <div className="button-group">
+                <p className="room-details">{room.details}</p>
+                <p className="amenities">{room.amenities.join(" • ")}</p>
+                <div className="room-actions">
                   <button
-                    className="deal-btn"
+                    className="details-btn"
                     onClick={() => openModal(room)}
                   >
                     View Details
                   </button>
+                  <button
+                    className="book-btn"
+                    onClick={() => handleBooking(room)}
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
+      {/* Modal */}
       {isModalOpen && selectedRoom && (
         <div className="modal-overlay">
           <div className="modal-content">
+            <button onClick={closeModal} className="modal-close">
+              ×
+            </button>
             <h3>{selectedRoom.title}</h3>
-            <p className="price-info">₹{selectedRoom.price}</p>
+            <p className="modal-price">₹{selectedRoom.price} / night</p>
             <p>{selectedRoom.details}</p>
-            <p>{selectedRoom.description}</p>
-            <div className="modal-footer">
-              <button onClick={closeModal} className="close-button">
-                Close
+
+            {/* Image Slider */}
+            <div className="modal-slider">
+              <div className="slider-wrapper">
+                {selectedRoom.images.map((img, index) => (
+                  <div className="slide" key={index}>
+                    <img src={img} alt={`${selectedRoom.title} ${index + 1}`} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p className="modal-description">{selectedRoom.description}</p>
+            <div className="modal-actions">
+              <button
+                className="book-btn"
+                onClick={() => handleBooking(selectedRoom)}
+              >
+                Book Now
               </button>
             </div>
           </div>

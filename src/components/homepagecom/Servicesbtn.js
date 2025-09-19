@@ -27,10 +27,11 @@ export default function Servicesbtn() {
         <img src="https://i.imgur.com/qkivuDn.png" alt="Vehicle Renting" />
         <h3>Vehicle Renting</h3>
       </button> */}
-      <button onClick={() => handlebuttonNav("Herbal")} className="box-button">
+      {/* <button onClick={() => handlebuttonNav("Herbal")} className="box-button">
         <img src="https://i.imgur.com/3gbjRkO.png" alt="Herbal products" />
         <h3>UTURN Herbal</h3>
-      </button>
+      </button> */}
+
       <button onClick={() => handlebuttonNav("Bakery")} className="box-button">
         <img
           src="https://i.imgur.com/pDDdWjJ.png"
@@ -38,6 +39,13 @@ export default function Servicesbtn() {
           style={{ height: 100 }}
         />
         <h3>Cake and Celebration</h3>
+      </button>
+      <button
+        onClick={() => handlebuttonNav("roombooking")}
+        className="box-button"
+      >
+        <img src="https://i.imgur.com/9saUQlP.png" alt="Herbal products" />
+        <h3>Hotel Booking</h3>
       </button>
       {/* <button onClick={() => handlebuttonNav("Bakery")} className="box-button">
         <img

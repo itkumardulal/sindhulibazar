@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "title": "Suite Room for Couple",
+    "images": [
+      "https://i.imgur.com/j9H6HUK.jpeg",
+      "https://i.imgur.com/qawKIQu.jpeg",
+      "https://i.imgur.com/DTgFY4p.jpeg"
+    ],
+    "details": "Luxury Bed • 1 Bathroom • 2 Guests",
+    "price": 3000,
+    "rating": 5,
+    "amenities": ["Room Service", "AC", "TV"],
+    "description": "Luxurious suite designed exclusively for couples, offering elegance, comfort, and privacy."
+  },
+  {
+    "id": 2,
+    "title": "Double Bed - 3 Person",
+    "images": [
+      "https://i.imgur.com/Ww0S8Qz.jpeg",
+      "https://i.imgur.com/ONVhDTP.jpeg",
+      "https://i.imgur.com/OoxK2UC.jpeg"
+    ],
+    "details": "2 Beds • 1 Bathroom • 3 Guests",
+    "price": 3000,
+    "rating": 4,
+    "amenities": ["Free WiFi", "TV", "AC"],
+    "description": "Spacious room with a double bed, comfortably accommodating up to three people with ample space."
+  },
+  {
+    "id": 3,
+    "title": "Double Bed - 2 Person",
+    "images": [
+      "https://i.imgur.com/Ww0S8Qz.jpeg",
+      "https://i.imgur.com/9JluxLP.jpeg",
+      "https://i.imgur.com/v1rYzXh.jpeg"
+    ],
+    "details": "2 Beds • 1 Bathroom • 2 Guests",
+    "price": 2500,
+    "rating": 5,
+    "amenities": ["Free WiFi", "Balcony View"],
+    "description": "A comfortable double bed room designed for two, perfect for a short getaway with essential comforts."
+  },
+  {
+    "id": 4,
+    "title": "Double Bed - 4 Person",
+    "images": [
+      "https://i.imgur.com/daoi2YX.jpeg",
+      "https://i.imgur.com/aJ6myOR.jpeg",
+      "https://i.imgur.com/WQQbUSc.jpeg"
+    ],
+    "details": "2 Beds • 2 Bathrooms • 4 Guests",
+    "price": 3500,
+    "rating": 5,
+    "amenities": ["Family Friendly", "Free WiFi"],
+    "description": "Spacious and comfortable room for four people, ideal for families or small groups traveling together."
+  },
+  {
+    "id": 5,
+    "title": "Double Bed - 3 Person with Balcony",
+    "images": [
+      "https://i.imgur.com/lWoiNdg.jpeg",
+      "https://i.imgur.com/f2kVbvF.jpeg",
+      "https://i.imgur.com/WQQbUSc.jpeg"
+    ],
+    "details": "2 Beds • 1 Bathroom • 3 Guests",
+    "price": 3500,
+    "rating": 4,
+    "amenities": ["Balcony", "Free WIFI", "TV"],
+    "description": "Enjoy the fresh air and scenic views with this spacious 3-person room featuring a private balcony."
+  },
+  {
+    "id": 6,
+    "title": "Single Bed Couple Room",
+    "images": [
+      "https://i.imgur.com/j9H6HUK.jpeg",
+      "https://i.imgur.com/Hx1ra9U.jpeg",
+      "https://i.imgur.com/iOoQqDB.jpeg"
+    ],
+    "details": "1 Bed • 1 Bathroom • 2 Guests",
+    "price": 2500,
+    "rating": 4,
+    "amenities": ["Free WiFi", "TV", "AC"],
+    "description": "A cozy single-bed room perfect for couples, offering a serene and intimate stay with modern amenities."
+  },
+  {
+    "id": 7,
+    "title": "Suite Room Plus",
+    "images": [
+      "https://i.imgur.com/j9H6HUK.jpeg",
+      "https://i.imgur.com/qawKIQu.jpeg",
+      "https://i.imgur.com/DTgFY4p.jpeg"
+    ],
+    "details": "Luxury Bed • 1 Bathroom • 2 Guests",
+    "price": 3500,
+    "rating": 5,
+    "amenities": ["Private Balcony", "Room Service", "AC"],
+    "description": "Luxurious suite designed exclusively for couples, offering elegance, comfort, and privacy."
+  }
+]

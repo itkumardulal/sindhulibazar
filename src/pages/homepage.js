@@ -15,6 +15,7 @@ import FoodMenuCanva from "../components/homepagecom/FoodMenuCanva";
 import RakshyaBandhan from "../components/offerwalls/RakshyaBAndhan";
 import scrollToTop from "../tinyfunction/scrollToTop";
 import StudyIt from "../components/offerwalls/StudyIt";
+import FeaturedRooms from "../components/homepagecom/FeaturesRoom";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -95,6 +96,7 @@ const Homepage = () => {
         <FoodMenuCanva />
         <StudyIt />
         <EvVehicleBooking />
+        <FeaturedRooms />
         {/* //Addition code ectra ----------------------------- */}
 
         {/* Additohnal ends */}

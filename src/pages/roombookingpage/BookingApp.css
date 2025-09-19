@@ -1,218 +1,365 @@
-/* src/components/BookingApp.css */
+/* ---------------- Container ---------------- */
+.booking-container {
+  padding: 1rem;
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-/* Form container */
 .booking-form {
-  max-width: 600px;
-  width: 100%;
-  margin: 40px auto;
-  padding: 28px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  font-family: 'Inter', sans-serif;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.booking-form:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-}
-
+/* ---------------- Headings ---------------- */
 .booking-form h2 {
   text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
-/* Inputs, selects, textareas */
+/* ---------------- Inputs ---------------- */
 .booking-form input,
 .booking-form select,
 .booking-form textarea {
   width: 100%;
-  padding: 12px 14px;
-  margin-top: 4px;
-  margin-bottom: 12px;
-  border: 1px solid #cbd5e1; /* slate-200 */
-  border-radius: 12px;
+  padding: 0.7rem;
+  margin: 0.3rem 0 0.8rem 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  box-sizing: border-box;
+  transition: border 0.2s;
 }
 
 .booking-form input:focus,
 .booking-form select:focus,
 .booking-form textarea:focus {
-  border-color: #6366f1; /* indigo-500 */
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  border-color: #f9d835;
 }
 
-.booking-form input.error,
-.booking-form select.error,
-.booking-form textarea.error {
-  border-color: 1px solid #cbd5e1; /* red-400 */
-}
-
-/* Label styling */
-.booking-form label span {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 4px;
-  font-size: 0.95rem;
-}
-
-/* Flex rows for multiple inputs */
-.booking-form .flex-row {
+/* ---------------- Guest Info ---------------- */
+.guest-info {
   display: flex;
-  gap: 12px;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.guest-info input {
+  flex: 1;
+}
+
+/* ---------------- Room Cards ---------------- */
+.room-booked {
+  position: relative;
+  margin: 1rem 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.room-booked.expanded {
+  border: 2px solid #f9d835;
+}
+
+.room-booked.collapsed {
+  border: 2px solid #f55e5e;
+}
+
+/* ---------------- Room Header ---------------- */
+.room-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background-color: #f9d835;
+  font-weight: bold;
+  color: #000;
+  border-bottom: 1px solid #ddd;
+}
+
+.room-header h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.room-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ---------------- Buttons inside Room Card ---------------- */
+/* ---------------- Buttons outside Room Card ---------------- */
+
+
+.room-booked.expanded { border: 2px solid #f9d835; }
+.room-booked.collapsed { border: 2px solid #f55e5e; }
+
+/* Remove button - top-left */
+.room-booked {
+  position: relative;  /* make the card a parent for absolute positioning */
+  border: 2px solid #ff4d4f;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background: #fff8c4; /* yellowish background */
+  padding: 12px;
+  overflow: visible;  /* allow buttons to be outside the card */
+}
+
+.remove-btn {
+  position: absolute;       /* absolute relative to .room-booked */
+  top: -12px;               /* move above the card */
+  left: -12px;              /* move left outside */
+  background: white;
+  border: 2px solid #ff4d4f;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.remove-btn:hover {
+  transform: scale(1.2);
+  background-color: #ffe6e6;
+}
+
+
+/* Eye button - top-right */
+.eye-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255,255,255,0.95);
+  border: 2px solid #1976d2;
+  color: #1976d2;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 20;
+}
+
+.eye-btn:hover {
+  transform: scale(1.2);
+  background-color: #e6f0ff;
+}
+
+
+.eye-btn:hover {
+  transform: scale(1.2);
+  background-color: #e6f0ff;
+}
+
+/* ---------------- Room Content ---------------- */
+.room-content {
+  padding: 1rem;
+  background-color: #fff8dc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* ---------------- Nights Counter ---------------- */
+.nights-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nights-counter label {
+  font-weight: bold;
+}
+
+.nights-counter div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nights-counter button {
+  padding: 0.3rem 0.7rem;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #f9d835;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nights-counter button:hover {
+  background-color: #e0c800;
+}
+
+/* ---------------- Add Room Button ---------------- */
+.add-room {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.7rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #f9d835;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-room:hover {
+  background-color: #e0c800;
+}
+
+/* ---------------- Price Summary ---------------- */
+.price-summary {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  border-radius: 12px;
+  font-weight: bold;
+}
+.price-summary-bill {
+  background: #fff7e6;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.price-summary-bill h3 {
+  text-align: center;
+  color: #ff4500;
+  margin-bottom: 1rem;
+}
+
+.price-summary-bill table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.price-summary-bill th,
+.price-summary-bill td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #ffd70033;
+}
+
+.price-summary-bill th {
+  background: #ffd70033;
+  color: #ff4500;
+}
+
+.price-summary-bill tfoot td {
+  border-top: 2px solid #ff4500;
+  background: #fff0cc;
+}
+/* Mobile responsive for price summary bill */
+@media (max-width: 768px) {
+  .price-summary-bill {
+    padding: 1rem;
+    font-size: 0.85rem; /* सानो text */
+  }
+
+  .price-summary-bill h3 {
+    font-size: 1.2rem; /* सानो हेडिङ */
+  }
+
+  .price-summary-bill th,
+  .price-summary-bill td {
+    padding: 0.3rem 0.5rem; /* कम padding */
+  }
+}
+
+
+
+.price-summary .total {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* ---------------- Form Actions ---------------- */
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
   flex-wrap: wrap;
 }
 
-.booking-form .flex-item {
+.book-btn, .reset-btn {
   flex: 1;
-  min-width: 120px;
-}
-
-/* Textarea */
-.booking-form textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-/* Buttons */
-.booking-form button {
+  padding: 0.8rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
   cursor: pointer;
-  font-size: 1rem;
-  padding: 12px 22px;
-  border-radius: 12px;
-  font-weight: 500;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
-.booking-form button[type="submit"] {
-  background-color: #6366f1; /* indigo */
-  color: #ffffff;
-  border: none;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+.book-btn {
+  background-color: #4caf50;
+  color: #fff;
 }
 
-.booking-form button[type="submit"]:hover {
-  background-color: #4f46e5; /* darker indigo */
+.book-btn:hover {
+  background-color: #43a047;
 }
 
-.booking-form button[type="button"] {
-  background-color: #e2e8f0; /* slate-200 */
-  color: #1f2937; /* slate-800 */
-  border: none;
+.reset-btn {
+  background-color: #f44336;
+  color: #fff;
 }
 
-.booking-form button[type="button"]:hover {
-  background-color: #cbd5e1;
+.reset-btn:hover {
+  background-color: #d32f2f;
 }
 
-/* Confirm box */
-.booking-form .confirm-box {
-  margin-top: 24px;
-  padding: 18px;
-  border-radius: 16px;
-  background-color: #ecfdf5; /* green-50 */
-  border-left: 4px solid #10b981; /* green-500 */
-}
-
-.booking-form .confirm-box img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-
-/* Price breakdown */
-/* Price Breakdown */
-.booking-form .price-breakdown {
-  background-color: #f8fafc; /* gray-50 */
-  border: 1px solid #e2e8f0; /* gray-200 */
-  border-radius: 12px;
-  padding: 16px;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
-}
-
-.booking-form .price-breakdown div {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px; /* spacing between lines */
-}
-
-.booking-form .price-breakdown hr {
-  margin: 8px 0;
-  border: 0;
-  border-top: 1px solid #cbd5e1; /* slate-200 */
-}
-
-.booking-form .price-breakdown .total {
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.booking-form .price-breakdown .note {
-  margin-top: 6px;
-  font-size: 0.85rem;
-  color: #6b7280; /* gray-500 */
-}
-
-/* Buttons container */
-.booking-form .form-buttons {
-  display: flex;
-  gap: 16px; /* spacing between buttons */
-  margin-top: 20px;
-}
-
-.booking-form button {
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-weight: 500;
-  transition: all 0.2s;
-  flex: 1;
-}
-
-.booking-form button[type="submit"] {
-  background-color: #6366f1; /* indigo */
-  color: #ffffff;
-  border: none;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-}
-.booking-form img {
-  width: 100%;        /* full width of the container */
-  height: 200px;      /* adjust height as needed */
-  object-fit: cover;  /* keeps aspect ratio and crops nicely */
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-
-.booking-form button[type="submit"]:hover {
-  background-color: #4f46e5; /* darker indigo */
-}
-
-.booking-form button[type="button"] {
-  background-color: #e2e8f0; /* slate-200 */
-  color: #1f2937; /* slate-800 */
-  border: none;
-}
-
-.booking-form button[type="button"]:hover {
-  background-color: #cbd5e1;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .booking-form .form-buttons {
+/* ---------------- Responsive Design ---------------- */
+@media (max-width: 768px) {
+  .guest-info {
     flex-direction: column;
   }
-  .booking-form button {
-    width: 100%;
+
+  .room-header h4 {
+    font-size: 0.95rem;
+  }
+
+  .eye-btn, .remove-btn {
+    font-size: 1.1rem;
+  }
+
+  .add-room, .book-btn, .reset-btn {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-container {
+    padding: 0.5rem;
+  }
+
+  .room-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .room-controls {
+    align-self: flex-end;
   }
 }
