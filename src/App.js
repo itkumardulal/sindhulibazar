@@ -24,6 +24,7 @@ import Footer from "./components/footer";
 
 import RoomType from "./pages/roombookingpage/RoomType";
 import BookingApp from "./pages/roombookingpage/BookingApp";
+import Qrgenerator from "./pages/Qrgenerator";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +45,7 @@ function App() {
       <div style={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/nltstore" element={<Homepage />} />
           <Route path="/Addtocart" element={<Addtocart />} />
           <Route path="/home" element={<Homepage />} />
           <Route path="/:producttypeStore" element={<Storepage />} />
@@ -64,6 +66,7 @@ function App() {
           <Route path="/btech_sindhuli" element={<AdmissionPage />} />
           <Route path="/Khyalg" element={<KhyalGLanding />} />
           <Route path="/admin123" element={<AdminControl />} />
+          <Route path="/qrgenerator" element={<Qrgenerator />} />
         </Routes>
       </div>
 

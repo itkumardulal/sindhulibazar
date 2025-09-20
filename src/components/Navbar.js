@@ -141,8 +141,10 @@ function DrawerAppBar({ window, children }) {
                   >
                     <InstallAppBtn drawerMode />
                   </Box>
+                
                 )}
               </React.Fragment>
+               
             );
           })}
         </List>
@@ -352,7 +354,7 @@ function DrawerAppBar({ window, children }) {
               </ListItemButton>
             ))}
           </Box>
-          */}
+    
         </Toolbar>
       </AppBar>
 

@@ -20,6 +20,7 @@
     "fastest-levenshtein": "^1.0.16",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.536.0",
+    "qrcode": "^1.5.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.5.2",
